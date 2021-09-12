@@ -2,6 +2,10 @@
   "name": "project-pet",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ItsLhun/project-pet"
+  },
   "scripts": {
     "start": "node ./server",
     "dev": "nodemon ./server",
