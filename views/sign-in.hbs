@@ -1,15 +1,29 @@
-<form action='/authentication/sign-in' method='POST'>
-  <input
-    type='text'
-    id='input-email'
-    name='emailOrUsername'
-    placeholder='Email / Username'
+<form class='login-form' action='/authentication/sign-in' method='POST'>
+  <img
+    class='welcome-profile-img'
+    src='./../images/index.png'
+    alt='welcome profile'
   />
-  <input
-    type='password'
-    name='password'
-    id='input-password'
-    placeholder='Password'
-  />
+  <div class='input-label-wrap'>
+    <label for='input-email'>Email / Username</label>
+    <input
+      type='text'
+      id='input-email'
+      name='emailOrUsername'
+      placeholder='Email / Username'
+    />
+  </div>
+  <div class='input-label-wrap'>
+    <label for='input-email'>Password</label>
+    <input
+      type='password'
+      name='password'
+      id='input-password'
+      placeholder='Password'
+    />
+    <a class='forgot-pass' href=''>Forgot your password?</a>
+
+  </div>
   <button>Sign In</button>
+  <a href='/authentication/sign-up'>Don't have an account? Click here!</a>
 </form>

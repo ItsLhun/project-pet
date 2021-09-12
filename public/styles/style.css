@@ -1,13 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Sanchez:ital@0;1&display=swap");
 *, *:before, *:after {
   box-sizing: border-box;
 }
 
 body {
-  max-width: 52em;
+  max-width: 60em;
   padding: 0 1em;
   margin: 0 auto;
   font-family: sans-serif;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Sanchez", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 2;
 }
 
@@ -69,12 +70,12 @@ select,
 button,
 .btn {
   padding: 1em;
-  border: 1px solid #e6e6e6;
+  border: 1px solid #eeeeee;
   border-radius: 0;
   margin-bottom: 1em;
   font: inherit;
   color: inherit;
-  background-color: transparent;
+  background-color: #c4c4c4;
 }
 
 textarea {
@@ -84,6 +85,59 @@ textarea {
 
 label {
   margin-bottom: 0.5em;
+}
+
+.welcome-profile-img {
+  width: fit-content;
+  height: 14em;
+  width: 14em;
+  margin: 3.2em auto;
+  border-radius: 50%;
+  border: 2px solid #303030;
+  object-fit: cover;
+  background-color: #c4c4c4;
+}
+
+.login-form {
+  max-width: 30em;
+  background-color: #eeeeee;
+  margin: 3.4em auto;
+  align-items: center;
+  border-radius: 10px;
+  border: 2px solid #c4c4c4;
+}
+
+.login-form button {
+  background-color: #af6e32;
+  color: white;
+  width: 73%;
+  border-radius: 10px;
+  margin: 1em auto;
+  font-size: 2rem;
+  padding: 0;
+}
+
+.login-form button + a {
+  margin-bottom: 2em;
+}
+
+.login-form .forgot-pass {
+  font-size: 0.8rem;
+}
+
+.input-label-wrap {
+  display: flex;
+  flex-flow: column wrap;
+  width: 73%;
+}
+
+.input-label-wrap input {
+  border: 2px solid #303030;
+  border-radius: 10px;
+}
+
+.input-label-wrap input:active, .input-label-wrap input:link {
+  border: 2px solid #af6e32;
 }
 
 /*# sourceMappingURL=style.css.map */
