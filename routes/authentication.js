@@ -12,12 +12,13 @@ router.get('/sign-up', (req, res, next) => {
 });
 
 router.post('/sign-up', (req, res, next) => {
-  const { name, email, password } = req.body;
+  const { name, username, email, password } = req.body;
   bcryptjs
     .hash(password, 10)
     .then((hash) => {
       return User.create({
         name,
+        username,
         email,
         passwordHashAndSalt: hash
       });
@@ -37,8 +38,10 @@ router.get('/sign-in', (req, res, next) => {
 
 router.post('/sign-in', (req, res, next) => {
   let user;
-  const { email, password } = req.body;
-  User.findOne({ email })
+  const { emailOrUsername, password } = req.body;
+
+  User.findOne()
+    .or([{ username: emailOrUsername }, { email: emailOrUsername }])
     .then((document) => {
       if (!document) {
         return Promise.reject(new Error("There's no user with that email."));
