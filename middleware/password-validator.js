@@ -1,12 +1,14 @@
 'use strict';
 
 module.exports = (req, res, next) => {
-  const { password } = req.body;
+  const { password, repeatPassword } = req.body;
   const minLength = password.length >= 8;
   const includesUppercaseChar = /[A-Z]/.test(password);
   const includesNumber = /\d/.test(password);
-
-  if (!minLength) {
+  if (password !== repeatPassword) {
+    const error = new Error('PASSWORDS_DO_NOT_MATCH');
+    next(error);
+  } else if (!minLength) {
     const error = new Error('PASSWORD_TOO_SHORT');
     next(error);
   } else if (!includesUppercaseChar) {

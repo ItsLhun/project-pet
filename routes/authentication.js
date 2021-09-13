@@ -13,7 +13,7 @@ router.get('/sign-up', (req, res, next) => {
 });
 
 router.post('/sign-up', passwordValidator, (req, res, next) => {
-  const { name, username, email, password } = req.body;
+  const { name, username, email, password, repeatPassword } = req.body;
 
   bcryptjs
     .hash(password, 10)
