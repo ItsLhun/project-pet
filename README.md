@@ -6,7 +6,7 @@ Proyect deployed at: https://project-pet-ih.herokuapp.com
 
 ### Technologies
 - HBS
-- MongoDB
+- MongoDB, Mongoose
 - NodeJS, ExpressJS
 - Cloudinary
 - Heroku 
