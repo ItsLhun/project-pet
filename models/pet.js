@@ -1,7 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const capitalizeWords = require('./../helperJS/capitlize');
+const capitalizeWords = require('../helperJS/capitalize');
 
 const petSchema = new mongoose.Schema({
   name: {

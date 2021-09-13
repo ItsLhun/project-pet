@@ -4,6 +4,7 @@ const { Router } = require('express');
 
 const bcryptjs = require('bcryptjs');
 const User = require('./../models/user');
+const passwordValidator = require('./../middleware/password-validator');
 
 const router = new Router();
 
@@ -11,8 +12,9 @@ router.get('/sign-up', (req, res, next) => {
   res.render('sign-up');
 });
 
-router.post('/sign-up', (req, res, next) => {
+router.post('/sign-up', passwordValidator, (req, res, next) => {
   const { name, username, email, password } = req.body;
+
   bcryptjs
     .hash(password, 10)
     .then((hash) => {
