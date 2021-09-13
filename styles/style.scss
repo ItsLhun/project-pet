@@ -133,9 +133,12 @@ label {
   display: flex;
   flex-flow: column wrap;
   width: 73%;
+  margin-left: auto;
+  margin-right: auto;
   input {
     border: 2px solid $dark-grey;
     border-radius: 10px;
+
     &:active,
     &:link {
       border: 2px solid $main-brown;
