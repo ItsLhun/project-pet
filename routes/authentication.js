@@ -46,7 +46,9 @@ router.post('/sign-in', (req, res, next) => {
     .or([{ username: emailOrUsername }, { email: emailOrUsername }])
     .then((document) => {
       if (!document) {
-        return Promise.reject(new Error("There's no user with that email."));
+        return Promise.reject(
+          new Error("There's no user with that email or username.")
+        );
       } else {
         user = document;
         return bcryptjs.compare(password, user.passwordHashAndSalt);
