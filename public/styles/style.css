@@ -7,7 +7,6 @@ body {
   max-width: 60em;
   padding: 0 1em;
   margin: 0 auto;
-  font-family: sans-serif;
   font-family: "Sanchez", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 2;
 }
@@ -140,6 +139,95 @@ label {
 
 .input-label-wrap input:active, .input-label-wrap input:link {
   border: 2px solid #af6e32;
+}
+
+#menu-toggle {
+  z-index: 1;
+  user-select: none;
+  display: flex;
+  position: relative;
+}
+
+#input-wrap {
+  margin: auto;
+}
+
+#menu-toggle input {
+  display: block;
+  width: 2.5rem;
+  height: 2.1rem;
+  top: 5px;
+  right: -7px;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+}
+
+#menu-toggle span {
+  display: block;
+  width: 2rem;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #cdcdcd;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+
+#menu-toggle #input-wrap span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#menu-toggle #input-wrap span:nth-last-child(1) {
+  transform-origin: 0% 100%;
+}
+
+#menu-toggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+#menu-toggle input:checked ~ span:nth-last-child(2) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menu-toggle input:checked ~ span:nth-last-child(1) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+.sidebar-no-show {
+  opacity: 0;
+  z-index: -1;
+  transition: display 0.9s cubic-bezier(0.7, 0.21, 0.05, 1);
+}
+
+#sidebar-menu {
+  position: absolute;
+  width: 16rem;
+  height: 100vh;
+  margin: 0 0 0 -12rem;
+  padding: 50px;
+  right: -2rem;
+  background: #ededed;
+  list-style-type: none;
+  transform-origin: 0% 0%;
+  scroll-behavior: unset;
+  transform: translate(100%, 0);
+  transition: transform 0.5s cubic-bezier(0.7, 0.21, 0.05, 1), opacity 0.5s cubic-bezier(0.7, 0.21, 0.05, 1);
+}
+
+#sidebar-menu a,
+#sidebar-menu button {
+  display: block;
+  font-size: 1.15rem;
+  padding: 0;
+  cursor: pointer;
+  background-color: unset;
 }
 
 /*# sourceMappingURL=style.css.map */

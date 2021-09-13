@@ -12,10 +12,22 @@
     <nav>
       <a href='/'>Home</a>
       {{#if user}}
-        <a href='/user-profile'>{{user.name}}'s Profile</a>
-        <form action='/authentication/sign-out' method='POST'>
-          <button>Sign Out</button>
-        </form>
+        <div id='menu-toggle'>
+          <div id='input-wrap'>
+            <input id='side-menu-input' class='' type='checkbox' />
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul id='sidebar-menu' class='sidebar-no-show'>
+            <a href='/'>Home</a>
+
+            <a href='/user-profile'>{{user.name}}'s Profile</a>
+            <form action='/authentication/sign-out' method='POST'>
+              <button>Sign Out</button>
+            </form>
+          </ul>
+        </div>
       {{else}}
         <a href='/authentication/sign-in'>Sign In</a>
       {{/if}}
