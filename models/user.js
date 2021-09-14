@@ -26,7 +26,10 @@ const schema = new mongoose.Schema({
       message: 'Please enter a valid email address.'
     }
   },
-  profilePicture: String,
+  profilePicture: {
+    type: String,
+    default: '/images/default-profile-picture.png'
+  },
   passwordHashAndSalt: {
     type: String
   }
