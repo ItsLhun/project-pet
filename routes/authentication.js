@@ -5,37 +5,56 @@ const { Router } = require('express');
 const bcryptjs = require('bcryptjs');
 const User = require('./../models/user');
 const passwordValidator = require('./../middleware/password-validator');
+const cloudinary = require('cloudinary').v2;
+const multerStorageCloudinary = require('multer-storage-cloudinary');
+const multer = require('multer');
 
 const router = new Router();
 
+const storage = new multerStorageCloudinary.CloudinaryStorage({
+  cloudinary: cloudinary
+});
+
+const parser = multer({ storage });
+
 router.get('/sign-up', (req, res, next) => {
-  res.render('sign-up');
+  res.render('authentication/sign-up');
 });
 
-router.post('/sign-up', passwordValidator, (req, res, next) => {
-  const { name, username, email, password } = req.body;
+router.post(
+  '/sign-up',
+  //passwordValidator,
+  parser.single('profilePicture'),
+  (req, res, next) => {
+    const { name, username, email, password } = req.body;
+    let profilePicture;
+    if (req.file) {
+      profilePicture = req.file.path;
+    }
 
-  bcryptjs
-    .hash(password, 10)
-    .then((hash) => {
-      return User.create({
-        name,
-        username,
-        email,
-        passwordHashAndSalt: hash
+    bcryptjs
+      .hash(password, 10)
+      .then((hash) => {
+        return User.create({
+          name,
+          username,
+          email,
+          profilePicture,
+          passwordHashAndSalt: hash
+        });
+      })
+      .then((user) => {
+        req.session.userId = user._id;
+        res.redirect('/');
+      })
+      .catch((error) => {
+        next(error);
       });
-    })
-    .then((user) => {
-      req.session.userId = user._id;
-      res.redirect('/private');
-    })
-    .catch((error) => {
-      next(error);
-    });
-});
+  }
+);
 
 router.get('/sign-in', (req, res, next) => {
-  res.render('sign-in');
+  res.render('authentication/sign-in');
 });
 
 router.post('/sign-in', (req, res, next) => {

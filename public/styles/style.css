@@ -230,4 +230,24 @@ label {
   background-color: unset;
 }
 
+#user-introduction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: 2em auto;
+}
+
+#user-introduction img {
+  max-height: 5em;
+  max-width: 5em;
+  border-radius: 50%;
+}
+
+#user-introduction p {
+  width: 100%;
+  margin: 0.5em auto;
+  text-align: center;
+}
+
 /*# sourceMappingURL=style.css.map */
