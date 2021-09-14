@@ -6,7 +6,11 @@ const routeGuard = require('./../middleware/route-guard');
 const User = require('./../models/user');
 
 router.get('/', (req, res, next) => {
-  res.render('home', { title: 'Hello World!' });
+  if (req.session.userId) {
+    res.render('dashboard');
+  } else {
+    res.render('home', { title: 'Hello World!' });
+  }
 });
 
 router.get('/user-profile', routeGuard, (req, res, next) => {
