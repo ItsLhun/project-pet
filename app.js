@@ -14,6 +14,7 @@ const baseRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 const userProfileRouter = require('./routes/user-profile');
 const sessionConfig = require('./config/session');
+const sassConfig = require('./config/sass');
 
 const app = express();
 
@@ -22,17 +23,7 @@ app.set('view engine', 'hbs');
 hbs.registerPartials(path.join(__dirname, '/views/partials'));
 
 app.use(serveFavicon(path.join(__dirname, 'public/images', 'favicon.ico')));
-app.use(
-  sassMiddleware({
-    src: path.join('styles'),
-    dest: path.join(__dirname, 'public/styles'),
-    prefix: '/styles',
-    outputStyle:
-      process.env.NODE_ENV === 'development' ? 'expanded' : 'compressed',
-    force: process.env.NODE_ENV === 'development',
-    sourceMap: process.env.NODE_ENV === 'development'
-  })
-);
+app.use(sassMiddleware(sassConfig));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));
