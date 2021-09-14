@@ -21,6 +21,8 @@ router.post(
     let profilePicture;
     if (req.file) {
       profilePicture = req.file.path;
+    } else {
+      profilePicture = '/images/default-profile-picture.png';
     }
 
     bcryptjs
