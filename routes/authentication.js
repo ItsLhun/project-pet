@@ -15,7 +15,7 @@ router.get('/sign-up', (req, res, next) => {
 router.post(
   '/sign-up',
   parser.single('profilePicture'),
-  passwordValidator,
+  //passwordValidator,
   (req, res, next) => {
     const { name, username, email, password } = req.body;
     let profilePicture;
