@@ -30,4 +30,12 @@ router.post('/user-profile/edit', routeGuard, (req, res, next) => {
     .catch((error) => next(error));
 });
 
+router.get('/user-profile/settings', routeGuard, (req, res, next) => {
+  res.render('user-profile/settings');
+});
+
+router.post('/user-profile/settings', routeGuard, (req, res, next) => {
+  // Do stuff here to update settings
+});
+
 module.exports = router;
