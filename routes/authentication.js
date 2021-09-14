@@ -1,21 +1,12 @@
 'use strict';
 
-const { Router } = require('express');
-
+const express = require('express');
 const bcryptjs = require('bcryptjs');
 const User = require('./../models/user');
 const passwordValidator = require('./../middleware/password-validator');
-const cloudinary = require('cloudinary').v2;
-const multerStorageCloudinary = require('multer-storage-cloudinary');
-const multer = require('multer');
+const parser = require('../middleware/cloudinary-parser');
 
-const router = new Router();
-
-const storage = new multerStorageCloudinary.CloudinaryStorage({
-  cloudinary: cloudinary
-});
-
-const parser = multer({ storage });
+const router = express.Router();
 
 router.get('/sign-up', (req, res, next) => {
   res.render('authentication/sign-up');
