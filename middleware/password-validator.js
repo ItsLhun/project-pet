@@ -1,7 +1,5 @@
 'use strict';
 
-const parser = require('./cloudinary-parser');
-
 module.exports = (req, res, next) => {
   const { password, repeatPassword } = req.body;
   const minLength = password.length >= 8;
