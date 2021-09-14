@@ -4579,17 +4579,17 @@ function calendarJs(id, options, startDateTime) {
       true
     );
 
-    buildTab(
-      tabsContainer,
-      _options.repeatsText.replace(':', ''),
-      function (tab) {
-        showTabContents(
-          tab,
-          _element_EventEditorDialog_Tab_Repeats,
-          _element_EventEditorDialog
-        );
-      }
-    );
+    // buildTab(
+    //   tabsContainer,
+    //   _options.repeatsText.replace(':', ''),
+    //   function (tab) {
+    //     showTabContents(
+    //       tab,
+    //       _element_EventEditorDialog_Tab_Repeats,
+    //       _element_EventEditorDialog
+    //     );
+    //   }
+    // );
 
     //Nahuel: remove the tab altogether
 
@@ -4606,11 +4606,11 @@ function calendarJs(id, options, startDateTime) {
       true,
       false
     );
-    _element_EventEditorDialog_Tab_Repeats = buildTabContents(
-      contents,
-      false,
-      false
-    );
+    // _element_EventEditorDialog_Tab_Repeats = buildTabContents(
+    //   contents,
+    //   false,
+    //   false
+    // );
     // _element_EventEditorDialog_Tab_Extra = buildTabContents(
     //   contents,
     //   false,
@@ -4618,7 +4618,7 @@ function calendarJs(id, options, startDateTime) {
     // );
 
     buildEventEditorEventTabContent();
-    buildEventEditorRepeatsTabContent();
+    // buildEventEditorRepeatsTabContent();
     // buildEventEditorExtraTabContent();
 
     _element_EventEditorDialog_ErrorMessage = createElement('p', 'error');
@@ -4729,14 +4729,21 @@ function calendarJs(id, options, startDateTime) {
     _element_EventEditorDialog_Tab_Event.appendChild(
       _element_EventEditorDialog_Description
     );
-  }
 
-  function buildEventEditorRepeatsTabContent() {
+    // Nahuel: move all the repeat event modifiers to the main event tab:
+
+    // Nahuel: make a subtitle for the repeat that wasn't there before:
+
+    createTextHeaderElement(
+      _element_EventEditorDialog_Tab_Event,
+      _options.repeatsText
+    );
+
     var radioButtonsRepeatsContainer = createElement(
       'div',
       'radioButtonsContainer'
     );
-    _element_EventEditorDialog_Tab_Repeats.appendChild(
+    _element_EventEditorDialog_Tab_Event.appendChild(
       radioButtonsRepeatsContainer
     );
 
@@ -4793,7 +4800,7 @@ function calendarJs(id, options, startDateTime) {
       );
 
     var toSplitContainer = createElement('div', 'split split-margin');
-    _element_EventEditorDialog_Tab_Repeats.appendChild(toSplitContainer);
+    _element_EventEditorDialog_Tab_Event.appendChild(toSplitContainer);
 
     _element_EventEditorDialog_RepeatEvery_Custom_Value = createElement(
       'input',
@@ -4837,6 +4844,108 @@ function calendarJs(id, options, startDateTime) {
         _options.yearlyText,
         'RepeatCustomType'
       );
+  }
+
+  function buildEventEditorRepeatsTabContent() {
+    // var radioButtonsRepeatsContainer = createElement(
+    //   'div',
+    //   'radioButtonsContainer'
+    // );
+    // _element_EventEditorDialog_Tab_Repeats.appendChild(
+    //   radioButtonsRepeatsContainer
+    // );
+    // _element_EventEditorDialog_RepeatEvery_Never = buildRadioButton(
+    //   radioButtonsRepeatsContainer,
+    //   _options.repeatsNever,
+    //   'RepeatType',
+    //   repeatEveryEvent
+    // );
+    // _element_EventEditorDialog_RepeatEvery_EveryDay = buildRadioButton(
+    //   radioButtonsRepeatsContainer,
+    //   _options.repeatsEveryDayText,
+    //   'RepeatType',
+    //   repeatEveryEvent
+    // );
+    // _element_EventEditorDialog_RepeatEvery_EveryWeek = buildRadioButton(
+    //   radioButtonsRepeatsContainer,
+    //   _options.repeatsEveryWeekText,
+    //   'RepeatType',
+    //   repeatEveryEvent
+    // );
+    // _element_EventEditorDialog_RepeatEvery_Every2Weeks = buildRadioButton(
+    //   radioButtonsRepeatsContainer,
+    //   _options.repeatsEvery2WeeksText,
+    //   'RepeatType',
+    //   repeatEveryEvent
+    // );
+    // _element_EventEditorDialog_RepeatEvery_EveryMonth = buildRadioButton(
+    //   radioButtonsRepeatsContainer,
+    //   _options.repeatsEveryMonthText,
+    //   'RepeatType',
+    //   repeatEveryEvent
+    // );
+    // _element_EventEditorDialog_RepeatEvery_EveryYear = buildRadioButton(
+    //   radioButtonsRepeatsContainer,
+    //   _options.repeatsEveryYearText,
+    //   'RepeatType',
+    //   repeatEveryEvent
+    // );
+    // _element_EventEditorDialog_RepeatEvery_Custom = buildRadioButton(
+    //   radioButtonsRepeatsContainer,
+    //   _options.repeatsCustomText,
+    //   'RepeatType',
+    //   repeatEveryEvent
+    // );
+    // _element_EventEditorDialog_RepeatEvery_RepeatOptionsButton =
+    //   createButtonElement(
+    //     radioButtonsRepeatsContainer,
+    //     '...',
+    //     'repeat-options',
+    //     showEventEditorRepeatOptionsDialog,
+    //     _options.repeatOptionsTitle
+    //   );
+    // var toSplitContainer = createElement('div', 'split split-margin');
+    // _element_EventEditorDialog_Tab_Repeats.appendChild(toSplitContainer);
+    // _element_EventEditorDialog_RepeatEvery_Custom_Value = createElement(
+    //   'input',
+    //   null,
+    //   'number'
+    // );
+    // _element_EventEditorDialog_RepeatEvery_Custom_Value.setAttribute(
+    //   'min',
+    //   '1'
+    // );
+    // toSplitContainer.appendChild(
+    //   _element_EventEditorDialog_RepeatEvery_Custom_Value
+    // );
+    // var radioButtonsCustomRepeatsContainer = createElement(
+    //   'div',
+    //   'radioButtonsContainer split-contents'
+    // );
+    // toSplitContainer.appendChild(radioButtonsCustomRepeatsContainer);
+    // _element_EventEditorDialog_RepeatEvery_Custom_Type_Daily = buildRadioButton(
+    //   radioButtonsCustomRepeatsContainer,
+    //   _options.dailyText,
+    //   'RepeatCustomType'
+    // );
+    // _element_EventEditorDialog_RepeatEvery_Custom_Type_Weekly =
+    //   buildRadioButton(
+    //     radioButtonsCustomRepeatsContainer,
+    //     _options.weeklyText,
+    //     'RepeatCustomType'
+    //   );
+    // _element_EventEditorDialog_RepeatEvery_Custom_Type_Monthly =
+    //   buildRadioButton(
+    //     radioButtonsCustomRepeatsContainer,
+    //     _options.monthlyText,
+    //     'RepeatCustomType'
+    //   );
+    // _element_EventEditorDialog_RepeatEvery_Custom_Type_Yearly =
+    //   buildRadioButton(
+    //     radioButtonsCustomRepeatsContainer,
+    //     _options.yearlyText,
+    //     'RepeatCustomType'
+    //   );
   }
 
   function buildEventEditorExtraTabContent() {
@@ -5178,12 +5287,12 @@ function calendarJs(id, options, startDateTime) {
         toDate = getSelectedDate(_element_EventEditorDialog_DateTo),
         description = trimString(_element_EventEditorDialog_Description.value),
         //location = trimString(_element_EventEditorDialog_Location.value),
-        group = trimString(_element_EventEditorDialog_Group.value),
+        // group = trimString(_element_EventEditorDialog_Group.value),
         repeatEnds = getSelectedDate(
           _element_EventEditorRepeatOptionsDialog_RepeatEnds,
           null
         ),
-        url = trimString(_element_EventEditorDialog_Url.value),
+        // url = trimString(_element_EventEditorDialog_Url.value),
         repeatEveryCustomValue = parseInt(
           _element_EventEditorDialog_RepeatEvery_Custom_Value.value
         );
