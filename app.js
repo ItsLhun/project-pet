@@ -4,7 +4,6 @@ const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
 const createError = require('http-errors');
-const connectMongo = require('connect-mongo');
 const expressSession = require('express-session');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
@@ -14,6 +13,7 @@ const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js')
 const baseRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 const userProfileRouter = require('./routes/user-profile');
+const sessionConfig = require('./config/session');
 
 const app = express();
 
@@ -36,21 +36,7 @@ app.use(
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));
-app.use(
-  expressSession({
-    secret: process.env.SESSION_SECRET,
-    resave: true,
-    saveUninitialized: false,
-    cookie: {
-      maxAge: 15 * 24 * 60 * 60 * 1000,
-      httpOnly: true
-    },
-    store: connectMongo.create({
-      mongoUrl: process.env.MONGODB_URI,
-      ttl: 60 * 60
-    })
-  })
-);
+app.use(expressSession(sessionConfig));
 app.use(basicAuthenticationDeserializer);
 app.use(bindUserToViewLocals);
 

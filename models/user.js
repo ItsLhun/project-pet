@@ -1,7 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const validateEmail = require('./../helperJS/validateEmail');
+const validateEmail = require('../helperJS/validateEmail');
 
 const schema = new mongoose.Schema({
   name: {
