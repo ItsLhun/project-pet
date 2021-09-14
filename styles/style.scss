@@ -2,17 +2,7 @@
 $font-sans: 'Sanchez', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 //main color palette
-$grey: rgb(238, 238, 238);
-$mid-grey: rgb(196, 196, 196);
-$dark-grey: rgb(48, 48, 48);
-
-$main-brown: rgb(175, 110, 50);
-
-$main-text: rgb(0, 0, 0);
-$secondary-text: rgb(0, 0, 0);
-$main-text: rgb(0, 0, 0);
-
-$navbar-background: rgb(0, 0, 0);
+@import './colors.scss';
 
 * {
   &,
@@ -146,3 +136,4 @@ label {
 }
 
 @import './components/sidebar-menu.scss';
+@import './components/upcoming-events.scss';

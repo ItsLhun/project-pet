@@ -250,4 +250,9 @@ label {
   text-align: center;
 }
 
+#upcoming-events {
+  min-height: 8em;
+  background-color: #c4c4c4;
+}
+
 /*# sourceMappingURL=style.css.map */

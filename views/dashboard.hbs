@@ -4,5 +4,10 @@
 </div>
 <div id='upcoming-events' class='dashboard-component'>
   <h4>Upcoming (15 days)</h4>
+  <div>
+    {{#if events}}{{else}}
+      <p>There are no upcoming events!</p>
+    {{/if}}
+  </div>
 </div>
 <div id='calendar' class='dashboard-component'></div>
