@@ -4,7 +4,6 @@ const express = require('express');
 const bcryptjs = require('bcryptjs');
 const User = require('./../models/user');
 const passwordValidator = require('./../middleware/password-validator');
-const parser = require('../middleware/cloudinary-parser');
 
 const router = express.Router();
 
@@ -14,7 +13,6 @@ router.get('/sign-up', (req, res, next) => {
 
 router.post(
   '/sign-up',
-  parser.single('profilePicture'),
   //passwordValidator,
   (req, res, next) => {
     const { name, username, email, password } = req.body;

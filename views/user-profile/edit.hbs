@@ -1,5 +1,5 @@
 <h1>Edit profile</h1>
-<form action='/user-profile/edit' method='POST'>
+<form action='/user-profile/edit' method='POST' enctype='multipart/form-data'>
   <label for='edit-name'>Name</label>
   <input id='edit-name' name='name' type='text' value={{user.name}} />
   <label for='edit-username'>Username</label>
@@ -11,5 +11,7 @@
   />
   <label for='edit-email'>Email</label>
   <input id='edit-email' name='email' type='text' value={{user.email}} />
+  <label for='edit-profile-picture'>Profile picture</label>
+  <input id='edit-profile-picture' name='profilePicture' type='file' />
   <button>Save</button>
 </form>
