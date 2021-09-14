@@ -45,7 +45,11 @@ router.post(
 );
 
 router.get('/sign-in', (req, res, next) => {
-  res.render('authentication/sign-in');
+  if (req.session.userId) {
+    res.render('dashboard');
+  } else {
+    res.render('authentication/sign-in');
+  }
 });
 
 router.post('/sign-in', (req, res, next) => {
