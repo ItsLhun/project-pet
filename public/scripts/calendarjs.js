@@ -362,7 +362,7 @@ function calendarJs(id, options, startDateTime) {
     _element_EventEditorDialog = null,
     _element_EventEditorDialog_Tab_Event = null,
     _element_EventEditorDialog_Tab_Repeats = null,
-    _element_EventEditorDialog_Tab_Extra = null,
+    //_element_EventEditorDialog_Tab_Extra = null,
     _element_EventEditorDialog_DisabledArea = null,
     _element_EventEditorDialog_TitleBar = null,
     _element_EventEditorDialog_DateFrom = null,
@@ -373,9 +373,9 @@ function calendarJs(id, options, startDateTime) {
     _element_EventEditorDialog_ShowAlerts = null,
     _element_EventEditorDialog_Title = null,
     _element_EventEditorDialog_Description = null,
-    _element_EventEditorDialog_Location = null,
-    _element_EventEditorDialog_Group = null,
-    _element_EventEditorDialog_Url = null,
+    // _element_EventEditorDialog_Location = null,
+    // _element_EventEditorDialog_Group = null,
+    // _element_EventEditorDialog_Url = null,
     _element_EventEditorDialog_RepeatEvery_Never = null,
     _element_EventEditorDialog_RepeatEvery_EveryDay = null,
     _element_EventEditorDialog_RepeatEvery_EveryWeek = null,
@@ -4591,13 +4591,15 @@ function calendarJs(id, options, startDateTime) {
       }
     );
 
-    buildTab(tabsContainer, _options.optionalText, function (tab) {
-      showTabContents(
-        tab,
-        _element_EventEditorDialog_Tab_Extra,
-        _element_EventEditorDialog
-      );
-    });
+    //Nahuel: remove the tab altogether
+
+    // buildTab(tabsContainer, _options.optionalText, function (tab) {
+    //   showTabContents(
+    //     tab,
+    //     _element_EventEditorDialog_Tab_Extra,
+    //     _element_EventEditorDialog
+    //   );
+    // });
 
     _element_EventEditorDialog_Tab_Event = buildTabContents(
       contents,
@@ -4609,15 +4611,15 @@ function calendarJs(id, options, startDateTime) {
       false,
       false
     );
-    _element_EventEditorDialog_Tab_Extra = buildTabContents(
-      contents,
-      false,
-      false
-    );
+    // _element_EventEditorDialog_Tab_Extra = buildTabContents(
+    //   contents,
+    //   false,
+    //   false
+    // );
 
     buildEventEditorEventTabContent();
     buildEventEditorRepeatsTabContent();
-    buildEventEditorExtraTabContent();
+    // buildEventEditorExtraTabContent();
 
     _element_EventEditorDialog_ErrorMessage = createElement('p', 'error');
     contents.appendChild(_element_EventEditorDialog_ErrorMessage);
@@ -4838,68 +4840,55 @@ function calendarJs(id, options, startDateTime) {
   }
 
   function buildEventEditorExtraTabContent() {
-    var inputFields1TextSplitContainer = createElement('div', 'split');
-    _element_EventEditorDialog_Tab_Extra.appendChild(
-      inputFields1TextSplitContainer
-    );
-
-    createTextHeaderElement(
-      inputFields1TextSplitContainer,
-      _options.locationText
-    );
-    createTextHeaderElement(inputFields1TextSplitContainer, _options.groupText);
-
-    var inputFields1SplitContainer = createElement('div', 'split');
-    _element_EventEditorDialog_Tab_Extra.appendChild(
-      inputFields1SplitContainer
-    );
-
-    _element_EventEditorDialog_Location = createElement('input', null, 'text');
-    inputFields1SplitContainer.appendChild(_element_EventEditorDialog_Location);
-
-    if (_options.maximumEventLocationLength > 0) {
-      _element_EventEditorDialog_Location.maxLength =
-        _options.maximumEventLocationLength;
-    }
-
-    _element_EventEditorDialog_Group = createElement('input', null, 'text');
-    inputFields1SplitContainer.appendChild(_element_EventEditorDialog_Group);
-
-    if (_options.maximumEventGroupLength > 0) {
-      _element_EventEditorDialog_Group.maxLength =
-        _options.maximumEventGroupLength;
-    }
-
+    // var inputFields1TextSplitContainer = createElement('div', 'split');
+    // _element_EventEditorDialog_Tab_Extra.appendChild(
+    //   inputFields1TextSplitContainer
+    // );
+    // createTextHeaderElement(
+    //   inputFields1TextSplitContainer,
+    //   _options.locationText
+    // );
+    // createTextHeaderElement(inputFields1TextSplitContainer, _options.groupText);
+    // var inputFields1SplitContainer = createElement('div', 'split');
+    // _element_EventEditorDialog_Tab_Extra.appendChild(
+    //   inputFields1SplitContainer
+    // );
+    // Nahuel: appending the description to the Event tab instead of Extra
+    // _element_EventEditorDialog_Location = createElement('input', null, 'text');
+    // inputFields1SplitContainer.appendChild(_element_EventEditorDialog_Location);
+    // if (_options.maximumEventLocationLength > 0) {
+    //   _element_EventEditorDialog_Location.maxLength =
+    //     _options.maximumEventLocationLength;
+    // }
+    // _element_EventEditorDialog_Group = createElement('input', null, 'text');
+    // inputFields1SplitContainer.appendChild(_element_EventEditorDialog_Group);
+    // if (_options.maximumEventGroupLength > 0) {
+    //   _element_EventEditorDialog_Group.maxLength =
+    //     _options.maximumEventGroupLength;
+    // }
     // createTextHeaderElement(
     //   _element_EventEditorDialog_Tab_Extra,
     //   _options.descriptionText
     // );
-
     // _element_EventEditorDialog_Description = createElement(
     //   'textarea',
     //   'custom-scroll-bars'
     // );
-
-    // Nahuel: appending the description to the Event tab instead of Extra
-
     // _element_EventEditorDialog_Tab_Extra.appendChild(
     //   _element_EventEditorDialog_Description
     // );
-
-    if (_options.maximumEventDescriptionLength > 0) {
-      _element_EventEditorDialog_Description.maxLength =
-        _options.maximumEventDescriptionLength;
-    }
-
-    createTextHeaderElement(
-      _element_EventEditorDialog_Tab_Extra,
-      _options.urlText
-    );
-
-    _element_EventEditorDialog_Url = createElement('input', null, 'text');
-    _element_EventEditorDialog_Tab_Extra.appendChild(
-      _element_EventEditorDialog_Url
-    );
+    // if (_options.maximumEventDescriptionLength > 0) {
+    //   _element_EventEditorDialog_Description.maxLength =
+    //     _options.maximumEventDescriptionLength;
+    // }
+    // createTextHeaderElement(
+    //   _element_EventEditorDialog_Tab_Extra,
+    //   _options.urlText
+    // );
+    // _element_EventEditorDialog_Url = createElement('input', null, 'text');
+    // _element_EventEditorDialog_Tab_Extra.appendChild(
+    //   _element_EventEditorDialog_Url
+    // );
   }
 
   function addNewEvent() {
@@ -5004,11 +4993,11 @@ function calendarJs(id, options, startDateTime) {
       _element_EventEditorDialog_Description.value = getString(
         eventDetails.description
       );
-      _element_EventEditorDialog_Location.value = getString(
-        eventDetails.location
-      );
-      _element_EventEditorDialog_Group.value = getString(eventDetails.group);
-      _element_EventEditorDialog_Url.value = getString(eventDetails.url);
+      //   _element_EventEditorDialog_Location.value = getString(
+      //     eventDetails.location
+      //   );
+      //_element_EventEditorDialog_Group.value = getString(eventDetails.group);
+      //_element_EventEditorDialog_Url.value = getString(eventDetails.url);
       _element_EventEditorColorsDialog_Color.value = getString(
         eventDetails.color,
         _options.defaultEventBackgroundColor
@@ -5094,9 +5083,9 @@ function calendarJs(id, options, startDateTime) {
       _element_EventEditorDialog_ShowAlerts.checked = true;
       _element_EventEditorDialog_Title.value = '';
       _element_EventEditorDialog_Description.value = '';
-      _element_EventEditorDialog_Location.value = '';
-      _element_EventEditorDialog_Group.value = '';
-      _element_EventEditorDialog_Url.value = '';
+      //   _element_EventEditorDialog_Location.value = '';
+      //   _element_EventEditorDialog_Group.value = '';
+      //   _element_EventEditorDialog_Url.value = '';
       _element_EventEditorColorsDialog_Color.value =
         _options.defaultEventBackgroundColor;
       _element_EventEditorColorsDialog_ColorText.value =
@@ -5188,7 +5177,7 @@ function calendarJs(id, options, startDateTime) {
       var fromDate = getSelectedDate(_element_EventEditorDialog_DateFrom),
         toDate = getSelectedDate(_element_EventEditorDialog_DateTo),
         description = trimString(_element_EventEditorDialog_Description.value),
-        location = trimString(_element_EventEditorDialog_Location.value),
+        //location = trimString(_element_EventEditorDialog_Location.value),
         group = trimString(_element_EventEditorDialog_Group.value),
         repeatEnds = getSelectedDate(
           _element_EventEditorRepeatOptionsDialog_RepeatEnds,
@@ -5216,6 +5205,8 @@ function calendarJs(id, options, startDateTime) {
       } else {
         eventDialogEvent_Cancel();
 
+        // Nahuel: removed location, group and url fields from the Event object
+
         var isExistingEvent = isDefined(
             _element_EventEditorDialog_EventDetails.id
           ),
@@ -5224,8 +5215,8 @@ function calendarJs(id, options, startDateTime) {
             to: toDate,
             title: title,
             description: description,
-            location: location,
-            group: group,
+            //location: location,
+            //group: group,
             isAllDay: _element_EventEditorDialog_IsAllDay.checked,
             showAlerts: _element_EventEditorDialog_ShowAlerts.checked,
             color: _element_EventEditorDialog_EventDetails.color,
@@ -5234,7 +5225,7 @@ function calendarJs(id, options, startDateTime) {
             repeatEveryExcludeDays:
               _element_EventEditorDialog_EventDetails.repeatEveryExcludeDays,
             repeatEnds: repeatEnds,
-            url: url,
+            //url: url,
             repeatEveryCustomValue: repeatEveryCustomValue
           };
 
