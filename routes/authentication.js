@@ -18,10 +18,6 @@ router.post(
   //passwordValidator,
   (req, res, next) => {
     const { name, username, email, password } = req.body;
-    let profilePicture;
-    if (req.file) {
-      profilePicture = req.file.path;
-    }
 
     bcryptjs
       .hash(password, 10)
@@ -30,7 +26,6 @@ router.post(
           name,
           username,
           email,
-          profilePicture,
           passwordHashAndSalt: hash
         });
       })
