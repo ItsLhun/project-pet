@@ -32,6 +32,10 @@ const schema = new mongoose.Schema({
   },
   passwordHashAndSalt: {
     type: String
+  },
+  pets: {
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: 'Pet'
   }
 });
 
