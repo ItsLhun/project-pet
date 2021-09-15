@@ -2,8 +2,8 @@
 
 const express = require('express');
 const router = express.Router();
-const routeGuard = require('./../middleware/route-guard');
-const User = require('./../models/user');
+const routeGuard = require('../middleware/route-guard');
+const User = require('../models/user');
 
 const parser = require('../middleware/cloudinary-parser');
 
