@@ -118,6 +118,12 @@ label {
     font-size: 0.8rem;
   }
 }
+
+.sign-up-form {
+  @extend .login-form;
+  max-width: 45em;
+}
+
 .input-label-wrap {
   display: flex;
   flex-flow: column wrap;
@@ -132,6 +138,17 @@ label {
     &:link {
       border: 2px solid $main-brown;
     }
+  }
+}
+
+.input-name-wrap {
+  margin: 0;
+  width: 73%;
+  display: flex;
+  justify-content: space-between;
+  div {
+    margin: 0;
+    width: 45%;
   }
 }
 

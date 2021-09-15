@@ -97,7 +97,7 @@ label {
   background-color: #c4c4c4;
 }
 
-.login-form {
+.login-form, .sign-up-form {
   max-width: 30em;
   background-color: #eeeeee;
   margin: 3.4em auto;
@@ -106,7 +106,7 @@ label {
   border: 2px solid #c4c4c4;
 }
 
-.login-form button {
+.login-form button, .sign-up-form button {
   background-color: #af6e32;
   color: white;
   width: 73%;
@@ -116,12 +116,16 @@ label {
   padding: 0;
 }
 
-.login-form button + a {
+.login-form button + a, .sign-up-form button + a {
   margin-bottom: 2em;
 }
 
-.login-form .forgot-pass {
+.login-form .forgot-pass, .sign-up-form .forgot-pass {
   font-size: 0.8rem;
+}
+
+.sign-up-form {
+  max-width: 45em;
 }
 
 .input-label-wrap {
@@ -139,6 +143,18 @@ label {
 
 .input-label-wrap input:active, .input-label-wrap input:link {
   border: 2px solid #af6e32;
+}
+
+.input-name-wrap {
+  margin: 0;
+  width: 73%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-name-wrap div {
+  margin: 0;
+  width: 45%;
 }
 
 #menu-toggle {
