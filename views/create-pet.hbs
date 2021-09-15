@@ -1,0 +1,26 @@
+<h2>Create new pet</h2>
+
+<form action="/pet/create" method="POST">
+
+    <label for='pet-profile-picture'>Profile picture</label>
+    <input id='pet-profile-picture' name='profilePicture' type='file' />
+
+    <label for="pet-name-input">Name</label>
+    <input id='pet-name-input' type="text" name="name"></input>
+
+    <label for="pet-type-input">Type</label>
+    <select id="pet-type-input" name="species">
+        <option value="Dog">Dog</option>
+        <option value="Cat">Cat</option>
+        <option value="Bird">Bird</option>
+        <option value="Fish">Fish</option>
+        <option value="Reptile">Reptile</option>
+        <option value="Other">Other</option>
+    </select>
+
+    <label for="pet-birthday-input">Birthday</label>
+    <input id='pet-birthday-input' type='date' name="birthday"></input>
+
+
+    <button>Save</button>
+</form>

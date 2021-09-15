@@ -13,7 +13,8 @@ const petSchema = new mongoose.Schema({
     required: true
   },
   birthday: {
-    type: Date
+    type: Date,
+    default: Date.now
   },
   species: {
     type: String,
