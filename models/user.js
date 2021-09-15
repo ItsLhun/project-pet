@@ -42,10 +42,12 @@ const schema = new mongoose.Schema({
   passwordHashAndSalt: {
     type: String
   },
-  pets: {
-    type: [mongoose.Schema.Types.ObjectId],
-    ref: 'Pet'
-  }
+  pets: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Pet'
+    }
+  ]
 });
 
 const User = mongoose.model('User', schema);
