@@ -31,7 +31,11 @@ const petSchema = new mongoose.Schema({
       ref: 'User',
       required: false
     }
-  ]
+  ],
+  profilePicture: {
+    type: String,
+    default: '/images/index.png'
+  }
 });
 
 const Pet = mongoose.model('pet', petSchema);
