@@ -1,11 +1,3 @@
-window.addEventListener(
-  'load',
-  () => {
-    console.log('Ironmaker app started successfully!');
-  },
-  false
-);
-
 const sideMenuInput = document.querySelector('#side-menu-input');
 const sideMenuToggle = document.querySelector('#menu-toggle');
 const bodyElement = document.querySelector('body');
