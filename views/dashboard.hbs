@@ -2,7 +2,14 @@
 
 <div id='pet-summary' class='dashboard-component'>
   <h4>My pets</h4>
-  <a href='/pet/create'>Add pet</a>
+  <div class="pet-wrapper-summary">
+  {{#if pets}}
+    {{#each pets}}
+    {{> petMiniature this}}
+    {{/each}}
+  {{/if}}
+  </div>
+  <a href='/pet/create' class="btn add-pet-button">Add pet</a>
 </div>
 <div id='upcoming-events' class='dashboard-component'>
   <h4>Upcoming (15 days)</h4>

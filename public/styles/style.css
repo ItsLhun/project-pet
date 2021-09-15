@@ -3868,6 +3868,7 @@ body {
   margin: 0 auto;
   font-family: "Sanchez", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 2;
+  overflow-x: hidden;
 }
 
 a {
@@ -4140,6 +4141,26 @@ label {
 #upcoming-events {
   min-height: 8em;
   background-color: #c4c4c4;
+}
+
+.miniature-wrapper {
+  max-width: 4em;
+  margin: 0 2em;
+}
+
+.miniature-wrapper img {
+  max-height: 3em;
+  max-width: 3em;
+}
+
+.pet-wrapper-summary {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.add-pet-button {
+  display: block;
 }
 
 /*# sourceMappingURL=style.css.map */

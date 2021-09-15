@@ -4,3 +4,19 @@
   min-height: 8em;
   background-color: $mid-grey;
 }
+.miniature-wrapper {
+  max-width: 4em;
+  img {
+    max-height: 3em;
+    max-width: 3em;
+  }
+  margin: 0 2em;
+}
+.pet-wrapper-summary {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+.add-pet-button {
+  display: block;
+}
