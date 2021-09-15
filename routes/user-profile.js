@@ -21,14 +21,20 @@ router.post(
   routeGuard,
   (req, res, next) => {
     const { id } = req.user;
-    const { name, username, email } = req.body;
+    const { firstName, lastName, username, email } = req.body;
 
     let profilePicture;
     if (req.file) {
       profilePicture = req.file.path;
     }
 
-    User.findByIdAndUpdate(id, { name, username, email, profilePicture })
+    User.findByIdAndUpdate(id, {
+      firstName,
+      lastName,
+      username,
+      email,
+      profilePicture
+    })
       .then(() => res.redirect('/user-profile'))
       .catch((error) => next(error));
   }
