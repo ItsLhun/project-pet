@@ -16,6 +16,7 @@ const userProfileRouter = require('./routes/user-profile');
 const eventRouter = require('./routes/event');
 const sessionConfig = require('./config/session');
 const sassConfig = require('./config/sass');
+const petRouter = require('./routes/pet.js');
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.use('/', baseRouter);
 app.use('/authentication', authenticationRouter);
 app.use('/user-profile', userProfileRouter);
 app.use('/event', eventRouter);
+app.use('/pet', petRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

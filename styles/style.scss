@@ -3,6 +3,7 @@ $font-sans: 'Sanchez', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 //main color palette
 @import './colors.scss';
+@import './calendar/calendarjs.scss';
 
 * {
   &,
@@ -154,3 +155,4 @@ label {
 
 @import './components/sidebar-menu.scss';
 @import './components/upcoming-events.scss';
+@import './components/dashboard-pet-summary.scss';

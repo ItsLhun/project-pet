@@ -1,6 +1,12 @@
 @import './colors.scss';
 
-#upcoming-events {
+#pet-summary {
   min-height: 8em;
   background-color: $mid-grey;
+}
+.dashboard-component,
+.calendar {
+  border-radius: 5px;
+  margin-bottom: 2em;
+  border: 2px dotted $main-brown;
 }
