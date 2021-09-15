@@ -15,13 +15,14 @@ router.post(
   '/sign-up',
   //passwordValidator,
   (req, res, next) => {
-    const { name, username, email, password } = req.body;
-
+    const { firstName, lastName, username, email, password } = req.body;
+    console.log(req.body);
     bcryptjs
       .hash(password, 10)
       .then((hash) => {
         return User.create({
-          name,
+          firstName,
+          lastName,
           username,
           email,
           passwordHashAndSalt: hash

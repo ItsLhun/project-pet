@@ -25,9 +25,9 @@
               <img
                 id='user-profile-picture'
                 src='{{user.profilePicture}}'
-                alt='{{user.name}}'
+                alt='{{user.username}}'
               />
-              <p>{{user.name}}</p>
+              <p>{{user.firstName}} {{user.lastName}}</p>
             </div>
             <a href='/'>Home</a>
             <a href='/user-profile'>My Profile</a>
@@ -42,8 +42,5 @@
       {{/if}}
     </nav>
     {{{body}}}
-    <script src='/scripts/script.js'></script>
-    <script src='/scripts/calendarjs.js'></script>
-    <script src='/scripts/calendar-options.js'></script>
   </body>
 </html>

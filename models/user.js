@@ -2,11 +2,20 @@
 
 const mongoose = require('mongoose');
 const validateEmail = require('../helperJS/validateEmail');
+const capitalizeWords = require('../helperJS/capitalize');
 
 const schema = new mongoose.Schema({
-  name: {
+  firstName: {
     type: String,
-    trim: true
+    trim: true,
+    set: capitalizeWords,
+    required: true
+  },
+  lastName: {
+    type: String,
+    trim: true,
+    set: capitalizeWords,
+    required: true
   },
   username: {
     type: String,
