@@ -22,7 +22,7 @@ router.post(
   (req, res, next) => {
     const { id } = req.user;
     const { firstName, lastName, username, email } = req.body;
-    console.log(firstName);
+
     let profilePicture;
     if (req.file) {
       profilePicture = req.file.path;
