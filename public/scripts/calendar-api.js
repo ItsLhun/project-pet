@@ -1,5 +1,14 @@
 const hello = () => console.log('hello world');
 
+const fetchEventsHTTP = (data) => {
+  axios
+    .get('http://localhost:3000/event/')
+    .then((res) => {
+      console.log(`GET: events were fetched`);
+    })
+    .catch((error) => console.error(error));
+};
+
 const createEventHTTP = (data) => {
   axios
     .post('http://localhost:3000/event/create', data)
