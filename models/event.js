@@ -61,6 +61,10 @@ const eventSchema = new mongoose.Schema({
   originPet: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Pet'
+  },
+  originUser: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
   }
 });
 
