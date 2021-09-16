@@ -1,1 +1,24 @@
-<h1>Pet profile</h1>
+<main>
+  <h1>{{name}}'s profile</h1>
+  <section class='profile-section'>
+    <div class='profile-picture-wrapper'>
+      <div>
+        <img src='{{profilePicture}}' alt='{{name}} profile picture' />
+      </div>
+    </div>
+    <div class='profile-info'>
+      <div><strong>Name: </strong><span>{{name}}</span></div>
+      <div><strong>Birthday: </strong><span>
+          {{#if birthday}}
+            {{birthday}}
+          {{else}}
+            Not set
+          {{/if}}
+        </span></div>
+      <div><strong>Species: </strong><span>{{species}}</span></div>
+    </div>
+  </section>
+  <div id='calendar' class='dashboard-component'></div>
+  <script src='/scripts/calendarjs.js'></script>
+  <script src='/scripts/calendar-options.js'></script>
+</main>

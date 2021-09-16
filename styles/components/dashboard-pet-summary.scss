@@ -4,11 +4,24 @@
   min-height: 8em;
   background-color: $mid-grey;
 }
+#pet-summary {
+  min-height: 9em;
+  background-color: $mid-grey;
+}
+.component-title {
+  margin-top: 0;
+  padding: 0.5em;
+}
+.component-header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
 .miniature-wrapper {
   max-width: 6em;
   .miniature-image-holder {
-    height: 4em;
-    width: 4em;
+    height: 6em;
+    width: 6em;
     border-radius: 50%;
     border: 1px dashed grey;
     background-position: center center;
@@ -33,4 +46,9 @@
 }
 .add-pet-button {
   display: block;
+  margin-top: 0.4em;
+  margin-right: 0.4em;
+  padding: 1em;
+  color: $main-brown;
+  text-align: center;
 }

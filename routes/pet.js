@@ -39,7 +39,13 @@ petRouter.post('/create', routeGuard, (req, res, next) => {
 
 petRouter.get('/:id', (req, res, next) => {
   const { id } = req.params;
-  res.render('pet/profile');
+  Pet.findById(id)
+    .then((returnedPet) => {
+      res.render('pet/profile', returnedPet);
+    })
+    .catch((error) => {
+      next(error);
+    });
 });
 
 module.exports = petRouter;

@@ -3,12 +3,17 @@
 const mongoose = require('mongoose');
 const capitalizeWords = require('../helperJS/capitalize');
 
+const getPetDate = (date) => {
+  console.log(date);
+  return date;
+};
+
 const petSchema = new mongoose.Schema({
   name: {
     type: String,
     trim: true,
     minlength: 2,
-    maxlength: 14,
+    maxlength: 20,
     set: capitalizeWords,
     required: true
   },
