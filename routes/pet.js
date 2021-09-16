@@ -21,9 +21,7 @@ petRouter.post('/create', routeGuard, (req, res, next) => {
     profilePicture: picture // there's no way to trigger default image as both '' and null are valid parameters according to mongoose, hence default is defined above.
   })
     .then((pet) => {
-      console.log('Pet created successfully,', pet);
       const petId = pet._id;
-      console.log(petId);
       return User.findByIdAndUpdate(
         req.session.userId,
         { $push: { pets: petId } },
@@ -31,7 +29,6 @@ petRouter.post('/create', routeGuard, (req, res, next) => {
       );
     })
     .then((userdoc) => {
-      console.log(userdoc);
       res.redirect('/');
     })
     .catch((error) => next(error));

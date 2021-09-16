@@ -16,7 +16,7 @@ router.post(
   //passwordValidator,
   (req, res, next) => {
     const { firstName, lastName, username, email, password } = req.body;
-    console.log(req.body);
+
     bcryptjs
       .hash(password, 10)
       .then((hash) => {

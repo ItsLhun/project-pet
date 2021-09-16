@@ -28,6 +28,7 @@ app.use(serveFavicon(path.join(__dirname, 'public/images', 'favicon.ico')));
 app.use(sassMiddleware(sassConfig));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(expressSession(sessionConfig));
 app.use(basicAuthenticationDeserializer);

@@ -11,7 +11,6 @@ router.get('/', (req, res, next) => {
       .populate('pets')
       .then((documentUser) => {
         user = documentUser;
-        console.log(user);
         res.render('dashboard', user);
       })
       .catch((error) => {
