@@ -523,6 +523,7 @@ function calendarJs(id, options, startDateTime) {
    */
 
   function build(newStartDateTime, fullRebuild) {
+    console.log('BUILD');
     _currentDate = isDefined(newStartDateTime) ? newStartDateTime : new Date();
     _currentDate.setDate(1);
     _currentDate.setHours(0, 0, 0, 0);
