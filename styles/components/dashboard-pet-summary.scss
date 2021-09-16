@@ -5,12 +5,26 @@
   background-color: $mid-grey;
 }
 .miniature-wrapper {
-  max-width: 4em;
+  max-width: 6em;
+  .miniature-image-holder {
+    height: 4em;
+    width: 4em;
+    border-radius: 50%;
+    border: 1px dashed grey;
+    background-position: center center;
+  }
   img {
-    max-height: 3em;
-    max-width: 3em;
+    min-width: 100%;
+    min-height: 100%;
+
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
   }
   margin: 0 2em;
+  h5 {
+    text-align: center;
+  }
 }
 .pet-wrapper-summary {
   display: flex;
