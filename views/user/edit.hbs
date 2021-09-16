@@ -1,5 +1,5 @@
 <h1>Edit profile</h1>
-<form action='/user-profile/edit' method='POST' enctype='multipart/form-data'>
+<form action='/user/edit' method='POST' enctype='multipart/form-data'>
   <label for='edit-first-name'>First Name</label>
   <input
     id='edit-first-name'
@@ -10,7 +10,7 @@
   <label for='edit-last-name'>Last Name</label>
   <input
     id='edit-last-name'
-    name='firstName'
+    name='lastName'
     type='text'
     value={{user.lastName}}
   />

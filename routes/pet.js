@@ -6,13 +6,13 @@ const User = require('../models/user');
 const petRouter = express.Router();
 
 petRouter.get('/create', (req, res, next) => {
-  res.render('create-pet');
+  res.render('pet/create-pet');
 });
 
 petRouter.post('/create', routeGuard, (req, res, next) => {
   const { name, species, birthday, profilePicture } = req.body;
   let picture = profilePicture || '/images/index.png';
-  const owner = req.session.userId;
+  const owner = req.user;
   Pet.create({
     name,
     birthday,
@@ -35,6 +35,11 @@ petRouter.post('/create', routeGuard, (req, res, next) => {
       res.redirect('/');
     })
     .catch((error) => next(error));
+});
+
+petRouter.get('/:id', (req, res, next) => {
+  const { id } = req.params;
+  res.render('pet/profile');
 });
 
 module.exports = petRouter;

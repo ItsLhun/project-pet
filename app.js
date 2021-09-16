@@ -12,7 +12,7 @@ const basicAuthenticationDeserializer = require('./middleware/basic-authenticati
 const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js');
 const baseRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
-const userProfileRouter = require('./routes/user-profile');
+const userProfileRouter = require('./routes/user');
 const eventRouter = require('./routes/event');
 const sessionConfig = require('./config/session');
 const sassConfig = require('./config/sass');
@@ -35,7 +35,7 @@ app.use(bindUserToViewLocals);
 
 app.use('/', baseRouter);
 app.use('/authentication', authenticationRouter);
-app.use('/user-profile', userProfileRouter);
+app.use('/user', userProfileRouter);
 app.use('/event', eventRouter);
 app.use('/pet', petRouter);
 

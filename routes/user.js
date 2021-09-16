@@ -8,11 +8,11 @@ const User = require('../models/user');
 const parser = require('../middleware/cloudinary-parser');
 
 router.get('/', routeGuard, (req, res, next) => {
-  res.render('user-profile/detail');
+  res.render('user/detail');
 });
 
 router.get('/edit', routeGuard, (req, res, next) => {
-  res.render('user-profile/edit');
+  res.render('user/edit');
 });
 
 router.post(
@@ -22,7 +22,7 @@ router.post(
   (req, res, next) => {
     const { id } = req.user;
     const { firstName, lastName, username, email } = req.body;
-
+    console.log(firstName);
     let profilePicture;
     if (req.file) {
       profilePicture = req.file.path;
@@ -35,13 +35,13 @@ router.post(
       email,
       profilePicture
     })
-      .then(() => res.redirect('/user-profile'))
+      .then(() => res.redirect('/user'))
       .catch((error) => next(error));
   }
 );
 
 router.get('/settings', routeGuard, (req, res, next) => {
-  res.render('user-profile/settings');
+  res.render('user/settings');
 });
 
 router.post('/settings', routeGuard, (req, res, next) => {

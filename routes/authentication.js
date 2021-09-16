@@ -39,7 +39,7 @@ router.post(
 );
 
 router.get('/sign-in', (req, res, next) => {
-  if (req.session.userId) {
+  if (req.user) {
     res.render('dashboard');
   } else {
     res.render('authentication/sign-in');
@@ -47,7 +47,7 @@ router.get('/sign-in', (req, res, next) => {
 });
 
 router.post('/sign-in', (req, res, next) => {
-  if (!req.session.userId) {
+  if (!req.user) {
     let user;
     const { emailOrUsername, password } = req.body;
     User.findOne()
