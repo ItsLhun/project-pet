@@ -4115,8 +4115,8 @@ label {
 }
 
 #user-introduction img {
-  max-height: 5em;
-  max-width: 5em;
+  max-height: 7em;
+  max-width: 7em;
   border-radius: 50%;
 }
 
@@ -4133,14 +4133,9 @@ label {
   border: 2px dotted #af6e32;
 }
 
-#upcoming-events {
+.dashboard-component {
+  background-color: #eeeeee;
   min-height: 8em;
-  background-color: #c4c4c4;
-}
-
-#pet-summary {
-  min-height: 9em;
-  background-color: #c4c4c4;
 }
 
 .component-title {
@@ -4160,11 +4155,15 @@ label {
 }
 
 .miniature-wrapper .miniature-image-holder {
-  height: 8em;
-  width: 8em;
+  height: 9em;
+  width: 9em;
   border-radius: 50%;
   border: 1px dashed grey;
   background-position: center center;
+}
+
+.miniature-wrapper .miniature-image-holder:hover {
+  border: 3px dashed #3fb83f;
 }
 
 .miniature-wrapper img {
@@ -4186,13 +4185,29 @@ label {
   justify-content: center;
 }
 
-.add-pet-button {
-  display: block;
+.btn-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
   margin-top: 0.4em;
   margin-right: 0.4em;
-  padding: 0.2em;
+  height: fit-content;
+}
+
+.btn-wrapper .add-pet-button {
+  display: block;
+  padding: 0.2em 0.8em;
+  background-color: #af6e32;
+  color: white;
+  border-radius: 20px;
+}
+
+.btn-wrapper .add-pet-button:hover {
+  background-color: white;
   color: #af6e32;
-  text-align: center;
+  transition: all ease;
+  border: 1px dashed #af6e32;
 }
 
 .profile-picture-wrapper {
