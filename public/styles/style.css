@@ -4222,7 +4222,7 @@ label {
 .profile-section {
   display: flex;
   flex-flow: row wrap;
-  margin-bottom: 5rem;
+  margin-bottom: 2.5rem;
   margin-top: 2rem;
   font-size: 1.35em;
 }

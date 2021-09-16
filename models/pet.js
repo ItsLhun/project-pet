@@ -5,7 +5,11 @@ const capitalizeWords = require('../helperJS/capitalize');
 
 const getPetDate = (date) => {
   console.log(date);
-  return date;
+  if (date) {
+    return date.toLocaleDateString('en-GB');
+  } else {
+    return date;
+  }
 };
 
 const petSchema = new mongoose.Schema({
@@ -19,7 +23,8 @@ const petSchema = new mongoose.Schema({
   },
   birthday: {
     type: Date,
-    default: Date.now
+    default: Date.now,
+    get: getPetDate
   },
   species: {
     type: String,
