@@ -10,4 +10,4 @@ const event = {
   description: 'A description of the event'
 };
 
-calendarInstance.addEvent(event);
+calendarInstance.addEvent(true, event);

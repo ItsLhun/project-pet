@@ -638,7 +638,7 @@ function calendarJs(id, options, startDateTime) {
           repeatEvery === _repeatType.never &&
           compareFunc(event.from, date)
         ) {
-          _this.removeEvent(event.id, false);
+          _this.removeEvent(false, event.id, false);
         }
       });
 
@@ -4291,6 +4291,7 @@ function calendarJs(id, options, startDateTime) {
                 buildDayEvents();
               } else {
                 _this.removeEvent(
+                  false,
                   _element_DropDownMenu_Event_EventDetails.id,
                   true
                 );
@@ -5410,7 +5411,7 @@ function calendarJs(id, options, startDateTime) {
             false
           );
         } else {
-          _this.addEvent(newEvent, false);
+          _this.addEvent(true, newEvent, false);
         }
 
         buildDayEvents();
@@ -5438,7 +5439,11 @@ function calendarJs(id, options, startDateTime) {
       eventDialogEvent_Cancel();
 
       if (isDefined(_element_EventEditorDialog_EventDetails.id)) {
-        _this.removeEvent(_element_EventEditorDialog_EventDetails.id, true);
+        _this.removeEvent(
+          false,
+          _element_EventEditorDialog_EventDetails.id,
+          true
+        );
         refreshOpenedViews();
       }
     };
@@ -7364,7 +7369,7 @@ function calendarJs(id, options, startDateTime) {
     newEvent.to.setFullYear(date.getFullYear());
     newEvent.id = null;
 
-    _this.addEvent(newEvent);
+    _this.addEvent(true, newEvent);
   }
 
   function setElementClassName(element, className) {
@@ -8625,7 +8630,7 @@ function calendarJs(id, options, startDateTime) {
     for (var eventIndex = 0; eventIndex < eventsLength; eventIndex++) {
       var event = events[eventIndex];
 
-      this.addEvent(event, false, false, false);
+      this.addEvent(true, event, false, false, false);
     }
 
     if (triggerEvent) {
@@ -8682,7 +8687,13 @@ function calendarJs(id, options, startDateTime) {
    *
    * @returns     {boolean}                                               States if the event was added.
    */
-  this.addEvent = function (event, updateEvents, triggerEvent, setLastUpdated) {
+  this.addEvent = function (
+    isNew,
+    event,
+    updateEvents,
+    triggerEvent,
+    setLastUpdated
+  ) {
     var added = false;
 
     setLastUpdated = isDefined(setLastUpdated) ? setLastUpdated : true;
@@ -8794,7 +8805,8 @@ function calendarJs(id, options, startDateTime) {
         }
       }
     }
-
+    //Pekka: Send HTTP request to path /event/create to create an event
+    if (isNew) createEventHTTP(event);
     return added;
   };
 
@@ -8845,18 +8857,19 @@ function calendarJs(id, options, startDateTime) {
    * @returns     {boolean}                                               States if the event was updated.
    */
   this.updateEvent = function (id, event, updateEvents, triggerEvent) {
-    var updated = this.removeEvent(id, false, false);
+    var updated = this.removeEvent(true, id, false, false);
     if (updated) {
       updateEvents = !isDefined(updateEvents) ? true : updateEvents;
       triggerEvent = !isDefined(triggerEvent) ? true : triggerEvent;
 
-      updated = this.addEvent(event, updateEvents, false);
+      updated = this.addEvent(false, event, updateEvents, false);
 
       if (updated && triggerEvent) {
         triggerOptionsEventWithData('onEventUpdated', event);
       }
     }
-
+    //Pekka: Send HTTP request to path /event/update
+    updateEventHTTP(event);
     return updated;
   };
 
@@ -8925,7 +8938,7 @@ function calendarJs(id, options, startDateTime) {
    *
    * @returns     {boolean}                                               States if the event was removed.
    */
-  this.removeEvent = function (id, updateEvents, triggerEvent) {
+  this.removeEvent = function (isUpdated, id, updateEvents, triggerEvent) {
     var removed = false;
 
     getAllEventsFunc(function (event, storageDate, storageGuid) {
@@ -8948,7 +8961,8 @@ function calendarJs(id, options, startDateTime) {
         return true;
       }
     });
-
+    //Pekka: Make HTTP request to /event/delete
+    if (!isUpdated) deleteEventHTTP(id);
     return removed;
   };
 
