@@ -18,7 +18,7 @@ router.post('/create', routeGuard, (req, res, next) => {
     reapeatEnds,
     repeatEveryCustomValue
   } = req.body;
-
+  console.log(req.body);
   //PetEvent.create({});
 
   res.redirect('/');

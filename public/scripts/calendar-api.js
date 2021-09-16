@@ -1,6 +1,6 @@
 const hello = () => console.log('hello world');
 
-const fetchEventsHTTP = (data) => {
+const fetchEventsHTTP = () => {
   axios
     .get('http://localhost:3000/event/')
     .then((res) => {
