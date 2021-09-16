@@ -1,5 +1,5 @@
 const express = require('express');
-const Event = require('../models/event');
+const PetEvent = require('../models/event');
 const router = express.Router();
 const routeGuard = require('../middleware/route-guard');
 
