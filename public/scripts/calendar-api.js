@@ -24,7 +24,7 @@ const updateEventHTTP = (data) => {
 
 const deleteEventHTTP = (id) => {
   axios
-    .post('http://localhost:3000/event/delete', id)
+    .post('http://localhost:3000/event/delete', { id })
     .then((res) => {
       console.log(`POST: event was deleted`);
     })

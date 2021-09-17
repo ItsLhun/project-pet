@@ -17,12 +17,13 @@ router.post('/create', routeGuard, (req, res, next) => {
     description,
     isAllDay,
     showAlerts,
+    repeatEvery,
     reapeatEnds,
     repeatEveryCustomValue,
     repeatEveryCustomType
   } = req.body;
   const originUser = req.user.id;
-
+  console.log(req.body);
   //Hard coded test values
   const type = 'Supplies';
   const originPet = '';
@@ -34,6 +35,7 @@ router.post('/create', routeGuard, (req, res, next) => {
     description,
     isAllDay,
     showAlerts,
+    repeatEvery,
     reapeatEnds,
     repeatEveryCustomValue,
     repeatEveryCustomType,
@@ -45,14 +47,39 @@ router.post('/create', routeGuard, (req, res, next) => {
 });
 
 router.post('/update', routeGuard, (req, res, next) => {
-  console.log(req.body);
-  res.redirect('/');
+  const {
+    id,
+    from,
+    to,
+    title,
+    description,
+    isAllDay,
+    showAlerts,
+    repeatEvery,
+    reapeatEnds,
+    repeatEveryCustomValue,
+    repeatEveryCustomType
+  } = req.body;
+
+  PetEvent.findByIdAndUpdate(id, {
+    from,
+    to,
+    title,
+    description,
+    isAllDay,
+    showAlerts,
+    repeatEvery,
+    reapeatEnds,
+    repeatEveryCustomValue,
+    repeatEveryCustomType
+  })
+    .then(() => res.redirect('/'))
+    .catch((error) => next(error));
 });
 
 router.post('/delete', routeGuard, (req, res, next) => {
-  //const { id } = req.body;
-  const id = '614486837bb1c46ef58f79cc';
-
+  const { id } = req.body;
+  console.log(req.body);
   PetEvent.findByIdAndDelete(id)
     .then(() => res.redirect('/'))
     .catch((error) => next(error));

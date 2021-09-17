@@ -20,7 +20,6 @@ const eventSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    minlength: 1,
     maxlength: 140,
     default: null // we need to check how this works with the calendar model
   },
@@ -48,6 +47,9 @@ const eventSchema = new mongoose.Schema({
     required: false,
     default: null
   },
+  repeatEvery: {
+    type: Number
+  },
   repeatEveryCustomType: {
     type: Number
   },
@@ -67,6 +69,14 @@ const eventSchema = new mongoose.Schema({
   originUser: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
+  }
+});
+
+eventSchema.set('toJSON', {
+  transform: (doc, obj) => {
+    obj.id = obj._id.toString();
+    delete obj._id;
+    delete obj.__v;
   }
 });
 
