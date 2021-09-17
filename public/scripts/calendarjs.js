@@ -8630,7 +8630,7 @@ function calendarJs(id, options, startDateTime) {
     for (var eventIndex = 0; eventIndex < eventsLength; eventIndex++) {
       var event = events[eventIndex];
 
-      this.addEvent(true, event, false, false, false);
+      this.addEvent(false, event, false, false, false);
     }
 
     if (triggerEvent) {

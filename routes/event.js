@@ -46,7 +46,6 @@ router.post('/create', routeGuard, (req, res, next) => {
 
 router.post('/update', routeGuard, (req, res, next) => {
   console.log(req.body);
-
   res.redirect('/');
 });
 
