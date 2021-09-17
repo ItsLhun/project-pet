@@ -51,10 +51,12 @@ router.post('/update', routeGuard, (req, res, next) => {
 });
 
 router.post('/delete', routeGuard, (req, res, next) => {
-  const { id } = req.body;
-  console.log(id);
+  //const { id } = req.body;
+  const id = '614486837bb1c46ef58f79cc';
 
-  res.redirect('/');
+  PetEvent.findByIdAndDelete(id)
+    .then(() => res.redirect('/'))
+    .catch((error) => next(error));
 });
 
 module.exports = router;
