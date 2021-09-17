@@ -23,7 +23,7 @@ router.post('/create', routeGuard, (req, res, next) => {
     repeatEveryCustomType
   } = req.body;
   const originUser = req.user.id;
-  console.log(req.body);
+
   //Hard coded test values
   const type = 'Supplies';
   const originPet = '';
