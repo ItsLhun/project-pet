@@ -48,7 +48,9 @@ const eventSchema = new mongoose.Schema({
     required: false,
     default: null
   },
-
+  repeatEveryCustomType: {
+    type: Number
+  },
   repeatEveryCustomValue: {
     type: Number,
     default: null

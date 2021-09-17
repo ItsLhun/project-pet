@@ -4,7 +4,8 @@ const fetchEventsHTTP = () => {
   axios
     .get('http://localhost:3000/event/')
     .then((res) => {
-      console.log(`GET: events were fetched`);
+      console.log(`GET: events were fetched`, res.data);
+      return res.data;
     })
     .catch((error) => console.error(error));
 };

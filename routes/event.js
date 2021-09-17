@@ -4,7 +4,9 @@ const router = express.Router();
 const routeGuard = require('../middleware/route-guard');
 
 router.get('/', routeGuard, (req, res, next) => {
-  //
+  PetEvent.find()
+    .then((events) => res.json(events))
+    .catch((error) => next(error));
 });
 
 router.post('/create', routeGuard, (req, res, next) => {
@@ -16,12 +18,30 @@ router.post('/create', routeGuard, (req, res, next) => {
     isAllDay,
     showAlerts,
     reapeatEnds,
-    repeatEveryCustomValue
+    repeatEveryCustomValue,
+    repeatEveryCustomType
   } = req.body;
-  console.log(req.body);
-  //PetEvent.create({});
+  const originUser = req.user.id;
 
-  res.redirect('/');
+  //Hard coded test values
+  const type = 'Supplies';
+  const originPet = '';
+
+  PetEvent.create({
+    from: new Date(from),
+    to: new Date(to),
+    title,
+    description,
+    isAllDay,
+    showAlerts,
+    reapeatEnds,
+    repeatEveryCustomValue,
+    repeatEveryCustomType,
+    originUser,
+    type
+  })
+    .then(() => res.redirect('/'))
+    .catch((error) => next(error));
 });
 
 router.post('/update', routeGuard, (req, res, next) => {
