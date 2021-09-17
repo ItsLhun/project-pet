@@ -34,6 +34,14 @@ petRouter.post('/create', routeGuard, (req, res, next) => {
     .catch((error) => next(error));
 });
 
+petRouter.get('/events', routeGuard, (req, res, next) => {
+  Pet.find({ 'author._id': req.session.userId })
+    .then((pets) => {
+      res.json(pets);
+    })
+    .catch((error) => next(error));
+});
+
 petRouter.get('/:id', (req, res, next) => {
   const { id } = req.params;
   Pet.findById(id)

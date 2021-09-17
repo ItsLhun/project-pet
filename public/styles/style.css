@@ -1236,12 +1236,13 @@ div.event-editor div.ib-close {
 }
 
 div.event-editor div.tab-content {
-  height: 245px;
+  height: 32em;
   margin-bottom: 20px;
 }
 
 div.event-editor div.view {
   position: relative;
+  min-height: 35rem;
 }
 
 div.event-editor div.view div.title-bar {
@@ -4017,6 +4018,58 @@ label {
   width: 45%;
 }
 
+.mini-calendar-pet-wrapper {
+  max-width: 13em;
+  min-width: 10em;
+  margin: 0 0.5em;
+}
+
+.mini-calendar-pet-wrapper .mini-calendar-image-holder {
+  margin-top: 0.25em;
+  height: 6.5em;
+  width: 6.5em;
+  border-radius: 50%;
+  border: 3px dashed grey;
+  background-position: center center;
+}
+
+.mini-calendar-pet-wrapper .mini-calendar-image-holder:hover {
+  border: 3px dashed #3fb83f;
+}
+
+.mini-calendar-pet-wrapper a {
+  display: block;
+  min-height: 100%;
+  min-width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.mini-calendar-pet-wrapper img {
+  min-width: 100%;
+  min-height: 100%;
+  padding: 0.5em;
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+.mini-calendar-pet-wrapper h5 {
+  text-align: center;
+}
+
+div.input-pet-container {
+  display: flex;
+  flex-direction: row nowrap;
+  overflow-x: scroll;
+  min-height: 10.8em;
+  background-color: white;
+  border: 1px solid #a7a7a7;
+  border-radius: 0.25rem;
+}
+
 #menu-toggle {
   z-index: 1;
   user-select: none;
@@ -4183,6 +4236,7 @@ label {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
+  overflow-x: scroll;
 }
 
 .btn-wrapper {

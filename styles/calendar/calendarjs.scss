@@ -820,12 +820,13 @@ div.event-editor {
   @include dialog-styles(420px);
 
   div.tab-content {
-    height: 245px;
+    height: 32em;
     margin-bottom: $spacing * 2;
   }
 
   div.view {
     position: relative;
+    min-height: 35rem;
 
     @include dialog-title-bar;
 

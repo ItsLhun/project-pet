@@ -154,6 +154,54 @@ label {
   }
 }
 
+.mini-calendar-pet-wrapper {
+  max-width: 13em;
+  min-width: 10em;
+  .mini-calendar-image-holder {
+    margin-top: 0.25em;
+    height: 6.5em;
+    width: 6.5em;
+    border-radius: 50%;
+    border: 3px dashed grey;
+    background-position: center center;
+
+    &:hover {
+      border: 3px dashed $success-green;
+    }
+  }
+  a {
+    display: block;
+    min-height: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  img {
+    min-width: 100%;
+    min-height: 100%;
+    padding: 0.5em;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+  }
+  margin: 0 0.5em;
+  h5 {
+    text-align: center;
+  }
+}
+
+div.input-pet-container {
+  display: flex;
+  flex-direction: row nowrap;
+  overflow-x: scroll;
+  min-height: 10.8em;
+  background-color: white;
+  border: 1px solid rgb(167, 167, 167);
+  border-radius: 0.25rem;
+}
+
 @import './components/sidebar-menu.scss';
 @import './components/upcoming-events.scss';
 @import './components/dashboard-pet-summary.scss';

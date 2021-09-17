@@ -373,6 +373,9 @@ function calendarJs(id, options, startDateTime) {
     _element_EventEditorDialog_ShowAlerts = null,
     _element_EventEditorDialog_Title = null,
     _element_EventEditorDialog_Description = null,
+    // Nahuel: remove unused elements, add custom
+    _element_EventEditorDialog_Pet = null,
+    _element_EventEditorDialog_Type = null,
     // _element_EventEditorDialog_Location = null,
     // _element_EventEditorDialog_Group = null,
     // _element_EventEditorDialog_Url = null,
@@ -4587,20 +4590,22 @@ function calendarJs(id, options, startDateTime) {
     var contents = createElement('div', 'contents');
     view.appendChild(contents);
 
-    var tabsContainer = buildTabContainer(contents);
+    //Nahuel: remove the tab altogether
 
-    buildTab(
-      tabsContainer,
-      _options.eventText,
-      function (tab) {
-        showTabContents(
-          tab,
-          _element_EventEditorDialog_Tab_Event,
-          _element_EventEditorDialog
-        );
-      },
-      true
-    );
+    // var tabsContainer = buildTabContainer(contents);
+
+    // buildTab(
+    //   tabsContainer,
+    //   _options.eventText,
+    //   function (tab) {
+    //     showTabContents(
+    //       tab,
+    //       _element_EventEditorDialog_Tab_Event,
+    //       _element_EventEditorDialog
+    //     );
+    //   },
+    //   true
+    // );
 
     // buildTab(
     //   tabsContainer,
@@ -4613,8 +4618,6 @@ function calendarJs(id, options, startDateTime) {
     //     );
     //   }
     // );
-
-    //Nahuel: remove the tab altogether
 
     // buildTab(tabsContainer, _options.optionalText, function (tab) {
     //   showTabContents(
@@ -4672,7 +4675,66 @@ function calendarJs(id, options, startDateTime) {
     );
   }
 
+  function buildPetMiniatureAddEvent(pet, parent) {
+    const petCalendarWrapper = createElement(
+      'div',
+      'mini-calendar-pet-wrapper'
+    );
+    const { name, profilePicture, _id } = pet;
+    const petLink = document.createElement('a');
+    const petCalendarImageHolder = createElement(
+      'div',
+      'mini-calendar-image-holder'
+    );
+    const petMiniatureImage = createElement('img', null);
+    if (pet.profilePicture) {
+      petMiniatureImage.setAttribute('src', profilePicture);
+    } else {
+      petMiniatureImage.setAttribute('src', '/images/index.png');
+    }
+    // const petMiniName = createElement('h5', null);
+    // petMiniName.textContent = name;
+
+    petCalendarWrapper.appendChild(petLink);
+    petLink.appendChild(petCalendarImageHolder);
+    petCalendarImageHolder.appendChild(petMiniatureImage);
+    // petLink.appendChild(petMiniName);
+
+    parent.appendChild(petCalendarWrapper);
+    return petCalendarWrapper;
+  }
+
   function buildEventEditorEventTabContent() {
+    // Nahuel: custom inputs
+
+    createTextHeaderElement(
+      _element_EventEditorDialog_Tab_Event,
+      _options.petText
+    );
+
+    var inputPetContainer = createElement('div', 'input-pet-container');
+    _element_EventEditorDialog_Tab_Event.appendChild(inputPetContainer);
+
+    fetchPetsHTTP()
+      .then((res) => {
+        console.log(res.data);
+        for (let i = 0, length = res.data.length; i < length; i++) {
+          console.log(res.data[i]);
+          buildPetMiniatureAddEvent(res.data[i], inputPetContainer);
+        }
+      })
+      .catch((error) => console.log(error));
+
+    createTextHeaderElement(
+      _element_EventEditorDialog_Tab_Event,
+      _options.eventType
+    );
+
+    var inputTypeContainer = createElement('div', 'input-type-container');
+    _element_EventEditorDialog_Tab_Event.appendChild(inputTypeContainer);
+
+    // end custom inputs
+
     createTextHeaderElement(
       _element_EventEditorDialog_Tab_Event,
       _options.titleText
@@ -4689,13 +4751,15 @@ function calendarJs(id, options, startDateTime) {
         _options.maximumEventTitleLength;
     }
 
-    createButtonElement(
-      inputTitleContainer,
-      '...',
-      'select-colors',
-      showEventEditorColorsDialog,
-      _options.selectColorsText
-    );
+    //Nahuel: remove manual color selection from event creation
+
+    // createButtonElement(
+    //   inputTitleContainer,
+    //   '...',
+    //   'select-colors',
+    //   showEventEditorColorsDialog,
+    //   _options.selectColorsText
+    // );
 
     createTextHeaderElement(
       _element_EventEditorDialog_Tab_Event,
@@ -9431,6 +9495,16 @@ function calendarJs(id, options, startDateTime) {
       _options.titleText = 'Title:';
     }
 
+    // Nahuel: added custom input titles
+
+    if (!isDefined(_options.petText)) {
+      _options.petText = 'Pet:';
+    }
+
+    if (!isDefined(_options.eventType)) {
+      _options.eventType = 'Type:';
+    }
+
     if (!isDefined(_options.descriptionText)) {
       _options.descriptionText = 'Description:';
     }
@@ -9934,11 +10008,11 @@ function calendarJs(id, options, startDateTime) {
         month: 12,
         title: 'Christmas Day'
       },
-      {
-        day: 26,
-        month: 12,
-        title: 'Boxing Day'
-      },
+      // { // this one is silly
+      //   day: 26,
+      //   month: 12,
+      //   title: 'Boxing Day'
+      // },
       {
         day: 31,
         month: 12,

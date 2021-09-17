@@ -4,6 +4,10 @@ const fetchEventsHTTP = () => {
   return axios.get('http://localhost:3000/event/');
 };
 
+const fetchPetsHTTP = () => {
+  return axios.get('http://localhost:3000/pet/events');
+};
+
 const createEventHTTP = (data) => {
   axios
     .post('http://localhost:3000/event/create', data)
