@@ -169,6 +169,9 @@ label {
       border: 3px dashed $success-green;
     }
   }
+  .mini-calendar-active {
+    border: 3px dashed red;
+  }
   a {
     display: block;
     min-height: 100%;

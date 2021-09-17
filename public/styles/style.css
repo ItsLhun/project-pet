@@ -4037,6 +4037,10 @@ label {
   border: 3px dashed #3fb83f;
 }
 
+.mini-calendar-pet-wrapper .mini-calendar-active {
+  border: 3px dashed red;
+}
+
 .mini-calendar-pet-wrapper a {
   display: block;
   min-height: 100%;

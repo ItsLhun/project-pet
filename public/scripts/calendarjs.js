@@ -4700,6 +4700,19 @@ function calendarJs(id, options, startDateTime) {
     petCalendarImageHolder.appendChild(petMiniatureImage);
     // petLink.appendChild(petMiniName);
 
+    petLink.addEventListener('click', (e) => {
+      const otherPets = document.querySelectorAll(
+        '.mini-calendar-image-holder'
+      );
+      for (let i = 0; i < otherPets.length; i++) {
+        otherPets[i].classList.remove('mini-calendar-active');
+      }
+      _options.petTarget = _id;
+      petCalendarImageHolder.classList.add('mini-calendar-active');
+
+      console.log('You clicked pet id: ', _id);
+    });
+
     parent.appendChild(petCalendarWrapper);
     return petCalendarWrapper;
   }
@@ -9503,6 +9516,10 @@ function calendarJs(id, options, startDateTime) {
 
     if (!isDefined(_options.eventType)) {
       _options.eventType = 'Type:';
+    }
+
+    if (!isDefined(_options.petTarget)) {
+      _options.petTarget = null;
     }
 
     if (!isDefined(_options.descriptionText)) {
