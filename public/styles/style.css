@@ -4313,14 +4313,14 @@ h1 + fieldset {
 
 .profile-picture-wrapper {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   justify-content: center;
   align-items: center;
 }
 
 .profile-picture-wrapper div:first-child {
-  height: 18rem;
-  width: 18rem;
+  height: 12.5rem;
+  width: 12.5rem;
   border-radius: 50%;
   border: 1px dashed grey;
   background-position: center center;
@@ -4341,13 +4341,13 @@ h1 + fieldset {
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  font-size: 1.35em;
+  font-size: 1.05em;
 }
 
 .profile-section > * {
   width: 50%;
   min-width: 18rem;
-  margin-bottom: 1.5rem;
+  margin: 0.5rem auto;
 }
 
 .profile-info {
@@ -4361,6 +4361,9 @@ h1 + fieldset {
   .profile-info {
     width: 100%;
     padding-left: 1rem;
+  }
+  .profile-picture-wrapper div:first-child {
+    margin-top: 0.6em;
   }
 }
 
