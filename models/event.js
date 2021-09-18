@@ -21,7 +21,7 @@ const eventSchema = new mongoose.Schema({
   description: {
     type: String,
     maxlength: 140,
-    default: null // we need to check how this works with the calendar model
+    default: null
   },
   isAllDay: {
     type: Boolean,
@@ -46,9 +46,6 @@ const eventSchema = new mongoose.Schema({
     type: Date,
     required: false,
     default: null
-  },
-  repeatEvery: {
-    type: Number
   },
   repeatEveryCustomType: {
     type: Number

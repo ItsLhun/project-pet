@@ -7,7 +7,7 @@ const router = express.Router();
 const routeGuard = require('../middleware/route-guard');
 
 router.get('/', routeGuard, (req, res, next) => {
-  PetEvent.find()
+  PetEvent.find({ originUser: req.user })
     .then((events) => res.json(events))
     .catch((error) => next(error));
 });
@@ -22,7 +22,6 @@ router.post('/create', routeGuard, (req, res, next) => {
     description,
     isAllDay,
     showAlerts,
-    repeatEvery,
     reapeatEnds,
     repeatEveryCustomValue,
     repeatEveryCustomType
@@ -37,7 +36,6 @@ router.post('/create', routeGuard, (req, res, next) => {
     description,
     isAllDay,
     showAlerts,
-    repeatEvery,
     reapeatEnds,
     repeatEveryCustomValue,
     repeatEveryCustomType,
