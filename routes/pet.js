@@ -19,10 +19,8 @@ petRouter.get('/create', (req, res, next) => {
 
 petRouter.get('/events', routeGuard, (req, res, next) => {
   const { id } = req.body;
-  console.log(id);
   PetEvent.find({ originPet: id })
     .then((pets) => {
-      console.log(pets);
       res.json(pets);
     })
     .catch((error) => next(error));

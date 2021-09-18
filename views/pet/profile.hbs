@@ -33,5 +33,7 @@
 <script src='/scripts/calendarjs.js'></script>
 <script src='/scripts/calendar-options.js'></script>
 <script>
-  const events = {{{ json petEvents }}}; calendarInstance.setEvents(events);
+  const events = {{{ json petEvents }}}; 
+  console.log(events);
+  calendarInstance.setEvents(events);
 </script>

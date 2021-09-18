@@ -42,6 +42,9 @@ const eventSchema = new mongoose.Schema({
     type: Number, //TBC,
     default: null
   },
+  repeatEvery: {
+    type: Number
+  },
   repeatEnds: {
     type: Date,
     required: false,
