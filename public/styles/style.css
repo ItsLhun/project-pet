@@ -4253,6 +4253,7 @@ h1 + fieldset {
 
 .miniature-wrapper {
   max-width: 8em;
+  margin: auto;
   margin: 0 2em;
 }
 
@@ -4284,7 +4285,6 @@ h1 + fieldset {
 .pet-wrapper-summary {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
   overflow-x: scroll;
 }
 
