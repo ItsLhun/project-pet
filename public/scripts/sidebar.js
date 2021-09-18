@@ -4,7 +4,6 @@ const bodyElement = document.querySelector('body');
 const sideMenu = document.querySelector('#sidebar-menu');
 //const firstSectionElement = document.querySelector('section:first-of-type');
 
-console.log('Hello');
 let sideStatus = sideMenu?.style?.transform;
 
 sideMenuInput.addEventListener('change', () => {

@@ -1,10 +1,15 @@
 const hello = () => console.log('hello world');
 
-const fetchEventsHTTP = () => {
+const fetchUserEventsHTTP = () => {
   return axios.get('http://localhost:3000/event/');
 };
 
-const fetchPetsHTTP = () => {
+const fetchPetsHTTP = (id) => {
+  console.log(id);
+  return axios.get('http://localhost:3000/pet/', id);
+};
+
+const fetchPetEventsHTTP = (id) => {
   return axios.get('http://localhost:3000/pet/events');
 };
 

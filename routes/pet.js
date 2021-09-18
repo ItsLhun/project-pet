@@ -2,11 +2,30 @@ const express = require('express');
 const routeGuard = require('../middleware/route-guard');
 const Pet = require('../models/pet');
 const User = require('../models/user');
-
+const PetEvent = require('../models/event');
 const petRouter = express.Router();
+
+petRouter.get('/', routeGuard, (req, res, next) => {
+  Pet.find({ owner: req.user })
+    .then((pets) => {
+      res.json(pets);
+    })
+    .catch((error) => next(error));
+});
 
 petRouter.get('/create', (req, res, next) => {
   res.render('pet/create-pet');
+});
+
+petRouter.get('/events', routeGuard, (req, res, next) => {
+  const { id } = req.body;
+  console.log(id);
+  PetEvent.find({ originPet: id })
+    .then((pets) => {
+      console.log(pets);
+      res.json(pets);
+    })
+    .catch((error) => next(error));
 });
 
 petRouter.post('/create', routeGuard, (req, res, next) => {
@@ -30,14 +49,6 @@ petRouter.post('/create', routeGuard, (req, res, next) => {
     })
     .then((userdoc) => {
       res.redirect('/');
-    })
-    .catch((error) => next(error));
-});
-
-petRouter.get('/events', routeGuard, (req, res, next) => {
-  Pet.find({ 'author._id': req.session.userId })
-    .then((pets) => {
-      res.json(pets);
     })
     .catch((error) => next(error));
 });
