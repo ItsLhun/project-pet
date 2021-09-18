@@ -7,6 +7,7 @@
 
 #input-wrap {
   margin: auto;
+  z-index: 9999;
 }
 
 #menu-toggle input {
@@ -75,6 +76,7 @@
   list-style-type: none;
   transform-origin: 0% 0%;
   scroll-behavior: unset;
+  z-index: 9998;
   transform: translate(100%, 0);
   transition: transform 0.5s cubic-bezier(0.7, 0.21, 0.05, 1),
     opacity 0.5s cubic-bezier(0.7, 0.21, 0.05, 1);

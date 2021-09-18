@@ -71,10 +71,10 @@ textarea,
 select,
 button,
 .btn {
-  padding: 1em;
+  padding: 0.4em;
   border: 1px solid $grey;
   border-radius: 0;
-  margin-bottom: 1em;
+  margin-bottom: 0.4em;
   font: inherit;
   color: inherit;
   background-color: $mid-grey;
@@ -90,18 +90,18 @@ label {
 }
 .welcome-profile-img {
   width: fit-content;
-  height: 14em;
-  width: 14em;
-  margin: 3.2em auto;
+  height: 12em;
+  width: 12em;
+  margin: 1em auto;
   border-radius: 50%;
   border: 2px solid $dark-grey;
   object-fit: cover;
   background-color: $mid-grey;
 }
 .login-form {
-  max-width: 30em;
+  max-width: 28em;
   background-color: $grey;
-  margin: 3.4em auto;
+  margin: 0.5em auto;
   align-items: center;
   border-radius: 10px;
   border: 2px solid $mid-grey;
@@ -110,11 +110,11 @@ label {
     color: white;
     width: 73%;
     border-radius: 10px;
-    margin: 1em auto;
+    margin: 0.5em auto;
     font-size: 2rem;
     padding: 0;
     + a {
-      margin-bottom: 2em;
+      margin-bottom: 0.5em;
     }
   }
   .forgot-pass {
@@ -136,7 +136,6 @@ label {
   input {
     border: 2px solid $dark-grey;
     border-radius: 10px;
-
     &:active,
     &:link {
       border: 2px solid $main-brown;
@@ -220,6 +219,15 @@ h1 + *,
 h1 + fieldset {
   margin-top: -2em;
   border-radius: 15px 15px 0 0;
+}
+
+@media screen and (min-width: 480px) {
+  .login-form {
+    margin: 1.5em auto;
+  }
+  .welcome-profile-img {
+    margin: 2em auto;
+  }
 }
 
 @import './components/sidebar-menu.scss';
