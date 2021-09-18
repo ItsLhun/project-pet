@@ -4717,6 +4717,13 @@ function calendarJs(id, options, startDateTime) {
     return petCalendarWrapper;
   }
 
+  function createTypeOptions(option, parent) {
+    const optionA = document.createElement('option');
+    optionA.textContent = option;
+    optionA.value = option;
+    parent.appendChild(optionA);
+  }
+
   function buildEventEditorEventTabContent() {
     // Nahuel: custom inputs
 
@@ -4745,6 +4752,14 @@ function calendarJs(id, options, startDateTime) {
 
     var inputTypeContainer = createElement('div', 'input-type-container');
     _element_EventEditorDialog_Tab_Event.appendChild(inputTypeContainer);
+
+    _element_EventEditorDialog_Type = createElement('select', null);
+    inputTypeContainer.appendChild(_element_EventEditorDialog_Type);
+
+    const eventTypes = ['Vet Appointment', 'Supplies', 'Grooming', 'Other'];
+    eventTypes.forEach((event) => {
+      createTypeOptions(event, _element_EventEditorDialog_Type);
+    });
 
     // end custom inputs
 
