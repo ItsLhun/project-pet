@@ -4,6 +4,7 @@ $minimum-width-pet-profile: 40rem;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  align-items: center;
   div:first-child {
     height: 18rem;
     width: 18rem;
@@ -25,8 +26,9 @@ $minimum-width-pet-profile: 40rem;
 .profile-section {
   display: flex;
   flex-flow: row wrap;
-  margin-bottom: 2.5rem;
-  margin-top: 2rem;
+  justify-content: center;
+  align-items: center;
+  // margin-bottom: 2.5rem;
   > * {
     width: 50%;
     min-width: 18rem;

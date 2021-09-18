@@ -17,6 +17,8 @@ router.post('/create', routeGuard, (req, res, next) => {
     from,
     to,
     title,
+    type,
+    originPet,
     description,
     isAllDay,
     showAlerts,
@@ -25,11 +27,8 @@ router.post('/create', routeGuard, (req, res, next) => {
     repeatEveryCustomValue,
     repeatEveryCustomType
   } = req.body;
-  const originUser = req.user.id;
 
-  //Hard coded test values
-  const type = 'Supplies';
-  const originPet = '';
+  const originUser = req.user.id;
 
   PetEvent.create({
     from: new Date(from),
@@ -43,9 +42,18 @@ router.post('/create', routeGuard, (req, res, next) => {
     repeatEveryCustomValue,
     repeatEveryCustomType,
     originUser,
-    type
+    type,
+    originPet
   })
-    .then(() => res.redirect('/'))
+    .then((event) => {
+      console.log(event._id);
+      return Pet.findByIdAndUpdate(originPet, {
+        $push: { petEvents: event._id }
+      });
+    })
+    .then((pet) => {
+      res.redirect('/');
+    })
     .catch((error) => next(error));
 });
 

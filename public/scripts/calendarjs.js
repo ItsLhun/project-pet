@@ -375,7 +375,7 @@ function calendarJs(id, options, startDateTime) {
     _element_EventEditorDialog_Description = null,
     // Nahuel: remove unused elements, add custom
     _element_EventEditorDialog_Pet = null,
-    _element_EventEditorDialog_Type = null,
+    _element_EventEditorDialog_eventType = null,
     // _element_EventEditorDialog_Location = null,
     // _element_EventEditorDialog_Group = null,
     // _element_EventEditorDialog_Url = null,
@@ -4692,13 +4692,13 @@ function calendarJs(id, options, startDateTime) {
     } else {
       petMiniatureImage.setAttribute('src', '/images/index.png');
     }
-    // const petMiniName = createElement('h5', null);
-    // petMiniName.textContent = name;
+    const petMiniName = createElement('h5', null);
+    petMiniName.textContent = name;
 
     petCalendarWrapper.appendChild(petLink);
     petLink.appendChild(petCalendarImageHolder);
     petCalendarImageHolder.appendChild(petMiniatureImage);
-    // petLink.appendChild(petMiniName);
+    petLink.appendChild(petMiniName);
 
     petLink.addEventListener('click', (e) => {
       const otherPets = document.querySelectorAll(
@@ -4753,12 +4753,13 @@ function calendarJs(id, options, startDateTime) {
     var inputTypeContainer = createElement('div', 'input-type-container');
     _element_EventEditorDialog_Tab_Event.appendChild(inputTypeContainer);
 
-    _element_EventEditorDialog_Type = createElement('select', null);
-    inputTypeContainer.appendChild(_element_EventEditorDialog_Type);
+    _element_EventEditorDialog_eventType = createElement('select', null);
+    inputTypeContainer.appendChild(_element_EventEditorDialog_eventType);
 
     const eventTypes = ['Vet Appointment', 'Supplies', 'Grooming', 'Other'];
+
     eventTypes.forEach((event) => {
-      createTypeOptions(event, _element_EventEditorDialog_Type);
+      createTypeOptions(event, _element_EventEditorDialog_eventType);
     });
 
     // end custom inputs
@@ -5403,6 +5404,8 @@ function calendarJs(id, options, startDateTime) {
       var fromDate = getSelectedDate(_element_EventEditorDialog_DateFrom),
         toDate = getSelectedDate(_element_EventEditorDialog_DateTo),
         description = trimString(_element_EventEditorDialog_Description.value),
+        petTarget = _options.petTarget,
+        eventType = _element_EventEditorDialog_eventType.value,
         //location = trimString(_element_EventEditorDialog_Location.value),
         // group = trimString(_element_EventEditorDialog_Group.value),
         repeatEnds = getSelectedDate(
@@ -5441,6 +5444,8 @@ function calendarJs(id, options, startDateTime) {
             to: toDate,
             title: title,
             description: description,
+            type: eventType,
+            originPet: petTarget,
             //location: location,
             //group: group,
             isAllDay: _element_EventEditorDialog_IsAllDay.checked,

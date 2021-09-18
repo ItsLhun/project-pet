@@ -46,7 +46,13 @@ const petSchema = new mongoose.Schema({
   profilePicture: {
     type: String,
     default: '/images/index.png'
-  }
+  },
+  petEvents: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'PetEvent'
+    }
+  ]
 });
 
 const Pet = mongoose.model('Pet', petSchema);

@@ -368,7 +368,7 @@ div.calendar div.ib-arrow-expand-left-right-icon {
 */
 div.calendar div.header-date {
   font-weight: 900;
-  background-color: #282828;
+  background-color: #e26a29;
   color: #f5f5f5;
   text-align: center;
   padding-top: 10px;
@@ -3870,6 +3870,7 @@ body {
   font-family: "Sanchez", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 2;
   overflow-x: hidden;
+  background: radial-gradient(#eeeeee, #fff4e1);
 }
 
 a {
@@ -3968,7 +3969,7 @@ label {
 }
 
 .login-form button, .sign-up-form button {
-  background-color: #af6e32;
+  background-color: #e26a29;
   color: white;
   width: 73%;
   border-radius: 10px;
@@ -4003,7 +4004,7 @@ label {
 }
 
 .input-label-wrap input:active, .input-label-wrap input:link {
-  border: 2px solid #af6e32;
+  border: 2px solid #e26a29;
 }
 
 .input-name-wrap {
@@ -4072,6 +4073,22 @@ div.input-pet-container {
   background-color: white;
   border: 1px solid #a7a7a7;
   border-radius: 0.25rem;
+}
+
+h1 {
+  background: linear-gradient(90deg, #e26a29 20%, #eb762b 80%);
+  border-radius: 0.9rem 0.9rem 0 0;
+  height: 3.5em;
+  -webkit-text-fill-color: white;
+  /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  padding: 0.5em;
+}
+
+h1 + * {
+  margin-top: -2em;
+  border-radius: 15px 15px 0 0;
 }
 
 #menu-toggle {
@@ -4185,9 +4202,9 @@ div.input-pet-container {
 
 .dashboard-component,
 .calendar {
-  border-radius: 5px;
+  border-radius: 0.9rem 0.9rem 0.2em 0.2em;
   margin-bottom: 2em;
-  border: 2px dotted #af6e32;
+  border: 2px dashed #ffb54f;
 }
 
 .dashboard-component {
@@ -4256,22 +4273,23 @@ div.input-pet-container {
 .btn-wrapper .add-pet-button {
   display: block;
   padding: 0.2em 0.8em;
-  background-color: #af6e32;
+  background-color: #e26a29;
   color: white;
   border-radius: 20px;
 }
 
 .btn-wrapper .add-pet-button:hover {
   background-color: white;
-  color: #af6e32;
+  color: #e26a29;
   transition: all ease;
-  border: 1px dashed #af6e32;
+  border: 1px dashed #e26a29;
 }
 
 .profile-picture-wrapper {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  align-items: center;
 }
 
 .profile-picture-wrapper div:first-child {
@@ -4295,8 +4313,8 @@ div.input-pet-container {
 .profile-section {
   display: flex;
   flex-flow: row wrap;
-  margin-bottom: 2.5rem;
-  margin-top: 2rem;
+  justify-content: center;
+  align-items: center;
   font-size: 1.35em;
 }
 
