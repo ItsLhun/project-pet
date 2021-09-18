@@ -157,7 +157,7 @@ div.calendar {
     border-radius: $component-round-radius $component-round-radius 0 0;
     margin-top: -3rem;
     position: relative;
-    z-index: 3;
+    z-index: 0;
   }
 
   div.weekend-day {
@@ -346,9 +346,9 @@ div.calendar {
     padding-right: $spacing / 2;
     position: relative;
     margin-bottom: 2em;
-    z-index: 1;
+    z-index: 0;
     > * {
-      z-index: 2;
+      z-index: 1;
     }
 
     div.title-container {
@@ -768,6 +768,8 @@ div.calendar {
 
 div.calendar {
   div.list-all-week-events-view {
+    position: relative;
+    z-index: 11;
     @include full-size-view-display;
 
     @import 'foundation/overlay-title-bar';
