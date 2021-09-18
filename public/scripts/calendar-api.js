@@ -1,5 +1,3 @@
-const hello = () => console.log('hello world');
-
 const fetchUserEventsHTTP = () => {
   return axios.get('http://localhost:3000/event/');
 };

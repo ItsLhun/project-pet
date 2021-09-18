@@ -51,7 +51,7 @@ router.post('/create', routeGuard, (req, res, next) => {
         $push: { petEvents: event._id }
       });
     })
-    .then((pet) => {
+    .then(() => {
       res.redirect('/');
     })
     .catch((error) => next(error));
