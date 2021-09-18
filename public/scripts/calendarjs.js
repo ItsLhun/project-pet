@@ -380,11 +380,11 @@ function calendarJs(id, options, startDateTime) {
     // _element_EventEditorDialog_Group = null,
     // _element_EventEditorDialog_Url = null,
     _element_EventEditorDialog_RepeatEvery_Never = null,
-    _element_EventEditorDialog_RepeatEvery_EveryDay = null,
-    _element_EventEditorDialog_RepeatEvery_EveryWeek = null,
-    _element_EventEditorDialog_RepeatEvery_Every2Weeks = null,
-    _element_EventEditorDialog_RepeatEvery_EveryMonth = null,
-    _element_EventEditorDialog_RepeatEvery_EveryYear = null,
+    // _element_EventEditorDialog_RepeatEvery_EveryDay = null,
+    // _element_EventEditorDialog_RepeatEvery_EveryWeek = null,
+    // _element_EventEditorDialog_RepeatEvery_Every2Weeks = null,
+    // _element_EventEditorDialog_RepeatEvery_EveryMonth = null,
+    // _element_EventEditorDialog_RepeatEvery_EveryYear = null,
     _element_EventEditorDialog_RepeatEvery_Custom = null,
     _element_EventEditorDialog_RepeatEvery_RepeatOptionsButton = null,
     _element_EventEditorDialog_RepeatEvery_Custom_Type_Daily = null,
@@ -4871,36 +4871,38 @@ function calendarJs(id, options, startDateTime) {
       'RepeatType',
       repeatEveryEvent
     );
-    _element_EventEditorDialog_RepeatEvery_EveryDay = buildRadioButton(
-      radioButtonsRepeatsContainer,
-      _options.repeatsEveryDayText,
-      'RepeatType',
-      repeatEveryEvent
-    );
-    _element_EventEditorDialog_RepeatEvery_EveryWeek = buildRadioButton(
-      radioButtonsRepeatsContainer,
-      _options.repeatsEveryWeekText,
-      'RepeatType',
-      repeatEveryEvent
-    );
-    _element_EventEditorDialog_RepeatEvery_Every2Weeks = buildRadioButton(
-      radioButtonsRepeatsContainer,
-      _options.repeatsEvery2WeeksText,
-      'RepeatType',
-      repeatEveryEvent
-    );
-    _element_EventEditorDialog_RepeatEvery_EveryMonth = buildRadioButton(
-      radioButtonsRepeatsContainer,
-      _options.repeatsEveryMonthText,
-      'RepeatType',
-      repeatEveryEvent
-    );
-    _element_EventEditorDialog_RepeatEvery_EveryYear = buildRadioButton(
-      radioButtonsRepeatsContainer,
-      _options.repeatsEveryYearText,
-      'RepeatType',
-      repeatEveryEvent
-    );
+    // Nahuel : remove unnecesary radio selectors
+
+    // _element_EventEditorDialog_RepeatEvery_EveryDay = buildRadioButton(
+    //   radioButtonsRepeatsContainer,
+    //   _options.repeatsEveryDayText,
+    //   'RepeatType',
+    //   repeatEveryEvent
+    // );
+    // _element_EventEditorDialog_RepeatEvery_EveryWeek = buildRadioButton(
+    //   radioButtonsRepeatsContainer,
+    //   _options.repeatsEveryWeekText,
+    //   'RepeatType',
+    //   repeatEveryEvent
+    // );
+    // _element_EventEditorDialog_RepeatEvery_Every2Weeks = buildRadioButton(
+    //   radioButtonsRepeatsContainer,
+    //   _options.repeatsEvery2WeeksText,
+    //   'RepeatType',
+    //   repeatEveryEvent
+    // );
+    // _element_EventEditorDialog_RepeatEvery_EveryMonth = buildRadioButton(
+    //   radioButtonsRepeatsContainer,
+    //   _options.repeatsEveryMonthText,
+    //   'RepeatType',
+    //   repeatEveryEvent
+    // );
+    // _element_EventEditorDialog_RepeatEvery_EveryYear = buildRadioButton(
+    //   radioButtonsRepeatsContainer,
+    //   _options.repeatsEveryYearText,
+    //   'RepeatType',
+    //   repeatEveryEvent
+    // );
     _element_EventEditorDialog_RepeatEvery_Custom = buildRadioButton(
       radioButtonsRepeatsContainer,
       _options.repeatsCustomText,
@@ -4964,159 +4966,159 @@ function calendarJs(id, options, startDateTime) {
       );
   }
 
-  function buildEventEditorRepeatsTabContent() {
-    // var radioButtonsRepeatsContainer = createElement(
-    //   'div',
-    //   'radioButtonsContainer'
-    // );
-    // _element_EventEditorDialog_Tab_Repeats.appendChild(
-    //   radioButtonsRepeatsContainer
-    // );
-    // _element_EventEditorDialog_RepeatEvery_Never = buildRadioButton(
-    //   radioButtonsRepeatsContainer,
-    //   _options.repeatsNever,
-    //   'RepeatType',
-    //   repeatEveryEvent
-    // );
-    // _element_EventEditorDialog_RepeatEvery_EveryDay = buildRadioButton(
-    //   radioButtonsRepeatsContainer,
-    //   _options.repeatsEveryDayText,
-    //   'RepeatType',
-    //   repeatEveryEvent
-    // );
-    // _element_EventEditorDialog_RepeatEvery_EveryWeek = buildRadioButton(
-    //   radioButtonsRepeatsContainer,
-    //   _options.repeatsEveryWeekText,
-    //   'RepeatType',
-    //   repeatEveryEvent
-    // );
-    // _element_EventEditorDialog_RepeatEvery_Every2Weeks = buildRadioButton(
-    //   radioButtonsRepeatsContainer,
-    //   _options.repeatsEvery2WeeksText,
-    //   'RepeatType',
-    //   repeatEveryEvent
-    // );
-    // _element_EventEditorDialog_RepeatEvery_EveryMonth = buildRadioButton(
-    //   radioButtonsRepeatsContainer,
-    //   _options.repeatsEveryMonthText,
-    //   'RepeatType',
-    //   repeatEveryEvent
-    // );
-    // _element_EventEditorDialog_RepeatEvery_EveryYear = buildRadioButton(
-    //   radioButtonsRepeatsContainer,
-    //   _options.repeatsEveryYearText,
-    //   'RepeatType',
-    //   repeatEveryEvent
-    // );
-    // _element_EventEditorDialog_RepeatEvery_Custom = buildRadioButton(
-    //   radioButtonsRepeatsContainer,
-    //   _options.repeatsCustomText,
-    //   'RepeatType',
-    //   repeatEveryEvent
-    // );
-    // _element_EventEditorDialog_RepeatEvery_RepeatOptionsButton =
-    //   createButtonElement(
-    //     radioButtonsRepeatsContainer,
-    //     '...',
-    //     'repeat-options',
-    //     showEventEditorRepeatOptionsDialog,
-    //     _options.repeatOptionsTitle
-    //   );
-    // var toSplitContainer = createElement('div', 'split split-margin');
-    // _element_EventEditorDialog_Tab_Repeats.appendChild(toSplitContainer);
-    // _element_EventEditorDialog_RepeatEvery_Custom_Value = createElement(
-    //   'input',
-    //   null,
-    //   'number'
-    // );
-    // _element_EventEditorDialog_RepeatEvery_Custom_Value.setAttribute(
-    //   'min',
-    //   '1'
-    // );
-    // toSplitContainer.appendChild(
-    //   _element_EventEditorDialog_RepeatEvery_Custom_Value
-    // );
-    // var radioButtonsCustomRepeatsContainer = createElement(
-    //   'div',
-    //   'radioButtonsContainer split-contents'
-    // );
-    // toSplitContainer.appendChild(radioButtonsCustomRepeatsContainer);
-    // _element_EventEditorDialog_RepeatEvery_Custom_Type_Daily = buildRadioButton(
-    //   radioButtonsCustomRepeatsContainer,
-    //   _options.dailyText,
-    //   'RepeatCustomType'
-    // );
-    // _element_EventEditorDialog_RepeatEvery_Custom_Type_Weekly =
-    //   buildRadioButton(
-    //     radioButtonsCustomRepeatsContainer,
-    //     _options.weeklyText,
-    //     'RepeatCustomType'
-    //   );
-    // _element_EventEditorDialog_RepeatEvery_Custom_Type_Monthly =
-    //   buildRadioButton(
-    //     radioButtonsCustomRepeatsContainer,
-    //     _options.monthlyText,
-    //     'RepeatCustomType'
-    //   );
-    // _element_EventEditorDialog_RepeatEvery_Custom_Type_Yearly =
-    //   buildRadioButton(
-    //     radioButtonsCustomRepeatsContainer,
-    //     _options.yearlyText,
-    //     'RepeatCustomType'
-    //   );
-  }
+  // function buildEventEditorRepeatsTabContent() {
+  // var radioButtonsRepeatsContainer = createElement(
+  //   'div',
+  //   'radioButtonsContainer'
+  // );
+  // _element_EventEditorDialog_Tab_Repeats.appendChild(
+  //   radioButtonsRepeatsContainer
+  // );
+  // _element_EventEditorDialog_RepeatEvery_Never = buildRadioButton(
+  //   radioButtonsRepeatsContainer,
+  //   _options.repeatsNever,
+  //   'RepeatType',
+  //   repeatEveryEvent
+  // );
+  // _element_EventEditorDialog_RepeatEvery_EveryDay = buildRadioButton(
+  //   radioButtonsRepeatsContainer,
+  //   _options.repeatsEveryDayText,
+  //   'RepeatType',
+  //   repeatEveryEvent
+  // );
+  // _element_EventEditorDialog_RepeatEvery_EveryWeek = buildRadioButton(
+  //   radioButtonsRepeatsContainer,
+  //   _options.repeatsEveryWeekText,
+  //   'RepeatType',
+  //   repeatEveryEvent
+  // );
+  // _element_EventEditorDialog_RepeatEvery_Every2Weeks = buildRadioButton(
+  //   radioButtonsRepeatsContainer,
+  //   _options.repeatsEvery2WeeksText,
+  //   'RepeatType',
+  //   repeatEveryEvent
+  // );
+  // _element_EventEditorDialog_RepeatEvery_EveryMonth = buildRadioButton(
+  //   radioButtonsRepeatsContainer,
+  //   _options.repeatsEveryMonthText,
+  //   'RepeatType',
+  //   repeatEveryEvent
+  // );
+  // _element_EventEditorDialog_RepeatEvery_EveryYear = buildRadioButton(
+  //   radioButtonsRepeatsContainer,
+  //   _options.repeatsEveryYearText,
+  //   'RepeatType',
+  //   repeatEveryEvent
+  // );
+  // _element_EventEditorDialog_RepeatEvery_Custom = buildRadioButton(
+  //   radioButtonsRepeatsContainer,
+  //   _options.repeatsCustomText,
+  //   'RepeatType',
+  //   repeatEveryEvent
+  // );
+  // _element_EventEditorDialog_RepeatEvery_RepeatOptionsButton =
+  //   createButtonElement(
+  //     radioButtonsRepeatsContainer,
+  //     '...',
+  //     'repeat-options',
+  //     showEventEditorRepeatOptionsDialog,
+  //     _options.repeatOptionsTitle
+  //   );
+  // var toSplitContainer = createElement('div', 'split split-margin');
+  // _element_EventEditorDialog_Tab_Repeats.appendChild(toSplitContainer);
+  // _element_EventEditorDialog_RepeatEvery_Custom_Value = createElement(
+  //   'input',
+  //   null,
+  //   'number'
+  // );
+  // _element_EventEditorDialog_RepeatEvery_Custom_Value.setAttribute(
+  //   'min',
+  //   '1'
+  // );
+  // toSplitContainer.appendChild(
+  //   _element_EventEditorDialog_RepeatEvery_Custom_Value
+  // );
+  // var radioButtonsCustomRepeatsContainer = createElement(
+  //   'div',
+  //   'radioButtonsContainer split-contents'
+  // );
+  // toSplitContainer.appendChild(radioButtonsCustomRepeatsContainer);
+  // _element_EventEditorDialog_RepeatEvery_Custom_Type_Daily = buildRadioButton(
+  //   radioButtonsCustomRepeatsContainer,
+  //   _options.dailyText,
+  //   'RepeatCustomType'
+  // );
+  // _element_EventEditorDialog_RepeatEvery_Custom_Type_Weekly =
+  //   buildRadioButton(
+  //     radioButtonsCustomRepeatsContainer,
+  //     _options.weeklyText,
+  //     'RepeatCustomType'
+  //   );
+  // _element_EventEditorDialog_RepeatEvery_Custom_Type_Monthly =
+  //   buildRadioButton(
+  //     radioButtonsCustomRepeatsContainer,
+  //     _options.monthlyText,
+  //     'RepeatCustomType'
+  //   );
+  // _element_EventEditorDialog_RepeatEvery_Custom_Type_Yearly =
+  //   buildRadioButton(
+  //     radioButtonsCustomRepeatsContainer,
+  //     _options.yearlyText,
+  //     'RepeatCustomType'
+  //   );
+  // }
 
-  function buildEventEditorExtraTabContent() {
-    // var inputFields1TextSplitContainer = createElement('div', 'split');
-    // _element_EventEditorDialog_Tab_Extra.appendChild(
-    //   inputFields1TextSplitContainer
-    // );
-    // createTextHeaderElement(
-    //   inputFields1TextSplitContainer,
-    //   _options.locationText
-    // );
-    // createTextHeaderElement(inputFields1TextSplitContainer, _options.groupText);
-    // var inputFields1SplitContainer = createElement('div', 'split');
-    // _element_EventEditorDialog_Tab_Extra.appendChild(
-    //   inputFields1SplitContainer
-    // );
-    // Nahuel: appending the description to the Event tab instead of Extra
-    // _element_EventEditorDialog_Location = createElement('input', null, 'text');
-    // inputFields1SplitContainer.appendChild(_element_EventEditorDialog_Location);
-    // if (_options.maximumEventLocationLength > 0) {
-    //   _element_EventEditorDialog_Location.maxLength =
-    //     _options.maximumEventLocationLength;
-    // }
-    // _element_EventEditorDialog_Group = createElement('input', null, 'text');
-    // inputFields1SplitContainer.appendChild(_element_EventEditorDialog_Group);
-    // if (_options.maximumEventGroupLength > 0) {
-    //   _element_EventEditorDialog_Group.maxLength =
-    //     _options.maximumEventGroupLength;
-    // }
-    // createTextHeaderElement(
-    //   _element_EventEditorDialog_Tab_Extra,
-    //   _options.descriptionText
-    // );
-    // _element_EventEditorDialog_Description = createElement(
-    //   'textarea',
-    //   'custom-scroll-bars'
-    // );
-    // _element_EventEditorDialog_Tab_Extra.appendChild(
-    //   _element_EventEditorDialog_Description
-    // );
-    // if (_options.maximumEventDescriptionLength > 0) {
-    //   _element_EventEditorDialog_Description.maxLength =
-    //     _options.maximumEventDescriptionLength;
-    // }
-    // createTextHeaderElement(
-    //   _element_EventEditorDialog_Tab_Extra,
-    //   _options.urlText
-    // );
-    // _element_EventEditorDialog_Url = createElement('input', null, 'text');
-    // _element_EventEditorDialog_Tab_Extra.appendChild(
-    //   _element_EventEditorDialog_Url
-    // );
-  }
+  // function buildEventEditorExtraTabContent() {
+  // var inputFields1TextSplitContainer = createElement('div', 'split');
+  // _element_EventEditorDialog_Tab_Extra.appendChild(
+  //   inputFields1TextSplitContainer
+  // );
+  // createTextHeaderElement(
+  //   inputFields1TextSplitContainer,
+  //   _options.locationText
+  // );
+  // createTextHeaderElement(inputFields1TextSplitContainer, _options.groupText);
+  // var inputFields1SplitContainer = createElement('div', 'split');
+  // _element_EventEditorDialog_Tab_Extra.appendChild(
+  //   inputFields1SplitContainer
+  // );
+  // Nahuel: appending the description to the Event tab instead of Extra
+  // _element_EventEditorDialog_Location = createElement('input', null, 'text');
+  // inputFields1SplitContainer.appendChild(_element_EventEditorDialog_Location);
+  // if (_options.maximumEventLocationLength > 0) {
+  //   _element_EventEditorDialog_Location.maxLength =
+  //     _options.maximumEventLocationLength;
+  // }
+  // _element_EventEditorDialog_Group = createElement('input', null, 'text');
+  // inputFields1SplitContainer.appendChild(_element_EventEditorDialog_Group);
+  // if (_options.maximumEventGroupLength > 0) {
+  //   _element_EventEditorDialog_Group.maxLength =
+  //     _options.maximumEventGroupLength;
+  // }
+  // createTextHeaderElement(
+  //   _element_EventEditorDialog_Tab_Extra,
+  //   _options.descriptionText
+  // );
+  // _element_EventEditorDialog_Description = createElement(
+  //   'textarea',
+  //   'custom-scroll-bars'
+  // );
+  // _element_EventEditorDialog_Tab_Extra.appendChild(
+  //   _element_EventEditorDialog_Description
+  // );
+  // if (_options.maximumEventDescriptionLength > 0) {
+  //   _element_EventEditorDialog_Description.maxLength =
+  //     _options.maximumEventDescriptionLength;
+  // }
+  // createTextHeaderElement(
+  //   _element_EventEditorDialog_Tab_Extra,
+  //   _options.urlText
+  // );
+  // _element_EventEditorDialog_Url = createElement('input', null, 'text');
+  // _element_EventEditorDialog_Tab_Extra.appendChild(
+  //   _element_EventEditorDialog_Url
+  // );
+  // }
 
   function addNewEvent() {
     showEventEditingDialog(null, _element_FullDayView_DateSelected);
@@ -5170,11 +5172,11 @@ function calendarJs(id, options, startDateTime) {
     }
 
     _element_EventEditorDialog_RepeatEvery_Never.disabled = disabled;
-    _element_EventEditorDialog_RepeatEvery_EveryDay.disabled = disabled;
-    _element_EventEditorDialog_RepeatEvery_EveryWeek.disabled = disabled;
-    _element_EventEditorDialog_RepeatEvery_Every2Weeks.disabled = disabled;
-    _element_EventEditorDialog_RepeatEvery_EveryMonth.disabled = disabled;
-    _element_EventEditorDialog_RepeatEvery_EveryYear.disabled = disabled;
+    // _element_EventEditorDialog_RepeatEvery_EveryDay.disabled = disabled;
+    // _element_EventEditorDialog_RepeatEvery_EveryWeek.disabled = disabled;
+    // _element_EventEditorDialog_RepeatEvery_Every2Weeks.disabled = disabled;
+    // _element_EventEditorDialog_RepeatEvery_EveryMonth.disabled = disabled;
+    // _element_EventEditorDialog_RepeatEvery_EveryYear.disabled = disabled;
     _element_EventEditorDialog_RepeatEvery_Custom.disabled = disabled;
     _element_EventEditorDialog_RepeatEvery_RepeatOptionsButton.disabled =
       disabled;
@@ -5248,16 +5250,16 @@ function calendarJs(id, options, startDateTime) {
       var repeatEvery = getNumber(eventDetails.repeatEvery);
       if (repeatEvery === _repeatType.never) {
         _element_EventEditorDialog_RepeatEvery_Never.checked = true;
-      } else if (repeatEvery === _repeatType.everyDay) {
-        _element_EventEditorDialog_RepeatEvery_EveryDay.checked = true;
-      } else if (repeatEvery === _repeatType.everyWeek) {
-        _element_EventEditorDialog_RepeatEvery_EveryWeek.checked = true;
-      } else if (repeatEvery === _repeatType.every2Weeks) {
-        _element_EventEditorDialog_RepeatEvery_Every2Weeks.checked = true;
-      } else if (repeatEvery === _repeatType.everyMonth) {
-        _element_EventEditorDialog_RepeatEvery_EveryMonth.checked = true;
-      } else if (repeatEvery === _repeatType.everyYear) {
-        _element_EventEditorDialog_RepeatEvery_EveryYear.checked = true;
+        // } else if (repeatEvery === _repeatType.everyDay) {
+        //   _element_EventEditorDialog_RepeatEvery_EveryDay.checked = true;
+        // } else if (repeatEvery === _repeatType.everyWeek) {
+        //   _element_EventEditorDialog_RepeatEvery_EveryWeek.checked = true;
+        // } else if (repeatEvery === _repeatType.every2Weeks) {
+        //   _element_EventEditorDialog_RepeatEvery_Every2Weeks.checked = true;
+        // } else if (repeatEvery === _repeatType.everyMonth) {
+        //   _element_EventEditorDialog_RepeatEvery_EveryMonth.checked = true;
+        // } else if (repeatEvery === _repeatType.everyYear) {
+        //   _element_EventEditorDialog_RepeatEvery_EveryYear.checked = true;
       } else if (repeatEvery === _repeatType.custom) {
         _element_EventEditorDialog_RepeatEvery_Custom.checked = true;
       }
@@ -5462,16 +5464,16 @@ function calendarJs(id, options, startDateTime) {
 
         if (_element_EventEditorDialog_RepeatEvery_Never.checked) {
           newEvent.repeatEvery = _repeatType.never;
-        } else if (_element_EventEditorDialog_RepeatEvery_EveryDay.checked) {
-          newEvent.repeatEvery = _repeatType.everyDay;
-        } else if (_element_EventEditorDialog_RepeatEvery_EveryWeek.checked) {
-          newEvent.repeatEvery = _repeatType.everyWeek;
-        } else if (_element_EventEditorDialog_RepeatEvery_Every2Weeks.checked) {
-          newEvent.repeatEvery = _repeatType.every2Weeks;
-        } else if (_element_EventEditorDialog_RepeatEvery_EveryMonth.checked) {
-          newEvent.repeatEvery = _repeatType.everyMonth;
-        } else if (_element_EventEditorDialog_RepeatEvery_EveryYear.checked) {
-          newEvent.repeatEvery = _repeatType.everyYear;
+          // } else if (_element_EventEditorDialog_RepeatEvery_EveryDay.checked) {
+          //   newEvent.repeatEvery = _repeatType.everyDay;
+          // } else if (_element_EventEditorDialog_RepeatEvery_EveryWeek.checked) {
+          //   newEvent.repeatEvery = _repeatType.everyWeek;
+          // } else if (_element_EventEditorDialog_RepeatEvery_Every2Weeks.checked) {
+          //   newEvent.repeatEvery = _repeatType.every2Weeks;
+          // } else if (_element_EventEditorDialog_RepeatEvery_EveryMonth.checked) {
+          //   newEvent.repeatEvery = _repeatType.everyMonth;
+          // } else if (_element_EventEditorDialog_RepeatEvery_EveryYear.checked) {
+          //   newEvent.repeatEvery = _repeatType.everyYear;
         } else if (_element_EventEditorDialog_RepeatEvery_Custom.checked) {
           newEvent.repeatEvery = _repeatType.custom;
         }
@@ -9701,25 +9703,25 @@ function calendarJs(id, options, startDateTime) {
       _options.repeatsNever = 'Never';
     }
 
-    if (!isDefined(_options.repeatsEveryDayText)) {
-      _options.repeatsEveryDayText = 'Every Day';
-    }
+    // if (!isDefined(_options.repeatsEveryDayText)) {
+    //   _options.repeatsEveryDayText = 'Every Day';
+    // }
 
-    if (!isDefined(_options.repeatsEveryWeekText)) {
-      _options.repeatsEveryWeekText = 'Every Week';
-    }
+    // if (!isDefined(_options.repeatsEveryWeekText)) {
+    //   _options.repeatsEveryWeekText = 'Every Week';
+    // }
 
-    if (!isDefined(_options.repeatsEvery2WeeksText)) {
-      _options.repeatsEvery2WeeksText = 'Every 2 Weeks';
-    }
+    // if (!isDefined(_options.repeatsEvery2WeeksText)) {
+    //   _options.repeatsEvery2WeeksText = 'Every 2 Weeks';
+    // }
 
-    if (!isDefined(_options.repeatsEveryMonthText)) {
-      _options.repeatsEveryMonthText = 'Every Month';
-    }
+    // if (!isDefined(_options.repeatsEveryMonthText)) {
+    //   _options.repeatsEveryMonthText = 'Every Month';
+    // }
 
-    if (!isDefined(_options.repeatsEveryYearText)) {
-      _options.repeatsEveryYearText = 'Every Year';
-    }
+    // if (!isDefined(_options.repeatsEveryYearText)) {
+    //   _options.repeatsEveryYearText = 'Every Year';
+    // }
 
     if (!isDefined(_options.repeatsCustomText)) {
       _options.repeatsCustomText = 'Custom:';
