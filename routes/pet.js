@@ -53,10 +53,14 @@ petRouter.post('/create', routeGuard, (req, res, next) => {
 
 petRouter.get('/:id', (req, res, next) => {
   const { id } = req.params;
+  let pet;
   Pet.findById(id)
-    .populate('petEvents')
     .then((returnedPet) => {
-      res.render('pet/profile', returnedPet);
+      pet = returnedPet;
+      return PetEvent.find({ originPet: id });
+    })
+    .then((events) => {
+      res.render('pet/profile', { pet, events });
     })
     .catch((error) => {
       next(error);

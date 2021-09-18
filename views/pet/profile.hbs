@@ -1,22 +1,22 @@
 <main>
-  <h1>{{name}}'s profile</h1>
+  <h1>{{pet.name}}'s profile</h1>
   <section class='profile-section dashboard-component'>
     <div class='profile-picture-wrapper'>
       <div class='profile-circle'>
-        <img src='{{profilePicture}}' alt='{{name}} profile picture' />
+        <img src='{{pet.profilePicture}}' alt='{{pet.name}} profile picture' />
         <div class='camera-wrapper'><a href=""><img src="/images/camera-icon.svg" alt=""></s></a></div>
       </div>
     </div>
     <div class='profile-info'>
-      <div><strong>Name: </strong><span>{{name}}</span></div>
+      <div><strong>Name: </strong><span>{{pet.name}}</span></div>
       <div><strong>Birthday: </strong><span>
-          {{#if birthday}}
-            {{birthday}}
+          {{#if pet.birthday}}
+            {{pet.birthday}}
           {{else}}
             Not set
           {{/if}}
         </span></div>
-      <div><strong>Species: </strong><span>{{species}}</span></div>
+      <div><strong>Species: </strong><span>{{pet.species}}</span></div>
     </div>
   </section>
   <fieldset class='dashboard-component'>
@@ -33,6 +33,6 @@
 <script src='/scripts/calendarjs.js'></script>
 <script src='/scripts/calendar-options.js'></script>
 <script>
-  const events = {{{ json petEvents }}};
+  const events = {{{ json events }}};
   calendarInstance.setEvents(events);
 </script>

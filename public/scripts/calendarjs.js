@@ -9564,6 +9564,10 @@ function calendarJs(id, options, startDateTime) {
       _options.cancelText = 'Cancel';
     }
 
+    if (!isDefined(_options.petTarget)) {
+      _options.removeEventText = 'Remove';
+    }
+
     if (!isDefined(_options.removeEventText)) {
       _options.removeEventText = 'Remove';
     }

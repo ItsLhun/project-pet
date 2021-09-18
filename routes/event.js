@@ -45,12 +45,6 @@ router.post('/create', routeGuard, (req, res, next) => {
     type,
     originPet
   })
-    .then((event) => {
-      console.log(event._id);
-      return Pet.findByIdAndUpdate(originPet, {
-        $push: { petEvents: event._id }
-      });
-    })
     .then(() => {
       res.redirect('/');
     })
@@ -92,14 +86,7 @@ router.post('/delete', routeGuard, (req, res, next) => {
   const { id } = req.body;
 
   let event;
-  PetEvent.findById(id)
-    .then((eventDoc) => {
-      event = eventDoc;
-      return Pet.findByIdAndUpdate(event.originPet, {
-        $pull: { petEvents: id }
-      });
-    })
-    .then(() => PetEvent.findByIdAndDelete(id))
+  PetEvent.findByIdAndDelete(id)
     .then(() => res.redirect('/'))
     .catch((error) => next(error));
 });

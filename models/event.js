@@ -64,7 +64,8 @@ const eventSchema = new mongoose.Schema({
   },
   originPet: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Pet'
+    ref: 'Pet',
+    required: true
   },
   originUser: {
     type: mongoose.Schema.Types.ObjectId,
