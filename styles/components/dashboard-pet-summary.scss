@@ -3,6 +3,9 @@
 .component-title {
   margin-top: 0;
   padding: 0.2em;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  user-select: none;
 }
 .component-header {
   display: flex;
@@ -60,6 +63,7 @@
       color: $main-brown;
       transition: all ease;
       border: 1px dashed $main-brown;
+      padding: calc(0.2em - 1px) calc(0.8em - 1px);
     }
   }
 }

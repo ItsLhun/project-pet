@@ -2,7 +2,7 @@
 
 <div id='pet-summary' class='dashboard-component'>
   <div class='component-header'>
-  <h4 class='component-title'>My pets</h4>
+  <h4 class='component-title'></h4>
 
     <div class="btn-wrapper"><a href='/pet/create' class="add-pet-button">Add pet</a></div>
     </div>
@@ -15,8 +15,9 @@
   </div>
   
 </div>
-<div id='upcoming-events' class='dashboard-component'>
-  <h4 class='component-title'>Upcoming (15 days)</h4>
+<fieldset id='upcoming-events' class='dashboard-component'>
+  
+  <legend class='component-title'>Upcoming (15 days)</legend>
   <div>
     <div id='display-upcoming'></div>
 
@@ -25,7 +26,7 @@
       {{else}}
     {{/if}} --}}
   </div>
-</div>
+</fieldset>
 <div id='calendar' class='dashboard-component'></div>
     <script src='https://unpkg.com/axios/dist/axios.min.js' ></script>
     <script src='/scripts/calendar-api.js' ></script>

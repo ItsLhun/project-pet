@@ -216,7 +216,8 @@ h1 {
   -webkit-text-stroke-color: black;
   padding: 0.5em;
 }
-h1 + * {
+h1 + *,
+h1 + fieldset {
   margin-top: -2em;
   border-radius: 15px 15px 0 0;
 }
@@ -226,3 +227,4 @@ h1 + * {
 @import './components/dashboard-pet-summary.scss';
 @import './components/create-pet.scss';
 @import './components/pet-profile.scss';
+@import './components/add-pic-camera.scss';
