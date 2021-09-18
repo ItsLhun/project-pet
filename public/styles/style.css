@@ -4096,7 +4096,8 @@ h1 {
   padding: 0.5em;
 }
 
-h1 + * {
+h1 + *,
+h1 + fieldset {
   margin-top: -2em;
   border-radius: 15px 15px 0 0;
 }
@@ -4225,6 +4226,9 @@ h1 + * {
 .component-title {
   margin-top: 0;
   padding: 0.2em;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  user-select: none;
 }
 
 .component-header {
@@ -4293,6 +4297,7 @@ h1 + * {
   color: #e26a29;
   transition: all ease;
   border: 1px dashed #e26a29;
+  padding: calc(0.2em - 1px) calc(0.8em - 1px);
 }
 
 .profile-picture-wrapper {

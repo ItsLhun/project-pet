@@ -216,7 +216,8 @@ h1 {
   -webkit-text-stroke-color: black;
   padding: 0.5em;
 }
-h1 + * {
+h1 + *,
+h1 + fieldset {
   margin-top: -2em;
   border-radius: 15px 15px 0 0;
 }
