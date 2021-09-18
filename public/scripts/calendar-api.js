@@ -5,7 +5,6 @@ const fetchUserEventsHTTP = () => {
 };
 
 const fetchPetsHTTP = (id) => {
-  console.log(id);
   return axios.get('http://localhost:3000/pet/', id);
 };
 

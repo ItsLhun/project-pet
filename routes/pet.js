@@ -56,6 +56,7 @@ petRouter.post('/create', routeGuard, (req, res, next) => {
 petRouter.get('/:id', (req, res, next) => {
   const { id } = req.params;
   Pet.findById(id)
+    .populate('petEvents')
     .then((returnedPet) => {
       res.render('pet/profile', returnedPet);
     })

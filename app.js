@@ -17,12 +17,14 @@ const eventRouter = require('./routes/event');
 const sessionConfig = require('./config/session');
 const sassConfig = require('./config/sass');
 const petRouter = require('./routes/pet.js');
+const hbsJson = require('hbs-json');
 
 const app = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 hbs.registerPartials(path.join(__dirname, '/views/partials'));
+hbs.registerHelper('json', hbsJson);
 
 app.use(serveFavicon(path.join(__dirname, 'public/images', 'favicon.ico')));
 app.use(sassMiddleware(sassConfig));
