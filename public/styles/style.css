@@ -156,11 +156,11 @@ div.calendar {
   -o-user-select: none;
   user-select: none;
   cursor: default;
-  border-radius: 0.25rem;
+  border-radius: 0.9rem 0.9rem 0.25rem 0.25rem;
   overflow: hidden;
   width: 100%;
   min-width: 260px;
-  border: 1px solid #282828;
+  border: 1px solid #e26a29;
   position: relative;
 }
 
@@ -181,6 +181,10 @@ div.calendar div.header-days {
   background-color: #e0e0e0 !important;
   color: #282828 !important;
   text-transform: uppercase;
+  border-radius: 0.9rem 0.9rem 0 0;
+  margin-top: -3rem;
+  position: relative;
+  z-index: 3;
 }
 
 div.calendar div.weekend-day {
@@ -372,10 +376,16 @@ div.calendar div.header-date {
   color: #f5f5f5;
   text-align: center;
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 26px;
   padding-left: 5px;
   padding-right: 5px;
   position: relative;
+  margin-bottom: 2em;
+  z-index: 1;
+}
+
+div.calendar div.header-date > * {
+  z-index: 2;
 }
 
 div.calendar div.header-date div.title-container {

@@ -129,11 +129,12 @@ div.calendar-date-picker {
 
 div.calendar {
   @include no-selection-allowed;
-  border-radius: $border-view-radius;
+  border-radius: $component-round-radius $component-round-radius
+    $border-view-radius $border-view-radius;
   overflow: hidden;
   width: 100%;
   min-width: 260px;
-  border: $standard-border-size solid $dark-color;
+  border: $standard-border-size solid $main-brown;
   position: relative;
 
   sup {
@@ -153,6 +154,10 @@ div.calendar {
     background-color: $day-names-color !important;
     color: $dark-color !important;
     text-transform: uppercase;
+    border-radius: $component-round-radius $component-round-radius 0 0;
+    margin-top: -3rem;
+    position: relative;
+    z-index: 3;
   }
 
   div.weekend-day {
@@ -336,10 +341,15 @@ div.calendar {
     color: $light-color;
     text-align: center;
     padding-top: $spacing;
-    padding-bottom: $spacing;
+    padding-bottom: $spacing + 16px;
     padding-left: $spacing / 2;
     padding-right: $spacing / 2;
     position: relative;
+    margin-bottom: 2em;
+    z-index: 1;
+    > * {
+      z-index: 2;
+    }
 
     div.title-container {
       display: inline;
