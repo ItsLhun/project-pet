@@ -90,8 +90,16 @@ router.post('/update', routeGuard, (req, res, next) => {
 
 router.post('/delete', routeGuard, (req, res, next) => {
   const { id } = req.body;
-  console.log(req.body);
-  PetEvent.findByIdAndDelete(id)
+
+  let event;
+  PetEvent.findById(id)
+    .then((eventDoc) => {
+      event = eventDoc;
+      return Pet.findByIdAndUpdate(event.originPet, {
+        $pull: { petEvents: id }
+      });
+    })
+    .then(() => PetEvent.findByIdAndDelete(id))
     .then(() => res.redirect('/'))
     .catch((error) => next(error));
 });
