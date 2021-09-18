@@ -9265,7 +9265,7 @@ function calendarJs(id, options, startDateTime) {
     _options = getOptions(newOptions);
 
     if (!isDefined(_options.showDayNumberOrdinals)) {
-      _options.showDayNumberOrdinals = true;
+      _options.showDayNumberOrdinals = false;
     }
 
     if (!isDefined(_options.dragAndDropForEventsEnabled)) {
