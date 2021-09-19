@@ -8,7 +8,6 @@ let sideStatus = sideMenu?.style?.transform;
 
 sideMenuInput.addEventListener('change', () => {
   sideStatus = sideMenu.style.transform;
-  console.log('changed');
   if (sideStatus === 'none') {
     console.log(sideMenuInput.checked);
     sideMenu.style.transform = 'translate(100%, 0)';
@@ -23,8 +22,7 @@ sideMenuInput.addEventListener('change', () => {
   }
 });
 bodyElement.addEventListener('click', (e) => {
-  if (bodyElement === e.target) {
-    console.log('blicked body');
+  if (bodyElement === e.target || e.target !== sideMenu) {
     sideMenuInput.checked = false;
     sideMenu.classList.add('sidebar-no-show');
     sideMenu.style.transform = 'translate(100%, 0)';
