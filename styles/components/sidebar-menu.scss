@@ -19,7 +19,7 @@
   position: absolute;
   cursor: pointer;
   opacity: 0;
-  z-index: 2;
+  z-index: 10000;
 }
 
 #menu-toggle span {
@@ -106,4 +106,7 @@
     margin: 0.5em auto;
     text-align: center;
   }
+}
+.no-scroll {
+  overflow: hidden;
 }

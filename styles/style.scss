@@ -12,7 +12,9 @@ $font-sans: 'Sanchez', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     box-sizing: border-box;
   }
 }
-
+html {
+  overflow-x: hidden;
+}
 body {
   max-width: 60em;
   padding: 0 1em;
@@ -51,7 +53,7 @@ p {
   margin: 0;
   line-height: inherit;
   &:not(:last-child) {
-    margin-bottom: 1rem;
+    margin-bottom: 0.6rem;
   }
 }
 
@@ -208,13 +210,12 @@ div.input-pet-container {
 
 h1 {
   background: linear-gradient(90deg, $main-brown 20%, $secondary-brown 80%);
-
   border-radius: 0.9rem 0.9rem 0 0;
-  height: 3.5em;
-  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
+  height: 4.5em;
+  color: white;
   padding: 0.5em;
+  font-size: 1.2rem;
+  font-weight: 200;
 }
 h1 + *,
 h1 + fieldset {
@@ -228,6 +229,18 @@ h1 + fieldset {
   }
   .welcome-profile-img {
     margin: 2em auto;
+  }
+  p {
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+  h1 {
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $dark-grey;
+    font-size: 1.4rem;
+    font-weight: 600;
   }
 }
 

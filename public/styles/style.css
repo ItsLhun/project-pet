@@ -3875,6 +3875,10 @@ div.calendar-drop-down-menu div.separator {
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   max-width: 60em;
   padding: 0 1em;
@@ -3923,7 +3927,7 @@ h1:not(:last-child),
 h2:not(:last-child),
 h3:not(:last-child),
 p:not(:last-child) {
-  margin-bottom: 1rem;
+  margin-bottom: 0.6rem;
 }
 
 img {
@@ -4091,12 +4095,11 @@ div.input-pet-container {
 h1 {
   background: linear-gradient(90deg, #e26a29 20%, #eb762b 80%);
   border-radius: 0.9rem 0.9rem 0 0;
-  height: 3.5em;
-  -webkit-text-fill-color: white;
-  /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
+  height: 4.5em;
+  color: white;
   padding: 0.5em;
+  font-size: 1.2rem;
+  font-weight: 200;
 }
 
 h1 + *,
@@ -4111,6 +4114,17 @@ h1 + fieldset {
   }
   .welcome-profile-img {
     margin: 2em auto;
+  }
+  p:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+  h1 {
+    -webkit-text-fill-color: white;
+    /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #303030;
+    font-size: 1.4rem;
+    font-weight: 600;
   }
 }
 
@@ -4135,7 +4149,7 @@ h1 + fieldset {
   position: absolute;
   cursor: pointer;
   opacity: 0;
-  z-index: 2;
+  z-index: 10000;
 }
 
 #menu-toggle span {
@@ -4223,6 +4237,10 @@ h1 + fieldset {
   width: 100%;
   margin: 0.5em auto;
   text-align: center;
+}
+
+.no-scroll {
+  overflow: hidden;
 }
 
 .dashboard-component,
