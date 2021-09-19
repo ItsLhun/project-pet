@@ -1,8 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Sanchez:ital@0;1&display=swap');
-$font-sans: 'Sanchez', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
 //main color palette
 @import './colors.scss';
+@import './general-styles.scss';
 @import './calendar/calendarjs.scss';
 
 * {
@@ -91,71 +89,6 @@ textarea {
 label {
   margin-bottom: 0.5em;
 }
-.welcome-profile-img {
-  width: fit-content;
-  height: 12em;
-  width: 12em;
-  margin: 1em auto;
-  border-radius: 50%;
-  border: 2px solid $dark-grey;
-  object-fit: cover;
-  background-color: $mid-grey;
-}
-.login-form {
-  max-width: 28em;
-  background-color: $grey;
-  margin: 0.5em auto;
-  align-items: center;
-  border-radius: 10px;
-  border: 2px solid $mid-grey;
-  button {
-    background-color: $main-brown;
-    color: white;
-    width: 73%;
-    border-radius: 10px;
-    margin: 0.5em auto;
-    font-size: 2rem;
-    padding: 0;
-    + a {
-      margin-bottom: 0.5em;
-    }
-  }
-  .forgot-pass {
-    font-size: 0.8rem;
-  }
-}
-
-.sign-up-form {
-  @extend .login-form;
-  max-width: 45em;
-}
-
-.input-label-wrap {
-  display: flex;
-  flex-flow: column wrap;
-  width: 73%;
-  margin-left: auto;
-  margin-right: auto;
-  input {
-    border: 2px solid $dark-grey;
-    border-radius: 10px;
-    &:active,
-    &:link {
-      border: 2px solid $main-brown;
-    }
-  }
-}
-
-.input-name-wrap {
-  margin: 0;
-  width: 73%;
-  display: flex;
-  justify-content: space-between;
-  div {
-    margin: 0;
-    width: 45%;
-  }
-}
 
 .mini-calendar-pet-wrapper {
   max-width: 13em;
@@ -224,12 +157,6 @@ h1 + fieldset {
 }
 
 @media screen and (min-width: 480px) {
-  .login-form {
-    margin: 1.5em auto;
-  }
-  .welcome-profile-img {
-    margin: 2em auto;
-  }
   p {
     &:not(:last-child) {
       margin-bottom: 1rem;
@@ -244,6 +171,7 @@ h1 + fieldset {
   }
 }
 
+@import './components/login-form.scss';
 @import './components/sidebar-menu.scss';
 @import './components/upcoming-events.scss';
 @import './components/dashboard-pet-summary.scss';

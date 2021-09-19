@@ -6,7 +6,7 @@ const sideMenu = document.querySelector('#sidebar-menu');
 
 let sideStatus = sideMenu?.style?.transform;
 
-sideMenuInput.addEventListener('change', () => {
+sideMenuInput?.addEventListener('change', () => {
   sideStatus = sideMenu.style.transform;
   if (sideStatus === 'none') {
     console.log(sideMenuInput.checked);
@@ -22,7 +22,7 @@ sideMenuInput.addEventListener('change', () => {
   }
 });
 bodyElement.addEventListener('click', (e) => {
-  if (bodyElement === e.target || e.target !== sideMenu) {
+  if ((bodyElement === e.target || e.target !== sideMenu) && sideMenu) {
     sideMenuInput.checked = false;
     sideMenu.classList.add('sidebar-no-show');
     sideMenu.style.transform = 'translate(100%, 0)';

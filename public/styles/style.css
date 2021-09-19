@@ -3965,77 +3965,6 @@ label {
   margin-bottom: 0.5em;
 }
 
-.welcome-profile-img {
-  width: fit-content;
-  height: 12em;
-  width: 12em;
-  margin: 1em auto;
-  border-radius: 50%;
-  border: 2px solid #303030;
-  object-fit: cover;
-  background-color: #c4c4c4;
-}
-
-.login-form, .sign-up-form {
-  max-width: 28em;
-  background-color: #eeeeee;
-  margin: 0.5em auto;
-  align-items: center;
-  border-radius: 10px;
-  border: 2px solid #c4c4c4;
-}
-
-.login-form button, .sign-up-form button {
-  background-color: #e26a29;
-  color: white;
-  width: 73%;
-  border-radius: 10px;
-  margin: 0.5em auto;
-  font-size: 2rem;
-  padding: 0;
-}
-
-.login-form button + a, .sign-up-form button + a {
-  margin-bottom: 0.5em;
-}
-
-.login-form .forgot-pass, .sign-up-form .forgot-pass {
-  font-size: 0.8rem;
-}
-
-.sign-up-form {
-  max-width: 45em;
-}
-
-.input-label-wrap {
-  display: flex;
-  flex-flow: column wrap;
-  width: 73%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.input-label-wrap input {
-  border: 2px solid #303030;
-  border-radius: 10px;
-}
-
-.input-label-wrap input:active, .input-label-wrap input:link {
-  border: 2px solid #e26a29;
-}
-
-.input-name-wrap {
-  margin: 0;
-  width: 73%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.input-name-wrap div {
-  margin: 0;
-  width: 45%;
-}
-
 .mini-calendar-pet-wrapper {
   max-width: 13em;
   min-width: 10em;
@@ -4109,12 +4038,6 @@ h1 + fieldset {
 }
 
 @media screen and (min-width: 480px) {
-  .login-form, .sign-up-form {
-    margin: 1.5em auto;
-  }
-  .welcome-profile-img {
-    margin: 2em auto;
-  }
   p:not(:last-child) {
     margin-bottom: 1rem;
   }
@@ -4125,6 +4048,107 @@ h1 + fieldset {
     -webkit-text-stroke-color: #303030;
     font-size: 1.4rem;
     font-weight: 600;
+  }
+}
+
+.welcome-image-wrapper {
+  margin: 0.7em auto;
+  border: 2px solid #303030;
+  border-radius: 50%;
+  background-color: #c4c4c4;
+  width: calc(7em + 19vw);
+  max-width: 12em;
+  position: relative;
+}
+
+.welcome-image-wrapper:before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+
+.welcome-profile-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  background-position: center center;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+.login-form, .sign-up-form {
+  justify-content: space-evenly;
+  max-width: 28em;
+  background-color: #eeeeee;
+  margin: 0.5em auto;
+  align-items: center;
+  border-radius: 10px;
+  border: 2px solid #c4c4c4;
+  height: calc(100vh - 8rem);
+}
+
+.login-form button, .sign-up-form button {
+  background-color: #e26a29;
+  color: white;
+  width: 73%;
+  border-radius: 10px;
+  margin: 0.5em auto;
+  font-size: calc(1.2rem + 15%);
+  padding: 0;
+}
+
+.login-form button + a, .sign-up-form button + a {
+  margin-bottom: 0.5em;
+}
+
+.login-form .forgot-pass, .sign-up-form .forgot-pass {
+  font-size: 0.8rem;
+}
+
+.sign-up-form {
+  max-width: 45em;
+}
+
+.input-label-wrap {
+  display: flex;
+  flex-flow: column wrap;
+  width: 73%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.input-label-wrap input {
+  border: 2px solid #303030;
+  border-radius: 10px;
+}
+
+.input-label-wrap input:active, .input-label-wrap input:link {
+  border: 2px solid #e26a29;
+}
+
+.input-name-wrap {
+  margin: 0;
+  width: 73%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-name-wrap div {
+  margin: 0;
+  width: 45%;
+}
+
+@media screen and (min-width: 480px) {
+  .login-form, .sign-up-form {
+    margin: 1.5em auto;
+    max-width: 28em;
+    min-width: fit-content;
+    font-size: 1.1rem;
+    min-height: 35em;
   }
 }
 

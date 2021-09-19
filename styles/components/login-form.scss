@@ -1,0 +1,100 @@
+.welcome-image-wrapper {
+  //   height: calc(9em + 10vw);
+  margin: 0.7em auto;
+  border: 2px solid $dark-grey;
+  border-radius: 50%;
+  background-color: $mid-grey;
+  //   padding: 1rem;
+  //   text-align: center;
+  width: calc(7em + 19vw);
+  max-width: 12em;
+
+  position: relative;
+  &:before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+}
+.welcome-profile-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  background-position: center center;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+.login-form {
+  justify-content: space-evenly;
+  max-width: 28em;
+
+  background-color: $grey;
+  margin: 0.5em auto;
+  align-items: center;
+  border-radius: 10px;
+  border: 2px solid $mid-grey;
+  height: calc(100vh - 8rem);
+  button {
+    background-color: $main-brown;
+    color: white;
+    width: 73%;
+    border-radius: 10px;
+    margin: 0.5em auto;
+    font-size: calc(1.2rem + 15%);
+    padding: 0;
+    + a {
+      margin-bottom: 0.5em;
+    }
+  }
+  .forgot-pass {
+    font-size: 0.8rem;
+  }
+}
+
+.sign-up-form {
+  @extend .login-form;
+  max-width: 45em;
+}
+
+.input-label-wrap {
+  display: flex;
+  flex-flow: column wrap;
+  width: 73%;
+  margin-left: auto;
+  margin-right: auto;
+  input {
+    border: 2px solid $dark-grey;
+    border-radius: 10px;
+    &:active,
+    &:link {
+      border: 2px solid $main-brown;
+    }
+  }
+}
+
+.input-name-wrap {
+  margin: 0;
+  width: 73%;
+  display: flex;
+  justify-content: space-between;
+  div {
+    margin: 0;
+    width: 45%;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .login-form {
+    margin: 1.5em auto;
+    max-width: 28em;
+    min-width: fit-content;
+    font-size: 1.1rem;
+    min-height: 35em;
+  }
+}
+@media screen and (max-width: 300px) {
+}
