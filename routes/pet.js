@@ -1,5 +1,7 @@
 const express = require('express');
 const routeGuard = require('../middleware/route-guard');
+const parser = require('../middleware/cloudinary-parser');
+
 const Pet = require('../models/pet');
 const User = require('../models/user');
 const PetEvent = require('../models/event');
@@ -50,6 +52,26 @@ petRouter.post('/create', routeGuard, (req, res, next) => {
     })
     .catch((error) => next(error));
 });
+
+petRouter.post(
+  '/upload-picture/:id',
+  routeGuard,
+  parser.single('profilePicture'),
+  (req, res, next) => {
+    const { id } = req.params;
+    let profilePicture;
+    if (req.file) {
+      profilePicture = req.file.path;
+    }
+    Pet.findByIdAndUpdate(id, { profilePicture: profilePicture })
+      .then((returnedPet) => {
+        res.redirect(`/pet/${id}`);
+      })
+      .catch((error) => {
+        next(error);
+      });
+  }
+);
 
 petRouter.get('/:id', (req, res, next) => {
   const { id } = req.params;

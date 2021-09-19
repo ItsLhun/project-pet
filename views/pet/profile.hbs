@@ -4,7 +4,22 @@
     <div class='profile-picture-wrapper'>
       <div class='profile-circle'>
         <img src='{{pet.profilePicture}}' alt='{{pet.name}} profile picture' />
-        <div class='camera-wrapper'><a href=""><img src="/images/camera-icon.svg" alt=""></s></a></div>
+        <form
+          id='upload-picture-form'
+          method='POST'
+          style='display: none'
+          action='/pet/upload-picture/{{pet._id}}'
+        >
+          <input
+            id='upload-profile-picture'
+            name='profilePicture'
+            type='file'
+          />
+        </form>
+        <div class='camera-wrapper'><img
+            src='/images/camera-icon.svg'
+            alt=''
+          /></div>
       </div>
     </div>
     <div class='profile-info'>
@@ -33,6 +48,6 @@
 <script src='/scripts/calendarjs.js'></script>
 <script src='/scripts/calendar-options.js'></script>
 <script>
-  const events = {{{ json events }}};
-  calendarInstance.setEvents(events);
+  const events =
+  {{{json events}}}; calendarInstance.setEvents(events);
 </script>

@@ -4423,6 +4423,7 @@ h1 + fieldset {
   left: 7%;
   margin: 0;
   padding: 0;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */
