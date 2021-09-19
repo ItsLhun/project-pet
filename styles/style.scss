@@ -163,11 +163,11 @@ h1 + fieldset {
     }
   }
   h1 {
-    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: $dark-grey;
+    // -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    // -webkit-text-stroke-width: 1px;
+    // -webkit-text-stroke-color: $dark-grey;
     font-size: 1.4rem;
-    font-weight: 600;
+    font-weight: 500;
   }
 }
 
