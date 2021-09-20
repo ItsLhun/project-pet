@@ -11,7 +11,7 @@ router.get('/sign-up', (req, res, next) => {
   res.render('authentication/sign-up', { message: req.flash() });
 });
 
-router.post('/sign-up', passwordValidator, (req, res, next) => {
+router.post('/sign-up', (req, res, next) => {
   const { firstName, lastName, username, email, password } = req.body;
 
   bcryptjs
