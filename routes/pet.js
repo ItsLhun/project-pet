@@ -74,7 +74,6 @@ petRouter.post(
     if (req.file) {
       profilePicture = req.file.path;
     }
-    console.log(profilePicture, id);
     Pet.findByIdAndUpdate(id, { profilePicture }, { new: true })
       .then((returnedPet) => {
         console.log(returnedPet);

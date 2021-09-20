@@ -44,6 +44,12 @@
   </div>
   <div class='input-label-wrap'>
     <label for='input-password'>Password</label>
+    {{#if message.passwordError}}
+      <span
+        class='error-message'
+        id='sign-up-password-error'
+      >{{message.passwordError}}</span>
+    {{/if}}
     <input
       type='password'
       name='password'
@@ -55,6 +61,12 @@
   </div>
   <div class='input-label-wrap'>
     <label for='input-repeat-password'>Repeat password</label>
+    {{#if message.passwordMatchError}}
+      <span
+        class='error-message'
+        id='sign-up-password-match-error'
+      >{{message.passwordMatchError}}</span>
+    {{/if}}
     <input
       type='password'
       name='repeatPassword'
