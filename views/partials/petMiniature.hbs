@@ -1,11 +1,14 @@
 <div class='miniature-wrapper'>
   <a href='/pet/{{_id}}'>
-    <div class='miniature-image-holder'>
-      {{#if profilePicture}}
+    <div
+      class='miniature-image-holder'
+      style='background: url({{profilePicture}}); background-size: cover;'
+    >
+      {{!-- {{#if profilePicture}}
         <img src='{{profilePicture}}' alt='profile picture' />
       {{else}}
         <img src='/images/index.png' alt='' />
-      {{/if}}
+      {{/if}} --}}
     </div>
     <h5>{{name}}</h5>
   </a>

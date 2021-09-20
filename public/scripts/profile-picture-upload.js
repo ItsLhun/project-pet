@@ -10,5 +10,10 @@ cameraBtn?.addEventListener('click', (e) => {
 
 uploadProfileInput?.addEventListener('change', (e) => {
   console.log('changed!');
-  uploadPictureForm.submit();
+  console.log(uploadProfileInput.value);
+
+  if (uploadProfileInput.value) {
+    console.log('submitted form');
+    uploadPictureForm.submit();
+  }
 });

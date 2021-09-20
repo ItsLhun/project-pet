@@ -4366,15 +4366,6 @@ h1 + fieldset {
   border: 1px dashed grey;
   background-position: center center;
   padding: 1rem;
-  text-align: center;
-}
-
-.profile-picture-wrapper div:first-child img {
-  min-width: 100%;
-  min-height: 100%;
-  display: block;
-  margin: 0 auto;
-  object-fit: cover;
 }
 
 .profile-section {

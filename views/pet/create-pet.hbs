@@ -1,9 +1,10 @@
 <h2>Create new pet</h2>
 
-<form action="/pet/create" method="POST">
+<form action="/pet/create" method="POST" enctype='multipart/form-data'>
 
     <label for='pet-profile-picture'>Profile picture</label>
-    <input id='pet-profile-picture' name='profilePicture' type='file' />
+    <input id='pet-profile-picture' name='image' type='file' accept='image/*'/>
+    
 
     <label for="pet-name-input">Name</label>
     <input id='pet-name-input' type="text" name="name"></input>

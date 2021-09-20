@@ -1,6 +1,6 @@
 const express = require('express');
 const routeGuard = require('../middleware/route-guard');
-const parser = require('../middleware/cloudinary-parser');
+const upload = require('../middleware/cloudinary-parser');
 
 const Pet = require('../models/pet');
 const User = require('../models/user');
@@ -28,43 +28,57 @@ petRouter.get('/events', routeGuard, (req, res, next) => {
     .catch((error) => next(error));
 });
 
-petRouter.post('/create', routeGuard, (req, res, next) => {
-  const { name, species, birthday, profilePicture } = req.body;
-  let picture = profilePicture || '/images/index.png';
-  const owner = req.user;
-  Pet.create({
-    name,
-    birthday,
-    species,
-    owner,
-    profilePicture: picture // there's no way to trigger default image as both '' and null are valid parameters according to mongoose, hence default is defined above.
-  })
-    .then((pet) => {
-      const petId = pet._id;
-      return User.findByIdAndUpdate(
-        req.session.userId,
-        { $push: { pets: petId } },
-        { new: true }
-      );
+petRouter.post(
+  '/create',
+  routeGuard,
+  upload.single('image'),
+  (req, res, next) => {
+    const { name, species, birthday } = req.body;
+    let image;
+    console.log(req.file);
+    if (req.file) {
+      image = req.file.path;
+    } else {
+      image = '/images/index.png';
+    }
+    const owner = req.user;
+    Pet.create({
+      name,
+      birthday,
+      species,
+      owner,
+      profilePicture: image // there's no way to trigger default image as both '' and null are valid parameters according to mongoose, hence default is defined above.
     })
-    .then((userdoc) => {
-      res.redirect('/');
-    })
-    .catch((error) => next(error));
-});
+      .then((pet) => {
+        const petId = pet._id;
+        return User.findByIdAndUpdate(
+          req.session.userId,
+          { $push: { pets: petId } },
+          { new: true }
+        );
+      })
+      .then((userdoc) => {
+        res.redirect('/');
+      })
+      .catch((error) => next(error));
+  }
+);
 
 petRouter.post(
   '/upload-picture/:id',
   routeGuard,
-  parser.single('profilePicture'),
+  upload.single('profilePicture'),
   (req, res, next) => {
     const { id } = req.params;
     let profilePicture;
     if (req.file) {
       profilePicture = req.file.path;
     }
-    Pet.findByIdAndUpdate(id, { profilePicture: profilePicture })
+    console.log(profilePicture, id);
+    Pet.findByIdAndUpdate(id, { profilePicture }, { new: true })
       .then((returnedPet) => {
+        console.log(returnedPet);
+
         res.redirect(`/pet/${id}`);
       })
       .catch((error) => {
