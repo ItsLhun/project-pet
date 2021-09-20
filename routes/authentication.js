@@ -11,28 +11,31 @@ router.get('/sign-up', (req, res, next) => {
   res.render('authentication/sign-up', { message: req.flash() });
 });
 
-router.post('/sign-up', (req, res, next) => {
-  const { firstName, lastName, username, email, password } = req.body;
+router.post(
+  '/sign-up',
+  /*passwordValidator,*/ (req, res, next) => {
+    const { firstName, lastName, username, email, password } = req.body;
 
-  bcryptjs
-    .hash(password, 10)
-    .then((hash) => {
-      return User.create({
-        firstName,
-        lastName,
-        username,
-        email,
-        passwordHashAndSalt: hash
+    bcryptjs
+      .hash(password, 10)
+      .then((hash) => {
+        return User.create({
+          firstName,
+          lastName,
+          username,
+          email,
+          passwordHashAndSalt: hash
+        });
+      })
+      .then((user) => {
+        req.session.userId = user._id;
+        res.redirect('/');
+      })
+      .catch((error) => {
+        next(error);
       });
-    })
-    .then((user) => {
-      req.session.userId = user._id;
-      res.redirect('/');
-    })
-    .catch((error) => {
-      next(error);
-    });
-});
+  }
+);
 
 router.get('/sign-in', (req, res, next) => {
   if (req.user) {

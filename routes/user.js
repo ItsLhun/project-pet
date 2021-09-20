@@ -8,7 +8,7 @@ const User = require('../models/user');
 const parser = require('../middleware/cloudinary-parser');
 
 router.get('/', routeGuard, (req, res, next) => {
-  res.render('user/detail');
+  res.render('user/profile');
 });
 
 router.post('/edit', routeGuard, (req, res, next) => {
@@ -24,6 +24,23 @@ router.post('/edit', routeGuard, (req, res, next) => {
     .then(() => res.redirect('/user'))
     .catch((error) => next(error));
 });
+
+router.post(
+  '/upload-picture',
+  routeGuard,
+  parser.single('profilePicture'),
+  (req, res, next) => {
+    const { id } = req.params;
+    let profilePicture;
+    if (req.file) {
+      profilePicture = req.file.path;
+    }
+
+    User.findByIdAndUpdate(id, { profilePicture: profilePicture })
+      .then(() => res.redirect('/user'))
+      .catch((error) => next(error));
+  }
+);
 
 router.get('/settings', routeGuard, (req, res, next) => {
   res.render('user/settings');

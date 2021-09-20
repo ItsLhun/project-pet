@@ -1,0 +1,53 @@
+<h1>User Profile</h1>
+<section class='profile-section dashboard-component'>
+  <div class='profile-picture-wrapper'>
+    <div class='profile-circle'>
+      <img
+        src='{{user.profilePicture}}'
+        alt='{{user.username}} profile picture'
+      />
+      <form
+        id='upload-picture-form'
+        method='POST'
+        style='display: none'
+        action='/user/upload-picture'
+        enctype='multipart/form-data'
+      >
+        <input id='upload-profile-picture' name='profilePicture' type='file' />
+      </form>
+      <div class='camera-wrapper'><img
+          src='/images/camera-icon.svg'
+          alt=''
+        /></div>
+    </div>
+  </div>
+  <form id='form-user-profile' action='/user/edit' method='POST'>
+    <span class='profile-field'><strong>First Name</strong>:
+      <span
+        name='firstName'
+        class='profile-value'
+      >{{user.firstName}}</span></span>
+    <br />
+    <span class='profile-field'><strong>Last Name</strong>:
+      <span
+        name='lastName'
+        class='profile-value'
+      >{{user.lastName}}</span></span>
+    <br />
+    <span class='profile-field'><strong>Username</strong>:
+      <span
+        name='username'
+        class='profile-value'
+      >{{user.username}}</span></span>
+    <br />
+    <span class='profile-field'><strong>Email</strong>:
+      <span name='email' class='profile-value'>{{user.email}}</span></span>
+    <br />
+    <img
+      style='width: 50px'
+      src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Edit_icon_%28the_Noun_Project_30184%29.svg/1024px-Edit_icon_%28the_Noun_Project_30184%29.svg.png'
+      class='edit-profile-icon'
+    />
+  </form>
+</section>
+<script src='/scripts/edit-profile.js'></script>
