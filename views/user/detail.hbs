@@ -1,11 +1,24 @@
 <h1>User Profile</h1>
-<span><strong>First Name</strong>: {{user.firstName}}</span>
-<br />
-<span><strong>Last Name</strong>: {{user.lastName}}</span>
-<br />
-<span><strong>Username</strong>: {{user.username}}</span>
-<br />
-<span><strong>Email</strong>: {{user.email}}</span>
-<form action='/user/edit'>
-  <button>Edit</button>
+<form id='form-user-profile' action='/user/edit' method='POST'>
+  <span class='profile-field'><strong>First Name</strong>:
+    <span
+      name='firstName'
+      class='profile-value'
+    >{{user.firstName}}</span></span>
+  <br />
+  <span class='profile-field'><strong>Last Name</strong>:
+    <span name='lastName' class='profile-value'>{{user.lastName}}</span></span>
+  <br />
+  <span class='profile-field'><strong>Username</strong>:
+    <span name='username' class='profile-value'>{{user.username}}</span></span>
+  <br />
+  <span class='profile-field'><strong>Email</strong>:
+    <span name='email' class='profile-value'>{{user.email}}</span></span>
+  <br />
+  <img
+    style='width: 50px'
+    src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Edit_icon_%28the_Noun_Project_30184%29.svg/1024px-Edit_icon_%28the_Noun_Project_30184%29.svg.png'
+    class='edit-profile-icon'
+  />
 </form>
+<script src='/scripts/edit-profile.js'></script>

@@ -15,30 +15,19 @@ router.get('/edit', routeGuard, (req, res, next) => {
   res.render('user/edit');
 });
 
-router.post(
-  '/edit',
-  parser.single('profilePicture'),
-  routeGuard,
-  (req, res, next) => {
-    const { id } = req.user;
-    const { firstName, lastName, username, email } = req.body;
+router.post('/edit', routeGuard, (req, res, next) => {
+  const { id } = req.user;
+  const { firstName, lastName, username, email } = req.body;
 
-    let profilePicture;
-    if (req.file) {
-      profilePicture = req.file.path;
-    }
-
-    User.findByIdAndUpdate(id, {
-      firstName,
-      lastName,
-      username,
-      email,
-      profilePicture
-    })
-      .then(() => res.redirect('/user'))
-      .catch((error) => next(error));
-  }
-);
+  User.findByIdAndUpdate(id, {
+    firstName,
+    lastName,
+    username,
+    email
+  })
+    .then(() => res.redirect('/user'))
+    .catch((error) => next(error));
+});
 
 router.get('/settings', routeGuard, (req, res, next) => {
   res.render('user/settings');
