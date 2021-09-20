@@ -6,18 +6,12 @@ module.exports = (req, res, next) => {
   const includesUppercaseChar = /[A-Z]/.test(password);
   const includesNumber = /\d/.test(password);
   if (password !== repeatPassword) {
-    const error = new Error('PASSWORDS_DO_NOT_MATCH');
-    next(error);
+    throw new Error('PASSWORDS_DO_NOT_MATCH');
   } else if (!minLength) {
-    const error = new Error('PASSWORD_TOO_SHORT');
-    next(error);
+    throw new Error('PASSWORD_TOO_SHORT');
   } else if (!includesUppercaseChar) {
-    const error = new Error('PASSWORD_CONTAINS_NO_UPPERCASE');
-    next(error);
+    throw new Error('PASSWORD_CONTAINS_NO_UPPERCASE');
   } else if (!includesNumber) {
-    const error = new Error('PASSWORD_CONTAINS_NO_NUMBER');
-    next(error);
-  } else {
-    next();
+    throw new Error('PASSWORD_CONTAINS_NO_NUMBER');
   }
 };

@@ -8,41 +8,37 @@ const passwordValidator = require('./../middleware/password-validator');
 const router = express.Router();
 
 router.get('/sign-up', (req, res, next) => {
-  res.render('authentication/sign-up');
+  res.render('authentication/sign-up', { message: req.flash() });
 });
 
-router.post(
-  '/sign-up',
-  //passwordValidator,
-  (req, res, next) => {
-    const { firstName, lastName, username, email, password } = req.body;
+router.post('/sign-up', passwordValidator, (req, res, next) => {
+  const { firstName, lastName, username, email, password } = req.body;
 
-    bcryptjs
-      .hash(password, 10)
-      .then((hash) => {
-        return User.create({
-          firstName,
-          lastName,
-          username,
-          email,
-          passwordHashAndSalt: hash
-        });
-      })
-      .then((user) => {
-        req.session.userId = user._id;
-        res.redirect('/');
-      })
-      .catch((error) => {
-        next(error);
+  bcryptjs
+    .hash(password, 10)
+    .then((hash) => {
+      return User.create({
+        firstName,
+        lastName,
+        username,
+        email,
+        passwordHashAndSalt: hash
       });
-  }
-);
+    })
+    .then((user) => {
+      req.session.userId = user._id;
+      res.redirect('/');
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
 
 router.get('/sign-in', (req, res, next) => {
   if (req.user) {
     res.render('dashboard');
   } else {
-    res.render('authentication/sign-in');
+    res.render('authentication/sign-in', { message: req.flash() });
   }
 });
 
@@ -69,6 +65,13 @@ router.post('/sign-in', (req, res, next) => {
         }
       })
       .catch((error) => {
+        if (error.message === 'WRONG_PASSWORD') {
+          req.flash('passwordError', 'Wrong password.');
+          res.redirect('/authentication/sign-in');
+        } else if (error.message === 'NO_USER') {
+          req.flash('userError', 'No user found with the username/email.');
+          res.redirect('/authentication/sign-in');
+        }
         next(error);
       });
   }

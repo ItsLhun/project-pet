@@ -63,6 +63,7 @@ petRouter.post(
     if (req.file) {
       profilePicture = req.file.path;
     }
+
     Pet.findByIdAndUpdate(id, { profilePicture: profilePicture })
       .then((returnedPet) => {
         res.redirect(`/pet/${id}`);
