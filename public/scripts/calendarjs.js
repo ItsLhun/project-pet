@@ -4709,8 +4709,6 @@ function calendarJs(id, options, startDateTime) {
       }
       _options.petTarget = _id;
       petCalendarImageHolder.classList.add('mini-calendar-active');
-
-      console.log('You clicked pet id: ', _id);
     });
 
     parent.appendChild(petCalendarWrapper);
@@ -4737,9 +4735,7 @@ function calendarJs(id, options, startDateTime) {
 
     fetchPetsHTTP()
       .then((res) => {
-        console.log(res.data);
         for (let i = 0, length = res.data.length; i < length; i++) {
-          console.log(res.data[i]);
           buildPetMiniatureAddEvent(res.data[i], inputPetContainer);
         }
       })

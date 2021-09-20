@@ -33,4 +33,8 @@ router.post('/settings', routeGuard, (req, res, next) => {
   // Do stuff here to update settings
 });
 
+router.get('/messages', routeGuard, (req, res, next) => {
+  res.render('user/messages');
+});
+
 module.exports = router;
