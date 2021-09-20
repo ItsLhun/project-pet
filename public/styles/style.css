@@ -4301,6 +4301,8 @@ h1 + fieldset {
 }
 
 .miniature-wrapper .miniature-image-holder {
+  position: relative;
+  overflow: hidden;
   height: 9em;
   width: 9em;
   border-radius: 50%;
@@ -4319,6 +4321,7 @@ h1 + fieldset {
   display: block;
   margin: 0 auto;
   object-fit: cover;
+  background-color: transparent;
 }
 
 .miniature-wrapper h5 {
@@ -4362,6 +4365,7 @@ h1 + fieldset {
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
+  z-index: 0;
 }
 
 .profile-picture-wrapper div:first-child {
@@ -4369,8 +4373,22 @@ h1 + fieldset {
   width: 12.5rem;
   border-radius: 50%;
   border: 1px dashed grey;
+  z-index: 1;
   background-position: center center;
-  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.profile-picture-wrapper .profile-pic {
+  min-width: 100%;
+  min-height: 100%;
+  padding: 0.2em;
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+  background-color: transparent;
+  z-index: 1;
 }
 
 .profile-section {
@@ -4406,6 +4424,7 @@ h1 + fieldset {
 
 .profile-circle {
   position: relative;
+  z-index: 2;
 }
 
 .profile-circle div.camera-wrapper {
@@ -4420,6 +4439,7 @@ h1 + fieldset {
   margin: 0;
   padding: 0;
   cursor: pointer;
+  z-index: 507;
 }
 
 /*# sourceMappingURL=style.css.map */

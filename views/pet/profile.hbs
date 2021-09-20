@@ -2,11 +2,12 @@
   <h1>{{pet.name}}'s profile</h1>
   <section class='profile-section dashboard-component'>
     <div class='profile-picture-wrapper'>
-      <div
-        class='profile-circle'
-        style='background: url({{pet.profilePicture}}); background-size: cover;'
-      >
-        {{!-- <img src='{{pet.profilePicture}}' alt='{{pet.name}} profile picture' /> --}}
+      <div class='profile-circle'>
+        <img
+          class='profile-pic'
+          src='{{pet.profilePicture}}'
+          alt='{{pet.name}} profile picture'
+        />
         <form
           id='upload-picture-form'
           method='POST'

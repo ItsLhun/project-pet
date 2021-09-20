@@ -5,13 +5,28 @@ $minimum-width-pet-profile: 40rem;
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
+  z-index: 0;
+
   div:first-child {
     height: 12.5rem;
     width: 12.5rem;
     border-radius: 50%;
     border: 1px dashed grey;
+    z-index: 1;
     background-position: center center;
-    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .profile-pic {
+    min-width: 100%;
+    min-height: 100%;
+    padding: 0.2em;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+    background-color: transparent;
+    z-index: 1;
   }
 }
 .profile-section {
