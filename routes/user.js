@@ -11,10 +11,6 @@ router.get('/', routeGuard, (req, res, next) => {
   res.render('user/detail');
 });
 
-router.get('/edit', routeGuard, (req, res, next) => {
-  res.render('user/edit');
-});
-
 router.post('/edit', routeGuard, (req, res, next) => {
   const { id } = req.user;
   const { firstName, lastName, username, email } = req.body;
