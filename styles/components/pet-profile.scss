@@ -5,17 +5,23 @@ $minimum-width-pet-profile: 40rem;
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  z-index: 0;
+  position: relative;
+  z-index: 1;
 
-  div:first-child {
+  div.profile-circle {
     height: 12.5rem;
     width: 12.5rem;
     border-radius: 50%;
     border: 1px dashed grey;
-    z-index: 1;
     background-position: center center;
     position: relative;
     overflow: hidden;
+    z-index: 1;
+  }
+  > div:first-child {
+    height: 12.5rem;
+    width: 12.5rem;
+    position: relative;
     z-index: 1;
   }
   .profile-pic {
@@ -26,6 +32,7 @@ $minimum-width-pet-profile: 40rem;
     margin: 0 auto;
     object-fit: cover;
     background-color: transparent;
+    position: relative;
     z-index: 1;
   }
 }

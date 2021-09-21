@@ -4365,18 +4365,25 @@ h1 + fieldset {
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  z-index: 0;
+  position: relative;
+  z-index: 1;
 }
 
-.profile-picture-wrapper div:first-child {
+.profile-picture-wrapper div.profile-circle {
   height: 12.5rem;
   width: 12.5rem;
   border-radius: 50%;
   border: 1px dashed grey;
-  z-index: 1;
   background-position: center center;
   position: relative;
   overflow: hidden;
+  z-index: 1;
+}
+
+.profile-picture-wrapper > div:first-child {
+  height: 12.5rem;
+  width: 12.5rem;
+  position: relative;
   z-index: 1;
 }
 
@@ -4388,6 +4395,7 @@ h1 + fieldset {
   margin: 0 auto;
   object-fit: cover;
   background-color: transparent;
+  position: relative;
   z-index: 1;
 }
 
@@ -4424,10 +4432,9 @@ h1 + fieldset {
 
 .profile-circle {
   position: relative;
-  z-index: 2;
 }
 
-.profile-circle div.camera-wrapper {
+div.camera-wrapper {
   min-height: 12%;
   min-width: 12%;
   height: 12%;
@@ -4439,7 +4446,12 @@ h1 + fieldset {
   margin: 0;
   padding: 0;
   cursor: pointer;
-  z-index: 507;
+  z-index: 9999;
+}
+
+div.camera-wrapper:hover {
+  opacity: 0.8;
+  filter: invert(50%) sepia(65%) saturate(654%) hue-rotate(340deg) brightness(97%) contrast(90%);
 }
 
 /*# sourceMappingURL=style.css.map */
