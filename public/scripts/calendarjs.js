@@ -3032,10 +3032,6 @@ function calendarJs(id, options, startDateTime) {
       'list-all-week-events-view'
     );
 
-    const upcomingWrapper = document.getElementById('display-upcoming');
-
-    // upcomingWrapper.appendChild(_element_ListAllWeekEventsView);
-
     _element_Calendar.appendChild(_element_ListAllWeekEventsView);
 
     var titleBar = createElement('div', 'title-bar');
@@ -3113,9 +3109,14 @@ function calendarJs(id, options, startDateTime) {
       'div',
       'contents custom-scroll-bars'
     );
-    _element_ListAllWeekEventsView.appendChild(
-      _element_ListAllWeekEventsView_Contents
-    );
+
+    //Nahuel: display all event inside a custom 'upcoming-events' div
+    const customUpcomingEvents = document.getElementById('upcoming-events');
+
+    customUpcomingEvents.appendChild(_element_ListAllWeekEventsView_Contents);
+    // _element_ListAllWeekEventsView.appendChild(
+    //   _element_ListAllWeekEventsView_Contents
+    // );
   }
 
   function showListAllWeekEventsView(weekDate, fromOpen) {
@@ -3139,7 +3140,9 @@ function calendarJs(id, options, startDateTime) {
       weekEndDate = weekStartEndDates[1];
 
     buildAllWeekDays(weekStartDate, weekEndDate);
-    setAllWeekEventsViewTitle(weekStartDate, weekEndDate);
+
+    //Nahuel: this used to set the referred week atop the allweek dropdown
+    // setAllWeekEventsViewTitle(weekStartDate, weekEndDate);
 
     var orderedEvents = getOrderedEvents(getAllEvents()),
       orderedEventsLength = orderedEvents.length;
@@ -3155,6 +3158,7 @@ function calendarJs(id, options, startDateTime) {
         nextDate = new Date(orderedEvent.from),
         addedNow = false;
 
+      // Nahuel: this loop creates every day inside the buildWeekEvents list.
       for (var dayIndex = 0; dayIndex < totalDays; dayIndex++) {
         if (nextDate >= weekStartDate && nextDate <= weekEndDate) {
           var containers = buildListAllEventsDay(nextDate),
@@ -3280,6 +3284,12 @@ function calendarJs(id, options, startDateTime) {
       if (
         _element_ListAllWeekEventsView_Contents_FullView.hasOwnProperty(dateID)
       ) {
+        // Nahuel: add the upcoming events to custom div instead of default calendar
+        // const customEvents = document.getElementById('upcoming-events');
+        // customEvents.appendChild(
+        //   _element_ListAllWeekEventsView_Contents_FullView[dateID]
+        // );
+
         _element_ListAllWeekEventsView_Contents.appendChild(
           _element_ListAllWeekEventsView_Contents_FullView[dateID]
         );
@@ -3296,6 +3306,7 @@ function calendarJs(id, options, startDateTime) {
       }
     }
 
+    // Nahuel: this adds a customized message when there are no events to depslay on the upcoming days
     if (_element_ListAllWeekEventsView_EventsShown.length === 0) {
       buildNoEventsAvailableText(
         _element_ListAllWeekEventsView_Contents,
@@ -3345,50 +3356,50 @@ function calendarJs(id, options, startDateTime) {
     return added;
   }
 
-  function setAllWeekEventsViewTitle(weekStartDate, weekEndDate) {
-    _element_ListAllWeekEventsView_Title.innerHTML = '';
+  // function setAllWeekEventsViewTitle(weekStartDate, weekEndDate) {
+  //   _element_ListAllWeekEventsView_Title.innerHTML = '';
 
-    if (_options.showWeekNumbersInTitles) {
-      createSpanElement(
-        _element_ListAllWeekEventsView_Title,
-        _options.weekText + ' ' + getWeekNumber(weekStartDate) + ': '
-      );
-    }
+  //   if (_options.showWeekNumbersInTitles) {
+  //     createSpanElement(
+  //       _element_ListAllWeekEventsView_Title,
+  //       _options.weekText + ' ' + getWeekNumber(weekStartDate) + ': '
+  //     );
+  //   }
 
-    if (weekStartDate.getFullYear() === weekEndDate.getFullYear()) {
-      buildDateTimeDisplay(
-        _element_ListAllWeekEventsView_Title,
-        weekStartDate,
-        false,
-        false
-      );
-      createSpanElement(_element_ListAllWeekEventsView_Title, ' - ');
-      buildDateTimeDisplay(
-        _element_ListAllWeekEventsView_Title,
-        weekEndDate,
-        false,
-        false
-      );
-      createSpanElement(
-        _element_ListAllWeekEventsView_Title,
-        ', ' + weekStartDate.getFullYear()
-      );
-    } else {
-      buildDateTimeDisplay(
-        _element_ListAllWeekEventsView_Title,
-        weekStartDate,
-        false,
-        true
-      );
-      createSpanElement(_element_ListAllWeekEventsView_Title, ' - ');
-      buildDateTimeDisplay(
-        _element_ListAllWeekEventsView_Title,
-        weekEndDate,
-        false,
-        true
-      );
-    }
-  }
+  //   if (weekStartDate.getFullYear() === weekEndDate.getFullYear()) {
+  //     buildDateTimeDisplay(
+  //       _element_ListAllWeekEventsView_Title,
+  //       weekStartDate,
+  //       false,
+  //       false
+  //     );
+  //     createSpanElement(_element_ListAllWeekEventsView_Title, ' - ');
+  //     buildDateTimeDisplay(
+  //       _element_ListAllWeekEventsView_Title,
+  //       weekEndDate,
+  //       false,
+  //       false
+  //     );
+  //     createSpanElement(
+  //       _element_ListAllWeekEventsView_Title,
+  //       ', ' + weekStartDate.getFullYear()
+  //     );
+  //   } else {
+  //     buildDateTimeDisplay(
+  //       _element_ListAllWeekEventsView_Title,
+  //       weekStartDate,
+  //       false,
+  //       true
+  //     );
+  //     createSpanElement(_element_ListAllWeekEventsView_Title, ' - ');
+  //     buildDateTimeDisplay(
+  //       _element_ListAllWeekEventsView_Title,
+  //       weekEndDate,
+  //       false,
+  //       true
+  //     );
+  //   }
+  // }
 
   function buildListAllWeekEventsEvent(
     eventDetails,
@@ -3507,9 +3518,16 @@ function calendarJs(id, options, startDateTime) {
 
   function buildAllWeekDays(weekStartDate, weekEndDate) {
     var startOfWeek = new Date(weekStartDate);
+    let weekDayNumber = getWeekdayNumber(startOfWeek);
+    let outsideDateID =
+      startOfWeek.getFullYear() + startOfWeek.getMonth() + weekDayNumber;
 
     do {
-      buildListAllEventsDay(startOfWeek);
+      // Nahuel: just uses time as argument, no elements.
+      // this condition makes sure we don't add days with no events.
+      if (_element_ListAllWeekEventsView_Contents_FullView[outsideDateID]) {
+        buildListAllEventsDay(startOfWeek);
+      }
       moveDateForwardDay(startOfWeek);
     } while (startOfWeek < weekEndDate);
   }
@@ -3520,7 +3538,6 @@ function calendarJs(id, options, startDateTime) {
       dayContents = null,
       dayHeader = null,
       removeEventsDate = new Date(date);
-
     if (
       !_element_ListAllWeekEventsView_Contents_FullView.hasOwnProperty(
         dateID
@@ -3550,7 +3567,7 @@ function calendarJs(id, options, startDateTime) {
       );
 
       dayHeader = createElement('div', 'header');
-      dayHeader.ondblclick = expandFunction;
+      // dayHeader.ondblclick = expandFunction;
       day.appendChild(dayHeader);
 
       dayHeader.oncontextmenu = function (e) {
@@ -3592,27 +3609,27 @@ function calendarJs(id, options, startDateTime) {
       dayContents = createElement('div', 'events');
       day.appendChild(dayContents);
 
-      var noEventsTextContainer = createElement('div', 'no-events-text');
-      dayContents.appendChild(noEventsTextContainer);
+      // var noEventsTextContainer = createElement('div', 'no-events-text');
+      // dayContents.appendChild(noEventsTextContainer);
 
-      createSpanElement(noEventsTextContainer, _options.noEventsAvailableText);
+      // createSpanElement(noEventsTextContainer, _options.noEventsAvailableText);
 
-      if (_options.manualEditingEnabled) {
-        createSpanElement(
-          noEventsTextContainer,
-          ' ' + _options.clickText + ' '
-        );
-        createSpanElement(
-          noEventsTextContainer,
-          _options.hereText,
-          'link',
-          addEventFunction
-        );
-        createSpanElement(
-          noEventsTextContainer,
-          ' ' + _options.toAddANewEventText
-        );
-      }
+      // if (_options.manualEditingEnabled) {
+      //   createSpanElement(
+      //     noEventsTextContainer,
+      //     ' ' + _options.clickText + ' '
+      //   );
+      //   createSpanElement(
+      //     noEventsTextContainer,
+      //     _options.hereText,
+      //     'link',
+      //     addEventFunction
+      //   );
+      //   createSpanElement(
+      //     noEventsTextContainer,
+      //     ' ' + _options.toAddANewEventText
+      //   );
+      // }
 
       _element_ListAllWeekEventsView_Contents_FullView_Contents[dateID] = [
         dayContents,
@@ -3630,7 +3647,6 @@ function calendarJs(id, options, startDateTime) {
         dayHeader = existingContents[1];
       }
     }
-
     return [dayContents, dayHeader];
   }
 

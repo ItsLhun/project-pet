@@ -4280,6 +4280,122 @@ h1 + fieldset {
   min-height: 8em;
 }
 
+#upcoming-events {
+  max-height: 30em;
+}
+
+#upcoming-events div.contents {
+  display: inline-block;
+  padding: 10px;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: calc(100% - (10px * 2));
+}
+
+@media screen and (min-width: 451px) {
+  #upcoming-events div.contents {
+    height: calc( 100% - ((10px * 4) + 0.9rem) - 1px);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  #upcoming-events div.contents {
+    height: calc( 100% - ((10px * 4) + 0.7rem) - 1px);
+  }
+}
+
+#upcoming-events div.contents div.no-events-text {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#upcoming-events div.contents div.day {
+  border-radius: 0.25rem;
+  border: 1px solid #282828;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+#upcoming-events div.contents div.day div.header {
+  background-color: #282828;
+  color: #F5F5F5;
+  padding: 10px;
+  font-weight: 900;
+}
+
+#upcoming-events div.contents div.day div.header div.ib-arrow-expand-left-right,
+#upcoming-events div.contents div.day div.header div.ib-plus,
+#upcoming-events div.contents div.day div.header div.ib-close {
+  float: right;
+  margin-left: 10px;
+}
+
+#upcoming-events div.contents div.day div.header div.ib-close {
+  display: none;
+}
+
+#upcoming-events div.contents div.day div.events {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#upcoming-events div.contents div.day div.events div.expired {
+  opacity: 0.7;
+}
+
+#upcoming-events div.contents div.day div.events div.all-day {
+  background-color: #1b3752 !important;
+}
+
+#upcoming-events div.contents div.day div.events div.event {
+  white-space: pre-line;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  border-radius: 0.25rem;
+  background-color: #484848;
+  padding: 10px;
+  color: #F5F5F5;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-left: 7px solid #282828;
+}
+
+#upcoming-events div.contents div.day div.events div.event div {
+  margin-bottom: 5px;
+}
+
+#upcoming-events div.contents div.day div.events div.event div:last-child {
+  margin-bottom: 0;
+}
+
+#upcoming-events div.contents div.day div.events div.event div.title {
+  font-weight: 900;
+}
+
+#upcoming-events div.contents div.day div.events div.event div.date,
+#upcoming-events div.contents div.day div.events div.event div.duration,
+#upcoming-events div.contents div.day div.events div.event div.description,
+#upcoming-events div.contents div.day div.events div.event div.location,
+#upcoming-events div.contents div.day div.events div.event div.repeats {
+  font-size: smaller;
+  font-weight: 300;
+}
+
+#upcoming-events div.contents div.day div.events div.event div.ib-refresh-medium {
+  margin-right: 5px;
+}
+
+#upcoming-events div.contents div.day div.events:last-child {
+  margin-bottom: 0;
+}
+
+#upcoming-events div.contents div.day:last-child {
+  margin-bottom: 0 !important;
+}
+
 .component-title {
   margin-top: 0;
   padding: 0.2em;

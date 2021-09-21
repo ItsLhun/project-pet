@@ -1,4 +1,5 @@
 @import './colors.scss';
+// @import '/styles/calendar/foundation/styles';
 
 .dashboard-component,
 .calendar {
@@ -9,4 +10,112 @@
 .dashboard-component {
   background-color: $grey;
   min-height: 8em;
+}
+#upcoming-events {
+  max-height: 30em;
+  div.contents {
+    // @include overlay-contents;
+    display: inline-block;
+    padding: $spacing;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: calc(100% - (#{$spacing} * 2));
+
+    @media screen and (min-width: $minimum-width) {
+      height: calc(
+        100% - ((#{$spacing} * 4) + #{$large-font-size}) - #{$standard-border-size}
+      );
+    }
+
+    @media screen and (max-width: $maximum-width) {
+      height: calc(
+        100% - ((#{$spacing} * 4) + #{$small-font-size}) - #{$standard-border-size}
+      );
+    }
+
+    div.no-events-text {
+      margin-top: $spacing;
+      margin-bottom: $spacing;
+      text-align: center;
+    }
+
+    div.day {
+      border-radius: $border-view-radius;
+      border: $standard-border-size solid $dark-color;
+      overflow: hidden;
+      margin-bottom: $spacing;
+
+      div.header {
+        background-color: $dark-color;
+        color: $light-color;
+        padding: $spacing;
+        font-weight: $title-bar-font-weight;
+
+        div.ib-arrow-expand-left-right,
+        div.ib-plus,
+        div.ib-close {
+          float: right;
+          margin-left: $spacing;
+        }
+
+        div.ib-close {
+          display: none;
+        }
+      }
+
+      div.events {
+        margin-top: $spacing;
+        margin-bottom: $spacing;
+
+        // @import '/styles/calendar/foundation/overlay-event';
+        div.expired {
+          opacity: $event-expired-opacity;
+        }
+
+        div.all-day {
+          background-color: $event-color-all-day !important;
+        }
+
+        div.event {
+          @include word-wrap-with-new-lines;
+          border-radius: $border-view-radius;
+          background-color: $event-color;
+          padding: $spacing;
+          color: $light-color;
+          margin-bottom: $spacing;
+          margin-left: $spacing;
+          margin-right: $spacing;
+          border-left: $event-left-border;
+
+          @include div-label-spacing;
+
+          div.title {
+            font-weight: 900;
+          }
+
+          div.date,
+          div.duration,
+          div.description,
+          div.location,
+          div.repeats {
+            font-size: smaller;
+            font-weight: 300;
+          }
+
+          div.ib-refresh-medium {
+            margin-right: $spacing / 2;
+          }
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+  }
 }
