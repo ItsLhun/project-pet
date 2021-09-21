@@ -2,32 +2,37 @@
   <h1>{{pet.name}}'s profile</h1>
   <section class='profile-section dashboard-component'>
     <div class='profile-picture-wrapper'>
-      <div class='profile-circle'>
-        <img
-          class='profile-pic'
-          src='{{pet.profilePicture}}'
-          alt='{{pet.name}} profile picture'
-        />
-        <form
-          class='upload-picture-form'
-          method='POST'
-          style='display: none'
-          action='/pet/upload-picture/{{pet._id}}'
-          enctype='multipart/form-data'
-        >
-          <input
-            class='upload-profile-picture'
-            name='profilePicture'
-            type='file'
-            accept='image/*'
-          />
-          <button></button>
-        </form>
+      <div>
         <div class='camera-wrapper'><img
             src='/images/camera-icon.svg'
             alt=''
           /></div>
+        <div class='profile-circle'>
+          <img
+            class='profile-pic'
+            src='{{pet.profilePicture}}'
+            alt='{{pet.name}} profile picture'
+          />
+          <form
+            class='upload-picture-form'
+            method='POST'
+            style='display: none'
+            action='/pet/upload-picture/{{pet._id}}'
+            enctype='multipart/form-data'
+          >
+            <input
+              class='upload-profile-picture'
+              name='profilePicture'
+              type='file'
+              accept='image/*'
+            />
+            <button></button>
+          </form>
+
+        </div>
+
       </div>
+
     </div>
     <div class='profile-info'>
       <div><strong>Name: </strong><span>{{pet.name}}</span></div>

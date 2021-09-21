@@ -1,19 +1,24 @@
+@import './colors.scss';
+
 .profile-circle {
   position: relative;
-  z-index: 2;
-
-  div.camera-wrapper {
-    min-height: 12%;
-    min-width: 12%;
-    height: 12%;
-    width: 12%;
-    opacity: 0.5;
-    position: absolute;
-    bottom: 7%;
-    left: 7%;
-    margin: 0;
-    padding: 0;
-    cursor: pointer;
-    z-index: 507;
+}
+div.camera-wrapper {
+  min-height: 12%;
+  min-width: 12%;
+  height: 12%;
+  width: 12%;
+  opacity: 0.5;
+  position: absolute;
+  bottom: 7%;
+  left: 7%;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  z-index: 9999;
+  &:hover {
+    opacity: 0.8;
+    filter: invert(50%) sepia(65%) saturate(654%) hue-rotate(340deg)
+      brightness(97%) contrast(90%);
   }
 }
