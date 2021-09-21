@@ -100,4 +100,8 @@ petRouter.get('/:id', (req, res, next) => {
     });
 });
 
+petRouter.post('/authorize/:id', (req, res, next) => {
+  const { id } = req.params;
+});
+
 module.exports = petRouter;
