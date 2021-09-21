@@ -1,29 +1,32 @@
 <h1>User Profile</h1>
 <section class='profile-section dashboard-component'>
   <div class='profile-picture-wrapper'>
-    <div class='profile-circle'>
-      <img
-        src='{{user.profilePicture}}'
-        alt='{{user.username}} profile picture'
-      />
-      <form
-        class='upload-picture-form'
-        method='POST'
-        style='display: none'
-        action='/user/upload-picture'
-        enctype='multipart/form-data'
-      >
-        <input
-          class='upload-profile-picture'
-          name='profilePicture'
-          type='file'
-          accept='image/*'
-        />
-      </form>
+    <div>
       <div class='camera-wrapper'><img
           src='/images/camera-icon.svg'
           alt=''
         /></div>
+      <div class='profile-circle'>
+        <img
+          src='{{user.profilePicture}}'
+          alt='{{user.username}} profile picture'
+        />
+        <form
+          class='upload-picture-form'
+          method='POST'
+          style='display: none'
+          action='/user/upload-picture'
+          enctype='multipart/form-data'
+        >
+          <input
+            class='upload-profile-picture'
+            name='profilePicture'
+            type='file'
+            accept='image/*'
+          />
+        </form>
+      </div>
+
     </div>
   </div>
   <form id='form-user-profile' action='/user/edit' method='POST'>

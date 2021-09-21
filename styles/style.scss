@@ -183,3 +183,176 @@ h1 + fieldset {
 @import './components/create-pet.scss';
 @import './components/pet-profile.scss';
 @import './components/add-pic-camera.scss';
+
+// div.contents {
+//   display: inline-block;
+//   position: relative;
+//   overflow-x: hidden;
+//   overflow-y: auto;
+//   width: 100%;
+//   padding: 0 !important;
+
+//   div.content-events-all-day {
+//     position: relative;
+//     border-bottom: $standard-border-size solid $dark-color;
+//     overflow: hidden;
+
+//     div.all-day-text {
+//       width: $time-hours-width;
+//       padding: $spacing;
+//       background-color: $light-color;
+//       color: $dark-color;
+//       border-right: $standard-border-size solid $dark-color;
+//       position: absolute;
+//       left: 0;
+//       top: 0;
+//       height: 100%;
+//     }
+
+//     div.event {
+//       position: static !important;
+//       margin-left: $time-hours-width + ($spacing * 3) !important;
+//       margin-top: $spacing;
+//       margin-bottom: $spacing;
+//     }
+//   }
+
+//   div.contents-events {
+//     position: relative;
+
+//     div.time-arrow {
+//       position: absolute;
+//       width: calc(
+//         100% - #{$time-hours-width} - (#{$spacing} * 2) - #{$standard-border-size}
+//       );
+//       left: $time-hours-width + ($spacing * 2) + $standard-border-size;
+//       top: 0;
+//       z-index: 10;
+//       height: $time-arrow-line-height;
+//       display: none;
+
+//       div.arrow-left {
+//         width: 0;
+//         height: 0;
+//         border-top: $time-arrow-line-height / 2 solid transparent;
+//         border-bottom: $time-arrow-line-height / 2 solid transparent;
+//         border-right: $time-arrow-line-height solid $link-color;
+//       }
+
+//       div.line {
+//         background-color: $link-color;
+//         position: absolute;
+//         left: $time-arrow-line-height;
+//         top: $time-arrow-line-height / 4;
+//         height: $time-arrow-line-height / 2;
+//         width: 100%;
+//       }
+//     }
+
+//     div.hour {
+//       background-color: $light-color;
+//       border-bottom: $standard-border-size solid $dark-color;
+//       position: relative;
+
+//       &:before {
+//         border-bottom: $standard-border-size dashed $input-border-color;
+//         width: calc(100% - (#{$time-hours-width} + #{$spacing * 2}));
+//         height: ($time-hours-height + $spacing * 2) - $standard-border-size;
+//         content: '';
+//         display: block;
+//         position: absolute;
+//         top: 0;
+//         left: $time-hours-width + $spacing * 2;
+//       }
+
+//       div.hour-text {
+//         width: $time-hours-width;
+//         height: $time-hours-height;
+//         padding: $spacing;
+//         background-color: $light-color;
+//         color: $dark-color;
+//         border-right: $standard-border-size solid $dark-color;
+
+//         &:nth-child(odd) {
+//           background-color: $dark-color;
+//           color: $light-color;
+//         }
+//       }
+
+//       &:nth-child(odd) {
+//         background-color: $day-names-color;
+//       }
+
+//       &:last-child {
+//         border-bottom: none;
+//       }
+//     }
+//   }
+
+//   @media screen and (min-width: $minimum-width) {
+//     height: calc(100% - ((#{$spacing} * 2) + #{$large-font-size}));
+//   }
+
+//   @media screen and (max-width: $maximum-width) {
+//     height: calc(100% - ((#{$spacing} * 2) + #{$small-font-size}));
+//   }
+
+//   @import 'calendar/foundation/overlay-event';
+
+//   div.event {
+//     position: absolute;
+//     margin-left: 0;
+//     margin-right: 0;
+//     width: calc(
+//       100% - #{$time-hours-width} - (#{$spacing} * 6) - (#{$spacing} / 2)
+//     );
+//     left: $time-hours-width + ($spacing * 3);
+//     overflow: hidden;
+//   }
+// }
+
+// div.contents {
+//   // @include overlay-contents;
+
+//   div.no-events-text {
+//     margin-top: $spacing;
+//     margin-bottom: $spacing;
+//     text-align: center;
+//   }
+
+//   div.day {
+//     border-radius: $border-view-radius;
+//     border: $standard-border-size solid $dark-color;
+//     overflow: hidden;
+//     margin-bottom: $spacing;
+
+//     div.header {
+//       background-color: $dark-color;
+//       color: $light-color;
+//       padding: $spacing;
+//       font-weight: $title-bar-font-weight;
+
+//       div.ib-arrow-expand-left-right,
+//       div.ib-plus,
+//       div.ib-close {
+//         float: right;
+//         margin-left: $spacing;
+//       }
+
+//       div.ib-close {
+//         display: none;
+//       }
+//     }
+
+//     div.events {
+//       margin-top: $spacing;
+//       margin-bottom: $spacing;
+
+//       // @import '/calendar/foundation/overlay-event';
+//     }
+
+//     &:last-child {
+//       margin-bottom: 0 !important;
+//     }
+//   }
+// }
