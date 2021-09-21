@@ -9,14 +9,14 @@
           alt='{{pet.name}} profile picture'
         />
         <form
-          id='upload-picture-form'
+          class='upload-picture-form'
           method='POST'
           style='display: none'
           action='/pet/upload-picture/{{pet._id}}'
           enctype='multipart/form-data'
         >
           <input
-            id='upload-profile-picture'
+            class='upload-profile-picture'
             name='profilePicture'
             type='file'
             accept='image/*'

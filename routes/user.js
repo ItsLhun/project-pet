@@ -30,13 +30,17 @@ router.post(
   routeGuard,
   parser.single('profilePicture'),
   (req, res, next) => {
-    const { id } = req.params;
+    const { id } = req.user;
     let profilePicture;
     if (req.file) {
       profilePicture = req.file.path;
     }
-
-    User.findByIdAndUpdate(id, { profilePicture: profilePicture })
+    console.log('test', profilePicture);
+    User.findByIdAndUpdate(
+      id,
+      { profilePicture: profilePicture },
+      { new: true }
+    )
       .then(() => res.redirect('/user'))
       .catch((error) => next(error));
   }

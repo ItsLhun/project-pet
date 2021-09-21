@@ -76,8 +76,6 @@ petRouter.post(
     }
     Pet.findByIdAndUpdate(id, { profilePicture }, { new: true })
       .then((returnedPet) => {
-        console.log(returnedPet);
-
         res.redirect(`/pet/${id}`);
       })
       .catch((error) => {

@@ -7,13 +7,18 @@
         alt='{{user.username}} profile picture'
       />
       <form
-        id='upload-picture-form'
+        class='upload-picture-form'
         method='POST'
         style='display: none'
         action='/user/upload-picture'
         enctype='multipart/form-data'
       >
-        <input id='upload-profile-picture' name='profilePicture' type='file' />
+        <input
+          class='upload-profile-picture'
+          name='profilePicture'
+          type='file'
+          accept='image/*'
+        />
       </form>
       <div class='camera-wrapper'><img
           src='/images/camera-icon.svg'
