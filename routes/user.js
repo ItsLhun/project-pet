@@ -15,11 +15,7 @@ router.post('/search', routeGuard, (req, res, next) => {
   const searchTerm = req.body.searchTerm.trim();
 
   if (searchTerm !== '') {
-    User.find()
-      .or([
-        { email: new RegExp('^' + searchTerm, 'i') },
-        { username: new RegExp('^' + searchTerm, 'i') }
-      ])
+    User.find({ username: new RegExp('^' + searchTerm, 'i') })
       .then((users) => res.send(users))
       .catch((error) => next(error));
   }

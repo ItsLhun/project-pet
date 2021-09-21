@@ -49,9 +49,17 @@
 
   </fieldset>
   <div id='calendar' class='dashboard-component'></div>
-  <!-- Placeholder form for testing user search feature -->
+
   <form>
-    <input type='text' oninput='searchUser(this.value)' />
+    <input
+      id='user-search-input'
+      list='users-list'
+      type='text'
+      oninput='searchUser(this.value)'
+    />
+    <datalist id='users-list'>
+
+    </datalist>
   </form>
 </main>
 <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
