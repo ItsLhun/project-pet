@@ -49,6 +49,10 @@
 
   </fieldset>
   <div id='calendar' class='dashboard-component'></div>
+
+  <form>
+    <input type='text' oninput='searchUser(this.value)' />
+  </form>
 </main>
 <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
 <script src='/scripts/calendar-api.js'></script>

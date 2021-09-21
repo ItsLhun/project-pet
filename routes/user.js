@@ -11,6 +11,17 @@ router.get('/', routeGuard, (req, res, next) => {
   res.render('user/profile');
 });
 
+router.post('/search', routeGuard, (req, res, next) => {
+  const { searchTerm } = req.body;
+
+  if (searchTerm.trim() !== '') {
+    const term = searchTerm.trim();
+    User.find({ email: new RegExp('^' + term, 'i') })
+      .then((users) => res.send(users))
+      .catch((error) => next(error));
+  }
+});
+
 router.post('/edit', routeGuard, (req, res, next) => {
   const { id } = req.user;
   const { firstName, lastName, username, email } = req.body;
