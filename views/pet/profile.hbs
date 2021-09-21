@@ -45,7 +45,24 @@
         </span></div>
       <div><strong>Species: </strong><span>{{pet.species}}</span></div>
     </div>
+    <fieldset class='dashboard-component'>
+      <legend class='component-title'>Authorized users</legend>
+      <form method='POST' action='/user/authorize/{{pet._id}}'>
+        <input
+          id='user-search-input'
+          name='username'
+          list='users-list'
+          type='text'
+          oninput='searchUser(this.value)'
+        />
+        <datalist id='users-list'>
+
+        </datalist>
+        <button>Send invitation</button>
+      </form>
+    </fieldset>
   </section>
+
   <fieldset class='dashboard-component'>
     <legend class='component-title'>Medical</legend>
   </fieldset>
@@ -54,24 +71,12 @@
 
   </fieldset>
   <div id='calendar' class='dashboard-component'></div>
-
-  <form>
-    <input
-      id='user-search-input'
-      list='users-list'
-      type='text'
-      oninput='searchUser(this.value)'
-    />
-    <datalist id='users-list'>
-
-    </datalist>
-  </form>
 </main>
 <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
 <script src='/scripts/calendar-api.js'></script>
 <script src='/scripts/calendarjs.js'></script>
 <script src='/scripts/calendar-options.js'></script>
-<script src='/scripts/user-search.js'></script>
+<script src='/scripts/user-authorization.js'></script>
 <script>
   const events =
   {{{json events}}}; calendarInstance.setEvents(events);

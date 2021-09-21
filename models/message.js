@@ -17,6 +17,23 @@ const messageSchema = new mongoose.Schema({
     type: String,
     enum: ['Vet Appointment Request', 'Pet Access Invitation'],
     required: true
+  },
+  pet: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Pet',
+    required: true
+  },
+  note: {
+    type: String
+  },
+  read: {
+    type: Boolean,
+    required: true
+  },
+  confirmed: {
+    type: String,
+    enum: ['Confirmed', 'Rejected', 'Pending'],
+    required: true
   }
 });
 
