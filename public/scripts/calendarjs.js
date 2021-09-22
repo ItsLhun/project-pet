@@ -1411,7 +1411,8 @@ function calendarJs(id, options, startDateTime) {
 
     var day = date.getDay() === 0 ? 7 : date.getDay(),
       firstDayNumber = date.getDate() - day + 1,
-      lastDayNumber = firstDayNumber + 6,
+      // Nahuel: this line is changed from +6 to +14 to turn into 15 days display
+      lastDayNumber = firstDayNumber + 14,
       weekStartDate = new Date(date),
       weekEndDate = new Date(date);
 
@@ -3296,15 +3297,15 @@ function calendarJs(id, options, startDateTime) {
       }
     }
 
-    if (_options.exportEventsEnabled) {
-      if (_element_ListAllWeekEventsView_EventsShown.length === 0) {
-        _element_ListAllWeekEventsView_ExportEventsButton.style.display =
-          'none';
-      } else {
-        _element_ListAllWeekEventsView_ExportEventsButton.style.display =
-          'inline-block';
-      }
-    }
+    // if (_options.exportEventsEnabled) {
+    //   if (_element_ListAllWeekEventsView_EventsShown.length === 0) {
+    //     _element_ListAllWeekEventsView_ExportEventsButton.style.display =
+    //       'none';
+    //   } else {
+    //     _element_ListAllWeekEventsView_ExportEventsButton.style.display =
+    //       'inline-block';
+    //   }
+    // }
 
     // Nahuel: this adds a customized message when there are no events to depslay on the upcoming days
     if (_element_ListAllWeekEventsView_EventsShown.length === 0) {
