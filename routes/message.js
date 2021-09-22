@@ -24,7 +24,7 @@ router.post('/authorize/:petId', (req, res, next) => {
 });
 
 router.post('/respond/:id', (req, res, next) => {
-  const status = req.body.confirm || req.body.decline;
+  const status = req.body.accept || req.body.decline;
   const { id } = req.params;
 
   Message.findByIdAndUpdate(id, { status, confirmed: true })

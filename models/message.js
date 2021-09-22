@@ -39,12 +39,12 @@ const messageSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ['Confirmed', 'Declined', 'Pending'],
+      enum: ['Accepted', 'Declined', 'Pending'],
       required: true,
       default: 'Pending'
     }
   },
-  { timestamps: { createdAt: 'sentAt' } }
+  { timestamps: { createdAt: 'sent' } }
 );
 
 const Message = mongoose.model('Message', messageSchema);

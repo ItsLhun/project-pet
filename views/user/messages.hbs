@@ -3,17 +3,18 @@
   {{#each messages}}
     <li class='user-message'>
       <p>{{type}}</p>
-      <p>From: {{from.username}} at {{sentAt}}</p>
+      <p>From: {{from.username}} at {{sent}}</p>
+      <p>Pet: {{pet.name}}</p>
       {{#if confirmed}}
         <p>Status: {{status}}</p>
       {{else}}
         <div id='message-buttons'>
           <form id='confirm' method='POST' action='/message/respond/{{_id}}'>
             <button
-              name='confirm'
-              value='Confirmed'
-              id='confirm-button'
-            >Confirm</button>
+              name='accept'
+              value='Accepted'
+              id='accept-button'
+            >Accept</button>
             <button
               name='decline'
               value='Declined'
