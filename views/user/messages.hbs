@@ -4,21 +4,24 @@
     <li class='user-message'>
       <p>{{type}}</p>
       <p>From: {{from.username}} at {{sentAt}}</p>
-      <p>Status: {{status}}</p>
-      <div id='message-buttons'>
-        <form id='confirm' method='POST' action='/message/respond/{{_id}}'>
-          <button
-            name='confirm'
-            value='Confirmed'
-            id='confirm-button'
-          >Confirm</button>
-          <button
-            name='decline'
-            value='Declined'
-            id='decline-button'
-          >Decline</button>
-        </form>
-      </div>
+      {{#if confirmed}}
+        <p>Status: {{status}}</p>
+      {{else}}
+        <div id='message-buttons'>
+          <form id='confirm' method='POST' action='/message/respond/{{_id}}'>
+            <button
+              name='confirm'
+              value='Confirmed'
+              id='confirm-button'
+            >Confirm</button>
+            <button
+              name='decline'
+              value='Declined'
+              id='decline-button'
+            >Decline</button>
+          </form>
+        </div>
+      {{/if}}
     </li>
   {{/each}}
 </ul>

@@ -29,12 +29,19 @@ const messageSchema = new mongoose.Schema(
     },
     read: {
       type: Boolean,
-      required: true
+      required: true,
+      default: false
+    },
+    confirmed: {
+      type: Boolean,
+      required: true,
+      default: false
     },
     status: {
       type: String,
       enum: ['Confirmed', 'Declined', 'Pending'],
-      required: true
+      required: true,
+      default: 'Pending'
     }
   },
   { timestamps: { createdAt: 'sentAt' } }

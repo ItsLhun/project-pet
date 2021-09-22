@@ -16,9 +16,7 @@ router.post('/authorize/:petId', (req, res, next) => {
         from: req.user.id,
         to: user.id,
         type: 'Pet Access Invitation',
-        pet: petId,
-        read: false,
-        confirmed: 'Pending'
+        pet: petId
       });
     })
     .then(() => res.redirect(`/pet/${petId}`))
@@ -29,7 +27,7 @@ router.post('/respond/:id', (req, res, next) => {
   const status = req.body.confirm || req.body.decline;
   const { id } = req.params;
 
-  Message.findByIdAndUpdate(id, { status })
+  Message.findByIdAndUpdate(id, { status, confirmed: true })
     .then(() => {
       res.redirect('/user/messages');
     })
