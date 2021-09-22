@@ -572,6 +572,10 @@ function calendarJs(id, options, startDateTime) {
       ', ' +
       _currentDate.getFullYear() +
       ' ▾';
+
+    return new Promise(function (resolve, reject) {
+      resolve(1);
+    });
   }
 
   /*
@@ -3113,7 +3117,7 @@ function calendarJs(id, options, startDateTime) {
     //Nahuel: display all event inside a custom 'upcoming-events' div
     const customUpcomingEvents = document.getElementById('upcoming-events');
 
-    customUpcomingEvents.appendChild(_element_ListAllWeekEventsView_Contents);
+    customUpcomingEvents?.appendChild(_element_ListAllWeekEventsView_Contents);
     // _element_ListAllWeekEventsView.appendChild(
     //   _element_ListAllWeekEventsView_Contents
     // );
@@ -3147,7 +3151,6 @@ function calendarJs(id, options, startDateTime) {
 
     var orderedEvents = getOrderedEvents(getAllEvents()),
       orderedEventsLength = orderedEvents.length;
-
     for (
       var orderedEventIndex = 0;
       orderedEventIndex < orderedEventsLength;
@@ -10097,6 +10100,10 @@ function calendarJs(id, options, startDateTime) {
     _elementID = id;
 
     buildDefaultOptions(options);
-    build(startDateTime, true);
+    build(startDateTime, true).then((res) => {
+      setTimeout(() => {
+        showListAllWeekEventsView(null, true);
+      }, 150);
+    });
   })(document, window);
 }
