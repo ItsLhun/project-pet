@@ -1414,8 +1414,8 @@ function calendarJs(id, options, startDateTime) {
 
     var day = date.getDay() === 0 ? 7 : date.getDay(),
       firstDayNumber = date.getDate() - day + 1,
-      // Nahuel: this line is changed from +6 to +14 to turn into 15 days display
-      lastDayNumber = firstDayNumber + 14,
+      // Nahuel: this line is changed from +6 to +18 to turn into 15 days display. For some reason just +14 didn't work
+      lastDayNumber = firstDayNumber + 18,
       weekStartDate = new Date(date),
       weekEndDate = new Date(date);
 
@@ -10103,7 +10103,7 @@ function calendarJs(id, options, startDateTime) {
     build(startDateTime, true).then((res) => {
       setTimeout(() => {
         showListAllWeekEventsView(null, true);
-      }, 150);
+      }, 450);
     });
   })(document, window);
 }
