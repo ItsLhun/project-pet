@@ -22,7 +22,7 @@
   z-index: 10000;
 }
 
-#menu-toggle span {
+#menu-toggle .burger {
   display: block;
   width: 2rem;
   height: 4px;
@@ -109,4 +109,13 @@
 }
 .no-scroll {
   overflow: hidden;
+}
+
+#unread-amount {
+  text-align: center;
+  font-size: 0.8em;
+  color: white;
+  padding: 0 0.4em;
+  border-radius: 50%;
+  background: $detail-darkred;
 }

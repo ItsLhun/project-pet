@@ -17,9 +17,9 @@
         <div id='menu-toggle'>
           <div id='input-wrap'>
             <input id='side-menu-input' class='' type='checkbox' />
-            <span></span>
-            <span></span>
-            <span></span>
+            <span class='burger'></span>
+            <span class='burger'></span>
+            <span class='burger'></span>
           </div>
           <ul id='sidebar-menu' class='sidebar-no-show'>
             <div id='user-introduction'>
@@ -32,7 +32,10 @@
             </div>
             <a href='/'>Home</a>
             <a href='/user'>My Profile</a>
-            <a href='/user/messages'>Messages</a>
+            <a href='/user/messages'>
+              Messages
+              <span id='unread-amount'>4</span>
+            </a>
             <a href='/user/settings'>Settings</a>
             <form action='/authentication/sign-out' method='POST'>
               <button>Sign Out</button>
