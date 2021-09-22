@@ -586,7 +586,6 @@ function calendarJs(id, options, startDateTime) {
     getAllEventsFunc(function (event) {
       events.push(event);
     });
-
     return events;
   }
 
@@ -3121,9 +3120,10 @@ function calendarJs(id, options, startDateTime) {
   }
 
   function showListAllWeekEventsView(weekDate, fromOpen) {
-    fromOpen = isDefined(fromOpen) ? fromOpen : false;
+    // fromOpen = isDefined(fromOpen) ? fromOpen : false;
 
-    showOverlay(_element_ListAllWeekEventsView);
+    //Nahuel: overlay atop the calendar
+    // showOverlay(_element_ListAllWeekEventsView);
 
     _element_ListAllWeekEventsView_Contents.innerHTML = '';
     _element_ListAllWeekEventsView_Contents_FullView = {};
@@ -3132,9 +3132,9 @@ function calendarJs(id, options, startDateTime) {
     _element_ListAllWeekEventsView_DateSelected =
       weekDate === null ? new Date() : new Date(weekDate);
 
-    if (fromOpen) {
-      _element_ListAllWeekEventsView_Contents.scrollTop = 0;
-    }
+    // if (fromOpen) {
+    //   _element_ListAllWeekEventsView_Contents.scrollTop = 0;
+    // }
 
     var weekStartEndDates = getWeekStartEndDates(weekDate),
       weekStartDate = weekStartEndDates[0],
@@ -3290,10 +3290,10 @@ function calendarJs(id, options, startDateTime) {
         // customEvents.appendChild(
         //   _element_ListAllWeekEventsView_Contents_FullView[dateID]
         // );
-
         _element_ListAllWeekEventsView_Contents.appendChild(
           _element_ListAllWeekEventsView_Contents_FullView[dateID]
         );
+        console.log(_element_ListAllWeekEventsView_Contents_FullView[dateID]);
       }
     }
 
