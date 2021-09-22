@@ -6,7 +6,7 @@ const routeGuard = require('../middleware/route-guard');
 const User = require('../models/user');
 const Message = require('../models/message');
 
-router.post('/authorize/:petId', (req, res, next) => {
+router.post('/authorize/:petId', routeGuard, (req, res, next) => {
   const { petId } = req.params;
   const { username } = req.body;
 
@@ -23,7 +23,7 @@ router.post('/authorize/:petId', (req, res, next) => {
     .catch((error) => next(error));
 });
 
-router.post('/respond/:id', (req, res, next) => {
+router.post('/respond/:id', routeGuard, (req, res, next) => {
   const status = req.body.accept || req.body.decline;
   const { id } = req.params;
 
