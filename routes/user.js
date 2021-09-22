@@ -67,29 +67,11 @@ router.post('/settings', routeGuard, (req, res, next) => {
 
 router.get('/messages', routeGuard, (req, res, next) => {
   Message.find({ to: req.user.id })
+    .populate('from')
+    .populate('pet')
     .then((messages) => {
-      console.log(messages);
-      res.render('user/messages');
+      res.render('user/messages', { messages });
     })
-    .catch((error = next(error)));
-});
-
-router.post('/authorize/:petId', (req, res, next) => {
-  const { petId } = req.params;
-  const { username } = req.body;
-
-  User.findOne({ username })
-    .then((user) => {
-      return Message.create({
-        from: req.user.id,
-        to: user.id,
-        type: 'Pet Access Invitation',
-        pet: petId,
-        read: false,
-        confirmed: 'Pending'
-      });
-    })
-    .then(() => res.redirect(`/pet/${petId}`))
     .catch((error) => next(error));
 });
 

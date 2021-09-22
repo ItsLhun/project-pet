@@ -4570,4 +4570,16 @@ div.camera-wrapper:hover {
   filter: invert(50%) sepia(65%) saturate(654%) hue-rotate(340deg) brightness(97%) contrast(90%);
 }
 
+.user-message {
+  padding: 1em;
+  list-style: none;
+  background: #eeeeee;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-message #message-buttons {
+  display: flex;
+}
+
 /*# sourceMappingURL=style.css.map */

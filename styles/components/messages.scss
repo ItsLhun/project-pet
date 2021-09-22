@@ -1,0 +1,10 @@
+.user-message {
+  padding: 1em;
+  list-style: none;
+  background: $grey;
+  display: flex;
+  flex-direction: column;
+  #message-buttons {
+    display: flex;
+  }
+}
