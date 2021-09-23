@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Sanchez:ital@0;1&display=swap");
+.d-none {
+  display: none;
+}
+
 /*
  * Calendar.js Library v1.3.1
  *
@@ -4052,22 +4056,6 @@ h1 + fieldset {
   }
 }
 
-.welcome-image-wrapper {
-  margin: 0.7em auto;
-  border: 2px solid #303030;
-  border-radius: 50%;
-  background-color: #c4c4c4;
-  width: calc(7em + 19vw);
-  max-width: 12em;
-  position: relative;
-}
-
-.welcome-image-wrapper:before {
-  content: '';
-  display: block;
-  padding-top: 100%;
-}
-
 .welcome-profile-img {
   position: absolute;
   top: 0;
@@ -4081,7 +4069,7 @@ h1 + fieldset {
   object-fit: cover;
 }
 
-.login-form, .sign-up-form {
+.login-form {
   justify-content: space-evenly;
   max-width: 28em;
   background-color: #eeeeee;
@@ -4092,7 +4080,7 @@ h1 + fieldset {
   height: calc(100vh - 8rem);
 }
 
-.login-form button, .sign-up-form button {
+.login-form button {
   background-color: #e26a29;
   color: white;
   width: 73%;
@@ -4102,16 +4090,12 @@ h1 + fieldset {
   padding: 0;
 }
 
-.login-form button + a, .sign-up-form button + a {
+.login-form button + a {
   margin-bottom: 0.5em;
 }
 
-.login-form .forgot-pass, .sign-up-form .forgot-pass {
+.login-form .forgot-pass {
   font-size: 0.8rem;
-}
-
-.sign-up-form {
-  max-width: 45em;
 }
 
 .input-label-wrap {
@@ -4133,7 +4117,7 @@ h1 + fieldset {
 
 .input-name-wrap {
   margin: 0;
-  width: 73%;
+  min-width: 73%;
   display: flex;
   justify-content: space-between;
 }
@@ -4143,13 +4127,63 @@ h1 + fieldset {
   width: 45%;
 }
 
+@media screen and (max-width: 500px) {
+  .input-name-wrap {
+    flex-direction: column;
+  }
+  .input-name-wrap .input-label-wrap {
+    width: 100%;
+  }
+}
+
+.professional-login button {
+  background-color: #5353d3;
+}
+
 @media screen and (min-width: 480px) {
-  .login-form, .sign-up-form {
+  .login-form {
     margin: 1.5em auto;
     max-width: 28em;
     min-width: fit-content;
     font-size: 1.1rem;
     min-height: 35em;
+  }
+}
+
+.sign-up-form {
+  max-width: 45em;
+  justify-content: space-evenly;
+  background-color: #eeeeee;
+  margin: 0.5em auto;
+  align-items: center;
+  border-radius: 10px;
+  border: 2px solid #c4c4c4;
+  height: fit-content;
+  transition: all ease;
+}
+
+.sign-up-form button {
+  background-color: #e26a29;
+  color: white;
+  width: 73%;
+  border-radius: 10px;
+  margin: 0.5em auto;
+  font-size: calc(1.2rem + 15%);
+  padding: 0;
+}
+
+.sign-up-form button + a {
+  margin-bottom: 0.5em;
+}
+
+.sign-up-form .forgot-pass {
+  font-size: 0.8rem;
+}
+
+@media screen and (min-height: 900px) {
+  .sign-up-form {
+    height: calc(100vh - 8rem);
+    transition: all ease;
   }
 }
 
@@ -4272,8 +4306,10 @@ h1 + fieldset {
   text-align: center;
   font-size: 0.8em;
   color: white;
-  padding: 0 0.4em;
-  border-radius: 50%;
+  padding: 0 6px;
+  border-radius: 2em;
+  height: fit-content;
+  width: auto;
   background: #a41d2d;
 }
 
