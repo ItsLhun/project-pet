@@ -35,7 +35,7 @@ petRouter.post(
   (req, res, next) => {
     const { name, species, birthday } = req.body;
     let image;
-    console.log(req.file);
+
     if (req.file) {
       image = req.file.path;
     } else {

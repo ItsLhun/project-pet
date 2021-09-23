@@ -47,7 +47,11 @@ const schema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Pet'
     }
-  ]
+  ],
+  unreadMessages: {
+    type: Number,
+    default: 0
+  }
 });
 
 const User = mongoose.model('User', schema);
