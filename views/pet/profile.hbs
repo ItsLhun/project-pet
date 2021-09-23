@@ -28,11 +28,8 @@
             />
             <button></button>
           </form>
-
         </div>
-
       </div>
-
     </div>
     <div class='profile-info'>
       <div><strong>Name: </strong><span>{{pet.name}}</span></div>
@@ -47,22 +44,32 @@
     </div>
     <fieldset class='dashboard-component'>
       <legend class='component-title'>Authorized users</legend>
-      <form method='POST' action='/message/authorize/{{pet._id}}'>
-        <label for='user-search-input'>Search username</label>
-        <input
-          id='user-search-input'
-          name='username'
-          list='users-list'
-          type='text'
-          oninput='searchUser(this.value)'
-        />
-        <label for='note'>Note:</label>
-        <textarea id='message-note' name='note' type='text'></textarea>
-        <datalist id='users-list'>
 
-        </datalist>
-        <button>Send invitation</button>
-      </form>
+      <div class='wrap-collapsible'>
+        <input id='collapsible' class='toggle' type='checkbox' />
+        <label for='collapsible' class='lbl-toggle'></label>
+        <div class='collapsible-content'>
+          <div class='content-inner'>
+            <form method='POST' action='/message/authorize/{{pet._id}}'>
+              <label for='user-search-input'>Search username</label>
+              <input
+                id='user-search-input'
+                name='username'
+                list='users-list'
+                type='text'
+                oninput='searchUser(this.value)'
+              />
+              <label for='note'>Note:</label>
+              <textarea id='message-note' name='note' type='text'></textarea>
+              <datalist id='users-list'>
+
+              </datalist>
+              <button>Send invitation</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
     </fieldset>
   </section>
 

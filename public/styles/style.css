@@ -4542,6 +4542,35 @@ h1 + fieldset {
   padding-left: 1em;
 }
 
+.wrap-collapsible #collapsible {
+  display: none;
+}
+
+.wrap-collapsible .lbl-toggle {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 2em;
+}
+
+.wrap-collapsible .lbl-toggle::before {
+  content: '+';
+}
+
+.wrap-collapsible .collapsible-content {
+  max-height: 0px;
+  width: 100%;
+  overflow: hidden;
+  transition: max-height 0.1s ease-in-out;
+}
+
+.wrap-collapsible .toggle:checked + .lbl-toggle + .collapsible-content {
+  max-height: 100vh;
+}
+
+.wrap-collapsible .toggle:checked + .lbl-toggle::before {
+  content: '-';
+}
+
 @media (max-width: 40rem) {
   .profile-section {
     justify-content: center;
