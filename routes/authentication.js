@@ -48,6 +48,9 @@ router.post(
       })
       .then((user) => {
         req.session.userId = user._id;
+        if (user.type) {
+          req.session.type = 'professional';
+        }
         res.redirect('/');
       })
       .catch((error) => {
@@ -124,6 +127,8 @@ router.post('/prof-sign-in', (req, res, next) => {
       .then((result) => {
         if (result) {
           req.session.userId = user._id;
+          req.session.type = 'professional';
+
           res.redirect('/');
         } else {
           return Promise.reject(new Error('WRONG_PASSWORD'));

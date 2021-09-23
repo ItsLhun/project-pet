@@ -1,8 +1,7 @@
 <h1>Main User Dashboard TBC</h1>
-
 <div id='pet-summary' class='dashboard-component'>
   <div class='component-header'>
-  <h4 class='component-title'></h4>
+  <h4 class='component-title'>{{type}}</h4>
 
     <div class="btn-wrapper"><a href='/pet/create' class="add-pet-button">Add pet</a></div>
     </div>
@@ -12,8 +11,7 @@
     {{> petMiniature this}}
     {{/each}}
   {{/if}}
-  </div>
-  
+  </div>  
 </div>
 <fieldset id='upcoming-events' class='dashboard-component'>
   
@@ -21,10 +19,6 @@
   <div>
     <div id='display-upcoming'></div>
 
-    {{!-- {{#if events}}{{else}}
-      <p>There are no upcoming events!</p>
-      {{else}}
-    {{/if}} --}}
   </div>
 </fieldset>
 <div id='calendar' class='dashboard-component'></div>
