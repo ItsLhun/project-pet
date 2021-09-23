@@ -1,4 +1,7 @@
 const dataList = document.getElementById('users-list');
+const authorizedUsers = document.getElementById('authorized-users');
+const addUserForm = document.getElementById('authorize-user-form');
+
 let dataListValues = [];
 
 const renderDataList = (users) => {
