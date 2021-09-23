@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const capitalizeWords = require('../helperJS/capitalize');
 
 const getPetDate = (date) => {
-  console.log(date);
   if (date) {
     return date.toLocaleDateString('en-GB');
   } else {

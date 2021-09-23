@@ -9,7 +9,7 @@
         <p>Status: {{status}}</p>
       {{else}}
         <div id='message-buttons'>
-          <form id='confirm' method='POST' action='/message/respond/{{_id}}'>
+          <form id='confirm' method='POST' action='/message/respond/{{id}}'>
             <button
               name='accept'
               value='Accepted'
@@ -22,6 +22,9 @@
             >Decline</button>
           </form>
         </div>
+        <form method='POST' action='/message/delete/{{id}}'>
+          <button id='delete-message'>Delete</button>
+        </form>
       {{/if}}
     </li>
   {{/each}}
