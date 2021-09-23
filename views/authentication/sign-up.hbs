@@ -4,12 +4,21 @@
     <div class='input-label-wrap'>
       <label for=''>User Type</label>
       <div>
-        <input type='radio' name='userType' id='prof-input-radio' />
-        <span>Professional</span>
-      </div>
-      <div>
-        <input type='radio' name='userType' id='user-input-radio' />
-        <span>Regular</span>
+        <input
+          type='radio'
+          name='userType'
+          id='prof-input-radio'
+          value='professional'
+        />
+        <label>Professional</label>
+
+        <input
+          type='radio'
+          name='userType'
+          id='user-input-radio'
+          value='regular'
+        />
+        <label>Regular</label>
       </div>
     </div>
     <div class='input-label-wrap d-none' id='professional-type-dropdown'>
@@ -109,7 +118,9 @@
 <script>
   const profInputRad = document.getElementById('prof-input-radio'); const
   userInputRad = document.getElementById('user-input-radio'); const profSelect =
-  document.getElementById('professional-type-dropdown'); if(profInputRad.value)
-  { profSelect.classList.remove('d-none'); } else {
-  profSelect.classList.add('d-none'); }
+  document.getElementById('professional-type-dropdown');
+  profInputRad.addEventListener('change', (e) => { if (profInputRad.checked){
+  profSelect.classList.remove('d-none'); } })
+  userInputRad.addEventListener('change', (e) => { if (userInputRad.checked){
+  profSelect.classList.add('d-none'); } })
 </script>

@@ -16,18 +16,35 @@ router.get('/sign-up', (req, res, next) => {
 router.post(
   '/sign-up',
   /*passwordValidator,*/ (req, res, next) => {
-    const { firstName, lastName, username, email, password } = req.body;
+    const {
+      firstName,
+      lastName,
+      username,
+      email,
+      password,
+      profType,
+      userType
+    } = req.body;
 
     bcryptjs
       .hash(password, 10)
       .then((hash) => {
-        return User.create({
-          firstName,
-          lastName,
-          username,
-          email,
-          passwordHashAndSalt: hash
-        });
+        return userType === 'regular'
+          ? User.create({
+              firstName,
+              lastName,
+              username,
+              email,
+              passwordHashAndSalt: hash
+            })
+          : Professional.create({
+              firstName,
+              lastName,
+              username,
+              email,
+              type: profType,
+              passwordHashAndSalt: hash
+            });
       })
       .then((user) => {
         req.session.userId = user._id;

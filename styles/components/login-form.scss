@@ -77,6 +77,11 @@ form {
     background-color: rgb(83, 83, 211);
   }
 }
+
+.d-none {
+  display: none;
+}
+
 @media screen and (min-width: 480px) {
   .login-form {
     margin: 1.5em auto;

@@ -1,8 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Sanchez:ital@0;1&display=swap");
-.d-none {
-  display: none;
-}
-
 /*
  * Calendar.js Library v1.3.1
  *
@@ -4138,6 +4134,10 @@ h1 + fieldset {
 
 .professional-login button {
   background-color: #5353d3;
+}
+
+.d-none {
+  display: none;
 }
 
 @media screen and (min-width: 480px) {
