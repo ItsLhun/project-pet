@@ -63,7 +63,7 @@ $minimum-width-pet-profile: 40rem;
     justify-content: flex-end;
     font-size: 2em;
   }
-  .lbl-toggle::before {
+  .lbl-toggle::after {
     content: '+';
   }
   .collapsible-content {
@@ -76,7 +76,7 @@ $minimum-width-pet-profile: 40rem;
   .toggle:checked + .lbl-toggle + .collapsible-content {
     max-height: 100vh;
   }
-  .toggle:checked + .lbl-toggle::before {
+  .toggle:checked + .lbl-toggle::after {
     content: '-';
   }
 }

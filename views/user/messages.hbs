@@ -2,32 +2,44 @@
 <ul>
   {{#each messages}}
     <li class='user-message'>
-      <h2>{{type}}</h2>
-      <p>From: {{from.username}} at {{sent}}</p>
-      <p>Pet: {{pet.name}}</p>
-      {{#if confirmed}}
-        <p>Status: {{status}}</p>
-      {{else}}
-        <p>Note:</p>
-        <p>{{note}}</p>
-        <div id='message-buttons'>
-          <form id='confirm' method='POST' action='/message/respond/{{id}}'>
-            <button
-              name='accept'
-              value='Accepted'
-              id='accept-button'
-            >Accept</button>
-            <button
-              name='decline'
-              value='Declined'
-              id='decline-button'
-            >Decline</button>
-          </form>
+      <div class='wrap-collapsible'>
+        <input id='collapsible' class='toggle' type='checkbox' />
+        <label for='collapsible' id='lbl-toggle-msg'>{{type}}</label>
+        <div class='collapsible-content'>
+          <div class='content-inner'>
+            <p>From: {{from.username}} at {{sent}}</p>
+            <p>Pet: {{pet.name}}</p>
+            {{#if confirmed}}
+              <p>Status: {{status}}</p>
+            {{else}}
+              <p>Note:</p>
+              <p>{{note}}</p>
+              <div id='message-buttons'>
+                <form
+                  id='confirm'
+                  method='POST'
+                  action='/message/respond/{{id}}'
+                >
+                  <button
+                    name='accept'
+                    value='Accepted'
+                    id='accept-button'
+                  >Accept</button>
+                  <button
+                    name='decline'
+                    value='Declined'
+                    id='decline-button'
+                  >Decline</button>
+                </form>
+              </div>
+              <form method='POST' action='/message/delete/{{id}}'>
+                <button id='delete-message'>Delete</button>
+              </form>
+            {{/if}}
+          </div>
         </div>
-        <form method='POST' action='/message/delete/{{id}}'>
-          <button id='delete-message'>Delete</button>
-        </form>
-      {{/if}}
+      </div>
     </li>
+
   {{/each}}
 </ul>
