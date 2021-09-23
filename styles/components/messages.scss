@@ -8,3 +8,22 @@
     display: flex;
   }
 }
+
+.wrap-collapsible {
+  #collapsible {
+    display: none;
+  }
+  #lbl-toggle-msg {
+    font-size: 2em;
+  }
+  .collapsible-content {
+    max-height: 0px;
+    width: 100%;
+    overflow: hidden;
+
+    transition: max-height 0.1s ease-in-out;
+  }
+  .toggle:checked + #lbl-toggle-msg + .collapsible-content {
+    max-height: 100vh;
+  }
+}

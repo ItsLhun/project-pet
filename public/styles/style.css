@@ -4588,7 +4588,7 @@ h1 + fieldset {
   font-size: 2em;
 }
 
-.wrap-collapsible .lbl-toggle::before {
+.wrap-collapsible .lbl-toggle::after {
   content: '+';
 }
 
@@ -4603,7 +4603,7 @@ h1 + fieldset {
   max-height: 100vh;
 }
 
-.wrap-collapsible .toggle:checked + .lbl-toggle::before {
+.wrap-collapsible .toggle:checked + .lbl-toggle::after {
   content: '-';
 }
 
@@ -4654,6 +4654,25 @@ div.camera-wrapper:hover {
 
 .user-message #message-buttons {
   display: flex;
+}
+
+.wrap-collapsible #collapsible {
+  display: none;
+}
+
+.wrap-collapsible #lbl-toggle-msg {
+  font-size: 2em;
+}
+
+.wrap-collapsible .collapsible-content {
+  max-height: 0px;
+  width: 100%;
+  overflow: hidden;
+  transition: max-height 0.1s ease-in-out;
+}
+
+.wrap-collapsible .toggle:checked + #lbl-toggle-msg + .collapsible-content {
+  max-height: 100vh;
 }
 
 /*# sourceMappingURL=style.css.map */
