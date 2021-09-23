@@ -1,4 +1,32 @@
 <form class='sign-up-form' action='/authentication/sign-up' method='POST'>
+  <h2>Create a Pet Project account</h2>
+  <div class='input-name-wrap'>
+    <div class='input-label-wrap'>
+      <label for=''>User Type</label>
+      <div>
+        <input type='radio' name='userType' id='prof-input-radio' />
+        <span>Professional</span>
+      </div>
+      <div>
+        <input type='radio' name='userType' id='user-input-radio' />
+        <span>Regular</span>
+      </div>
+    </div>
+    <div class='input-label-wrap d-none' id='professional-type-dropdown'>
+      <label for=''>Professional Type</label>
+      <div>
+        <select type='select' name='profType' id='profType-input'>
+          <option value='-'>-</option>
+          <option value='Veterinarian'>Veterinarian</option>
+          <option value='Walker'>Walker</option>
+          <option value='Pet Sitter'>Pet Sitter</option>
+          <option value='Groomer'>Groomer</option>
+          <option value='Other'>Other</option>
+        </select>
+      </div>
+
+    </div>
+  </div>
   <div class='input-name-wrap'>
     <div class='input-label-wrap'>
       <label for='input-first-name'>First Name</label>
@@ -78,3 +106,10 @@
   </div>
   <button>Sign Up</button>
 </form>
+<script>
+  const profInputRad = document.getElementById('prof-input-radio'); const
+  userInputRad = document.getElementById('user-input-radio'); const profSelect =
+  document.getElementById('professional-type-dropdown'); if(profInputRad.value)
+  { profSelect.classList.remove('d-none'); } else {
+  profSelect.classList.add('d-none'); }
+</script>

@@ -34,7 +34,7 @@
             <a href='/user'>My Profile</a>
             <a href='/user/messages'>
               Messages
-              <span id='unread-amount'>4</span>
+              <span id='unread-amount'>999</span>
             </a>
             <a href='/user/settings'>Settings</a>
             <form action='/authentication/sign-out' method='POST'>
@@ -43,7 +43,9 @@
           </ul>
         </div>
       {{else}}
-        <a href='/authentication/sign-in'>Sign In</a>
+        <a href='/authentication/user-sign-in'>Sign In</a>
+        <a href='/authentication/prof-sign-in'>Professional Area</a>
+
       {{/if}}
     </nav>
     {{{body}}}

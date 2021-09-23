@@ -1,0 +1,32 @@
+.sign-up-form {
+  max-width: 45em;
+  justify-content: space-evenly;
+  background-color: $grey;
+  margin: 0.5em auto;
+  align-items: center;
+  border-radius: 10px;
+  border: 2px solid $mid-grey;
+  height: fit-content;
+  transition: all ease;
+  button {
+    background-color: $main-brown;
+    color: white;
+    width: 73%;
+    border-radius: 10px;
+    margin: 0.5em auto;
+    font-size: calc(1.2rem + 15%);
+    padding: 0;
+    + a {
+      margin-bottom: 0.5em;
+    }
+  }
+  .forgot-pass {
+    font-size: 0.8rem;
+  }
+}
+@media screen and (min-height: 900px) {
+  .sign-up-form {
+    height: calc(100vh - 8rem);
+    transition: all ease;
+  }
+}
