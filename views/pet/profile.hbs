@@ -48,6 +48,7 @@
     <fieldset class='dashboard-component'>
       <legend class='component-title'>Authorized users</legend>
       <form method='POST' action='/message/authorize/{{pet._id}}'>
+        <label for='user-search-input'>Search username</label>
         <input
           id='user-search-input'
           name='username'
@@ -55,6 +56,8 @@
           type='text'
           oninput='searchUser(this.value)'
         />
+        <label for='note'>Note:</label>
+        <textarea id='message-note' name='note' type='text'></textarea>
         <datalist id='users-list'>
 
         </datalist>

@@ -2,12 +2,14 @@
 <ul>
   {{#each messages}}
     <li class='user-message'>
-      <p>{{type}}</p>
+      <h2>{{type}}</h2>
       <p>From: {{from.username}} at {{sent}}</p>
       <p>Pet: {{pet.name}}</p>
       {{#if confirmed}}
         <p>Status: {{status}}</p>
       {{else}}
+        <p>Note:</p>
+        <p>{{note}}</p>
         <div id='message-buttons'>
           <form id='confirm' method='POST' action='/message/respond/{{id}}'>
             <button

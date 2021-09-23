@@ -17,7 +17,7 @@ router.post('/delete/:id', (req, res, next) => {
 
 router.post('/authorize/:petId', routeGuard, (req, res, next) => {
   const { petId } = req.params;
-  const { username } = req.body;
+  const { username, note } = req.body;
 
   User.findOne({ username })
     .then((user) => {
@@ -25,7 +25,8 @@ router.post('/authorize/:petId', routeGuard, (req, res, next) => {
         from: req.user.id,
         to: user.id,
         type: 'Pet Access Invitation',
-        pet: petId
+        pet: petId,
+        note
       });
     })
     .then(() => res.redirect(`/pet/${petId}`))
