@@ -6,7 +6,7 @@ const sideMenu = document.querySelector('#sidebar-menu');
 
 let sideStatus = sideMenu?.style?.transform;
 
-sideMenuInput.addEventListener('change', () => {
+sideMenuInput?.addEventListener('change', () => {
   sideStatus = sideMenu.style.transform;
   if (sideStatus === 'none') {
     console.log(sideMenuInput.checked);

@@ -49,7 +49,7 @@ router.post(
       .then((user) => {
         req.session.userId = user._id;
         if (user.type) {
-          req.session.type = 'professional';
+          req.session.userType = 'professional';
         }
         res.redirect('/');
       })
@@ -63,7 +63,7 @@ router.get('/user-sign-in', (req, res, next) => {
   if (req.user) {
     res.render('dashboard');
   } else {
-    res.render('authentication/sign-in', { message: req.flash() });
+    res.render('authentication/user-sign-in', { message: req.flash() });
   }
 });
 
@@ -92,7 +92,7 @@ router.post('/user-sign-in', (req, res, next) => {
       .catch((error) => {
         if (error.message === 'WRONG_PASSWORD') {
           req.flash('passwordError', 'Wrong password.');
-          res.redirect('/authentication/sign-in');
+          res.redirect('/authentication/user-sign-in');
         } else if (error.message === 'NO_USER') {
           req.flash('userError', 'No user found with the username/email.');
           res.redirect('/authentication/user-sign-in');
@@ -127,7 +127,7 @@ router.post('/prof-sign-in', (req, res, next) => {
       .then((result) => {
         if (result) {
           req.session.userId = user._id;
-          req.session.type = 'professional';
+          req.session.userType = 'professional';
 
           res.redirect('/');
         } else {
@@ -137,7 +137,7 @@ router.post('/prof-sign-in', (req, res, next) => {
       .catch((error) => {
         if (error.message === 'WRONG_PASSWORD') {
           req.flash('passwordError', 'Wrong password.');
-          res.redirect('/authentication/sign-in');
+          res.redirect('/authentication/prof-sign-in');
         } else if (error.message === 'NO_USER') {
           req.flash('userError', 'No user found with the username/email.');
           res.redirect('/authentication/prof-sign-in');

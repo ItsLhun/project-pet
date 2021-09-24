@@ -8,11 +8,12 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   if (req.session.userId) {
     let user;
-    console.log(req.session.type);
-    if (req.session.type) {
+    console.log(req.session.userType);
+    if (req.session.userType) {
       Professional.findById(req.session.userId)
         .then((documentUser) => {
           user = documentUser;
+          console.log(user);
           res.render('prof-dashboard', user);
         })
         .catch((error) => {
