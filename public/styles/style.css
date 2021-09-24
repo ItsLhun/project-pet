@@ -4652,31 +4652,26 @@ div.camera-wrapper:hover {
   flex-direction: column;
 }
 
-.user-message #message-buttons {
+.user-message .message-buttons {
   display: flex;
 }
 
-.wrap-collapsible #collapsible {
+.user-message .collapsible {
+  background-color: #eeeeee;
+  cursor: pointer;
+  width: 100%;
+}
+
+.user-message .active,
+.user-message .collapsible:hover {
+  background-color: #c4c4c4;
+}
+
+.user-message .collapsible-content {
+  padding: 0 18px;
   display: none;
-}
-
-.wrap-collapsible #lbl-toggle-msg {
-  width: 100%;
-}
-
-.wrap-collapsible #lbl-toggle-msg #message-from {
-  font-weight: bold;
-}
-
-.wrap-collapsible .collapsible-content {
-  max-height: 0px;
-  width: 100%;
   overflow: hidden;
-  transition: max-height 0.1s ease-in-out;
-}
-
-.wrap-collapsible .toggle:checked + #lbl-toggle-msg + .collapsible-content {
-  max-height: 100vh;
+  background-color: #f7f7f7;
 }
 
 /*# sourceMappingURL=style.css.map */

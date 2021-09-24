@@ -4,29 +4,23 @@
   background: $grey;
   display: flex;
   flex-direction: column;
-  #message-buttons {
+  .message-buttons {
     display: flex;
   }
-}
-
-.wrap-collapsible {
-  #collapsible {
-    display: none;
-  }
-  #lbl-toggle-msg {
+  .collapsible {
+    background-color: $grey;
+    cursor: pointer;
     width: 100%;
-    #message-from {
-      font-weight: bold;
-    }
+  }
+
+  .active,
+  .collapsible:hover {
+    background-color: $mid-grey;
   }
   .collapsible-content {
-    max-height: 0px;
-    width: 100%;
+    padding: 0 18px;
+    display: none;
     overflow: hidden;
-
-    transition: max-height 0.1s ease-in-out;
-  }
-  .toggle:checked + #lbl-toggle-msg + .collapsible-content {
-    max-height: 100vh;
+    background-color: rgb(247, 247, 247);
   }
 }

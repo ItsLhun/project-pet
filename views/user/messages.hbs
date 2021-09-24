@@ -1,46 +1,43 @@
 <h1>Messages</h1>
 <ul>
   {{#each messages}}
-    <li class='user-message'>
-      <div id={{id}} class='wrap-collapsible message'>
-        <input id='collapsible' class='toggle' type='checkbox' />
-        <label for='collapsible' id='lbl-toggle-msg'>
-          <span id='message-from'>{{from.username}}</span><br />
-          <span id='message-type'>{{type}}</span>
-        </label>
-        <div class='collapsible-content'>
-          <div class='content-inner'>
-            <p>From: {{from.username}} at {{sent}}</p>
-            <p>Pet: {{pet.name}}</p>
-            {{#if confirmed}}
-              <p>Status: {{status}}</p>
-            {{else}}
-              <p>Note:</p>
-              <p>{{note}}</p>
-              <div id='message-buttons'>
-                <form
-                  id='confirm'
-                  method='POST'
-                  action='/message/respond/{{id}}'
-                >
-                  <button
-                    name='accept'
-                    value='Accepted'
-                    id='accept-button'
-                  >Accept</button>
-                  <button
-                    name='decline'
-                    value='Declined'
-                    id='decline-button'
-                  >Decline</button>
-                </form>
-              </div>
-              <form method='POST' action='/message/delete/{{id}}'>
-                <button id='delete-message'>Delete</button>
-              </form>
-            {{/if}}
-          </div>
+    <li id={{id}} class='user-message'>
+      <div class='collapsible'>
+        <span class='message-from'>{{from.username}}</span><br />
+        <span class='message-type'>{{type}}</span>
+        <div>
+          {{sent}}
         </div>
+      </div>
+      <div class='collapsible-content'>
+        <p>Pet: {{pet.name}}</p>
+        {{#if confirmed}}
+          <p>Status: {{status}}</p>
+        {{else}}
+          <p>Note:</p>
+          <p>{{note}}</p>
+          <div class='message-buttons'>
+            <form
+              class='confirm'
+              method='POST'
+              action='/message/respond/{{id}}'
+            >
+              <button
+                name='accept'
+                value='Accepted'
+                class='accept-button'
+              >Accept</button>
+              <button
+                name='decline'
+                value='Declined'
+                class='decline-button'
+              >Decline</button>
+            </form>
+          </div>
+          <form method='POST' action='/message/delete/{{id}}'>
+            <button class='delete-message'>Delete</button>
+          </form>
+        {{/if}}
       </div>
     </li>
 
