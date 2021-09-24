@@ -16,7 +16,7 @@ const createEventHTTP = (data) => {
     .then((res) => {
       console.log(`POST: event was added`);
     })
-    .catch((error) => console.error(error));
+    .catch((error) => console.error(data, error));
 };
 
 const updateEventHTTP = (data) => {

@@ -4313,7 +4313,7 @@ h1 + fieldset {
   background: #a41d2d;
 }
 
-.dashboard-component,
+.dashboard-component, .dashboard-component-prof,
 .calendar {
   border-radius: 0.9rem 0.9rem 0.2em 0.2em;
   margin-bottom: 2em;
@@ -4321,7 +4321,7 @@ h1 + fieldset {
   position: relative;
 }
 
-.dashboard-component {
+.dashboard-component, .dashboard-component-prof {
   background-color: #eeeeee;
   min-height: 8em;
 }
@@ -4620,7 +4620,6 @@ div.edit-wrapper {
   margin: 0;
   padding: 0;
   cursor: pointer;
-  z-index: 9999;
 }
 
 div.edit-wrapper:hover {
@@ -4697,6 +4696,20 @@ div.camera-wrapper:hover {
   display: none;
   overflow: hidden;
   background-color: #f7f7f7;
+}
+
+.professional-header {
+  background: linear-gradient(90deg, #2b2baf 20%, #2b6eeb 80%);
+  border-radius: 0.9rem 0.9rem 0 0;
+  height: 4.5em;
+  color: white;
+  padding: 0.5em;
+  font-size: 1.2rem;
+  font-weight: 200;
+}
+
+.dashboard-component-prof {
+  background-color: red;
 }
 
 /*# sourceMappingURL=style.css.map */

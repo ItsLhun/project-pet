@@ -1,4 +1,4 @@
-const editBtn = document.querySelector('.edit-profile-icon');
+const editBtn = document.getElementById('edit-profile-icon');
 const form = document.querySelector('#form-user-profile');
 const profileValueFields = document.querySelectorAll('.profile-value');
 
@@ -6,7 +6,6 @@ const submitBtn = document.createElement('button');
 submitBtn.innerText = 'Save';
 
 editBtn.addEventListener('click', () => {
-  form.removeChild(editBtn);
   form.appendChild(submitBtn);
 
   profileValueFields.forEach((field) => {

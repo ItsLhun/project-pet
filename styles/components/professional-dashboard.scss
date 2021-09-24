@@ -1,0 +1,13 @@
+.professional-header {
+  background: linear-gradient(90deg, $main-blue 20%, $secondary-blue 80%);
+  border-radius: 0.9rem 0.9rem 0 0;
+  height: 4.5em;
+  color: white;
+  padding: 0.5em;
+  font-size: 1.2rem;
+  font-weight: 200;
+}
+.dashboard-component-prof {
+  @extend .dashboard-component;
+  background-color: red;
+}
