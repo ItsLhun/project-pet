@@ -2,9 +2,12 @@
 <ul>
   {{#each messages}}
     <li class='user-message'>
-      <div class='wrap-collapsible'>
+      <div id={{id}} class='wrap-collapsible message'>
         <input id='collapsible' class='toggle' type='checkbox' />
-        <label for='collapsible' id='lbl-toggle-msg'>{{type}}</label>
+        <label for='collapsible' id='lbl-toggle-msg'>
+          <span id='message-from'>{{from.username}}</span><br />
+          <span id='message-type'>{{type}}</span>
+        </label>
         <div class='collapsible-content'>
           <div class='content-inner'>
             <p>From: {{from.username}} at {{sent}}</p>
@@ -43,3 +46,4 @@
 
   {{/each}}
 </ul>
+<script src='https://unpkg.com/axios/dist/axios.min.js'></script>

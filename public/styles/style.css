@@ -4661,7 +4661,11 @@ div.camera-wrapper:hover {
 }
 
 .wrap-collapsible #lbl-toggle-msg {
-  font-size: 2em;
+  width: 100%;
+}
+
+.wrap-collapsible #lbl-toggle-msg #message-from {
+  font-weight: bold;
 }
 
 .wrap-collapsible .collapsible-content {
