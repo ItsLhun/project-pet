@@ -75,10 +75,40 @@
 
   <fieldset class='dashboard-component'>
     <legend class='component-title'>Medical</legend>
+    <div class='profile-info'>
+      <div><strong>Medical Id: </strong><span>
+          {{#if pet.medicalId}}
+            {{pet.medicalId}}
+          {{else}}
+            Not set
+          {{/if}}</span></div>
+      <div><strong>Veterinarian: </strong><span>
+          {{#if pet.veterinarian}}
+            {{pet.veterinarian}}
+          {{else}}
+            Not set
+          {{/if}}
+        </span></div>
+    </div>
   </fieldset>
   <fieldset class='dashboard-component'>
     <legend class='component-title'>Nutrition</legend>
-
+    <div class='profile-info'>
+      <div><strong>Food Brand: </strong><span>{{pet.foodBrand}}</span></div>
+      <div><strong>Daily Serving: </strong><span>
+          {{#if pet.serving}}
+            {{pet.serving}}
+          {{else}}
+            Not set
+          {{/if}}
+        </span></div>
+      <div><strong>Alergies: </strong><span>
+          {{#if pet.alergies}}
+            {{pet.alergies}}
+          {{else}}
+            None
+          {{/if}}</span></div>
+    </div>
   </fieldset>
   <div id='calendar' class='dashboard-component'></div>
 </main>
