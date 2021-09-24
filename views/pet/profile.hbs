@@ -1,8 +1,10 @@
 <main>
   <h1>{{pet.name}}'s profile</h1>
   <section class='profile-section dashboard-component'>
+
     <div class='profile-picture-wrapper'>
       <div>
+
         <div class='camera-wrapper'><img
             src='/images/camera-icon.svg'
             alt=''
@@ -71,6 +73,10 @@
       </div>
 
     </fieldset>
+    <div class='edit-wrapper top-level'><img
+        src='/images/pencil.svg'
+        alt=''
+      /></div>
   </section>
 
   <fieldset class='dashboard-component'>
@@ -90,6 +96,8 @@
           {{/if}}
         </span></div>
     </div>
+    <div class='edit-wrapper'><img src='/images/pencil.svg' alt='' /></div>
+
   </fieldset>
   <fieldset class='dashboard-component'>
     <legend class='component-title'>Nutrition</legend>
@@ -109,6 +117,8 @@
             None
           {{/if}}</span></div>
     </div>
+    <div class='edit-wrapper'><img src='/images/pencil.svg' alt='' /></div>
+
   </fieldset>
   <div id='calendar' class='dashboard-component'></div>
 </main>

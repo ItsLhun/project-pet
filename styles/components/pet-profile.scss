@@ -41,6 +41,7 @@ $minimum-width-pet-profile: 40rem;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+  position: relative;
   // margin-bottom: 2.5rem;
   > * {
     width: 50%;
@@ -79,6 +80,27 @@ $minimum-width-pet-profile: 40rem;
   .toggle:checked + .lbl-toggle::after {
     content: '-';
   }
+}
+div.edit-wrapper {
+  position: absolute;
+  height: calc(12.5rem * 0.1);
+  width: calc(12.5rem * 0.1);
+  top: -0.1em;
+  right: 0.5em;
+  min-width: unset;
+  opacity: 0.5;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  z-index: 9999;
+  &:hover {
+    opacity: 0.8;
+    filter: invert(50%) sepia(65%) saturate(654%) hue-rotate(340deg)
+      brightness(97%) contrast(90%);
+  }
+}
+div.top-level {
+  top: 1.3em;
 }
 
 @media (max-width: $minimum-width-pet-profile) {
