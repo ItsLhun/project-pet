@@ -15,6 +15,13 @@ router.post('/delete/:id', (req, res, next) => {
     .catch((error) => next(error));
 });
 
+router.post('/read/:id', (req, res, next) => {
+  const { id } = req.params;
+  Message.findByIdAndUpdate(id, { read: true })
+    .then(() => res.redirect('/user/messages'))
+    .catch((error) => next(error));
+});
+
 router.post('/authorize/:petId', routeGuard, (req, res, next) => {
   const { petId } = req.params;
   const { username, note } = req.body;
