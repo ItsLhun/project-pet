@@ -66,7 +66,7 @@ petRouter.post(
 
 petRouter.post('/edit', routeGuard, (req, res, next) => {
   const { name, species, birthday, id } = req.body;
-  const data = { name: name };
+  const data = { name, species };
   if (birthday !== 'Not set') {
     data.birthday = birthday;
   }

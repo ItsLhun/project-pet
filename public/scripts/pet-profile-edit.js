@@ -16,16 +16,49 @@ const editNutritionSave = document.getElementById('edit-nutrition-save');
 const editNutritionDiscard = document.getElementById('edit-nutrition-discard');
 
 editDetails.addEventListener('click', (e) => {
-  const detailsValues = document.querySelectorAll('.profile-value');
-  detailsValues.forEach((field) => {
-    const input = document.createElement('input');
-    input.classList.add('profile-edit-input');
-    input.value = field.innerText;
-    input.setAttribute('name', field.getAttribute('name'));
-    input.setAttribute('type', field.getAttribute('type'));
+  const detailsValues = detailsForm.querySelectorAll('.profile-value');
 
-    field.parentNode.replaceChild(input, field);
+  //name
+  const nameInput = document.createElement('input');
+  nameInput.value = detailsValues[0].innerText;
+  nameInput.classList.add('profile-edit-input');
+  nameInput.setAttribute('name', 'name');
+  nameInput.setAttribute('type', 'text');
+  detailsValues[0].parentNode.replaceChild(nameInput, detailsValues[0]);
+
+  //birthday
+  const birthdayInput = document.createElement('input');
+
+  birthdayInput.classList.add('profile-edit-input');
+  birthdayInput.setAttribute('name', 'birthday');
+  birthdayInput.setAttribute('type', 'date');
+
+  birthdayInput.valueAsDate = new Date(
+    detailsValues[1].innerText.split('/').reverse().join('-') + 'T00:00:00'
+  );
+  console.log(
+    detailsValues[1].innerText.split('/').reverse().join('-') + 'T00:00:00'
+  );
+  detailsValues[1].parentNode.replaceChild(birthdayInput, detailsValues[1]);
+
+  //species
+  const speciesInput = document.createElement('select');
+  speciesInput.value = detailsValues[2].innerText;
+  speciesInput.classList.add('profile-edit-input');
+  speciesInput.setAttribute('name', 'species');
+
+  // options
+  const options = ['Dog', 'Cat', 'Bird', 'Fish', 'Reptile', 'Other'];
+  options.forEach((option) => {
+    const input = document.createElement('option');
+    input.classList.add('profile-edit-input');
+
+    input.value = option;
+    input.textContent = option;
+    speciesInput.appendChild(input);
   });
+
+  detailsValues[2].parentNode.replaceChild(speciesInput, detailsValues[2]);
 
   editDetails.classList.add('d-none');
   editDetailsSave.classList.remove('d-none');
@@ -34,7 +67,7 @@ editDetails.addEventListener('click', (e) => {
     editDetails.classList.remove('d-none');
     editDetailsDiscard.classList.add('d-none');
     editDetailsSave.classList.add('d-none');
-
+    console.log(speciesInput.value);
     detailsForm.submit();
   });
   editDetailsDiscard.addEventListener('click', (e) => {
@@ -69,3 +102,11 @@ editNutrition.addEventListener('click', (e) => {
     window.location.reload();
   });
 });
+
+function togglePencil(boolean) {
+  if (boolean) {
+    editDetails.classList.remove('d-none');
+    editDetailsDiscard.classList.add('d-none');
+    editDetailsSave.classList.add('d-none');
+  }
+}
