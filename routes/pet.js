@@ -88,9 +88,9 @@ petRouter.get('/:id', routeGuard, (req, res, next) => {
   const { id } = req.params;
   let pet;
   Pet.findById(id)
+    .populate('authorized')
     .then((returnedPet) => {
       pet = returnedPet;
-      console.log(pet.authorized.includes(req.user.id));
       if (
         pet.owner.toString() == req.user.id ||
         pet.authorized.includes(req.user.id)
