@@ -24,11 +24,18 @@ router.post('/search', routeGuard, (req, res, next) => {
 
 router.post('/available', (req, res, next) => {
   const searchTerm = req.body.searchTerm.trim();
+  const { type } = req.body;
 
   if (searchTerm !== '') {
-    User.find({ username: searchTerm })
-      .then((users) => res.send(users))
-      .catch((error) => next(error));
+    if (type === 'username') {
+      User.find({ username: searchTerm })
+        .then((users) => res.send(users))
+        .catch((error) => next(error));
+    } else if (type === 'email') {
+      User.find({ email: searchTerm })
+        .then((users) => res.send(users))
+        .catch((error) => next(error));
+    }
   }
 });
 

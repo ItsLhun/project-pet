@@ -4176,6 +4176,10 @@ h1 + fieldset {
   margin-bottom: 0.5em;
 }
 
+.sign-up-form .available-sign-up {
+  color: red;
+}
+
 .sign-up-form .forgot-pass {
   font-size: 0.8rem;
 }
