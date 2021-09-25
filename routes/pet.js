@@ -88,12 +88,17 @@ petRouter.get('/:id', routeGuard, (req, res, next) => {
   const { id } = req.params;
   let pet;
   Pet.findById(id)
-    .populate('authorized')
+    .populate({
+      path: 'authorized',
+      select: 'username email profilePicture firstName lastName'
+    })
     .then((returnedPet) => {
       pet = returnedPet;
       if (
         pet.owner.toString() == req.user.id ||
-        pet.authorized.includes(req.user.id)
+        pet.authorized.some((authorized) => {
+          return authorized._id.toString() == req.user.id;
+        })
       ) {
         return PetEvent.find({ originPet: id });
       } else {

@@ -347,6 +347,8 @@ function calendarJs(id, options, startDateTime) {
     _isDateToday = false,
     _openDialogs = [],
     _copiedEventDetails = null,
+    // Nahuel: custom option to display pet names
+    _concatPetNamesOnEvent = null,
     _elementID_Day = 'day-',
     _elementID_DayElement = 'calendar-day-',
     _elementID_YearSelected = 'year-selected-',
