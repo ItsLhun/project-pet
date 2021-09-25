@@ -3,8 +3,10 @@
   {{#each messages}}
     <li id={{id}} class='user-message'>
       <div class='collapsible'>
-        <span class='message-from'>{{from.username}}</span><br />
-        <span class='message-type'>{{type}}</span>
+        <div>
+          <span class='message-from'>{{from.username}}</span><br />
+          <span class='message-type'>{{type}}</span>
+        </div>
         <div>
           {{sent}}
         </div>
@@ -34,13 +36,12 @@
               >Decline</button>
             </form>
           </div>
-          <form method='POST' action='/message/delete/{{id}}'>
-            <button class='delete-message'>Delete</button>
-          </form>
         {{/if}}
+        <form method='POST' action='/message/delete/{{id}}'>
+          <button class='delete-message'>Delete</button>
+        </form>
       </div>
     </li>
-
   {{/each}}
 </ul>
 <script src='https://unpkg.com/axios/dist/axios.min.js'></script>

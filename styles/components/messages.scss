@@ -1,21 +1,21 @@
 .user-message {
-  padding: 1em;
+  padding: 0.2em;
   list-style: none;
   background: $grey;
   display: flex;
   flex-direction: column;
-  .message-buttons {
-    display: flex;
-  }
   .collapsible {
-    background-color: $grey;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0.4em;
+    background-color: $mid-grey;
     cursor: pointer;
     width: 100%;
   }
-
   .active,
   .collapsible:hover {
-    background-color: $mid-grey;
+    background-color: $grey;
   }
   .collapsible-content {
     padding: 0 1em;

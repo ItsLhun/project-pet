@@ -4180,6 +4180,10 @@ body {
   margin-bottom: 0.5em;
 }
 
+.sign-up-form .available-sign-up {
+  color: red;
+}
+
 .sign-up-form .forgot-pass {
   font-size: 0.8rem;
 }
@@ -4706,26 +4710,26 @@ div.camera-wrapper:hover {
 }
 
 .user-message {
-  padding: 1em;
+  padding: 0.2em;
   list-style: none;
   background: #eeeeee;
   display: flex;
   flex-direction: column;
 }
 
-.user-message .message-buttons {
-  display: flex;
-}
-
 .user-message .collapsible {
-  background-color: #eeeeee;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.4em;
+  background-color: #c4c4c4;
   cursor: pointer;
   width: 100%;
 }
 
 .user-message .active,
 .user-message .collapsible:hover {
-  background-color: #c4c4c4;
+  background-color: #eeeeee;
 }
 
 .user-message .collapsible-content {

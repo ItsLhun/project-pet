@@ -1,7 +1,12 @@
 const dataList = document.getElementById('users-list');
 const addAuthUser = document.querySelector('#add-auth-user-button');
+const authUserSearch = document.getElementById('user-search-input');
 
 let dataListValues = [];
+
+authUserSearch.addEventListener('input', (event) => {
+  searchUser(event.target.value);
+});
 
 addAuthUser.addEventListener('click', () => {
   const collapsible = document.querySelector('.collapsible');
