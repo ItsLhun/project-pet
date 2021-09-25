@@ -22,6 +22,16 @@ router.post('/search', routeGuard, (req, res, next) => {
   }
 });
 
+router.post('/available', (req, res, next) => {
+  const searchTerm = req.body.searchTerm.trim();
+
+  if (searchTerm !== '') {
+    User.find({ username: searchTerm })
+      .then((users) => res.send(users))
+      .catch((error) => next(error));
+  }
+});
+
 router.post('/edit', routeGuard, (req, res, next) => {
   const { id } = req.user;
   const { firstName, lastName, username, email } = req.body;
