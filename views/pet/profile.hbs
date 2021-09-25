@@ -42,12 +42,30 @@
             Not set
           {{/if}}
         </span></div>
+      <div>{{pet.authorized}}</div>
       <div><strong>Species: </strong><span>{{pet.species}}</span></div>
     </div>
     <fieldset class='dashboard-component authorized'>
       <legend id='authorized-users' class='component-title'>Authorized users</legend>
       <div id='authorized-users-list'>
-        <div id='users'></div>
+        <div id='users'>
+          <div class='pet-wrapper-summary'>
+            {{#each pet.authorized}}
+              <div class='miniature-wrapper'>
+                <!-- <a href=''> -->
+                <div class='miniature-image-holder'>
+                  {{#if this.profilePicture}}
+                    <img src='{{this.profilePicture}}' alt='profile picture' />
+                  {{else}}
+                    <img src='/images/default-profile-picture.png' alt='' />
+                  {{/if}}
+                </div>
+                <h5>{{name}}</h5>
+                <!-- </a> -->
+              </div>
+            {{/each}}
+          </div>
+        </div>
         <div id='add-auth-user-button'>+</div>
       </div>
       <div class='collapsible'>

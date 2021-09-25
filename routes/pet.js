@@ -9,7 +9,9 @@ const petRouter = express.Router();
 
 petRouter.get('/', routeGuard, (req, res, next) => {
   Pet.find({ owner: req.user })
+    .populate('authorized')
     .then((pets) => {
+      pets.forEach((p) => console.log(p.authorized));
       res.json(pets);
     })
     .catch((error) => next(error));
