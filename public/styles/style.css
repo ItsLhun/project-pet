@@ -4580,33 +4580,26 @@ h1 + fieldset {
   padding-left: 1em;
 }
 
-.wrap-collapsible #collapsible {
-  display: none;
+.authorized {
+  padding: 1em;
+  background: #eeeeee;
 }
 
-.wrap-collapsible .lbl-toggle {
-  display: flex;
-  justify-content: flex-end;
-  font-size: 2em;
-}
-
-.wrap-collapsible .lbl-toggle::after {
-  content: '+';
-}
-
-.wrap-collapsible .collapsible-content {
-  max-height: 0px;
+.authorized .collapsible {
+  background-color: #eeeeee;
   width: 100%;
+}
+
+.authorized .active,
+.authorized .collapsible:hover {
+  background-color: #c4c4c4;
+}
+
+.authorized .collapsible-content {
+  padding: 0 1em;
+  display: none;
   overflow: hidden;
-  transition: max-height 0.1s ease-in-out;
-}
-
-.wrap-collapsible .toggle:checked + .lbl-toggle + .collapsible-content {
-  max-height: 100vh;
-}
-
-.wrap-collapsible .toggle:checked + .lbl-toggle::after {
-  content: '-';
+  background-color: #f7f7f7;
 }
 
 div.edit-wrapper {

@@ -44,31 +44,25 @@
         </span></div>
       <div><strong>Species: </strong><span>{{pet.species}}</span></div>
     </div>
-    <fieldset class='dashboard-component'>
-      <legend class='component-title'>Authorized users</legend>
-
-      <div class='wrap-collapsible'>
-        <input id='collapsible' class='toggle' type='checkbox' />
-        <label for='collapsible' class='lbl-toggle'></label>
+    <fieldset class='dashboard-component authorized'>
+      <legend id='authorized-users' class='component-title'>Authorized users</legend>
+      <div class='collapsible'>
         <div class='collapsible-content'>
-          <div class='content-inner'>
-            <form method='POST' action='/message/authorize/{{pet._id}}'>
-              <label for='user-search-input'>Search username</label>
-              <input
-                id='user-search-input'
-                name='username'
-                list='users-list'
-                type='text'
-                oninput='searchUser(this.value)'
-              />
-              <label for='note'>Note:</label>
-              <textarea id='message-note' name='note' type='text'></textarea>
-              <datalist id='users-list'>
-
-              </datalist>
-              <button>Send invitation</button>
-            </form>
-          </div>
+          <form method='POST' action='/message/authorize/{{pet._id}}'>
+            <label for='user-search-input'>Search username</label>
+            <input
+              id='user-search-input'
+              name='username'
+              list='users-list'
+              type='text'
+              oninput='searchUser(this.value)'
+            />
+            <label for='note'>Note:</label>
+            <textarea id='message-note' name='note' type='text'></textarea>
+            <datalist id='users-list'>
+            </datalist>
+            <button>Send invitation</button>
+          </form>
         </div>
       </div>
 
