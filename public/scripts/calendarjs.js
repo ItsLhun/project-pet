@@ -8925,7 +8925,13 @@ function calendarJs(id, options, startDateTime) {
       }
     }
     //Pekka: Send HTTP request to path /event/create to create an event
-    if (isNew) createEventHTTP(event);
+    //Nahuel: transformed request into promise for async loading
+    if (isNew) {
+      createEventHTTP(event).then((result) => {
+        window.location.reload();
+      });
+    }
+
     return added;
   };
 
@@ -8988,7 +8994,9 @@ function calendarJs(id, options, startDateTime) {
       }
     }
     //Pekka: Send HTTP request to path /event/update
-    updateEventHTTP(event);
+    updateEventHTTP(event).then((result) => {
+      window.location.reload();
+    });
     return updated;
   };
 
@@ -9081,7 +9089,11 @@ function calendarJs(id, options, startDateTime) {
       }
     });
     //Pekka: Make HTTP request to /event/delete
-    if (!isUpdated) deleteEventHTTP(id);
+    if (!isUpdated) {
+      deleteEventHTTP(id).then((result) => {
+        window.location.reload();
+      });
+    }
     return removed;
   };
 
