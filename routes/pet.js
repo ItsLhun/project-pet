@@ -9,9 +9,7 @@ const petRouter = express.Router();
 
 petRouter.get('/', routeGuard, (req, res, next) => {
   Pet.find({ owner: req.user })
-    .populate('authorized')
     .then((pets) => {
-      pets.forEach((p) => console.log(p.authorized));
       res.json(pets);
     })
     .catch((error) => next(error));
@@ -90,9 +88,9 @@ petRouter.get('/:id', routeGuard, (req, res, next) => {
   const { id } = req.params;
   let pet;
   Pet.findById(id)
+    .populate('authorized')
     .then((returnedPet) => {
       pet = returnedPet;
-      console.log(pet.authorized.includes(req.user.id));
       if (
         pet.owner.toString() == req.user.id ||
         pet.authorized.includes(req.user.id)

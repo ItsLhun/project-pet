@@ -42,7 +42,6 @@
             Not set
           {{/if}}
         </span></div>
-      <div>{{pet.authorized}}</div>
       <div><strong>Species: </strong><span>{{pet.species}}</span></div>
     </div>
     <fieldset class='dashboard-component authorized'>
@@ -54,13 +53,13 @@
               <div class='miniature-wrapper'>
                 <!-- <a href=''> -->
                 <div class='miniature-image-holder'>
-                  {{#if this.profilePicture}}
+                  {{#if profilePicture}}
                     <img src='{{this.profilePicture}}' alt='profile picture' />
                   {{else}}
                     <img src='/images/default-profile-picture.png' alt='' />
                   {{/if}}
                 </div>
-                <h5>{{name}}</h5>
+                <h5>{{this.username}}</h5>
                 <!-- </a> -->
               </div>
             {{/each}}
