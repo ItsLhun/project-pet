@@ -4709,7 +4709,7 @@ div.camera-wrapper:hover {
 }
 
 .dashboard-component-prof {
-  background-color: red;
+  border: 2px dashed #2b6eeb;
 }
 
 /*# sourceMappingURL=style.css.map */

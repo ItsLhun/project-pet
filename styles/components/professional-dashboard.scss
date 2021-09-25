@@ -9,5 +9,5 @@
 }
 .dashboard-component-prof {
   @extend .dashboard-component;
-  background-color: red;
+  border: 2px dashed $secondary-blue;
 }
