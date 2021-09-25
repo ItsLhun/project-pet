@@ -4490,6 +4490,14 @@ h1 + fieldset {
   text-align: center;
 }
 
+.miniature-wrapper .authorized-indicator-icon {
+  height: 1.5em;
+  width: 1.5em;
+  min-width: unset;
+  min-height: unset;
+  display: inline;
+}
+
 .pet-wrapper-summary {
   display: flex;
   flex-flow: row nowrap;

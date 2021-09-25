@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+const Pet = require('../models/pet');
 const User = require('../models/user');
 const Professional = require('../models/professional');
 const router = express.Router();
@@ -8,12 +9,10 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   if (req.session.userId) {
     let user;
-    console.log(req.session.userType);
     if (req.session.userType) {
       Professional.findById(req.session.userId)
         .then((documentUser) => {
           user = documentUser;
-          console.log(user);
           res.render('prof-dashboard', user);
         })
         .catch((error) => {
@@ -24,6 +23,11 @@ router.get('/', (req, res, next) => {
         .populate('pets')
         .then((documentUser) => {
           user = documentUser;
+          return Pet.find({ authorized: req.session.userId });
+        })
+        .then((authorizedPets) => {
+          console.log('Authorized pets', authorizedPets);
+          user.authorizedPets = authorizedPets;
           res.render('dashboard', user);
         })
         .catch((error) => {

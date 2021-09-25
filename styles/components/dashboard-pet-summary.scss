@@ -7,6 +7,7 @@
   letter-spacing: 0.1em;
   user-select: none;
 }
+
 .component-header {
   display: flex;
   flex-flow: row wrap;
@@ -40,6 +41,13 @@
   margin: 0 2em;
   h5 {
     text-align: center;
+  }
+  .authorized-indicator-icon {
+    height: 1.5em;
+    width: 1.5em;
+    min-width: unset;
+    min-height: unset;
+    display: inline;
   }
 }
 .pet-wrapper-summary {

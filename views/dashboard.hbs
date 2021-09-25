@@ -11,6 +11,24 @@
     {{> petMiniature this}}
     {{/each}}
   {{/if}}
+    {{#if authorizedPets}}
+    {{#each authorizedPets}}
+    
+    {{!-- {{> petMiniature this}} --}}
+    <div class='miniature-wrapper'>
+  <a href='/pet/{{this._id}}'>
+    <div class='miniature-image-holder'>
+      {{#if profilePicture}}
+        <img src='{{this.profilePicture}}' alt='profile picture' />
+      {{else}}
+        <img src='/images/index.png' alt='' />
+      {{/if}}
+    </div>
+    <h5><span><img class="authorized-indicator-icon" src="/images/pet-paw-solid.svg" alt=""></span> {{name}}</h5>
+  </a>
+</div>
+    {{/each}}
+  {{/if}}
   </div>  
 </div>
 <fieldset id='upcoming-events' class='dashboard-component'>
