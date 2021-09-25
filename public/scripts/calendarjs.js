@@ -4728,6 +4728,8 @@ function calendarJs(id, options, startDateTime) {
         otherPets[i].classList.remove('mini-calendar-active');
       }
       _options.petTarget = _id;
+      _options.petTargetName = name;
+
       petCalendarImageHolder.classList.add('mini-calendar-active');
     });
 
@@ -5423,6 +5425,7 @@ function calendarJs(id, options, startDateTime) {
         toDate = getSelectedDate(_element_EventEditorDialog_DateTo),
         description = trimString(_element_EventEditorDialog_Description.value),
         petTarget = _options.petTarget,
+        petTargetName = _options.petTargetName,
         eventType = _element_EventEditorDialog_eventType.value,
         //location = trimString(_element_EventEditorDialog_Location.value),
         // group = trimString(_element_EventEditorDialog_Group.value),
@@ -5464,6 +5467,7 @@ function calendarJs(id, options, startDateTime) {
             description: description,
             type: eventType,
             originPet: petTarget,
+            originPetName: petTargetName,
             //location: location,
             //group: group,
             isAllDay: _element_EventEditorDialog_IsAllDay.checked,
@@ -9558,6 +9562,9 @@ function calendarJs(id, options, startDateTime) {
 
     if (!isDefined(_options.petTarget)) {
       _options.petTarget = null;
+    }
+    if (!isDefined(_options.petTargetName)) {
+      _options.petTargetName = null;
     }
 
     if (!isDefined(_options.descriptionText)) {
