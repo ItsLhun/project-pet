@@ -26,7 +26,6 @@ router.get('/', (req, res, next) => {
           return Pet.find({ authorized: req.session.userId });
         })
         .then((authorizedPets) => {
-          console.log('Authorized pets', authorizedPets);
           user.authorizedPets = authorizedPets;
           res.render('dashboard', user);
         })

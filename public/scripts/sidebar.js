@@ -26,8 +26,7 @@ bodyElement.addEventListener('click', (e) => {
     (bodyElement === e.target || e.target !== sideMenu) &&
     e.target !== sideMenuInput
   ) {
-    sideMenuInput.checked = false;
-    console.log(sideMenuInput.checked);
+    sideMenuInput?.checked = false;
     sideMenu.classList.add('sidebar-no-show');
     sideMenu.style.transform = 'translate(100%, 0)';
     bodyElement.classList.remove('no-scroll');

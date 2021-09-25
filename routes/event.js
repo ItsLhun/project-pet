@@ -7,8 +7,14 @@ const router = express.Router();
 const routeGuard = require('../middleware/route-guard');
 
 router.get('/', routeGuard, (req, res, next) => {
-  PetEvent.find({ originUser: req.user })
-    .then((events) => res.json(events))
+  Pet.find({ $or: [{ authorized: req.user.id }, { owner: req.user.id }] })
+    .then((pets) => {
+      return PetEvent.find({ $in: { _id: pets } });
+    })
+    .then((authorizedEvents) => {
+      console.log(authorizedEvents);
+      res.json(authorizedEvents);
+    })
     .catch((error) => next(error));
 });
 
@@ -25,7 +31,8 @@ router.post('/create', routeGuard, (req, res, next) => {
     repeatEvery,
     reapeatEnds,
     repeatEveryCustomValue,
-    repeatEveryCustomType
+    repeatEveryCustomType,
+    originPetName
   } = req.body;
 
   const originUser = req.user.id;
@@ -33,7 +40,7 @@ router.post('/create', routeGuard, (req, res, next) => {
   PetEvent.create({
     from: new Date(from),
     to: new Date(to),
-    title,
+    title: `${originPetName}: ${title}`,
     description,
     isAllDay,
     showAlerts,

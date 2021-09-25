@@ -45,6 +45,11 @@ const petSchema = new mongoose.Schema({
   profilePicture: {
     type: String,
     default: '/images/index.png'
+  },
+  veterinarian: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Professional',
+    required: false
   }
 });
 

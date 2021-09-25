@@ -86,13 +86,21 @@ petRouter.post(
   }
 );
 
-petRouter.get('/:id', (req, res, next) => {
+petRouter.get('/:id', routeGuard, (req, res, next) => {
   const { id } = req.params;
   let pet;
   Pet.findById(id)
     .then((returnedPet) => {
       pet = returnedPet;
-      return PetEvent.find({ originPet: id });
+      console.log(pet.authorized.includes(req.user.id));
+      if (
+        pet.owner.toString() == req.user.id ||
+        pet.authorized.includes(req.user.id)
+      ) {
+        return PetEvent.find({ originPet: id });
+      } else {
+        throw new Error('Not Authorized to see this pet');
+      }
     })
     .then((events) => {
       res.render('pet/profile', { pet, events });
