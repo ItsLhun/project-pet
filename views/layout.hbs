@@ -35,7 +35,9 @@
             <a href='/user'>My Profile</a>
             <a href='/user/messages'>
               Messages
-              <span id='unread-amount'>999</span>
+              {{#if unread}}
+                <span id='unread-amount'>{{unread}}</span>
+              {{/if}}
             </a>
             <a href='/user/settings'>Settings</a>
             <form action='/authentication/sign-out' method='POST'>

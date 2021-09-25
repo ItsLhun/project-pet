@@ -10,6 +10,7 @@ const sassMiddleware = require('node-sass-middleware');
 const serveFavicon = require('serve-favicon');
 const basicAuthenticationDeserializer = require('./middleware/basic-authentication-deserializer.js');
 const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js');
+const bindUnreadMessagesToLocals = require('./middleware/unread-messages-to-locals.js');
 const baseRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 const userProfileRouter = require('./routes/user');
@@ -40,7 +41,7 @@ app.use(flash());
 app.use(expressSession(sessionConfig));
 app.use(basicAuthenticationDeserializer);
 app.use(bindUserToViewLocals);
-
+app.use(bindUnreadMessagesToLocals);
 app.use('/', baseRouter);
 app.use('/authentication', authenticationRouter);
 app.use('/user', userProfileRouter);
