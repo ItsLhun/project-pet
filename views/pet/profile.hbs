@@ -33,17 +33,34 @@
         </div>
       </div>
     </div>
-    <div class='profile-info'>
-      <div><strong>Name: </strong><span>{{pet.name}}</span></div>
-      <div><strong>Birthday: </strong><span>
-          {{#if pet.birthday}}
-            {{pet.birthday}}
-          {{else}}
-            Not set
-          {{/if}}
-        </span></div>
-      <div><strong>Species: </strong><span>{{pet.species}}</span></div>
-    </div>
+    <form
+      class='profile-info'
+      id='profile-details-form'
+      action='/pet/edit'
+      method='POST'
+    >
+      <div class='profile-field'><strong>Name:</strong><span
+          class='profile-value'
+          name='name'
+          type='text'
+        >{{pet.name}}</span></div>
+      <div class='profile-field'><strong>Birthday:</strong>{{#if
+          pet.birthday
+        }}<span
+            class='profile-value'
+            name='birthday'
+            type='date'
+          >{{pet.birthday}}</span>
+        {{else}}<span class='profile-value' name='birthday' type='date'>Not set</span>
+        {{/if}}
+      </div>
+      <div class='profile-field'><strong>Species:</strong><span
+          class='profile-value'
+          name='species'
+          type='select'
+        >{{pet.species}}</span></div>
+      <input type='text' class='d-none' name='id' value={{pet._id}} />
+    </form>
     <fieldset class='dashboard-component authorized'>
       <legend id='authorized-users' class='component-title'>Authorized users</legend>
       <div id='authorized-users-list'>
@@ -89,52 +106,89 @@
       </div>
 
     </fieldset>
-    <div class='edit-wrapper top-level'><img
-        src='/images/pencil.svg'
-        alt=''
-      /></div>
+    <div
+      class='edit-wrapper top-level'
+      style='width: fit-content; height:fit-content; display: relative'
+    >
+      <div id='edit-details-btn'><img src='/images/pencil.svg' alt='' /></div>
+      <div class='d-none' id='edit-details-save'><img
+          src='/images/checkmark.svg'
+          alt=''
+        /></div>
+      <div class='d-none' id='edit-details-discard'><img
+          src='/images/xmark.svg'
+          alt=''
+        /></div>
+    </div>
   </section>
 
   <fieldset class='dashboard-component'>
     <legend class='component-title'>Medical</legend>
     <div class='profile-info'>
-      <div><strong>Medical Id: </strong><span>
+      <div class='profile-field'><strong>Medical Id:</strong><span>
           {{#if pet.medicalId}}
             {{pet.medicalId}}
           {{else}}
-            Not set
+            <span class='profile-value'>Not set</span>
           {{/if}}</span></div>
-      <div><strong>Veterinarian: </strong><span>
+      <div class='profile-field'><strong>Veterinarian: </strong><span>
           {{#if pet.veterinarian}}
             {{pet.veterinarian}}
           {{else}}
-            Not set
+            <span class='profile-value'>Not set</span>
           {{/if}}
         </span></div>
+      <div class='profile-field'><strong>Alergies: </strong><span>
+          {{#if pet.alergies}}
+            <span class='profile-value'>{{pet.alergies}}</span>
+          {{else}}
+            <span class='profile-value'>None</span>
+          {{/if}}</span></div>
     </div>
-    <div class='edit-wrapper'><img src='/images/pencil.svg' alt='' /></div>
+    <div
+      class='edit-wrapper'
+      style='width: fit-content; height:fit-content; display: relative'
+    >
+      <div id='edit-medical-btn'><img src='/images/pencil.svg' alt='' /></div>
+      <div class='d-none' id='edit-medical-save'><img
+          src='/images/checkmark.svg'
+          alt=''
+        /></div>
+      <div class='d-none' id='edit-medical-discard'><img
+          src='/images/xmark.svg'
+          alt=''
+        /></div>
+    </div>
 
   </fieldset>
   <fieldset class='dashboard-component'>
     <legend class='component-title'>Nutrition</legend>
-    <div class='profile-info'>
-      <div><strong>Food Brand: </strong><span>{{pet.foodBrand}}</span></div>
-      <div><strong>Daily Serving: </strong><span>
+    <div class='profile-info' id='nutrition-inputs'>
+      <div class='profile-field'><strong>Food Brand: </strong><span
+        >{{pet.foodBrand}}</span></div>
+      <div class='profile-field'><strong>Daily Serving: </strong><span>
           {{#if pet.serving}}
             {{pet.serving}}
           {{else}}
             Not set
           {{/if}}
         </span></div>
-      <div><strong>Alergies: </strong><span>
-          {{#if pet.alergies}}
-            {{pet.alergies}}
-          {{else}}
-            None
-          {{/if}}</span></div>
-    </div>
-    <div class='edit-wrapper'><img src='/images/pencil.svg' alt='' /></div>
 
+    </div>
+    <div
+      class='edit-wrapper'
+      style='width: fit-content; height:fit-content; display: relative'
+    >
+      <div id='edit-nutrition-btn'><img src='/images/pencil.svg' alt='' /></div>
+      <div class='d-none' id='edit-nutrition-save'><img
+          src='/images/checkmark.svg'
+          alt=''
+        /></div>
+      <div class='d-none' id='edit-nutrition-discard'><img
+          src='/images/xmark.svg'
+          alt=''
+        /></div>
+    </div>
   </fieldset>
   <div id='calendar' class='dashboard-component'></div>
 </main>
@@ -142,6 +196,7 @@
 <script src='/scripts/calendar-api.js'></script>
 <script src='/scripts/calendarjs.js'></script>
 <script src='/scripts/calendar-options.js'></script>
+<script src='/scripts/pet-profile-edit.js'></script>
 <script src='/scripts/user-authorization.js'></script>
 <script>
   const events =

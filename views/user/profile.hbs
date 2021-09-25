@@ -30,22 +30,33 @@
     </div>
   </div>
   <form id='form-user-profile' action='/user/edit' method='POST'>
-    <div class='profile-field'><strong>First Name</strong>:
+    <div class='profile-field'><strong>First Name:</strong>
       <span name='firstName' class='profile-value'>{{user.firstName}}</span>
     </div>
-    <div class='profile-field'><strong>Last Name</strong>:
+    <div class='profile-field'><strong>Last Name:</strong>
       <span name='lastName' class='profile-value'>{{user.lastName}}</span>
     </div>
-    <div class='profile-field'><strong>Username</strong>:
+    <div class='profile-field'><strong>Username:</strong>
       <span name='username' class='profile-value'>{{user.username}}</span>
     </div>
-    <div class='profile-field'><strong>Email</strong>:
+    <div class='profile-field'><strong>Email:</strong>
       <span name='email' class='profile-value'>{{user.email}}</span>
     </div>
   </form>
-  <div class='edit-wrapper top-level' id='edit-profile-icon'><img
-      src='/images/pencil.svg'
-      alt=''
-    /></div>
+  <div
+    class='edit-wrapper top-level'
+    style='width: fit-content; height:fit-content; display: relative'
+  >
+    <div id='edit-profile-icon'><img src='/images/pencil.svg' alt='' /></div>
+    <div class='d-none' id='edit-profile-save'><img
+        src='/images/checkmark.svg'
+        alt=''
+      /></div>
+    <div class='d-none' id='edit-profile-discard'><img
+        src='/images/xmark.svg'
+        alt=''
+      /></div>
+  </div>
+
 </section>
 <script src='/scripts/edit-profile.js'></script>

@@ -50,7 +50,19 @@ $minimum-width-pet-profile: 40rem;
   }
   font-size: 1.05em;
 }
-
+.profile-field > strong {
+  display: inline-block;
+  width: 7.1em;
+}
+input.profile-edit-input {
+  box-sizing: border-box;
+  padding: 0;
+  color: rgb(170, 39, 39);
+  margin: 0;
+  border: 0;
+  background-color: unset;
+  text-align: left;
+}
 .profile-info {
   padding-left: 1em;
 }
@@ -95,11 +107,14 @@ div.edit-wrapper {
   margin: 0;
   padding: 0;
   cursor: pointer;
-
-  &:hover {
-    opacity: 0.8;
-    filter: invert(50%) sepia(65%) saturate(654%) hue-rotate(340deg)
-      brightness(97%) contrast(90%);
+  img {
+    height: calc(12.5rem * 0.1);
+    width: calc(12.5rem * 0.1);
+    &:hover {
+      opacity: 0.8;
+      filter: invert(50%) sepia(65%) saturate(654%) hue-rotate(340deg)
+        brightness(97%) contrast(90%);
+    }
   }
 }
 div.top-level {

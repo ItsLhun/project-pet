@@ -64,6 +64,19 @@ petRouter.post(
   }
 );
 
+petRouter.post('/edit', routeGuard, (req, res, next) => {
+  const { name, species, birthday, id } = req.body;
+  const data = { name: name };
+  if (birthday !== 'Not set') {
+    data.birthday = birthday;
+  }
+  Pet.findByIdAndUpdate(id, data)
+    .then((pet) => {
+      res.redirect(`/pet/${id}`);
+    })
+    .catch((error) => next(error));
+});
+
 petRouter.post(
   '/upload-picture/:id',
   routeGuard,
@@ -96,9 +109,9 @@ petRouter.get('/:id', routeGuard, (req, res, next) => {
       pet = returnedPet;
       if (
         pet.owner.toString() == req.user.id ||
-        pet.authorized.some((authorized) => {
-          return authorized._id.toString() == req.user.id;
-        })
+        pet.authorized.some(
+          (authorized) => authorized._id.toString() == req.user.id
+        )
       ) {
         return PetEvent.find({ originPet: id });
       } else {

@@ -161,6 +161,10 @@ h1 + fieldset {
   font-size: 0.8em;
 }
 
+body {
+  min-width: 20em;
+}
+
 @media screen and (min-width: 480px) {
   p {
     &:not(:last-child) {
@@ -168,9 +172,6 @@ h1 + fieldset {
     }
   }
   h1 {
-    // -webkit-text-fill-color: white; /* Will override color (regardless of order) */
-    // -webkit-text-stroke-width: 1px;
-    // -webkit-text-stroke-color: $dark-grey;
     font-size: 1.4rem;
     font-weight: 500;
   }
