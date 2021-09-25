@@ -4588,33 +4588,38 @@ h1 + fieldset {
   padding-left: 1em;
 }
 
-.wrap-collapsible #collapsible {
-  display: none;
+.authorized {
+  padding: 1em;
+  background: #eeeeee;
 }
 
-.wrap-collapsible .lbl-toggle {
+.authorized #authorized-users-list {
   display: flex;
-  justify-content: flex-end;
-  font-size: 2em;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.wrap-collapsible .lbl-toggle::after {
-  content: '+';
+.authorized #authorized-users-list #add-auth-user-button {
+  display: inline-block;
+  color: #7f7f7f;
+  font-size: 3em;
 }
 
-.wrap-collapsible .collapsible-content {
-  max-height: 0px;
+.authorized #authorized-users-list #add-auth-user-button:hover {
+  cursor: pointer;
+  color: #eb762b;
+}
+
+.authorized .collapsible {
+  background-color: #eeeeee;
   width: 100%;
+}
+
+.authorized .collapsible-content {
+  padding: 0 1em;
+  display: none;
   overflow: hidden;
-  transition: max-height 0.1s ease-in-out;
-}
-
-.wrap-collapsible .toggle:checked + .lbl-toggle + .collapsible-content {
-  max-height: 100vh;
-}
-
-.wrap-collapsible .toggle:checked + .lbl-toggle::after {
-  content: '-';
+  background-color: #f7f7f7;
 }
 
 div.edit-wrapper {
@@ -4700,7 +4705,7 @@ div.camera-wrapper:hover {
 }
 
 .user-message .collapsible-content {
-  padding: 0 18px;
+  padding: 0 1em;
   display: none;
   overflow: hidden;
   background-color: #f7f7f7;

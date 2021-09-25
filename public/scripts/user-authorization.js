@@ -1,8 +1,20 @@
 const dataList = document.getElementById('users-list');
-const authorizedUsers = document.getElementById('authorized-users');
-const addUserForm = document.getElementById('authorize-user-form');
+const addAuthUser = document.querySelector('#add-auth-user-button');
 
 let dataListValues = [];
+
+addAuthUser.addEventListener('click', () => {
+  const collapsible = document.querySelector('.collapsible');
+  collapsible.classList.toggle('active');
+
+  let content = collapsible.querySelector('.collapsible-content');
+
+  if (content.style.display === 'block') {
+    content.style.display = 'none';
+  } else {
+    content.style.display = 'block';
+  }
+});
 
 const renderDataList = (users) => {
   users.forEach((user) => createOption(user));
