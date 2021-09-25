@@ -1,10 +1,10 @@
 const dataList = document.getElementById('users-list');
-const authorizedUsers = document.querySelector('.authorized');
+const addAuthUser = document.querySelector('#add-auth-user-button');
 
 let dataListValues = [];
 
-authorizedUsers.addEventListener('click', () => {
-  const collapsible = authorizedUsers.querySelector('.collapsible');
+addAuthUser.addEventListener('click', () => {
+  const collapsible = document.querySelector('.collapsible');
   collapsible.classList.toggle('active');
 
   let content = collapsible.querySelector('.collapsible-content');

@@ -58,13 +58,23 @@ $minimum-width-pet-profile: 40rem;
 .authorized {
   padding: 1em;
   background: $grey;
+  #authorized-users-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    #add-auth-user-button {
+      display: inline-block;
+      color: rgb(127, 127, 127);
+      font-size: 3em;
+    }
+    #add-auth-user-button:hover {
+      cursor: pointer;
+      color: $secondary-brown;
+    }
+  }
   .collapsible {
     background-color: $grey;
     width: 100%;
-  }
-  .active,
-  .collapsible:hover {
-    background-color: $mid-grey;
   }
   .collapsible-content {
     padding: 0 1em;
@@ -73,6 +83,7 @@ $minimum-width-pet-profile: 40rem;
     background-color: rgb(247, 247, 247);
   }
 }
+
 div.edit-wrapper {
   position: absolute;
   height: calc(12.5rem * 0.1);
