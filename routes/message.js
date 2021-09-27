@@ -56,7 +56,8 @@ router.post('/respond/:id', routeGuard, (req, res, next) => {
             break;
           case 'Ownership Transfer Request':
             return Pet.findByIdAndUpdate(updatedMessage.pet, {
-              owner: req.user.id
+              owner: req.user.id,
+              $pull: { authorized: req.user.id }
             });
         }
       }
