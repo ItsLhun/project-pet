@@ -7,7 +7,10 @@ const router = express.Router();
 const routeGuard = require('../middleware/route-guard');
 
 router.get('/', routeGuard, (req, res, next) => {
-  Pet.find({ $or: [{ authorized: req.user.id }, { owner: req.user.id }] })
+  Pet.find(
+    { $or: [{ authorized: req.user.id }, { owner: req.user.id }] },
+    { _id: 1 }
+  )
     .then((pets) => {
       return PetEvent.find({ originPet: { $in: pets } });
     })
