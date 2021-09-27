@@ -25,7 +25,7 @@ router.post('/read/:id', (req, res, next) => {
 router.post('/authorize/:petId', routeGuard, (req, res, next) => {
   const { petId } = req.params;
   const { username, note, type } = req.body;
-  console.log(type);
+
   User.findOne({ username })
     .then((user) => {
       return Message.create({

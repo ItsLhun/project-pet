@@ -29,6 +29,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 hbs.registerPartials(path.join(__dirname, '/views/partials'));
 hbs.registerHelper('json', hbsJson);
+hbs.registerHelper('date', (value) => {
+  return `${value.toLocaleDateString()} ${value.toLocaleTimeString('en-GB')}`;
+});
 hbs.registerHelper('ifEquals', function (arg1, arg2, options) {
   return arg1.toString() == arg2.toString()
     ? options.fn(this)

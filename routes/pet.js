@@ -30,6 +30,18 @@ petRouter.get('/events', routeGuard, (req, res, next) => {
     .catch((error) => next(error));
 });
 
+petRouter.post('/delete/:id', (req, res, next) => {
+  const { id } = req.params;
+  Pet.findByIdAndDelete(id)
+    .then(() => {
+      return PetEvent.deleteMany({ originPet: id });
+    })
+    .then(() => {
+      res.redirect('/');
+    })
+    .catch((error) => next(error));
+});
+
 petRouter.post(
   '/create',
   routeGuard,
