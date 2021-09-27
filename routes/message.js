@@ -50,7 +50,7 @@ router.post('/respond/:id', routeGuard, (req, res, next) => {
         switch (updatedMessage.type) {
           case 'Pet Access Invitation':
             return Pet.findByIdAndUpdate(updatedMessage.pet, {
-              $push: { authorized: req.user.id }
+              $addToSet: { authorized: req.user.id }
             });
           case 'Vet Appointment Request':
             break;
