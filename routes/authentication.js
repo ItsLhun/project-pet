@@ -47,6 +47,9 @@ router.post(
             });
       })
       .then((user) => {
+        if (req.session) {
+          req.session.destroy();
+        }
         req.session.userId = user._id;
         if (user.type) {
           req.session.userType = 'professional';
@@ -69,7 +72,7 @@ router.get('/user-sign-in', (req, res, next) => {
 
 router.post('/user-sign-in', (req, res, next) => {
   if (!req.user) {
-    let user;
+    let currentUser;
     const { emailOrUsername, password } = req.body;
     User.findOne()
       .or([{ username: emailOrUsername }, { email: emailOrUsername }])
@@ -77,13 +80,13 @@ router.post('/user-sign-in', (req, res, next) => {
         if (!document) {
           return Promise.reject(new Error('NO_USER'));
         } else {
-          user = document;
-          return bcryptjs.compare(password, user.passwordHashAndSalt);
+          currentUser = document;
+          return bcryptjs.compare(password, currentUser.passwordHashAndSalt);
         }
       })
       .then((result) => {
         if (result) {
-          req.session.userId = user._id;
+          req.session.userId = currentUser._id;
           res.redirect('/');
         } else {
           return Promise.reject(new Error('WRONG_PASSWORD'));

@@ -3,8 +3,6 @@ const editDetails = document.getElementById('edit-details-btn');
 const editDetailsSave = document.getElementById('edit-details-save');
 const editDetailsDiscard = document.getElementById('edit-details-discard');
 
-const detailsForm = document.getElementById('profile-details-form');
-
 //medical btns
 const editMedical = document.getElementById('edit-medical-btn');
 const editMedicalSave = document.getElementById('edit-medical-save');
@@ -16,6 +14,7 @@ const editNutritionSave = document.getElementById('edit-nutrition-save');
 const editNutritionDiscard = document.getElementById('edit-nutrition-discard');
 
 editDetails.addEventListener('click', (e) => {
+  const detailsForm = document.getElementById('profile-details-form');
   const detailsValues = detailsForm.querySelectorAll('.profile-value');
 
   //name

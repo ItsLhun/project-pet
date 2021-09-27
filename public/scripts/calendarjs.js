@@ -3298,7 +3298,6 @@ function calendarJs(id, options, startDateTime) {
         _element_ListAllWeekEventsView_Contents.appendChild(
           _element_ListAllWeekEventsView_Contents_FullView[dateID]
         );
-        console.log(_element_ListAllWeekEventsView_Contents_FullView[dateID]);
       }
     }
 

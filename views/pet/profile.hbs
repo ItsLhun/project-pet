@@ -140,19 +140,21 @@
           {{else}}
             <span class='profile-value'>Not set</span>
           {{/if}}</span></div>
-      <div class='profile-field'><strong>Veterinarian: </strong><span>
-          {{#if pet.veterinarian}}
-            {{pet.veterinarian}}
-          {{else}}
-            <span class='profile-value'>Not set</span>
-          {{/if}}
-        </span></div>
+
       <div class='profile-field'><strong>Alergies: </strong><span>
           {{#if pet.alergies}}
             <span class='profile-value'>{{pet.alergies}}</span>
           {{else}}
             <span class='profile-value'>None</span>
           {{/if}}</span></div>
+      <div class='profile-field'><strong>Veterinarian: </strong><span>
+          {{#if pet.veterinarian}}
+            <span>{{pet.veterinarian.firstName}}
+              {{pet.veterinarian.lastName}}</span>
+          {{else}}
+            <span class='profile-value'>Not set</span>
+          {{/if}}
+        </span></div>
     </div>
     <div
       class='edit-wrapper'
