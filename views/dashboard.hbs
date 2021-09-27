@@ -6,37 +6,17 @@
     <div class="btn-wrapper"><a href='/pet/create' class="add-pet-button">Add pet</a></div>
     </div>
   <div class="pet-wrapper-summary">
-  {{#if pets}}
-    {{#each pets}}
-    {{> petMiniature this}}
-    {{/each}}
-  {{/if}}
     {{#if authorizedPets}}
-    {{#each authorizedPets}}
-    
-    {{!-- {{> petMiniature this}} --}}
-    <div class='miniature-wrapper'>
-  <a href='/pet/{{this._id}}'>
-    <div class='miniature-image-holder'>
-      {{#if profilePicture}}
-        <img src='{{this.profilePicture}}' alt='profile picture' />
-      {{else}}
-        <img src='/images/index.png' alt='' />
-      {{/if}}
-    </div>
-    <h5><span><img class="authorized-indicator-icon" src="/images/pet-paw-solid.svg" alt=""></span> {{name}}</h5>
-  </a>
-</div>
-    {{/each}}
-  {{/if}}
+      {{#each authorizedPets}}
+        {{> petMiniature this}}
+      {{/each}}
+    {{/if}}
   </div>  
 </div>
 <fieldset id='upcoming-events' class='dashboard-component'>
-  
   <legend class='component-title'>Upcoming (15 days)</legend>
   <div>
     <div id='display-upcoming'></div>
-
   </div>
 </fieldset>
 <div id='calendar' class='dashboard-component'></div>

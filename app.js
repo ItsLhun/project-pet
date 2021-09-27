@@ -35,6 +35,7 @@ hbs.registerHelper('ifEquals', function (arg1, arg2, options) {
     : options.inverse(this);
 });
 hbs.registerHelper('ifNotEquals', function (arg1, arg2, options) {
+  console.log(arg1, arg2);
   return arg1.toString() != arg2.toString()
     ? options.fn(this)
     : options.inverse(this);

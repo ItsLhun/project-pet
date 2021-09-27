@@ -7,6 +7,12 @@
         <img src='/images/index.png' alt='' />
       {{/if}}
     </div>
-    <h5>{{name}}</h5>
+    <h5>{{#ifNotEquals @root.user._id owner._id}}<span><img
+            class='authorized-indicator-icon'
+            src='/images/pet-paw-solid.svg'
+            alt=''
+          /></span>
+      {{/ifNotEquals}}
+      {{name}}</h5>
   </a>
 </div>

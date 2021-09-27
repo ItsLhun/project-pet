@@ -20,10 +20,11 @@ router.get('/', (req, res, next) => {
         });
     } else {
       User.findById(req.session.userId)
-        .populate('pets')
         .then((documentUser) => {
           user = documentUser;
-          return Pet.find({ authorized: req.session.userId });
+          return Pet.find({
+            $or: [{ authorized: req.user.id }, { owner: req.user.id }]
+          });
         })
         .then((authorizedPets) => {
           user.authorizedPets = authorizedPets;
