@@ -72,10 +72,6 @@ router.post(
   }
 );
 
-router.get('/settings', routeGuard, (req, res, next) => {
-  res.render('user/settings');
-});
-
 router.post('/settings', routeGuard, (req, res, next) => {
   // Do stuff here to update settings
 });
