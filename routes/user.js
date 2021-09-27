@@ -24,7 +24,6 @@ router.post('/search', routeGuard, (req, res, next) => {
 router.post('/available', (req, res, next) => {
   const searchTerm = req.body.searchTerm.trim();
   const { type } = req.body;
-
   if (searchTerm !== '') {
     if (type === 'username') {
       User.find({ username: searchTerm })
