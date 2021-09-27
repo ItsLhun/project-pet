@@ -59,6 +59,16 @@
           name='species'
           type='select'
         >{{pet.species}}</span></div>
+      <div class='profile-field'><strong>Owner:</strong><span
+          class='profile-value'
+          name='species'
+          type='select'
+        >{{#ifEquals user._id pet.owner._id}}You{{/ifEquals}}{{#ifNotEquals
+            user._id
+            pet.owner._id
+          }}{{pet.owner.firstName}}
+            {{pet.owner.lastName}}{{/ifNotEquals}}
+        </span></div>
       <input type='text' class='d-none' name='id' value={{pet._id}} />
     </form>
     <fieldset class='dashboard-component authorized'>
@@ -165,14 +175,13 @@
     <div class='profile-info' id='nutrition-inputs'>
       <div class='profile-field'><strong>Food Brand: </strong><span
         >{{pet.foodBrand}}</span></div>
-      <div class='profile-field'><strong>Daily Serving: </strong><span>
+      <div class='profile-field'><strong>Daily Serving:</strong><span>
           {{#if pet.serving}}
             {{pet.serving}}
           {{else}}
             Not set
           {{/if}}
         </span></div>
-
     </div>
     <div
       class='edit-wrapper'

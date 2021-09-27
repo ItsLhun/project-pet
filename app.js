@@ -29,7 +29,16 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 hbs.registerPartials(path.join(__dirname, '/views/partials'));
 hbs.registerHelper('json', hbsJson);
-
+hbs.registerHelper('ifEquals', function (arg1, arg2, options) {
+  return arg1.toString() == arg2.toString()
+    ? options.fn(this)
+    : options.inverse(this);
+});
+hbs.registerHelper('ifNotEquals', function (arg1, arg2, options) {
+  return arg1.toString() != arg2.toString()
+    ? options.fn(this)
+    : options.inverse(this);
+});
 app.use(serveFavicon(path.join(__dirname, 'public/images', 'favicon.ico')));
 app.use(sassMiddleware(sassConfig));
 app.use(express.static(path.join(__dirname, 'public')));

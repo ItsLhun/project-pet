@@ -105,10 +105,14 @@ petRouter.get('/:id', routeGuard, (req, res, next) => {
       path: 'authorized',
       select: 'username email profilePicture firstName lastName'
     })
+    .populate({
+      path: 'owner',
+      select: 'firstName lastName'
+    })
     .then((returnedPet) => {
       pet = returnedPet;
       if (
-        pet.owner.toString() == req.user.id ||
+        pet.owner._id == req.user.id ||
         pet.authorized.some(
           (authorized) => authorized._id.toString() == req.user.id
         )

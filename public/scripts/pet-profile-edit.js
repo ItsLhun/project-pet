@@ -79,7 +79,7 @@ editDetails.addEventListener('click', (e) => {
   });
 });
 
-editMedical?.addEventListener('click', (e) => {});
+editMedical.addEventListener('click', (e) => {});
 
 editNutrition.addEventListener('click', (e) => {
   const nutritionInputs = document.getElementById('nutrition-inputs');
