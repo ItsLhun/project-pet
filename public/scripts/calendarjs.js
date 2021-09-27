@@ -4701,7 +4701,7 @@ function calendarJs(id, options, startDateTime) {
       'div',
       'mini-calendar-pet-wrapper'
     );
-    const { name, profilePicture, _id } = pet;
+    const { name, profilePicture, _id, owner } = pet;
     const petLink = document.createElement('a');
     const petCalendarImageHolder = createElement(
       'div',
@@ -4714,7 +4714,7 @@ function calendarJs(id, options, startDateTime) {
       petMiniatureImage.setAttribute('src', '/images/index.png');
     }
     const petMiniName = createElement('h5', null);
-    petMiniName.textContent = name;
+    petMiniName.textContent += name;
 
     petCalendarWrapper.appendChild(petLink);
     petLink.appendChild(petCalendarImageHolder);

@@ -8,7 +8,9 @@ const PetEvent = require('../models/event');
 const petRouter = express.Router();
 
 petRouter.get('/', routeGuard, (req, res, next) => {
-  Pet.find({ owner: req.user })
+  Pet.find({
+    $or: [{ authorized: req.user.id }, { owner: req.user.id }]
+  })
     .then((pets) => {
       res.json(pets);
     })
