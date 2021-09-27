@@ -180,8 +180,13 @@
   <fieldset class='dashboard-component'>
     <legend class='component-title'>Nutrition</legend>
     <div class='profile-info' id='nutrition-inputs'>
-      <div class='profile-field'><strong>Food Brand: </strong><span
-        >{{pet.foodBrand}}</span></div>
+      <div class='profile-field'><strong>Food Brand: </strong><span>Hardcoded
+          Meat Superbrand
+          {{!-- {{pet.foodBrand}} --}}
+        </span></div>
+      <div class='profile-field'><strong>Size: </strong><span>5 kg</span></div>
+      <div class='profile-field'><strong>Last purchase: </strong><span
+        >05/07/2021</span></div>
       <div class='profile-field'><strong>Daily Serving:</strong><span>
           {{#if pet.serving}}
             {{pet.serving}}
