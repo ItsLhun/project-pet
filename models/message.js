@@ -16,7 +16,11 @@ const messageSchema = new mongoose.Schema(
     },
     type: {
       type: String,
-      enum: ['Vet Appointment Request', 'Pet Access Invitation'],
+      enum: [
+        'Vet Appointment Request',
+        'Pet Access Invitation',
+        'Ownership Transfer Request'
+      ],
       required: true
     },
     pet: {
