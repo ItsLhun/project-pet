@@ -50,16 +50,16 @@ const searchUser = (searchTerm) => {
 // Veterinarian search
 
 const vetDataList = document.getElementById('vet-list');
-const addAuthUser = document.querySelector('#add-auth-vet-button');
-const authUserSearch = document.getElementById('vet-search-input');
+const addAuthVet = document.querySelector('#add-auth-vet-button');
+const authVetSearch = document.getElementById('vet-search-input');
 
 let vetListValues = [];
 
-authUserSearch.addEventListener('input', (event) => {
+authVetSearch?.addEventListener('input', (event) => {
   searchUser(event.target.value);
 });
 
-addAuthUser.addEventListener('click', () => {
+addAuthVet?.addEventListener('click', () => {
   const collapsible = document.querySelector('.collapsible');
   collapsible.classList.toggle('active');
   let content = collapsible.querySelector('.collapsible-content');
@@ -70,7 +70,7 @@ addAuthUser.addEventListener('click', () => {
   }
 });
 
-const searchUser = (searchTerm) => {
+const searchVet = (searchTerm) => {
   axios
     .post('http://localhost:3000/user/search', { searchTerm })
     .then((res) => {
