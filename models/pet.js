@@ -46,10 +46,32 @@ const petSchema = new mongoose.Schema({
     type: String,
     default: '/images/index.png'
   },
-  veterinarian: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Professional',
-    required: false
+  medical: {
+    medicalId: {
+      type: String,
+      required: false
+    },
+    veterinarian: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Professional',
+      required: false
+    },
+    alergies: [
+      {
+        type: String,
+        required: false
+      }
+    ]
+  },
+  nutrition: {
+    foodBrand: {
+      type: String,
+      required: false
+    },
+    dailyServing: {
+      type: Number,
+      default: 0
+    }
   }
 });
 

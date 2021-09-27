@@ -43,7 +43,6 @@ editDetails.addEventListener('click', (e) => {
 
   //species
   const speciesInput = document.createElement('select');
-  speciesInput.value = detailsValues[2].innerText;
   speciesInput.classList.add('profile-edit-input');
   speciesInput.setAttribute('name', 'species');
 
@@ -51,14 +50,19 @@ editDetails.addEventListener('click', (e) => {
   const options = ['Dog', 'Cat', 'Bird', 'Fish', 'Reptile', 'Other'];
   options.forEach((option) => {
     const input = document.createElement('option');
+    input.setAttribute('id', `option-${option}`);
     input.classList.add('profile-edit-input');
-
     input.value = option;
     input.textContent = option;
     speciesInput.appendChild(input);
   });
 
   detailsValues[2].parentNode.replaceChild(speciesInput, detailsValues[2]);
+
+  // this ensures the currently seleted species input is pre-selected every time
+  document.getElementById(
+    `option-${detailsValues[2].innerText}`
+  ).selected = true;
 
   editDetails.classList.add('d-none');
   editDetailsSave.classList.remove('d-none');

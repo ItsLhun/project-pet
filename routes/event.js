@@ -12,7 +12,6 @@ router.get('/', routeGuard, (req, res, next) => {
       return PetEvent.find({ $in: { _id: pets } });
     })
     .then((authorizedEvents) => {
-      console.log(authorizedEvents);
       res.json(authorizedEvents);
     })
     .catch((error) => next(error));
