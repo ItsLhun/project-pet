@@ -21,29 +21,60 @@ addAuthUser.addEventListener('click', () => {
   }
 });
 
-const renderDataList = (users) => {
-  users.forEach((user) => createOption(user));
-};
-
-const createOption = (user) => {
-  if (!dataListValues.includes(user.username)) {
+const createOption = (user, data, dataValues) => {
+  if (!dataValues.includes(user.username)) {
     const option = document.createElement('option');
     option.value = user.username;
-    dataList.appendChild(option);
+    data.appendChild(option);
   }
-
-  for (i = 0; i < dataList.options.length; i++) {
-    if (!dataListValues.includes(dataList.options[i].value)) {
-      dataListValues.push(dataList.options[i].value);
+  for (i = 0; i < data.options.length; i++) {
+    if (!dataValues.includes(data.options[i].value)) {
+      dataValues.push(data.options[i].value);
     }
   }
+};
+
+const renderDataList = (users, data, dataValues) => {
+  users.forEach((user) => createOption(user, data, dataValues));
 };
 
 const searchUser = (searchTerm) => {
   axios
     .post('http://localhost:3000/user/search', { searchTerm })
     .then((res) => {
-      renderDataList(res.data);
+      renderDataList(res.data, dataList, dataListValues);
+    })
+    .catch((error) => console.error(error));
+};
+
+// Veterinarian search
+
+const vetDataList = document.getElementById('vet-list');
+const addAuthUser = document.querySelector('#add-auth-vet-button');
+const authUserSearch = document.getElementById('vet-search-input');
+
+let vetListValues = [];
+
+authUserSearch.addEventListener('input', (event) => {
+  searchUser(event.target.value);
+});
+
+addAuthUser.addEventListener('click', () => {
+  const collapsible = document.querySelector('.collapsible');
+  collapsible.classList.toggle('active');
+  let content = collapsible.querySelector('.collapsible-content');
+  if (content.style.display === 'block') {
+    content.style.display = 'none';
+  } else {
+    content.style.display = 'block';
+  }
+});
+
+const searchUser = (searchTerm) => {
+  axios
+    .post('http://localhost:3000/user/search', { searchTerm })
+    .then((res) => {
+      renderDataList(res.data, vetDataList, vetListValues);
     })
     .catch((error) => console.error(error));
 };
