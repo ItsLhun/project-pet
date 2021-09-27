@@ -24,32 +24,14 @@ router.post('/read/:id', (req, res, next) => {
 
 router.post('/authorize/:petId', routeGuard, (req, res, next) => {
   const { petId } = req.params;
-  const { username, note } = req.body;
-
+  const { username, note, type } = req.body;
+  console.log(type);
   User.findOne({ username })
     .then((user) => {
       return Message.create({
         from: req.user.id,
         to: user.id,
-        type: 'Pet Access Invitation',
-        pet: petId,
-        note
-      });
-    })
-    .then(() => res.redirect(`/pet/${petId}`))
-    .catch((error) => next(error));
-});
-
-router.post('/transfer-ownership/:petId', routeGuard, (req, res, next) => {
-  const { petId } = req.params;
-  const { username, note } = req.body;
-
-  User.findOne({ username })
-    .then((user) => {
-      return Message.create({
-        from: req.user.id,
-        to: user.id,
-        type: 'Pet Access Invitation',
+        type,
         pet: petId,
         note
       });

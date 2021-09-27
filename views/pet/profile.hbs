@@ -97,6 +97,11 @@
       <div class='collapsible'>
         <div class='collapsible-content'>
           <form method='POST' action='/message/authorize/{{pet._id}}'>
+            <label for='authorization-type'>Type</label>
+            <select name='type' id='auhtorization-type'>
+              <option value='Pet Access Invitation'>Authorize access</option>
+              <option value='Ownership Transfer Request'>Transfer ownership</option>
+            </select>
             <label for='user-search-input'>Search username</label>
             <input
               id='user-search-input'
