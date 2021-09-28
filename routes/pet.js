@@ -34,17 +34,19 @@ petRouter.get('/events', routeGuard, (req, res, next) => {
 
 petRouter.post('/delete/:id', (req, res, next) => {
   const { id } = req.params;
-  Pet.findByIdAndDelete(id)
+  Pet.findById(id)
+    .populate('owner')
     .then((pet) => {
-      if (req.user.id === pet.owner.id) {
-        return PetEvent.deleteMany({ originPet: id });
+      if (pet.owner.id === req.user.id) {
+        return Pet.deleteOne(pet);
       } else {
         throw new Error('Not authorized to delete pet.');
       }
     })
     .then(() => {
-      res.redirect('/');
+      return PetEvent.deleteMany({ originPet: id });
     })
+    .then(() => res.redirect('/'))
     .catch((error) => next(error));
 });
 
