@@ -90,6 +90,62 @@ editMedical.addEventListener('click', (e) => {
   medId.setAttribute('type', 'text');
   detailsValues[0].parentNode.replaceChild(medId, detailsValues[0]);
 
+  // Veterinarian search
+  const currentVetId = detailsValues[2].getAttribute('value'); // null if no vet is assigned yet
+  console.log(currentVetId);
+  const vetNameSearch = document.createElement('input');
+  vetNameSearch.value = detailsValues[2].innerText;
+  vetNameSearch.classList.add('profile-edit-input');
+  vetNameSearch.setAttribute('name', 'veterinarian');
+  vetNameSearch.setAttribute('type', 'text');
+  vetNameSearch.setAttribute('autocomplete', 'off');
+  vetNameSearch.setAttribute('list', 'vet-list');
+
+  const vetDataList = document.createElement('datalist');
+  vetDataList.setAttribute('id', 'vet-list');
+
+  detailsValues[2].parentNode.replaceChild(vetNameSearch, detailsValues[2]);
+  vetNameSearch.parentNode.appendChild(vetDataList);
+
+  let vetListValues = [];
+
+  vetNameSearch.addEventListener('input', (event) => {
+    searchVet(event.target.value, 'username');
+  });
+
+  const createOption = (user, data, dataValues) => {
+    if (
+      !dataValues.includes(
+        `${user.firstName} ${user.lastName} - ${user.username}`
+      )
+    ) {
+      const option = document.createElement('option');
+      option.value = `${user.firstName} ${user.lastName} - ${user.username}`;
+      option.setAttribute('vet-id', user._id);
+      data.appendChild(option);
+    }
+    for (i = 0; i < data.options.length; i++) {
+      if (!dataValues.includes(data.options[i].value)) {
+        dataValues.push(data.options[i].value);
+      }
+    }
+  };
+
+  const renderDataList = (users, data, dataValues) => {
+    users.forEach((user) => createOption(user, data, dataValues));
+  };
+
+  const searchVet = (searchTerm, field) => {
+    axios
+      .post(`http://localhost:3000/professional/search/${field}/veterinarian`, {
+        searchTerm
+      })
+      .then((res) => {
+        renderDataList(res.data, vetDataList, vetListValues);
+      })
+      .catch((error) => console.error(error));
+  };
+
   //buttons appear/dissapear
   editMedical.classList.add('d-none');
   editMedicalSave.classList.remove('d-none');
@@ -98,6 +154,22 @@ editMedical.addEventListener('click', (e) => {
     editMedical.classList.remove('d-none');
     editMedicalDiscard.classList.add('d-none');
     editMedicalSave.classList.add('d-none');
+    console.log(vetNameSearch);
+
+    const formFields = {
+      medicalId: medId.value,
+      veterinarian: vetNameSearch.value
+    };
+
+    // axios
+    //   .post(`http://localhost:3000/pet/edit/medical`, {
+    //     formFields
+    //   })
+    //   .then((res) => {
+    //     console.log('edited successfully');
+    //   })
+    //   .catch((error) => console.error(error));
+
     detailsForm.submit();
   });
   editMedicalDiscard.addEventListener('click', (e) => {

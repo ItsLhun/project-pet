@@ -116,7 +116,6 @@
           </form>
         </div>
       </div>
-
     </fieldset>
     <div
       class='edit-wrapper top-level'
@@ -159,12 +158,18 @@
           {{else}}
             <span class='profile-value'>None</span>
           {{/if}}</span></div>
-      <div class='profile-field'><strong>Veterinarian: </strong><span>
-          {{#if pet.veterinarian}}
-            <span>{{pet.veterinarian.firstName}}
-              {{pet.veterinarian.lastName}}</span>
-          {{else}}
-            <span class='profile-value'>Not set</span>
+      <div class='profile-field'><strong>Veterinarian: </strong><span
+          class='profile-value'
+          name='veterinarian'
+          type='text'
+        {{#if pet.medical.veterinarian}}
+          value={{pet.medical.veterinarian._id}}
+        {{/if}}
+        >
+          {{#if pet.medical.veterinarian}}
+            {{pet.medical.veterinarian.firstName}}
+            {{pet.medical.veterinarian.lastName}}
+          {{else}}Not set
           {{/if}}
         </span></div>
       <input type='text' class='d-none' name='id' value={{pet._id}} />

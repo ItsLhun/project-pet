@@ -46,7 +46,13 @@ const profSchema = new mongoose.Schema({
   },
   passwordHashAndSalt: {
     type: String
-  }
+  },
+  assigned: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Pet'
+    }
+  ]
 });
 
 const Professional = mongoose.model('Professional', profSchema);

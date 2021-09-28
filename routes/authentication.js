@@ -47,9 +47,6 @@ router.post(
             });
       })
       .then((user) => {
-        if (req.session) {
-          req.session.destroy();
-        }
         req.session.userId = user._id;
         if (user.type) {
           req.session.userType = 'professional';

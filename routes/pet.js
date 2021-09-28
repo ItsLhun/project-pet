@@ -4,6 +4,7 @@ const upload = require('../middleware/cloudinary-parser');
 
 const Pet = require('../models/pet');
 const User = require('../models/user');
+const Professional = require('../models/professional');
 const PetEvent = require('../models/event');
 const petRouter = express.Router();
 
@@ -11,6 +12,7 @@ petRouter.get('/', routeGuard, (req, res, next) => {
   Pet.find({
     $or: [{ authorized: req.user.id }, { owner: req.user.id }]
   })
+
     .then((pets) => {
       res.json(pets);
     })
@@ -79,9 +81,10 @@ petRouter.post(
 );
 
 petRouter.post('/edit/:option', routeGuard, (req, res, next) => {
+  let data;
   if (req.params.option == 'details') {
     const { name, species, birthday, id } = req.body;
-    const data = { name, species };
+    data = { name, species };
     if (birthday !== 'Not set') {
       data.birthday = birthday;
     }
@@ -91,17 +94,29 @@ petRouter.post('/edit/:option', routeGuard, (req, res, next) => {
       })
       .catch((error) => next(error));
   } else if (req.params.option == 'medical') {
-    console.log('medical Edit');
-    const { medicalId, id } = req.body;
-    const data = { medical: { medicalId: null } };
+    const { medicalId, veterinarian, id } = req.body;
+    data = { medical: { medicalId: null } };
     if (medicalId !== 'Not set') {
       data.medical.medicalId = medicalId;
     }
-    Pet.findByIdAndUpdate(id, data)
-      .then((pet) => {
-        res.redirect(`/pet/${id}`);
-      })
-      .catch((error) => next(error));
+    let processedVet = veterinarian.split('-');
+    let username = processedVet.length > 0 ? processedVet[1]?.trim() : '';
+    let names = processedVet[0].trim().split(' ');
+    console.log('username', username);
+    return Professional.findOneAndUpdate(
+      {
+        firstName: names[0]?.trim(),
+        lastName: names[1]?.trim()
+      },
+      { $push: { assigned: id } }
+    ).then((professional) => {
+      data.medical.veterinarian = professional._id;
+      return Pet.findByIdAndUpdate(id, data)
+        .then((pet) => {
+          res.redirect(`/pet/${id}`);
+        })
+        .catch((error) => next(error));
+    });
   } else if (req.params.option == 'nutrition') {
     // other stuff
   } else {
@@ -140,6 +155,14 @@ petRouter.get('/:id', routeGuard, (req, res, next) => {
     .populate({
       path: 'owner',
       select: 'firstName lastName'
+    })
+    .populate({
+      path: 'medical',
+      populate: {
+        path: 'veterinarian',
+        model: 'Professional',
+        select: 'firstName lastName'
+      }
     })
     .then((returnedPet) => {
       pet = returnedPet;

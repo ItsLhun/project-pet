@@ -14,6 +14,7 @@ const bindUnreadMessagesToLocals = require('./middleware/unread-messages-to-loca
 const baseRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 const userProfileRouter = require('./routes/user');
+const professionalRouter = require('./routes/professional');
 const messageRouter = require('./routes/message');
 const eventRouter = require('./routes/event');
 const sessionConfig = require('./config/session');
@@ -57,6 +58,7 @@ app.use(bindUnreadMessagesToLocals);
 app.use('/', baseRouter);
 app.use('/authentication', authenticationRouter);
 app.use('/user', userProfileRouter);
+app.use('/professional', professionalRouter);
 app.use('/event', eventRouter);
 app.use('/pet', petRouter);
 app.use('/message', messageRouter);

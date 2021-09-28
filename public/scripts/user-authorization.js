@@ -46,35 +46,3 @@ const searchUser = (searchTerm) => {
     })
     .catch((error) => console.error(error));
 };
-
-// Veterinarian search
-
-const vetDataList = document.getElementById('vet-list');
-const addAuthVet = document.querySelector('#add-auth-vet-button');
-const authVetSearch = document.getElementById('vet-search-input');
-
-let vetListValues = [];
-
-authVetSearch?.addEventListener('input', (event) => {
-  searchUser(event.target.value);
-});
-
-addAuthVet?.addEventListener('click', () => {
-  const collapsible = document.querySelector('.collapsible');
-  collapsible.classList.toggle('active');
-  let content = collapsible.querySelector('.collapsible-content');
-  if (content.style.display === 'block') {
-    content.style.display = 'none';
-  } else {
-    content.style.display = 'block';
-  }
-});
-
-const searchVet = (searchTerm) => {
-  axios
-    .post('http://localhost:3000/user/search', { searchTerm })
-    .then((res) => {
-      renderDataList(res.data, vetDataList, vetListValues);
-    })
-    .catch((error) => console.error(error));
-};
