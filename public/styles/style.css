@@ -4713,15 +4713,28 @@ div.camera-wrapper:hover {
   filter: invert(50%) sepia(65%) saturate(654%) hue-rotate(340deg) brightness(97%) contrast(90%);
 }
 
-.user-message {
+.message-wrapper {
   padding: 0.2em;
   list-style: none;
   background: #eeeeee;
   display: flex;
-  flex-direction: column;
+  align-items: center;
 }
 
-.user-message .collapsible {
+.message-wrapper .checkbox-wrapper {
+  width: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message-wrapper .user-message {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.message-wrapper .collapsible {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -4731,12 +4744,12 @@ div.camera-wrapper:hover {
   width: 100%;
 }
 
-.user-message .active,
-.user-message .collapsible:hover {
+.message-wrapper .active,
+.message-wrapper .collapsible:hover {
   background-color: #eeeeee;
 }
 
-.user-message .collapsible-content {
+.message-wrapper .collapsible-content {
   padding: 0 1em;
   display: none;
   overflow: hidden;

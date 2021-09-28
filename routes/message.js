@@ -7,12 +7,21 @@ const User = require('../models/user');
 const Message = require('../models/message');
 const Pet = require('../models/pet');
 
-router.post('/delete/:id', (req, res, next) => {
-  const { id } = req.params;
-
-  Message.findByIdAndDelete(id)
-    .then(() => res.redirect('/user/messages'))
-    .catch((error) => next(error));
+router.post('/delete/:id?', (req, res, next) => {
+  console.log(req.body.messages);
+  let messages, id;
+  if (req.body.messages) {
+    messages = req.body.messages;
+    Message.deleteMany({ _id: { $in: messages } })
+      .then(() => res.redirect('/'))
+      .catch((error) => next(error));
+    res.redirect('/user/messages');
+  } else if (req.params.id) {
+    id = req.params.id;
+    Message.findByIdAndDelete(id)
+      .then(() => res.redirect('/user/messages'))
+      .catch((error) => next(error));
+  }
 });
 
 router.post('/read/:id', (req, res, next) => {
