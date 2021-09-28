@@ -230,9 +230,11 @@
     </div>
   </fieldset>
   <div id='calendar' class='dashboard-component'></div>
-  <form action='/pet/delete/{{pet._id}}' method='POST'>
+  {{#ifEquals user.id pet.owner.id}}
+    <form action='/pet/delete/{{pet._id}}' method='POST'>
     <button>Delete pet</button>
   </form>
+  {{/ifEquals}}
 </main>
 <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
 <script src='/scripts/calendar-api.js'></script>

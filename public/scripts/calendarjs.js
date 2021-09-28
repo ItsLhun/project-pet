@@ -114,6 +114,7 @@
  * @property    {string}    toTimeErrorMessage                          The error message shown for the "Please select a valid 'To' time." label.
  * @property    {string}    toSmallerThanFromErrorMessage               The error message shown for the "Please select a 'To' date that is larger than the 'From' date." label.
  * @property    {string}    titleErrorMessage                           The error message shown for the "Please enter a value in the 'Title' field (no empty space)." label.
+ * @property    {string}    petErrorMessage                             The error message shown for the "Please choose a pet before adding an event" label.
  * @property    {string}    stText                                      The day ordinal text for "st".
  * @property    {string}    ndText                                      The day ordinal text for "nd".
  * @property    {string}    rdText                                      The day ordinal text for "rd".
@@ -4730,8 +4731,8 @@ function calendarJs(id, options, startDateTime) {
       }
       _options.petTarget = _id;
       _options.petTargetName = name;
-
       petCalendarImageHolder.classList.add('mini-calendar-active');
+      _element_EventEditorDialog_Pet = petCalendarImageHolder;
     });
 
     parent.appendChild(petCalendarWrapper);
@@ -5404,7 +5405,8 @@ function calendarJs(id, options, startDateTime) {
   function eventDialogEvent_OK() {
     var fromTime = _element_EventEditorDialog_TimeFrom.value.split(':'),
       toTime = _element_EventEditorDialog_TimeTo.value.split(':'),
-      title = trimString(_element_EventEditorDialog_Title.value);
+      title = trimString(_element_EventEditorDialog_Title.value),
+      pet = _element_EventEditorDialog_Pet;
 
     if (fromTime.length < 2) {
       showEventDialogErrorMessage(
@@ -5419,6 +5421,11 @@ function calendarJs(id, options, startDateTime) {
     } else if (title === '') {
       showEventDialogErrorMessage(
         _options.titleErrorMessage,
+        _element_EventEditorDialog_Title
+      ); //Pekka: Pet not chosen error message
+    } else if (!pet) {
+      showEventDialogErrorMessage(
+        _options.petErrorMessage,
         _element_EventEditorDialog_Title
       );
     } else {
@@ -9632,6 +9639,10 @@ function calendarJs(id, options, startDateTime) {
     if (!isDefined(_options.titleErrorMessage)) {
       _options.titleErrorMessage =
         "Please enter a value in the 'Title' field (no empty space).";
+    }
+    //Pekka: Pet not chosen error message
+    if (!isDefined(_options.petErrorMessage)) {
+      _options.petErrorMessage = 'Please choose a pet before adding an event.';
     }
 
     if (!isDefined(_options.stText)) {
