@@ -37,7 +37,7 @@ for (let i = 0; i < messages.length; i++) {
 
     axios
       .post(`http://localhost:3000/message/read/${message.id}`)
-      .then((res) => console.log('Success'))
+      .then((res) => {})
       .catch((error) => console.error(error));
   });
 }

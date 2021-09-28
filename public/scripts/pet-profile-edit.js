@@ -81,6 +81,7 @@ editDetails.addEventListener('click', (e) => {
 editMedical.addEventListener('click', (e) => {
   const detailsForm = document.getElementById('profile-medical-form');
   const detailsValues = detailsForm.querySelectorAll('.profile-value');
+  const activePetId = detailsValues[3].value;
 
   //Med Id
   const medId = document.createElement('input');
@@ -92,7 +93,6 @@ editMedical.addEventListener('click', (e) => {
 
   // Veterinarian search
   const currentVetId = detailsValues[2].getAttribute('value'); // null if no vet is assigned yet
-  console.log(currentVetId);
   const vetNameSearch = document.createElement('input');
   vetNameSearch.value = detailsValues[2].innerText;
   vetNameSearch.classList.add('profile-edit-input');
@@ -154,23 +154,36 @@ editMedical.addEventListener('click', (e) => {
     editMedical.classList.remove('d-none');
     editMedicalDiscard.classList.add('d-none');
     editMedicalSave.classList.add('d-none');
-    console.log(vetNameSearch);
+
+    //get selected option element to access its Id
+    const selectedFromDataListId = vetDataList
+      ?.querySelector(`option[value="${vetNameSearch.value}"]`)
+      ?.getAttribute('vet-id');
+    console.log(selectedFromDataListId);
 
     const formFields = {
       medicalId: medId.value,
-      veterinarian: vetNameSearch.value
+      veterinarian: selectedFromDataListId,
+      _id: activePetId,
+      oldVet: currentVetId
     };
 
-    // axios
-    //   .post(`http://localhost:3000/pet/edit/medical`, {
-    //     formFields
-    //   })
-    //   .then((res) => {
-    //     console.log('edited successfully');
-    //   })
-    //   .catch((error) => console.error(error));
-
-    detailsForm.submit();
+    console.log('fields', formFields);
+    const notyf = new Notyf({ position: { x: 'center', y: 'center' } });
+    axios
+      .post('http://localhost:3000/pet/edit/medical/', formFields)
+      .then((res) => {
+        notyf.success('Edited sucessfully');
+        setTimeout(() => {
+          window.location.reload();
+        }, 900);
+      })
+      .catch((error) => {
+        notyf.error('Could not update');
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
+      });
   });
   editMedicalDiscard.addEventListener('click', (e) => {
     window.location.reload();
