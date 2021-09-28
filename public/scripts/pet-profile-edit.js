@@ -78,10 +78,35 @@ editDetails.addEventListener('click', (e) => {
   });
 });
 
-editMedical.addEventListener('click', (e) => {});
+editMedical.addEventListener('click', (e) => {
+  const detailsForm = document.getElementById('profile-medical-form');
+  const detailsValues = detailsForm.querySelectorAll('.profile-value');
+
+  //Med Id
+  const medId = document.createElement('input');
+  medId.value = detailsValues[0].innerText;
+  medId.classList.add('profile-edit-input');
+  medId.setAttribute('name', 'medicalId');
+  medId.setAttribute('type', 'text');
+  detailsValues[0].parentNode.replaceChild(medId, detailsValues[0]);
+
+  //buttons appear/dissapear
+  editMedical.classList.add('d-none');
+  editMedicalSave.classList.remove('d-none');
+  editMedicalDiscard.classList.remove('d-none');
+  editMedicalSave.addEventListener('click', (e) => {
+    editMedical.classList.remove('d-none');
+    editMedicalDiscard.classList.add('d-none');
+    editMedicalSave.classList.add('d-none');
+    detailsForm.submit();
+  });
+  editMedicalDiscard.addEventListener('click', (e) => {
+    window.location.reload();
+  });
+});
 
 editNutrition.addEventListener('click', (e) => {
-  const nutritionInputs = document.getElementById('nutrition-inputs');
+  const nutritionInputs = document.getElementById('profile-nutrition-form');
   const dailyServingInput = document.createElement('input');
   dailyServingInput.classList.add('profile-edit-input');
   dailyServingInput.value = nutritionInputs.children[1].lastChild.innerText;

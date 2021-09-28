@@ -4607,6 +4607,10 @@ input.profile-edit-input {
   text-align: left;
 }
 
+form.profile-info {
+  margin-bottom: 0;
+}
+
 .profile-info {
   padding-left: 1em;
 }

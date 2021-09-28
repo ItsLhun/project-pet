@@ -1,10 +1,8 @@
 <main>
   <h1>{{pet.name}}'s profile</h1>
   <section class='profile-section dashboard-component'>
-
     <div class='profile-picture-wrapper'>
       <div>
-
         <div class='camera-wrapper'><img
             src='/images/camera-icon.svg'
             alt=''
@@ -36,7 +34,7 @@
     <form
       class='profile-info'
       id='profile-details-form'
-      action='/pet/edit'
+      action='/pet/edit/details'
       method='POST'
     >
       <div class='profile-field'><strong>Name:</strong><span
@@ -138,13 +136,22 @@
 
   <fieldset class='dashboard-component'>
     <legend class='component-title'>Medical</legend>
-    <div class='profile-info'>
-      <div class='profile-field'><strong>Medical Id:</strong><span>
-          {{#if pet.medicalId}}
-            {{pet.medicalId}}
+    <form
+      class='profile-info'
+      id='profile-medical-form'
+      action='/pet/edit/medical'
+      method='POST'
+    >
+      <div class='profile-field'><strong>Medical Id:</strong><span
+          class='profile-value'
+          name='medicalId'
+          type='text'
+        >{{#if pet.medical.medicalId}}
+            {{pet.medical.medicalId}}
           {{else}}
-            <span class='profile-value'>Not set</span>
-          {{/if}}</span></div>
+            Not set
+          {{/if}}</span>
+      </div>
 
       <div class='profile-field'><strong>Alergies: </strong><span>
           {{#if pet.alergies}}
@@ -160,7 +167,8 @@
             <span class='profile-value'>Not set</span>
           {{/if}}
         </span></div>
-    </div>
+      <input type='text' class='d-none' name='id' value={{pet._id}} />
+    </form>
     <div
       class='edit-wrapper'
       style='width: fit-content; height:fit-content; display: relative'
@@ -179,7 +187,12 @@
   </fieldset>
   <fieldset class='dashboard-component'>
     <legend class='component-title'>Nutrition</legend>
-    <div class='profile-info' id='nutrition-inputs'>
+    <form
+      class='profile-info'
+      id='profile-nutrition-form'
+      action='/pet/edit/nutrition'
+      method='POST'
+    >
       <div class='profile-field'><strong>Food Brand: </strong><span>Hardcoded
           Meat Superbrand
           {{!-- {{pet.foodBrand}} --}}
@@ -191,10 +204,11 @@
           {{#if pet.serving}}
             {{pet.serving}}
           {{else}}
-            Not set
-          {{/if}}
+            0
+          {{/if}}g
         </span></div>
-    </div>
+      <input type='text' class='d-none' name='id' value={{pet._id}} />
+    </form>
     <div
       class='edit-wrapper'
       style='width: fit-content; height:fit-content; display: relative'

@@ -78,17 +78,35 @@ petRouter.post(
   }
 );
 
-petRouter.post('/edit', routeGuard, (req, res, next) => {
-  const { name, species, birthday, id } = req.body;
-  const data = { name, species };
-  if (birthday !== 'Not set') {
-    data.birthday = birthday;
+petRouter.post('/edit/:option', routeGuard, (req, res, next) => {
+  if (req.params.option == 'details') {
+    const { name, species, birthday, id } = req.body;
+    const data = { name, species };
+    if (birthday !== 'Not set') {
+      data.birthday = birthday;
+    }
+    Pet.findByIdAndUpdate(id, data)
+      .then((pet) => {
+        res.redirect(`/pet/${id}`);
+      })
+      .catch((error) => next(error));
+  } else if (req.params.option == 'medical') {
+    console.log('medical Edit');
+    const { medicalId, id } = req.body;
+    const data = { medical: { medicalId: null } };
+    if (medicalId !== 'Not set') {
+      data.medical.medicalId = medicalId;
+    }
+    Pet.findByIdAndUpdate(id, data)
+      .then((pet) => {
+        res.redirect(`/pet/${id}`);
+      })
+      .catch((error) => next(error));
+  } else if (req.params.option == 'nutrition') {
+    // other stuff
+  } else {
+    next(new Error('Unkown edit option'));
   }
-  Pet.findByIdAndUpdate(id, data)
-    .then((pet) => {
-      res.redirect(`/pet/${id}`);
-    })
-    .catch((error) => next(error));
 });
 
 petRouter.post(
