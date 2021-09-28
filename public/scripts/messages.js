@@ -2,6 +2,7 @@ const messages = document.getElementsByClassName('message-wrapper');
 const checkAllMessages = document.getElementById('check-all-messages');
 const checkMessageBoxes = document.getElementsByClassName('check-message');
 const deleteAllButton = document.getElementById('delete-all-messages');
+const deleteMessagesForm = document.getElementById('delete-messages');
 
 checkAllMessages.addEventListener('click', () => {
   for (let i = 0; i < checkMessageBoxes.length; i++) {
@@ -51,9 +52,7 @@ deleteAllButton.addEventListener('click', () => {
       messages.push(messageId);
     }
   }
-
-  axios
-    .post('http://localhost:3000/message/delete', { messages })
-    .then((res) => console.log('Many deleted succesfully'))
-    .catch((error) => console.error(error));
+  const msgData = document.getElementById('msgdata');
+  msgData.value = messages;
+  deleteMessagesForm.submit();
 });

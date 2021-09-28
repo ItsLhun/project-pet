@@ -8,19 +8,19 @@ const Message = require('../models/message');
 const Pet = require('../models/pet');
 
 router.post('/delete/:id?', (req, res, next) => {
-  console.log(req.body.messages);
   let messages, id;
   if (req.body.messages) {
-    messages = req.body.messages;
+    messages = req.body.messages.split(',');
     Message.deleteMany({ _id: { $in: messages } })
-      .then(() => res.redirect('/'))
+      .then(() => res.redirect('/user/messages'))
       .catch((error) => next(error));
-    res.redirect('/user/messages');
   } else if (req.params.id) {
     id = req.params.id;
     Message.findByIdAndDelete(id)
       .then(() => res.redirect('/user/messages'))
       .catch((error) => next(error));
+  } else {
+    res.redirect('/user/messages');
   }
 });
 
