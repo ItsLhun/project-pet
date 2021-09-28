@@ -82,6 +82,7 @@ petRouter.post(
 
 petRouter.post('/edit/:option', routeGuard, (req, res, next) => {
   let data;
+  let petId;
   if (req.params.option == 'details') {
     const { name, species, birthday, id } = req.body;
     data = { name, species };
@@ -94,29 +95,64 @@ petRouter.post('/edit/:option', routeGuard, (req, res, next) => {
       })
       .catch((error) => next(error));
   } else if (req.params.option == 'medical') {
-    const { medicalId, veterinarian, id } = req.body;
+    const { medicalId, veterinarian, oldVet } = req.body;
+
+    petId = req.body._id;
+
     data = { medical: { medicalId: null } };
-    if (medicalId !== 'Not set') {
+    if (medicalId?.trim() != 'Not set') {
       data.medical.medicalId = medicalId;
     }
-    let processedVet = veterinarian.split('-');
-    let username = processedVet.length > 0 ? processedVet[1]?.trim() : '';
-    let names = processedVet[0].trim().split(' ');
-    console.log('username', username);
-    return Professional.findOneAndUpdate(
-      {
-        firstName: names[0]?.trim(),
-        lastName: names[1]?.trim()
-      },
-      { $push: { assigned: id } }
-    ).then((professional) => {
-      data.medical.veterinarian = professional._id;
-      return Pet.findByIdAndUpdate(id, data)
-        .then((pet) => {
-          res.redirect(`/pet/${id}`);
+    if (veterinarian) {
+      data.medical.veterinarian = veterinarian;
+      if (veterinarian == oldVet) {
+        return Professional.findByIdAndUpdate(veterinarian, {
+          $addToSet: { assigned: petId }
+        }).then((professional) => {
+          data.medical.veterinarian = professional._id;
+          return Pet.findByIdAndUpdate(petId, data)
+            .then((pet) => {
+              res.redirect(`/pet/${petId}`);
+            })
+            .catch((error) => next(error));
+        });
+      } else {
+        return Professional.findByIdAndUpdate(veterinarian, {
+          $addToSet: { assigned: petId }
         })
-        .catch((error) => next(error));
-    });
+          .then((professional) => {
+            data.medical.veterinarian = professional._id;
+            return Professional.findByIdAndUpdate(oldVet, {
+              $pull: { assigned: petId }
+            });
+          })
+          .then((professional) => {
+            return Pet.findByIdAndUpdate(petId, data)
+              .then((pet) => {
+                res.redirect(`/pet/${petId}`);
+              })
+              .catch((error) => next(error));
+          });
+      }
+    } else {
+      if (oldVet) {
+        return Professional.findByIdAndUpdate(oldVet, {
+          $pull: { assigned: petId }
+        }).then((professional) => {
+          return Pet.findByIdAndUpdate(petId, data)
+            .then((pet) => {
+              res.redirect(`/pet/${petId}`);
+            })
+            .catch((error) => next(error));
+        });
+      } else {
+        Pet.findByIdAndUpdate(petId, data)
+          .then((pet) => {
+            res.redirect(`/pet/${petId}`);
+          })
+          .catch((error) => next(error));
+      }
+    }
   } else if (req.params.option == 'nutrition') {
     // other stuff
   } else {
