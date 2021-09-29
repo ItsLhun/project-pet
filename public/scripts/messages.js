@@ -52,7 +52,10 @@ deleteAllButton.addEventListener('click', () => {
       messages.push(messageId);
     }
   }
-  const msgData = document.getElementById('msgdata');
-  msgData.value = messages;
-  deleteMessagesForm.submit();
+  axios
+    .post('http://localhost:3000/message/delete/', { messages })
+    .then((res) => {
+      window.location.reload();
+    })
+    .catch((error) => console.error(error));
 });
