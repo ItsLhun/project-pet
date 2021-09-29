@@ -61,8 +61,48 @@
 </section>
 <fieldset class='dashboard-component'>
   <legend class='component-title'>Settings</legend>
-  <div class='profile-info' id='nutrition-inputs'>
-    <div class='profile-field'><strong>xxxxx:</strong></div>
+  <div class='profile-info' id='settings-inputs'>
+    <div class='profile-field'><strong>Event colors:</strong></div>
+    <div>
+      <p>Vet Appointment</p>
+      <label><input
+          class='event-color'
+          type='color'
+          id='vet-appointment-color'
+          name='vetAppointmentColor'
+          value='#000000'
+        /></label>
+    </div>
+    <div>
+      <p>Grooming</p>
+      <label><input
+          class='event-color'
+          type='color'
+          id='grooming-color'
+          name='groomingColor'
+          value='#000000'
+        /></label>
+    </div>
+    <div>
+      <p>Supplies</p>
+      <label><input
+          class='event-color'
+          type='color'
+          id='supplies-color'
+          name='suppliesColor'
+          value='#000000'
+        /></label>
+    </div>
+    <div>
+      <p>Other</p>
+      <label><input
+          class='event-color'
+          type='color'
+          id='other-color'
+          name='otherColor'
+          value='#000000'
+        /></label>
+    </div>
     <div class='profile-field'><strong>xxxxx:</strong></div>
   </div>
   <div
@@ -81,3 +121,4 @@
   </div>
 </fieldset>
 <script src='/scripts/edit-profile.js'></script>
+<script src='/scripts/edit-user-settings.js'></script>

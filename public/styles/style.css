@@ -5206,4 +5206,14 @@ div.camera-wrapper:hover {
   border: 2px dashed #2b6eeb;
 }
 
+#settings-inputs input {
+  visibility: hidden;
+}
+
+#settings-inputs label {
+  background-color: black;
+  width: 2em;
+  height: 2em;
+}
+
 /*# sourceMappingURL=style.css.map */
