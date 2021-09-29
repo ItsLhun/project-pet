@@ -1,9 +1,7 @@
 <h1>Messages</h1>
 <div id='message-toolbar'>
   <input type='checkbox' id='check-all-messages' />
-  <form id='delete-messages' method='POST' action='/message/delete'>
-    <button id='delete-all-messages'>Delete</button>
-  </form>
+  <button id='delete-all-messages'>Delete</button>
 </div>
 <ul>
   {{#each messages}}
