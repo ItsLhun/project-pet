@@ -1,13 +1,13 @@
 const fetchUserEventsHTTP = () => {
-  return axios.get(`${ROOT_URL}event/`);
+  return axios.get(`${ROOT_URL}/event/`);
 };
 
 const fetchPetsHTTP = (id) => {
-  return axios.get(`${ROOT_URL}pet/`, id);
+  return axios.get(`${ROOT_URL}/pet/`, id);
 };
 
 const fetchPetEventsHTTP = (id) => {
-  return axios.get(`${ROOT_URL}pet/events`);
+  return axios.get(`${ROOT_URL}/pet/events`);
 };
 
 const createEventHTTP = (data) => {
