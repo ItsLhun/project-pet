@@ -42,5 +42,3 @@ const deleteEventHTTP = (id) => {
       .catch((error) => console.error(error));
   });
 };
-
-console.log(ROOT_URL);
