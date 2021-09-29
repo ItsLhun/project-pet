@@ -3,6 +3,8 @@
 @import './general-styles.scss';
 @import './calendar/calendarjs.scss';
 
+@import './../node_modules/pattern.css/pattern.scss';
+
 * {
   &,
   &:before,
@@ -13,8 +15,13 @@
 html {
   overflow-x: hidden;
 }
-body {
+.maxw-60 {
   max-width: 60em;
+}
+.w-60 {
+  width: 60em;
+}
+body {
   padding: 0 1em;
   margin: 0 auto;
   font-family: $font-sans;
@@ -31,6 +38,8 @@ a {
 nav {
   display: flex;
   z-index: 9999;
+  min-width: 20em;
+  width: inherit;
   a,
   button {
     padding: 1em 0;
@@ -176,7 +185,7 @@ body {
     font-weight: 500;
   }
 }
-
+@import './components/homepage.scss';
 @import './components/login-form.scss';
 @import './components/sign-up-form.scss';
 @import './components/sidebar-menu.scss';

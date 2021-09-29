@@ -173,16 +173,16 @@ editMedical.addEventListener('click', (e) => {
     axios
       .post('http://localhost:3000/pet/edit/medical/', formFields)
       .then((res) => {
-        notyf.success('Edited sucessfully');
-        setTimeout(() => {
-          window.location.reload();
-        }, 900);
+        // notyf.success('Edited sucessfully');
+        // setTimeout(() => {
+        window.location.reload();
+        // }, 900);
       })
       .catch((error) => {
         notyf.error('Could not update');
-        setTimeout(() => {
-          window.location.reload();
-        }, 2000);
+        // setTimeout(() => {
+        //   window.location.reload();
+        // }, 2000);
       });
   });
   editMedicalDiscard.addEventListener('click', (e) => {

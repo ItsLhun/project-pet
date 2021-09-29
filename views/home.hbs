@@ -1,2 +1,77 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <meta
+      name='viewport'
+      content='width=device-width, initial-scale=1, shrink-to-fit=no'
+    />
+    <title>PetHut</title>
+    <link rel='stylesheet' href='/styles/style.css' />
+    <link
+      rel='stylesheet'
+      href='https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css'
+    />
+    <style>
+      body:{max-width: unset; background-color: orange;}
+    </style>
+  </head>
+  <body class='p-0'>
+    <div class='nav-wrapper pattern-vertical-lines-sm d-flex-center-center'>
+      <nav class='maxw-60 w-60'>
+        <a href='/'></a>
+        {{#if user}}
+          <div id='menu-toggle'>
+            <div id='input-wrap'>
+              <input id='side-menu-input' class='' type='checkbox' />
+              <span class='burger'></span>
+              <span class='burger'></span>
+              <span class='burger'></span>
+            </div>
+            <ul id='sidebar-menu' class='sidebar-no-show'>
+              <div id='user-introduction'>
+                <img
+                  id='user-profile-picture'
+                  src='{{user.profilePicture}}'
+                  alt='{{user.username}}'
+                />
+                <p>{{user.firstName}} {{user.lastName}}</p>
+              </div>
+              <a href='/'>Home</a>
+              <a href='/user'>My Profile</a>
+              <a href='/user/messages'>
+                Messages
+                {{#if unread}}
+                  <span id='unread-amount'>{{unread}}</span>
+                {{/if}}
+              </a>
+              <form action='/authentication/sign-out' method='POST'>
+                <button>Sign Out</button>
+              </form>
+            </ul>
+          </div>
+        {{else}}
+          <a href='/authentication/user-sign-in' class='nav-btn'>Sign In</a>
+          <a href='/authentication/prof-sign-in' class='nav-btn'>Professional
+            Area</a>
+        {{/if}}
+      </nav>
+    </div>
+    <section class='pattern-vertical-lines-lg hero h-100v w-100v'>
+      {{! <h1 class='pattern-checks-md bg-blue white'>PetHut</h1 >}}
+      <div>
+        <h1 class='hero-title'>
+          Welcome to PetHut.
+          <br />
+          Advanced pet
+          <span class='emph-title'>tracker.</span>
+        </h1>
+        <p>
+          Example of a subtitle
+        </p>
+      </div>
+    </section>
+    <section>
+      something else
+    </section>
+  </body>
+</html>

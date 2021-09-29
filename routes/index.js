@@ -35,7 +35,7 @@ router.get('/', (req, res, next) => {
         });
     }
   } else {
-    res.render('home', { title: 'Hello World!' });
+    res.render('home', { layout: false });
   }
 });
 
