@@ -10,9 +10,9 @@ const Pet = require('../models/pet');
 router.post('/delete/:id?', (req, res, next) => {
   let messages, id;
   if (req.body.messages) {
-    messages = req.body.messages.split(',');
+    messages = req.body.messages;
     Message.deleteMany({ _id: { $in: messages } })
-      .then(() => res.redirect('/user/messages'))
+      .then(() => res.json('Success'))
       .catch((error) => next(error));
   } else if (req.params.id) {
     id = req.params.id;

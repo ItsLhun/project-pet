@@ -13,6 +13,24 @@ const editNutrition = document.getElementById('edit-nutrition-btn');
 const editNutritionSave = document.getElementById('edit-nutrition-save');
 const editNutritionDiscard = document.getElementById('edit-nutrition-discard');
 
+//confirm pet deletion modal & related buttons
+const deleteButton = document.querySelector('#delete-pet');
+const deletionElement = document.querySelector('.confirm');
+const closeButton = document.querySelector('.close');
+const cancelButton = document.querySelector('.btn-cancel');
+
+deleteButton.addEventListener('click', () => {
+  deletionElement.style.display = 'flex';
+});
+
+closeButton.addEventListener('click', () => {
+  deletionElement.style.display = 'none';
+});
+
+cancelButton.addEventListener('click', () => {
+  deletionElement.style.display = 'none';
+});
+
 editDetails.addEventListener('click', (e) => {
   const detailsForm = document.getElementById('profile-details-form');
   const detailsValues = detailsForm.querySelectorAll('.profile-value');
