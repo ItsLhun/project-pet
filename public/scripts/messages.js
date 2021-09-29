@@ -37,7 +37,7 @@ for (let i = 0; i < messages.length; i++) {
     }
 
     axios
-      .post(`http://localhost:3000/message/read/${message.id}`)
+      .post(`${ROOT_URL}message/read/${message.id}`)
       .then((res) => {})
       .catch((error) => console.error(error));
   });
@@ -53,7 +53,7 @@ deleteAllButton.addEventListener('click', () => {
     }
   }
   axios
-    .post('http://localhost:3000/message/delete/', { messages })
+    .post(`${ROOT_URL}message/delete/`, { messages })
     .then((res) => {
       window.location.reload();
     })

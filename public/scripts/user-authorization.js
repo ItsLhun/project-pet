@@ -40,7 +40,7 @@ const renderDataList = (users, data, dataValues) => {
 
 const searchUser = (searchTerm) => {
   axios
-    .post('http://localhost:3000/user/search', { searchTerm })
+    .post(`${ROOT_URL}/user/search`, { searchTerm })
     .then((res) => {
       renderDataList(res.data, dataList, dataListValues);
     })

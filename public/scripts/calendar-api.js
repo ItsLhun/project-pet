@@ -1,19 +1,19 @@
 const fetchUserEventsHTTP = () => {
-  return axios.get('http://localhost:3000/event/');
+  return axios.get(`${ROOT_URL}event/`);
 };
 
 const fetchPetsHTTP = (id) => {
-  return axios.get('http://localhost:3000/pet/', id);
+  return axios.get(`${ROOT_URL}pet/`, id);
 };
 
 const fetchPetEventsHTTP = (id) => {
-  return axios.get('http://localhost:3000/pet/events');
+  return axios.get(`${ROOT_URL}pet/events`);
 };
 
 const createEventHTTP = (data) => {
   return new Promise((resolve, reject) => {
     axios
-      .post('http://localhost:3000/event/create', data)
+      .post(`${ROOT_URL}/event/create`, data)
       .then((res) => {
         resolve('POST: event was resolved');
       })
@@ -24,7 +24,7 @@ const createEventHTTP = (data) => {
 const updateEventHTTP = (data) => {
   return new Promise((resolve, reject) => {
     axios
-      .post('http://localhost:3000/event/update', data)
+      .post(`${ROOT_URL}/event/update`, data)
       .then((res) => {
         resolve(`POST: event was edited`);
       })
@@ -35,10 +35,12 @@ const updateEventHTTP = (data) => {
 const deleteEventHTTP = (id) => {
   return new Promise((resolve, reject) => {
     axios
-      .post('http://localhost:3000/event/delete', { id })
+      .post(`${ROOT_URL}/event/delete`, { id })
       .then((res) => {
         resolve(`POST: event was deleted`);
       })
       .catch((error) => console.error(error));
   });
 };
+
+console.log(ROOT_URL);
