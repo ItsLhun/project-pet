@@ -12,6 +12,9 @@
   background-color: $grey;
   min-height: 8em;
 }
+div.contents:has(.no-events-available-text) {
+  background-color: rebeccapurple !important;
+}
 #upcoming-events {
   max-height: 30em;
   div.contents {

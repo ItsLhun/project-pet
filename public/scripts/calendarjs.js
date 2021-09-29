@@ -1418,7 +1418,7 @@ function calendarJs(id, options, startDateTime) {
     var day = date.getDay() === 0 ? 7 : date.getDay(),
       firstDayNumber = date.getDate() - day + 1,
       // Nahuel: this line is changed from +6 to +18 to turn into 15 days display. For some reason just +14 didn't work
-      lastDayNumber = firstDayNumber + 18,
+      lastDayNumber = firstDayNumber + 6,
       weekStartDate = new Date(date),
       weekEndDate = new Date(date);
 
@@ -3121,9 +3121,6 @@ function calendarJs(id, options, startDateTime) {
     const customUpcomingEvents = document.getElementById('upcoming-events');
 
     customUpcomingEvents?.appendChild(_element_ListAllWeekEventsView_Contents);
-    // _element_ListAllWeekEventsView.appendChild(
-    //   _element_ListAllWeekEventsView_Contents
-    // );
   }
 
   function showListAllWeekEventsView(weekDate, fromOpen) {
@@ -7588,10 +7585,10 @@ function calendarJs(id, options, startDateTime) {
 
     if (_options.manualEditingEnabled) {
       contents.appendChild(createElement('div'));
-
-      createSpanElement(contents, _options.clickText + ' ');
-      createSpanElement(contents, _options.hereText, 'link', onClickEvent);
-      createSpanElement(contents, ' ' + _options.toAddANewEventText);
+      // Nahuel: remove unnecessary prompt to add event when there are no events
+      // createSpanElement(contents, _options.clickText + ' ');
+      // createSpanElement(contents, _options.hereText, 'link', onClickEvent);
+      // createSpanElement(contents, ' ' + _options.toAddANewEventText);
     }
   }
 
