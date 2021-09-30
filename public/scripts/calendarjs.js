@@ -9053,11 +9053,13 @@ function calendarJs(id, options, startDateTime) {
           buildDayEvents();
           refreshOpenedViews();
         }
-
+        updateEventHTTP(event).then((result) => {
+          window.location.reload();
+        });
         return true;
       }
     });
-
+    //Pekka DRÄG
     return updated;
   };
 
