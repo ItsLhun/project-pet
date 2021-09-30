@@ -44,6 +44,7 @@ petRouter.post('/search', routeGuard, (req, res, next) => {
   }
 });
 
+<<<<<<< HEAD
 // petRouter.get('/events', routeGuard, (req, res, next) => {
 //   const { id } = req.body;
 //   let fetchedEvents;
@@ -62,6 +63,20 @@ petRouter.post('/search', routeGuard, (req, res, next) => {
 //     })
 //     .catch((error) => next(error));
 // });
+=======
+petRouter.get('/create', (req, res, next) => {
+  res.render('pet/create-pet');
+});
+
+petRouter.get('/events', routeGuard, (req, res, next) => {
+  const { id } = req.body;
+  PetEvent.find({ originPet: id })
+    .then((pets) => {
+      res.json(pets);
+    })
+    .catch((error) => next(error));
+});
+>>>>>>> 88abea4e3bbc578d00314cd922d198501c0a6645
 
 petRouter.post('/delete/:id', (req, res, next) => {
   const { id } = req.params;

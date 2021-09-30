@@ -49,7 +49,8 @@ $minimum-width-pet-profile: 40rem;
   }
   font-size: 1.05em;
 }
-.profile-field > strong {
+.profile-field > strong,
+.profile-field > span.color-type {
   display: inline-block;
   width: 8.1em;
 }

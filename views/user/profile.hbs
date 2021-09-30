@@ -70,27 +70,27 @@
       action='/settings/update/eventcolors'
     >
       <div>
-        <span>Vet Appointment</span>
+        <div class='profile-field'><span class='color-type'>Appointment: </span>
         <label><input
             class='event-color'
             type='color'
             id='vet-appointment-color'
             name='vetappointment'
             value='{{userSettings.eventColors.vetappointment}}'
-          /></label>
+          /></label></div>
       </div>
       <div>
-        <span>Grooming</span>
+        <div class='profile-field'><span class='color-type'>Grooming:</span>
         <label><input
             class='event-color'
             type='color'
             id='grooming-color'
             name='grooming'
             value='{{userSettings.eventColors.grooming}}'
-          /></label>
+          /></label></div>
       </div>
       <div>
-        <span>Supplies</span>
+        <div class='profile-field'><span class='color-type'>Supplies</span>
         <label><input
             class='event-color'
             type='color'
@@ -98,16 +98,18 @@
             name='supplies'
             value='{{userSettings.eventColors.supplies}}'
           /></label>
+        </div>
       </div>
       <div>
-        <span>Other</span>
-        <label><input
+        <div class='profile-field'><span class='color-type'>Other:</span>
+        <label class='profile-value'><input
             class='event-color'
             type='color'
             id='other-color'
             name='other'
             value='{{userSettings.eventColors.other}}'
           /></label>
+          </div>
       </div>
     </form>
     {{/if}}

@@ -1,7 +1,9 @@
-# project-pet
+# PetHut
 
 ### About
-Proyect deployed at: https://project-pet-ih.herokuapp.com
+Advance tracking for pet needs with professional capabilities.
+
+Proyect deployed at: https://pethut.net/
 
 
 ### Technologies
