@@ -5056,7 +5056,8 @@ div.top-level {
 }
 
 .confirm,
-.auth-modal {
+.auth-modal,
+.pet-modal {
   position: fixed;
   z-index: 10000;
   top: 0;
@@ -5071,7 +5072,8 @@ div.top-level {
 }
 
 .confirm .confirm-modal,
-.auth-modal .confirm-modal {
+.auth-modal .confirm-modal,
+.pet-modal .confirm-modal {
   width: 100%;
   max-width: 30rem;
   max-height: 25rem;
@@ -5082,7 +5084,8 @@ div.top-level {
 }
 
 .confirm .header,
-.auth-modal .header {
+.auth-modal .header,
+.pet-modal .header {
   background: #e26a29;
   max-height: 5em;
   color: white;
@@ -5093,13 +5096,15 @@ div.top-level {
 }
 
 .confirm .header .title,
-.auth-modal .header .title {
+.auth-modal .header .title,
+.pet-modal .header .title {
   font-size: 1em;
   font-weight: 600;
 }
 
 .confirm .header .close,
-.auth-modal .header .close {
+.auth-modal .header .close,
+.pet-modal .header .close {
   padding: 0;
   background: none;
   outline: none;
@@ -5110,28 +5115,33 @@ div.top-level {
 }
 
 .confirm .header .close:hover,
-.auth-modal .header .close:hover {
+.auth-modal .header .close:hover,
+.pet-modal .header .close:hover {
   color: #a41d2d;
 }
 
 .confirm .content,
-.auth-modal .content {
+.auth-modal .content,
+.pet-modal .content {
   padding: 2em;
 }
 
 .confirm .buttons,
-.auth-modal .buttons {
+.auth-modal .buttons,
+.pet-modal .buttons {
   display: flex;
   justify-content: flex-end;
   padding: 2em 1.5rem;
 }
 
 .confirm .buttons form,
-.auth-modal .buttons form {
+.auth-modal .buttons form,
+.pet-modal .buttons form {
   margin: 0;
 }
 
-#auth-modal {
+#auth-modal,
+#pet-modal {
   max-height: 40rem;
 }
 

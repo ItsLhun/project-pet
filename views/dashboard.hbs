@@ -1,9 +1,44 @@
 <h1>Main User Dashboard TBC</h1>
+    <div class="pet-modal close-modal">
+      <div id='pet-modal' class="confirm-modal">
+        <div class="header">
+          <span class="title">Add new pet</span>
+          <button id='pet-close' class="close">&times;</button>
+        </div>
+        <div class="content">
+          <form action="/pet/create" method="POST" enctype='multipart/form-data'>
+
+              <label for='pet-profile-picture'>Profile picture</label>
+              <input id='pet-profile-picture' name='image' type='file' accept='image/*'/>
+              
+
+              <label for="pet-name-input">Name</label>
+              <input id='pet-name-input' type="text" name="name"></input>
+
+              <label for="pet-type-input">Type</label>
+              <select id="pet-type-input" name="species">
+                  <option value="Dog">Dog</option>
+                  <option value="Cat">Cat</option>
+                  <option value="Bird">Bird</option>
+                  <option value="Fish">Fish</option>
+                  <option value="Reptile">Reptile</option>
+                  <option value="Other">Other</option>
+              </select>
+
+              <label for="pet-birthday-input">Birthday</label>
+              <input id='pet-birthday-input' type='date' name="birthday"></input>
+
+
+              <button>Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
 <div id='pet-summary' class='dashboard-component'>
   <div class='component-header'>
   <h4 class='component-title'>{{type}}</h4>
 
-    <div class="btn-wrapper"><a href='/pet/create' class="add-pet-button">Add pet</a></div>
+    <div class="btn-wrapper"><button class="add-pet-button">Add pet</button></div>
     </div>
   <div class="pet-wrapper-summary">
     {{#if authorizedPets}}
@@ -24,4 +59,4 @@
 <script src='/scripts/calendar-api.js'></script>
 <script src='/scripts/calendarjs.js'></script>
 <script src='/scripts/calendar-options.js'></script>
-<script src='/scripts/load-dashboard-events.js'></script>
+<script src='/scripts/dashboard.js'></script>
