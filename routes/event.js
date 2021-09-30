@@ -20,7 +20,7 @@ router.get('/', routeGuard, (req, res, next) => {
       return Settings.findOne({ user: req.user.id });
     })
     .then((userSettings) => {
-      res.json({ authorizedEvents, colors: userSettings.eventColors });
+      res.json({ authorizedEvents, colors: userSettings?.eventColors });
     })
     .catch((error) => next(error));
 });

@@ -6,8 +6,10 @@ fetchUserEventsHTTP()
   })
   .then(() => {
     const events = document.querySelectorAll('.event');
-    events.forEach((event) => {
-      event.style.background = colors[event.classList[1]];
-    });
+    if (colors) {
+      events.forEach((event) => {
+        event.style.background = colors[event.classList[1]];
+      });
+    }
   })
   .catch((error) => console.log(error));
