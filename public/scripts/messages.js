@@ -53,7 +53,7 @@ deleteAllButton?.addEventListener('click', () => {
     }
   }
   axios
-    .post(`${ROOT_URL}message/delete/`, { messages })
+    .post(`${ROOT_URL}/message/delete/`, { messages })
     .then((res) => {
       window.location.reload();
     })
