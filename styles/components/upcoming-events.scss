@@ -51,7 +51,7 @@ div.contents:has(.no-events-available-text) {
       margin-bottom: $spacing;
 
       div.header {
-        background-color: $dark-color;
+        background-color: $upcoming-header;
         color: $light-color;
         padding: $spacing;
         font-weight: $title-bar-font-weight;

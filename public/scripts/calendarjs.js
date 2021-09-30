@@ -7943,7 +7943,6 @@ function calendarJs(id, options, startDateTime) {
     format.push(padNumber(eventDate.getHours()));
     format.push(padNumber(eventDate.getMinutes()));
     format.push('00Z');
-
     return format.join('');
   }
 

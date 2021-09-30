@@ -30,3 +30,30 @@
     background: linear-gradient(90deg, $main-blue 20%, $secondary-blue 80%);
   }
 }
+div.content.app-content {
+  max-height: 25rem;
+  overflow-y: scroll;
+}
+div.confirm-modal.app-content {
+  max-height: unset;
+}
+div.split {
+  input,
+  select,
+  div.split-contents,
+  p {
+    width: calc(50% - 00.5em);
+    margin-right: $spacing / 2;
+    margin-left: $spacing / 2;
+    display: inline-block;
+    vertical-align: top;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
