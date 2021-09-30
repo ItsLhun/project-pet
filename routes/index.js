@@ -13,7 +13,23 @@ router.get('/', (req, res, next) => {
       Professional.findById(req.session.userId)
         .then((documentUser) => {
           user = documentUser;
-          res.render('prof-dashboard', user);
+          if (user.type == 'Veterinarian') {
+            return Pet.find(
+              {
+                'medical.veterinarian': req.session.userId
+              },
+              { authorized: 0, profilePicture: 0 }
+            )
+              .then((pets) => {
+                user.pets = pets;
+                console.log(pets);
+                res.render('prof-dashboard', user);
+              })
+              .catch((error) => next(error));
+          } else {
+            // placeholder to implementing other types of professional
+            next(new Error('Functionality not implemented'));
+          }
         })
         .catch((error) => {
           next(error);

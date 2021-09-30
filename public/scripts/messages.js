@@ -4,7 +4,7 @@ const checkMessageBoxes = document.getElementsByClassName('check-message');
 const deleteAllButton = document.getElementById('delete-all-messages');
 const deleteMessagesForm = document.getElementById('delete-messages');
 
-checkAllMessages.addEventListener('click', () => {
+checkAllMessages?.addEventListener('click', () => {
   for (let i = 0; i < checkMessageBoxes.length; i++) {
     const messageCheckBox = checkMessageBoxes[i];
     if (checkAllMessages.checked) {
@@ -43,7 +43,7 @@ for (let i = 0; i < messages.length; i++) {
   });
 }
 
-deleteAllButton.addEventListener('click', () => {
+deleteAllButton?.addEventListener('click', () => {
   const messages = [];
   for (let i = 0; i < checkMessageBoxes.length; i++) {
     const checkbox = checkMessageBoxes[i];
