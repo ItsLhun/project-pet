@@ -1,7 +1,9 @@
 const fetchUserEventsHTTP = () => {
   return axios.get(`${ROOT_URL}/event/`);
 };
-
+const fetchProfEventsHTTP = () => {
+  return axios.get(`${ROOT_URL}/event/professional`);
+};
 const fetchPetsHTTP = (id) => {
   return axios.get(`${ROOT_URL}/pet/`, id);
 };

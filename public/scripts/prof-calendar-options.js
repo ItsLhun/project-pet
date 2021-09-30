@@ -1,9 +1,11 @@
 const calendarInstance = new calendarJs('calendar', {
   manualEditingEnabled: false
 });
+//set up notyf
+const notyf = new Notyf({ position: { x: 'center', y: 'center' } });
+
 //pet appointment event modal & related buttons
 const newAppointmentBtn = document.getElementById('appointment-btn');
-const userSearchInput = document.getElementById('user-search-input');
 const deletionElement = document.querySelector('.confirm');
 const closeButton = document.querySelector('.close');
 const cancelButton = document.querySelector('.btn-cancel');
@@ -20,7 +22,11 @@ cancelButton.addEventListener('click', () => {
   deletionElement.style.display = 'none';
 });
 
-// newAppointmentBtn.addEventListener('click', (e) => {});
+const userSearchInput = document.getElementById('user-search-input');
+const appointmentDesc = document.getElementById('appointment-desc');
+const dateAppointmentInput = document.getElementById('date-appointment-input');
+const fromAppointmentInput = document.getElementById('from-appointment-input');
+const toAppointmentInput = document.getElementById('to-appointment-input');
 
 const userDataList = document.createElement('datalist');
 userDataList.setAttribute('id', 'users-list');
@@ -42,6 +48,8 @@ const createOption = (pet, data, dataValues) => {
     const option = document.createElement('option');
     option.value = `${pet.owner.firstName} ${pet.owner.lastName} - ${pet.name}`;
     option.setAttribute('pet-id', pet._id);
+    option.setAttribute('pet-name', pet.name);
+
     data.appendChild(option);
   }
   for (i = 0; i < data.options.length; i++) {
@@ -75,15 +83,34 @@ addAppointmentButtonPost.addEventListener('click', (e) => {
   const selectedFromDataListId = userDataList
     ?.querySelector(`option[value="${userSearchInput.value}"]`)
     ?.getAttribute('pet-id');
+  const selectedFromDataListName = userDataList
+    ?.querySelector(`option[value="${userSearchInput.value}"]`)
+    ?.getAttribute('pet-name');
   console.log(selectedFromDataListId);
 
+  //2021-10-07T12:01:00.000Z
   const formFields = {
-    originPet: selectedFromDataListId
+    originPet: selectedFromDataListId,
+    from: `${dateAppointmentInput.value}T${fromAppointmentInput.value}.000+00:00`,
+    to: `${dateAppointmentInput.value}T${toAppointmentInput.value}.000+00:00`,
+    title: 'Appointment',
+    type: 'Vet appointment',
+    description: appointmentDesc.value,
+    isAllDay: false,
+    showAlerts: false,
+    repeatEvery: null,
+    reapeatEnds: null,
+    repeatEveryCustomValue: null,
+    repeatEveryCustomType: null,
+    originPetName: selectedFromDataListName
   };
+
+  dateAppointmentInput.value ??
+    notyf.error('You must fill out the form before moving forward');
 
   console.log(formFields);
   //   axios
-  //     .post(`${ROOT_URL}/event/edit/medical/`, formFields)
+  //     .post(`${ROOT_URL}/event/create/`, formFields)
   //     .then((res) => {
   //       window.location.reload();
   //     })

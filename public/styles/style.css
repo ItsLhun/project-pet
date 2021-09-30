@@ -3,6 +3,18 @@
   padding: 1em;
 }
 
+.d-flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
 /*
  * Calendar.js Library v1.3.1
  *
@@ -4340,6 +4352,10 @@ body {
   min-width: 20em;
 }
 
+.notyf-announcer {
+  z-index: 99999;
+}
+
 @media screen and (min-width: 480px) {
   p:not(:last-child) {
     margin-bottom: 1rem;
@@ -4740,7 +4756,7 @@ div.contents:has(.no-events-available-text) {
 }
 
 #upcoming-events div.contents div.day div.header {
-  background-color: #282828;
+  background-color: #a41d2d;
   color: #F5F5F5;
   padding: 10px;
   font-weight: 900;
@@ -5059,7 +5075,7 @@ div.top-level {
 .auth-modal,
 .pet-modal {
   position: fixed;
-  z-index: 10000;
+  z-index: 9888;
   top: 0;
   left: 0;
   width: 100%;
@@ -5253,6 +5269,40 @@ div.camera-wrapper:hover {
 .dashboard-component-prof + #calendar div.calendar,
 .dashboard-component-prof + #calendar div.header-date {
   background: linear-gradient(90deg, #2b2baf 20%, #2b6eeb 80%);
+}
+
+div.content.app-content {
+  max-height: 25rem;
+  overflow-y: scroll;
+}
+
+div.confirm-modal.app-content {
+  max-height: unset;
+}
+
+div.split input,
+div.split select,
+div.split div.split-contents,
+div.split p {
+  width: calc(50% - 00.5em);
+  margin-right: 5px;
+  margin-left: 5px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+div.split input:first-child,
+div.split select:first-child,
+div.split div.split-contents:first-child,
+div.split p:first-child {
+  margin-left: 0;
+}
+
+div.split input:last-child,
+div.split select:last-child,
+div.split div.split-contents:last-child,
+div.split p:last-child {
+  margin-right: 0;
 }
 
 #settings-inputs input {

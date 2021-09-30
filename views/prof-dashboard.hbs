@@ -8,27 +8,37 @@
 
   <button id='appointment-btn'>New appointment</button>
   <div class='confirm close-modal'>
-    <div class='confirm-modal'>
+    <div class='confirm-modal app-content'>
       <div class='header prof-background'>
         <span class='title'>Add new appointment</span>
         <button class='close'>&times;</button>
       </div>
-      <div class='content'>
-        <p>Search by owner name:</p>
-        <form class='' id='' action='' method='POST'>
+      <div class='content app-content'>
+        <div class='d-flex flex-col'>
+          <label for='user-search-input'>Search by owner name:</label>
           <input
             type='text'
             id='user-search-input'
             list='users-list'
             autocomplete='off'
           />
-          <input
+        </div>
+        <div class='d-flex flex-col'>
+          <label for='appointment-desc'>Appointment notes:</label>
+          <textarea
             type='text'
-            class='profile-value d-none'
-            name='type'
-            value='Vet appointment'
-          />
-        </form>
+            id='appointment-desc'
+            type='text'
+            autocomplete='off'
+          ></textarea>
+          <label for=''>Day:</label>
+          <input type='date' id='date-appointment-input' />
+          <label for=''>From/To:</label>
+          <div class='split'>
+            <input type='time' id='from-appointment-input' />
+            <input type='time' id='to-appointment-input' />
+          </div>
+        </div>
       </div>
       <div class='buttons'>
         <button class='btn btn-delete' id='add-appointment-post'>Add appointment</button>
