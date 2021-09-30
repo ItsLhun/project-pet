@@ -94,7 +94,7 @@
       </div>
 
     <div class="auth-modal close-modal">
-      <div class="confirm-modal">
+      <div id='auth-modal'class="confirm-modal">
         <div class="header">
           <span class="title">Authorize users</span>
           <button id='auth-close' class="close">&times;</button>
@@ -240,7 +240,7 @@
   {{#ifEquals user.id pet.owner.id}}
     <button id='delete-pet'>Delete pet</button>
   {{/ifEquals}}
-    <div class="confirm close-modal">
+    <div id='confirm-modal' class="confirm close-modal">
       <div class="confirm-modal">
         <div class="header">
           <span class="title">Delete pet {{pet.name}}</span>

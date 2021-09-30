@@ -43,10 +43,6 @@ petRouter.post('/search', routeGuard, (req, res, next) => {
   }
 });
 
-petRouter.get('/create', (req, res, next) => {
-  res.render('pet/create-pet');
-});
-
 petRouter.get('/events', routeGuard, (req, res, next) => {
   const { id } = req.body;
   PetEvent.find({ originPet: id })
