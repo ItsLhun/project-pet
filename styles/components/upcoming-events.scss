@@ -17,6 +17,7 @@ div.contents:has(.no-events-available-text) {
 }
 #upcoming-events {
   max-height: 30em;
+
   div.contents {
     display: inline-block;
     padding: $spacing;

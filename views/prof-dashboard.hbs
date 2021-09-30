@@ -3,10 +3,41 @@
 <h1 class='professional-header'>Main Professional Dashboard TBC</h1>
 
 <div class='dashboard-component-prof p-1'>
-  <p>Total customers count: <span>{{pets.length}}</span></p>
-  <p>Total appointments: <span>33</span></p>
+  <p><strong>Total customers count:</strong> <span>{{pets.length}}</span></p>
+  <p><strong>Total appointments:</strong> <span>33</span></p>
 
-  <button>New appointment</button>
+  <button id='appointment-btn'>New appointment</button>
+  <div class='confirm close-modal'>
+    <div class='confirm-modal'>
+      <div class='header prof-background'>
+        <span class='title'>Add new appointment</span>
+        <button class='close'>&times;</button>
+      </div>
+      <div class='content'>
+        <p>Search by owner name:</p>
+        <form class='' id='' action='' method='POST'>
+          <input
+            type='text'
+            id='user-search-input'
+            list='users-list'
+            autocomplete='off'
+          />
+          <input
+            type='text'
+            class='profile-value d-none'
+            name='type'
+            value='Vet appointment'
+          />
+        </form>
+      </div>
+      <div class='buttons'>
+        <form action='' method='POST'>
+          <button class='btn btn-delete'>Add appointment</button>
+        </form>
+        <button class='btn btn-cancel'>Cancel</button>
+      </div>
+    </div>
+  </div>
 </div>
 <fieldset id='upcoming-events' class='dashboard-component-prof'>
   <legend class='component-title'>Upcoming this week</legend>
@@ -15,6 +46,7 @@
   </div>
 </fieldset>
 <div id='calendar' class='dashboard-component-prof'></div>
+
 <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
 <script src='/scripts/calendar-api.js'></script>
 <script src='/scripts/calendarjs.js'></script>

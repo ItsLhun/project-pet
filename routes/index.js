@@ -28,7 +28,7 @@ router.get('/', (req, res, next) => {
               .catch((error) => next(error));
           } else {
             // placeholder to implementing other types of professional
-            next(new Error('Functionality not implemented'));
+            res.render('prof-dashboard', user);
           }
         })
         .catch((error) => {

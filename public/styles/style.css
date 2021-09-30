@@ -5059,6 +5059,7 @@ div.top-level {
 
 .confirm {
   position: fixed;
+  z-index: 10000;
   top: 0;
   left: 0;
   width: 100%;
@@ -5210,13 +5211,27 @@ div.camera-wrapper:hover {
   border: 2px dashed #2b6eeb;
 }
 
+.dashboard-component-prof div.prof-background {
+  background: linear-gradient(90deg, #2b2baf 20%, #2b6eeb 80%);
+}
+
+.dashboard-component-prof #appointment-btn {
+  background: linear-gradient(90deg, #2b2baf 20%, #2b6eeb 80%);
+  color: white;
+  border-radius: 2em;
+  display: block;
+  width: 50%;
+  min-width: 11em;
+  margin: 0 auto;
+}
+
 .dashboard-component-prof + #calendar {
   border-color: #2b2baf;
 }
 
 .dashboard-component-prof + #calendar div.calendar,
 .dashboard-component-prof + #calendar div.header-date {
-  background-color: #2b2baf;
+  background: linear-gradient(90deg, #2b2baf 20%, #2b6eeb 80%);
 }
 
 #settings-inputs input {

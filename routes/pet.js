@@ -12,11 +12,35 @@ petRouter.get('/', routeGuard, (req, res, next) => {
   Pet.find({
     $or: [{ authorized: req.user.id }, { owner: req.user.id }]
   })
-
     .then((pets) => {
       res.json(pets);
     })
     .catch((error) => next(error));
+});
+
+petRouter.post('/search', routeGuard, (req, res, next) => {
+  // for now this route only works for professional vets, no others.
+  const searchTerm = req.body.searchTerm.trim();
+  if (searchTerm !== '') {
+    Pet.find(
+      {
+        'medical.veterinarian': req.session.userId
+      },
+      { authorized: 0, profilePicture: 0 }
+    )
+      .populate('owner')
+      .then((pets) => {
+        let filtered = pets.filter((pet) => {
+          let petOwnerName = `${pet.owner.firstName} ${pet.owner.lastName}`;
+          console.log(petOwnerName);
+          return petOwnerName.toLowerCase().includes(searchTerm.toLowerCase());
+        });
+        res.send(filtered);
+      })
+      // Pet.find({ name: new RegExp('^' + searchTerm, 'i') })
+      //   .then((users) => res.send(users))
+      .catch((error) => next(error));
+  }
 });
 
 petRouter.get('/create', (req, res, next) => {

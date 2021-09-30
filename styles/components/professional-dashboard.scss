@@ -10,11 +10,23 @@
 .dashboard-component-prof {
   @extend .dashboard-component;
   border: 2px dashed $secondary-blue;
+  div.prof-background {
+    background: linear-gradient(90deg, $main-blue 20%, $secondary-blue 80%);
+  }
+  #appointment-btn {
+    background: linear-gradient(90deg, $main-blue 20%, $secondary-blue 80%);
+    color: white;
+    border-radius: 2em;
+    display: block;
+    width: 50%;
+    min-width: 11em;
+    margin: 0 auto;
+  }
 }
 .dashboard-component-prof + #calendar {
   border-color: $main-blue;
   div.calendar,
   div.header-date {
-    background-color: $main-blue;
+    background: linear-gradient(90deg, $main-blue 20%, $secondary-blue 80%);
   }
 }
