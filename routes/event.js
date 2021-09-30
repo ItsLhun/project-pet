@@ -7,7 +7,7 @@ const router = express.Router();
 const routeGuard = require('../middleware/route-guard');
 
 router.get('/', routeGuard, (req, res, next) => {
-  let authorizedEvents;
+  let fetchedEvents;
   Pet.find(
     { $or: [{ authorized: req.user.id }, { owner: req.user.id }] },
     { _id: 1 }
@@ -16,11 +16,16 @@ router.get('/', routeGuard, (req, res, next) => {
       return PetEvent.find({ originPet: { $in: pets } });
     })
     .then((events) => {
-      authorizedEvents = events;
+      fetchedEvents = events;
       return Settings.findOne({ user: req.user.id });
     })
     .then((userSettings) => {
-      res.json({ authorizedEvents, colors: userSettings?.eventColors });
+      const authorizedEvents = fetchedEvents.map((event) => {
+        const type = event.type.toLowerCase().replace(/\s+/g, '');
+        if (userSettings) event.color = userSettings.eventColors[type];
+        return event;
+      });
+      res.json(authorizedEvents);
     })
     .catch((error) => next(error));
 });

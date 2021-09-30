@@ -70,6 +70,10 @@ const eventSchema = new mongoose.Schema({
   originUser: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
+  },
+  color: {
+    type: String,
+    default: '#484848'
   }
 });
 

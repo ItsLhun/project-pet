@@ -1,15 +1,11 @@
-let colors;
 fetchUserEventsHTTP()
   .then((res) => {
-    colors = res.data.colors;
-    return calendarInstance.setEvents(res.data.authorizedEvents);
+    calendarInstance.setEvents(res.data);
   })
   .then(() => {
     const events = document.querySelectorAll('.event');
-    if (colors) {
-      events.forEach((event) => {
-        event.style.background = colors[event.classList[1]];
-      });
-    }
+    events.forEach((event) => {
+      event.style.background = event.color;
+    });
   })
   .catch((error) => console.log(error));
