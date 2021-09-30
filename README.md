@@ -1,6 +1,7 @@
-# project-pet
+# PetHut
 
 ### About
+Advance tracking for pet needs with professional capabilities.
 Proyect deployed at: https://pethut.net/
 
 
