@@ -1641,7 +1641,7 @@ function calendarJs(id, options, startDateTime) {
 
   function buildDayEvents() {
     clearEventsFromDays();
-    clearAutoRefreshTimer();
+    //clearAutoRefreshTimer();
 
     _element_Calendar_AllVisibleEvents = [];
 
@@ -1716,7 +1716,7 @@ function calendarJs(id, options, startDateTime) {
     }
 
     // updateExportButtonsVisibleState(_element_Calendar_AllVisibleEvents.length);
-    startAutoRefreshTimer();
+    //startAutoRefreshTimer();
   }
 
   function buildRepeatedDayEvents(
@@ -7201,28 +7201,28 @@ function calendarJs(id, options, startDateTime) {
    * ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
    */
 
-  function startAutoRefreshTimer() {
-    if (
-      _timer_RefreshMainDisplay === null &&
-      _options.autoRefreshTimerDelay > 0 &&
-      !_datePickerModeEnabled
-    ) {
-      _timer_RefreshMainDisplay = setInterval(function () {
-        refreshViews();
-      }, _options.autoRefreshTimerDelay);
-    }
-  }
+  // function startAutoRefreshTimer() {
+  //   if (
+  //     _timer_RefreshMainDisplay === null &&
+  //     _options.autoRefreshTimerDelay > 0 &&
+  //     !_datePickerModeEnabled
+  //   ) {
+  //     _timer_RefreshMainDisplay = setInterval(function () {
+  //       //refreshViews();
+  //     }, _options.autoRefreshTimerDelay);
+  //   }
+  // }
 
-  function clearAutoRefreshTimer() {
-    if (
-      _timer_RefreshMainDisplay !== null &&
-      _options.autoRefreshTimerDelay > 0 &&
-      !_datePickerModeEnabled
-    ) {
-      clearTimeout(_timer_RefreshMainDisplay);
-      _timer_RefreshMainDisplay = null;
-    }
-  }
+  // function clearAutoRefreshTimer() {
+  //   if (
+  //     _timer_RefreshMainDisplay !== null &&
+  //     _options.autoRefreshTimerDelay > 0 &&
+  //     !_datePickerModeEnabled
+  //   ) {
+  //     clearTimeout(_timer_RefreshMainDisplay);
+  //     _timer_RefreshMainDisplay = null;
+  //   }
+  // }
 
   function refreshViews() {
     if (isOnlyMainDisplayVisible()) {
@@ -8480,7 +8480,7 @@ function calendarJs(id, options, startDateTime) {
    * Starts the auto-refresh timer (if enabled).
    */
   this.startTheAutoRefreshTimer = function () {
-    startAutoRefreshTimer();
+    //startAutoRefreshTimer();
   };
 
   /**
@@ -8489,7 +8489,7 @@ function calendarJs(id, options, startDateTime) {
    * Stops the auto-refresh timer (if enabled).
    */
   this.stopTheAutoRefreshTimer = function () {
-    clearAutoRefreshTimer();
+    //clearAutoRefreshTimer();
   };
 
   /**
