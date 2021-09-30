@@ -4756,7 +4756,7 @@ div.contents:has(.no-events-available-text) {
 }
 
 #upcoming-events div.contents div.day div.header {
-  background-color: #a41d2d;
+  background-color: #303030;
   color: #F5F5F5;
   padding: 10px;
   font-weight: 900;
