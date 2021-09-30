@@ -1,5 +1,5 @@
-<h1>User Profile</h1>
-<section class='profile-section dashboard-component'>
+<h1 {{#if user.type}}class='professional-header'{{/if}}>User Profile</h1>
+<section class='profile-section dashboard-component{{#if user.type}}-prof{{/if}}'>
   <div class='profile-picture-wrapper'>
     <div>
       <div class='camera-wrapper'><img
