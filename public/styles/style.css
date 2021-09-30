@@ -5077,7 +5077,7 @@ div.top-level {
   max-height: 25rem;
   background: #eeeeee;
   border-radius: 0.9rem;
-  overflow: hidden;
+  overflow: auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -5129,6 +5129,10 @@ div.top-level {
 .confirm .buttons form,
 .auth-modal .buttons form {
   margin: 0;
+}
+
+#auth-modal {
+  max-height: 40rem;
 }
 
 #delete-pet {

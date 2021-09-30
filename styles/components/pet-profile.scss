@@ -157,7 +157,7 @@ div.top-level {
     max-height: 25rem;
     background: $grey;
     border-radius: $component-round-radius;
-    overflow: hidden;
+    overflow: auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
   .header {
@@ -196,6 +196,10 @@ div.top-level {
       margin: 0;
     }
   }
+}
+
+#auth-modal {
+  max-height: 40rem;
 }
 
 #delete-pet {

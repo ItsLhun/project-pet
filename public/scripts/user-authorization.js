@@ -8,19 +8,6 @@ authUserSearch.addEventListener('input', (event) => {
   searchUser(event.target.value);
 });
 
-addAuthUser.addEventListener('click', () => {
-  const collapsible = document.querySelector('.collapsible');
-  collapsible.classList.toggle('active');
-
-  let content = collapsible.querySelector('.collapsible-content');
-
-  if (content.style.display === 'block') {
-    content.style.display = 'none';
-  } else {
-    content.style.display = 'block';
-  }
-});
-
 const createOption = (user, data, dataValues) => {
   if (!dataValues.includes(user.username)) {
     const option = document.createElement('option');
