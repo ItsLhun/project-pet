@@ -1,3 +1,4 @@
+//pet addition modal DOM elements and event listeners
 const addPetElement = document.querySelector('.pet-modal');
 const addPetCloseButton = document.querySelector('#pet-close');
 const addPetButton = document.querySelector('.add-pet-button');
