@@ -44,6 +44,14 @@ deletionCancelButton.addEventListener('click', () => {
   deletionElement.style.display = 'none';
 });
 
+document.addEventListener('click', (event) => {
+  console.log(event.target);
+  if (event.target.classList.contains('close-modal')) {
+    deletionElement.style.display = 'none';
+    authElement.style.display = 'none';
+  }
+});
+
 editDetails.addEventListener('click', (e) => {
   const detailsForm = document.getElementById('profile-details-form');
   const detailsValues = detailsForm.querySelectorAll('.profile-value');
