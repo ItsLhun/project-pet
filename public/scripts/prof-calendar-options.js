@@ -61,45 +61,33 @@ const searchPet = (searchTerm, field) => {
       searchTerm
     })
     .then((res) => {
-      console.log(res);
       renderDataList(res.data, userDataList, usersListValues);
     })
     .catch((error) => console.error(error));
 };
 
-// editMedicalSave.addEventListener('click', (e) => {
-//   editMedical.classList.remove('d-none');
-//   editMedicalDiscard.classList.add('d-none');
-//   editMedicalSave.classList.add('d-none');
+const addAppointmentButtonPost = document.getElementById(
+  'add-appointment-post'
+);
 
-//   //get selected option element to access its Id
-//   const selectedFromDataListId = userDataList
-//     ?.querySelector(`option[value="${vetNameSearch.value}"]`)
-//     ?.getAttribute('vet-id');
-//   console.log(selectedFromDataListId);
+addAppointmentButtonPost.addEventListener('click', (e) => {
+  //get selected option element to access its Id
+  const selectedFromDataListId = userDataList
+    ?.querySelector(`option[value="${userSearchInput.value}"]`)
+    ?.getAttribute('pet-id');
+  console.log(selectedFromDataListId);
 
-//   const formFields = {
-//     medicalId: medId.value,
-//     veterinarian: selectedFromDataListId,
-//     _id: activePetId,
-//     oldVet: currentVetId
-//   };
+  const formFields = {
+    originPet: selectedFromDataListId
+  };
 
-//   axios
-//     .post(`${ROOT_URL}/pet/edit/medical/`, formFields)
-//     .then((res) => {
-//       // notyf.success('Edited sucessfully');
-//       // setTimeout(() => {
-//       window.location.reload();
-//       // }, 900);
-//     })
-//     .catch((error) => {
-//       notyf.error('Could not update');
-//       // setTimeout(() => {
-//       //   window.location.reload();
-//       // }, 2000);
-//     });
-// });
-// editMedicalDiscard.addEventListener('click', (e) => {
-//   window.location.reload();
-// });
+  console.log(formFields);
+  //   axios
+  //     .post(`${ROOT_URL}/event/edit/medical/`, formFields)
+  //     .then((res) => {
+  //       window.location.reload();
+  //     })
+  //     .catch((error) => {
+  //       console.log(error)
+  //     });
+});
