@@ -5057,7 +5057,8 @@ div.top-level {
   }
 }
 
-.confirm {
+.confirm,
+.auth-modal {
   position: fixed;
   z-index: 10000;
   top: 0;
@@ -5071,7 +5072,8 @@ div.top-level {
   justify-content: center;
 }
 
-.confirm .confirm-modal {
+.confirm .confirm-modal,
+.auth-modal .confirm-modal {
   width: 100%;
   max-width: 30rem;
   max-height: 25rem;
@@ -5081,7 +5083,8 @@ div.top-level {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.confirm .header {
+.confirm .header,
+.auth-modal .header {
   background: #e26a29;
   max-height: 5em;
   color: white;
@@ -5091,12 +5094,14 @@ div.top-level {
   padding: 2em;
 }
 
-.confirm .header .title {
+.confirm .header .title,
+.auth-modal .header .title {
   font-size: 1em;
   font-weight: 600;
 }
 
-.confirm .header .close {
+.confirm .header .close,
+.auth-modal .header .close {
   padding: 0;
   background: none;
   outline: none;
@@ -5106,21 +5111,25 @@ div.top-level {
   cursor: pointer;
 }
 
-.confirm .header .close:hover {
+.confirm .header .close:hover,
+.auth-modal .header .close:hover {
   color: #a41d2d;
 }
 
-.confirm .content {
+.confirm .content,
+.auth-modal .content {
   padding: 2em;
 }
 
-.confirm .buttons {
+.confirm .buttons,
+.auth-modal .buttons {
   display: flex;
   justify-content: flex-end;
   padding: 2em 1.5rem;
 }
 
-.confirm .buttons form {
+.confirm .buttons form,
+.auth-modal .buttons form {
   margin: 0;
 }
 

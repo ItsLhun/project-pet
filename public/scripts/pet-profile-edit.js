@@ -13,21 +13,39 @@ const editNutrition = document.getElementById('edit-nutrition-btn');
 const editNutritionSave = document.getElementById('edit-nutrition-save');
 const editNutritionDiscard = document.getElementById('edit-nutrition-discard');
 
+//authorize user modal, related form & buttons
+const authElement = document.querySelector('.auth-modal');
+const authCloseButton = document.querySelector('#auth-close');
+const authCancelButton = document.querySelector('#auth-cancel');
+const addAuthButton = document.querySelector('#add-auth');
+
+addAuthButton.addEventListener('click', () => {
+  authElement.style.display = 'flex';
+});
+
+authCloseButton.addEventListener('click', () => {
+  authElement.style.display = 'none';
+});
+
+authCancelButton.addEventListener('click', () => {
+  authElement.style.display = 'none';
+});
+
 //confirm pet deletion modal & related buttons
 const deleteButton = document.querySelector('#delete-pet');
 const deletionElement = document.querySelector('.confirm');
-const closeButton = document.querySelector('.close');
-const cancelButton = document.querySelector('.btn-cancel');
+const deletionCloseButton = document.querySelector('#confirm-close');
+const deletionCancelButton = document.querySelector('#confirm-cancel');
 
 deleteButton.addEventListener('click', () => {
   deletionElement.style.display = 'flex';
 });
 
-closeButton.addEventListener('click', () => {
+deletionCloseButton.addEventListener('click', () => {
   deletionElement.style.display = 'none';
 });
 
-cancelButton.addEventListener('click', () => {
+deletionCancelButton.addEventListener('click', () => {
   deletionElement.style.display = 'none';
 });
 

@@ -139,7 +139,8 @@ div.top-level {
   }
 }
 
-.confirm {
+.confirm,
+.auth-modal {
   position: fixed;
   z-index: 10000;
   top: 0;
