@@ -1,7 +1,7 @@
 # project-pet
 
 ### About
-Proyect deployed at: https://project-pet-ih.herokuapp.com
+Proyect deployed at: https://pethut.net/
 
 
 ### Technologies
