@@ -1,12 +1,19 @@
+<script src='/scripts/prof-dashboard.opt.js'></script>
+
 <h1 class='professional-header'>Main Professional Dashboard TBC</h1>
 
-<div id='upcoming-events' class='dashboard-component-prof'>
+<div class='dashboard-component-prof p-1'>
+  <p>Customer count: <span>12</span></p>
+  <p>Total appointments: <span>33</span></p>
 
-  <legend class='component-title'>Upcoming (15 days)</legend>
+  <button>New appointment</button>
+</div>
+<fieldset id='upcoming-events' class='dashboard-component-prof'>
+  <legend class='component-title'>Upcoming this week</legend>
   <div>
     <div id='display-upcoming'></div>
   </div>
-</div>
+</fieldset>
 <div id='calendar' class='dashboard-component-prof'></div>
 <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
 <script src='/scripts/calendar-api.js'></script>

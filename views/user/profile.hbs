@@ -57,9 +57,8 @@
         alt=''
       /></div>
   </div>
-
 </section>
-<fieldset class='dashboard-component'>
+<fieldset class='dashboard-component {{#if user.type}}dashboard-component-prof{{/if}}'>
   <legend class='component-title'>Settings</legend>
   <div class='profile-info' id='settings-inputs'>
     <div class='profile-field'><strong>Event colors:</strong></div>

@@ -11,3 +11,10 @@
   @extend .dashboard-component;
   border: 2px dashed $secondary-blue;
 }
+.dashboard-component-prof + #calendar {
+  border-color: $main-blue;
+  div.calendar,
+  div.header-date {
+    background-color: $main-blue;
+  }
+}
