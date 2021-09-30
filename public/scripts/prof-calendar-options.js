@@ -2,7 +2,10 @@ const calendarInstance = new calendarJs('calendar', {
   manualEditingEnabled: false
 });
 //set up notyf
-const notyf = new Notyf({ position: { x: 'center', y: 'center' } });
+const notyf = new Notyf({
+  position: { x: 'center', y: 'center' },
+  duration: 2000
+});
 
 //pet appointment event modal & related buttons
 const newAppointmentBtn = document.getElementById('appointment-btn');
@@ -104,10 +107,22 @@ addAppointmentButtonPost.addEventListener('click', (e) => {
     repeatEveryCustomType: null,
     originPetName: selectedFromDataListName
   };
-
-  dateAppointmentInput.value ??
-    notyf.error('You must fill out the form before moving forward');
-
+  switch (true) {
+    case typeof selectedFromDataListId == 'undefined':
+      notyf.error('You must select a client before moving forward');
+      break;
+    case appointmentDesc.value == '':
+      notyf.error('You must fill out the description before moving forward');
+      break;
+    case dateAppointmentInput.value == '':
+      notyf.error('You must fill the date before moving forward');
+      break;
+    case fromAppointmentInput.value == '':
+    case toAppointmentInput.value == '':
+      notyf.error('You must fill the times before moving forward');
+      break;
+  }
+  console.log(typeof dateAppointmentInput.value == '');
   console.log(formFields);
   //   axios
   //     .post(`${ROOT_URL}/event/create/`, formFields)
