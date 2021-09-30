@@ -1421,7 +1421,6 @@ function calendarJs(id, options, startDateTime) {
       lastDayNumber = firstDayNumber + 6,
       weekStartDate = new Date(date),
       weekEndDate = new Date(date);
-
     weekStartDate.setDate(firstDayNumber);
     weekStartDate.setHours(0, 0, 0, 0);
     weekEndDate.setDate(lastDayNumber);
@@ -9835,9 +9834,10 @@ function calendarJs(id, options, startDateTime) {
       _options.viewWeekEventsText = 'View Week Events';
     }
 
+    //Nahuel: change text
     if (!isDefined(_options.noEventsAvailableFullText)) {
       _options.noEventsAvailableFullText =
-        'There are no events available to view.';
+        'There are no events upcoming this week.';
     }
 
     if (!isDefined(_options.clickText)) {
