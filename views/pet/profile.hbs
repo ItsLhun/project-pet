@@ -90,10 +90,16 @@
             {{/each}}
           </div>
         </div>
-        <div id='add-auth-user-button'>+</div>
+        <div id='add-auth'>+</div>
       </div>
-      <div class='collapsible'>
-        <div class='collapsible-content'>
+
+    <div class="auth-modal close-modal">
+      <div class="confirm-modal">
+        <div class="header">
+          <span class="title">Authorize users</span>
+          <button id='auth-close' class="close">&times;</button>
+        </div>
+        <div class="content">
           <form method='POST' action='/message/authorize/{{pet._id}}'>
             <label for='authorization-type'>Type</label>
             <select name='type' id='auhtorization-type'>
@@ -116,6 +122,8 @@
           </form>
         </div>
       </div>
+    </div>
+
     </fieldset>
     <div
       class='edit-wrapper top-level'
@@ -237,14 +245,14 @@
       <div class="confirm-modal">
         <div class="header">
           <span class="title">Delete pet {{pet.name}}</span>
-          <button class="close">&times;</button>
+          <button id='confirm-close' class="close">&times;</button>
         </div>
         <div class="content">Are you sure you want to delete this pet profile?</div>
         <div class="buttons">
           <form action='/pet/delete/{{pet.id}}' method='POST'>
             <button class="btn btn-delete">Delete</button>
           </form>
-          <button class="btn btn-cancel">Cancel</button>
+          <button id='confirm-cancel' class="btn btn-cancel">Cancel</button>
         </div>
       </div>
     </div>
