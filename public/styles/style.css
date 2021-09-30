@@ -4974,7 +4974,8 @@ div.contents:has(.no-events-available-text) {
   margin: 0.5rem auto;
 }
 
-.profile-field > strong {
+.profile-field > strong,
+.profile-field > span.color-type {
   display: inline-block;
   width: 8.1em;
 }
