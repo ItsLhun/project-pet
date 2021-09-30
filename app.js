@@ -18,6 +18,7 @@ const userProfileRouter = require('./routes/user');
 const professionalRouter = require('./routes/professional');
 const messageRouter = require('./routes/message');
 const eventRouter = require('./routes/event');
+const settingsRouter = require('./routes/settings');
 const sessionConfig = require('./config/session');
 const sassConfig = require('./config/sass');
 const petRouter = require('./routes/pet.js');
@@ -64,6 +65,7 @@ app.use('/professional', professionalRouter);
 app.use('/event', eventRouter);
 app.use('/pet', petRouter);
 app.use('/message', messageRouter);
+app.use('/settings', settingsRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

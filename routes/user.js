@@ -72,10 +72,6 @@ router.post(
   }
 );
 
-router.post('/settings', routeGuard, (req, res, next) => {
-  // Do stuff here to update settings
-});
-
 router.get('/messages', routeGuard, (req, res, next) => {
   Message.find({ to: req.user.id })
     .populate('from')
