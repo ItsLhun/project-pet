@@ -1,12 +1,13 @@
 const express = require('express');
 const PetEvent = require('../models/event');
-const User = require('../models/user');
 const Pet = require('../models/pet');
+const Settings = require('../models/settings');
 
 const router = express.Router();
 const routeGuard = require('../middleware/route-guard');
 
 router.get('/', routeGuard, (req, res, next) => {
+  let authorizedEvents;
   Pet.find(
     { $or: [{ authorized: req.user.id }, { owner: req.user.id }] },
     { _id: 1 }
@@ -14,8 +15,12 @@ router.get('/', routeGuard, (req, res, next) => {
     .then((pets) => {
       return PetEvent.find({ originPet: { $in: pets } });
     })
-    .then((authorizedEvents) => {
-      res.json(authorizedEvents);
+    .then((events) => {
+      authorizedEvents = events;
+      return Settings.findOne({ user: req.user.id });
+    })
+    .then((userSettings) => {
+      res.json({ authorizedEvents, colors: userSettings.eventColors });
     })
     .catch((error) => next(error));
 });

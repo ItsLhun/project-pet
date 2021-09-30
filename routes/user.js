@@ -5,11 +5,16 @@ const router = express.Router();
 const routeGuard = require('../middleware/route-guard');
 const User = require('../models/user');
 const Message = require('../models/message');
+const Settings = require('../models/settings');
 
 const parser = require('../middleware/cloudinary-parser');
 
 router.get('/', routeGuard, (req, res, next) => {
-  res.render('user/profile');
+  Settings.findOne({ user: req.user.id })
+    .then((userSettings) => {
+      res.render('user/profile', { userSettings });
+    })
+    .catch((error) => next(error));
 });
 
 router.post('/search', routeGuard, (req, res, next) => {

@@ -3,16 +3,16 @@
 const mongoose = require('mongoose');
 
 const eventColors = new mongoose.Schema({
-  vetAppointmentColor: {
+  vetappointment: {
     type: String
   },
-  groomingColor: {
+  grooming: {
     type: String
   },
-  suppliesColor: {
+  supplies: {
     type: String
   },
-  otherColor: {
+  other: {
     type: String
   }
 });
