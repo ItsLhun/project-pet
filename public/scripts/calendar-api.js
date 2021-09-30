@@ -8,9 +8,9 @@ const fetchPetsHTTP = (id) => {
   return axios.get(`${ROOT_URL}/pet/`, id);
 };
 
-const fetchPetEventsHTTP = (id) => {
-  return axios.get(`${ROOT_URL}/pet/events`);
-};
+// const fetchPetEventsHTTP = (id) => {
+//   return axios.get(`${ROOT_URL}/pet/events`);
+// };
 
 const createEventHTTP = (data) => {
   return new Promise((resolve, reject) => {

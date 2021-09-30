@@ -6,6 +6,7 @@ const Pet = require('../models/pet');
 const User = require('../models/user');
 const Professional = require('../models/professional');
 const PetEvent = require('../models/event');
+const Settings = require('../models/settings');
 const petRouter = express.Router();
 
 petRouter.get('/', routeGuard, (req, res, next) => {
@@ -43,14 +44,24 @@ petRouter.post('/search', routeGuard, (req, res, next) => {
   }
 });
 
-petRouter.get('/events', routeGuard, (req, res, next) => {
-  const { id } = req.body;
-  PetEvent.find({ originPet: id })
-    .then((pets) => {
-      res.json(pets);
-    })
-    .catch((error) => next(error));
-});
+// petRouter.get('/events', routeGuard, (req, res, next) => {
+//   const { id } = req.body;
+//   let fetchedEvents;
+//   PetEvent.find({ originPet: id })
+//     .then((events) => {
+//       fetchedEvents = events;
+//       return Settings.findOne({ user: req.user.id });
+//     })
+//     .then((userSettings) => {
+//       const events = fetchedEvents.map((event) => {
+//         const type = event.type.toLowerCase().replace(/\s+/g, '');
+//         if (userSettings) event.color = userSettings.eventColors[type];
+//         return event;
+//       });
+//       res.json(events);
+//     })
+//     .catch((error) => next(error));
+// });
 
 petRouter.post('/delete/:id', (req, res, next) => {
   const { id } = req.params;
@@ -208,7 +219,7 @@ petRouter.post(
 
 petRouter.get('/:id', routeGuard, (req, res, next) => {
   const { id } = req.params;
-  let pet;
+  let pet, fetchedEvents;
   Pet.findById(id)
     .populate({
       path: 'authorized',
@@ -240,6 +251,15 @@ petRouter.get('/:id', routeGuard, (req, res, next) => {
       }
     })
     .then((events) => {
+      fetchedEvents = events;
+      return Settings.findOne({ user: req.user.id });
+    })
+    .then((userSettings) => {
+      const events = fetchedEvents.map((event) => {
+        const type = event.type.toLowerCase().replace(/\s+/g, '');
+        if (userSettings) event.color = userSettings.eventColors[type];
+        return event;
+      });
       res.render('pet/profile', { pet, events });
     })
     .catch((error) => {
