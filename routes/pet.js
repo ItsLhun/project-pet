@@ -211,6 +211,12 @@ petRouter.post(
   }
 );
 
+petRouter.post('/:petId/unauthorize/:userId', (req, res, next) => {
+  const { petId, userId } = req.params;
+  console.log(petId, userId);
+  res.redirect(`/pet/${petId}`);
+});
+
 petRouter.get('/:id', routeGuard, (req, res, next) => {
   const { id } = req.params;
   let pet, fetchedEvents;

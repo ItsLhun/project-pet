@@ -75,18 +75,18 @@
         <div id='users'>
           <div class='pet-wrapper-summary'>
             {{#each pet.authorized}}
-              <div class='miniature-wrapper'>
-                <!-- <a href=''> -->
-                <div class='miniature-image-holder'>
-                  {{#if profilePicture}}
-                    <img src='{{this.profilePicture}}' alt='profile picture' />
-                  {{else}}
-                    <img src='/images/default-profile-picture.png' alt='' />
-                  {{/if}}
+              <form method='POST' action='/pet/{{pet._id}}/unauthorize/{{this.id}}'>
+                <div id='{{this.id}}' class='authenticated-user miniature-wrapper'>
+                  <div class='miniature-image-holder'>
+                    {{#if profilePicture}}
+                      <img src='{{this.profilePicture}}' alt='profile picture' />
+                    {{else}}
+                      <img src='/images/default-profile-picture.png' alt='' />
+                    {{/if}}
+                  </div>
+                  <h5>{{this.username}}</h5>
                 </div>
-                <h5>{{this.username}}</h5>
-                <!-- </a> -->
-              </div>
+              </form>
             {{/each}}
           </div>
         </div>

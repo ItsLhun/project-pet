@@ -261,3 +261,12 @@ function togglePencil(boolean) {
     editDetailsSave.classList.add('d-none');
   }
 }
+
+//Unauth form submit
+const authUsers = document.querySelectorAll('.authenticated-user');
+
+authUsers.forEach((user) => {
+  user.addEventListener('click', (event) => {
+    console.log(user.id);
+  });
+});
