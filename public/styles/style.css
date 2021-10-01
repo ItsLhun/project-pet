@@ -5006,23 +5006,44 @@ form.profile-info {
 }
 
 .authorized {
-  padding: 1em;
+  width: 100%;
+  margin: 2em 0 0 0;
+  padding: 0 1em;
   background: #eeeeee;
 }
 
-.authorized #authorized-users-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.authorized .component-title {
+  width: 100%;
 }
 
-.authorized #authorized-users-list #add-auth-user-button {
+.authorized #authorized-users-list {
+  margin: 1em 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: auto;
+}
+
+.authorized #authorized-users-list .authorized-user {
+  margin: 0 1em;
+}
+
+.authorized #authorized-users-list .authorized-user h5 {
+  margin: 0;
+}
+
+.authorized #authorized-users-list .miniature-image-holder {
+  max-height: 2.5em;
+  max-width: 2.5em;
+}
+
+.authorized #authorized-users-list #add-auth {
   display: inline-block;
   color: #7f7f7f;
-  font-size: 3em;
+  font-size: 2em;
 }
 
-.authorized #authorized-users-list #add-auth-user-button:hover {
+.authorized #authorized-users-list #add-auth:hover {
   cursor: pointer;
   color: #eb762b;
 }

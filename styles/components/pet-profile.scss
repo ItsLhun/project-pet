@@ -73,18 +73,35 @@ form.profile-info {
 }
 
 .authorized {
-  padding: 1em;
+  width: 100%;
+  margin: 2em 0 0 0;
+  padding: 0 1em;
   background: $grey;
+  .component-title {
+    width: 100%;
+  }
   #authorized-users-list {
+    margin: 1em 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    #add-auth-user-button {
+    overflow-x: auto;
+    .authorized-user {
+      margin: 0 1em;
+      h5 {
+        margin: 0;
+      }
+    }
+    .miniature-image-holder {
+      max-height: 2.5em;
+      max-width: 2.5em;
+    }
+    #add-auth {
       display: inline-block;
       color: rgb(127, 127, 127);
-      font-size: 3em;
+      font-size: 2em;
     }
-    #add-auth-user-button:hover {
+    #add-auth:hover {
       cursor: pointer;
       color: $secondary-brown;
     }
