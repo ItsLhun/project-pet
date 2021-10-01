@@ -1,6 +1,14 @@
 const calendarInstance = new calendarJs('calendar', {
   manualEditingEnabled: false
 });
+fetchProfEventsHTTP()
+  .then((res) => {
+    console.log('events:');
+    console.log(res.data);
+    calendarInstance.setEvents(res.data.authorizedEvents);
+  })
+  .catch((error) => console.log(error));
+
 //set up notyf
 const notyf = new Notyf({
   position: { x: 'center', y: 'center' },
@@ -138,10 +146,3 @@ addAppointmentButtonPost.addEventListener('click', (e) => {
 });
 
 // fetch events
-
-fetchProfEventsHTTP()
-  .then((res) => {
-    console.log(res.data);
-    calendarInstance.setEvents(res.data.authorizedEvents);
-  })
-  .catch((error) => console.log(error));

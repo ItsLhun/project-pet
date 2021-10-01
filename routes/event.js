@@ -34,7 +34,10 @@ router.get('/professional', routeGuard, (req, res, next) => {
   let fetchedEvents;
   Pet.find({ 'medical.veterinarian': req.user.id })
     .then((pets) => {
-      return PetEvent.find({ originPet: { $in: pets } });
+      return PetEvent.find({
+        originPet: { $in: pets },
+        type: 'Vet Appointment'
+      });
     })
     .then((events) => {
       fetchedEvents = events;
@@ -46,7 +49,6 @@ router.get('/professional', routeGuard, (req, res, next) => {
         if (userSettings) event.color = userSettings.eventColors[type];
         return event;
       });
-      // user.currentEvents = authorizedEvents;
       res.json({ authorizedEvents, colors: userSettings?.eventColors });
     })
     .catch((error) => next(error));
