@@ -53,7 +53,7 @@ const deletionElement = document.querySelector('#confirm-modal');
 const deletionCloseButton = document.querySelector('#confirm-close');
 const deletionCancelButton = document.querySelector('#confirm-cancel');
 
-deleteButton.addEventListener('click', () => {
+deleteButton?.addEventListener('click', () => {
   deletionElement.style.display = 'flex';
 });
 
@@ -73,7 +73,7 @@ document.addEventListener('click', (event) => {
   }
 });
 
-editDetails.addEventListener('click', (e) => {
+editDetails?.addEventListener('click', (e) => {
   const detailsForm = document.getElementById('profile-details-form');
   const detailsValues = detailsForm.querySelectorAll('.profile-value');
 
@@ -205,6 +205,14 @@ editMedical.addEventListener('click', (e) => {
       })
       .catch((error) => console.error(error));
   };
+
+  //alergy creation
+  const alergyInput = document.createElement('input');
+  const addAlergyBtn = document.getElementById('add-alergy-btn');
+  alergyInput.classList.add('profile-edit-input');
+  alergyInput.classList.add('alergy-input');
+
+  addAlergyBtn.parentElement.insertBefore(alergyInput, addAlergyBtn);
 
   //buttons appear/dissapear
   editMedical.classList.add('d-none');

@@ -230,3 +230,30 @@ div.top-level {
   color: white;
   background: $detail-darkred;
 }
+.medical-labels-wrapper {
+  width: 8.1em;
+}
+.alergy-value {
+  background-color: red;
+  padding: 0.25rem;
+  border-radius: 2em;
+}
+.alergies-field {
+  margin: auto 0;
+  display: inline-block;
+}
+.add-alergy {
+  display: inline-block;
+  color: rgb(127, 127, 127);
+  font-weight: 900;
+  &:hover {
+    color: $main-brown;
+    cursor: pointer;
+  }
+}
+input.alergy-input {
+  display: inline-block;
+  outline: 1px solid lightgray;
+  border-radius: 1em;
+  margin: 0 1em;
+}

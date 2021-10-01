@@ -5247,6 +5247,39 @@ div.top-level {
   background: #a41d2d;
 }
 
+.medical-labels-wrapper {
+  width: 8.1em;
+}
+
+.alergy-value {
+  background-color: red;
+  padding: 0.25rem;
+  border-radius: 2em;
+}
+
+.alergies-field {
+  margin: auto 0;
+  display: inline-block;
+}
+
+.add-alergy {
+  display: inline-block;
+  color: #7f7f7f;
+  font-weight: 900;
+}
+
+.add-alergy:hover {
+  color: #e26a29;
+  cursor: pointer;
+}
+
+input.alergy-input {
+  display: inline-block;
+  outline: 1px solid lightgray;
+  border-radius: 1em;
+  margin: 0 1em;
+}
+
 .profile-circle {
   position: relative;
 }

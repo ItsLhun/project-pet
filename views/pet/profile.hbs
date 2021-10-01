@@ -175,11 +175,27 @@
           {{/if}}</span>
       </div>
 
-      <div class='profile-field'><strong>Alergies: </strong><span>
+      <div class='profile-field alergies-field'><strong>Alergies: </strong><span class='add-alergy' id='add-alergy-btn'>+</span>
+      </div><div>
+      <span>
           {{#if pet.alergies}}
-            <span class='profile-value'>{{pet.alergies}}</span>
+            {{!-- <span class='profile-value'>{{pet.alergies}}
+            </span> --}}
           {{else}}
-            <span class='profile-value'>None</span>
+          <div style='width: 76%; display: inline-block'>
+            <span class='alergy-value'>Chicken</span>
+              <span class='alergy-value'>Chicken</span>
+              <span class='alergy-value'>Chicken</span>
+              <span class='alergy-value'>Chicken</span>
+              <span class='alergy-value'>Chicken</span>
+              <span class='alergy-value'>Chicken</span>
+              <span class='alergy-value'>Chicken</span>
+              <span class='alergy-value'>Chicken</span>
+              <span class='alergy-value'>Chicken</span>
+              
+          </div>
+          
+            <span class='profile-value d-none'>None</span>
           {{/if}}</span></div>
       <div class='profile-field'><strong>Veterinarian: </strong><span
           class='profile-value'
