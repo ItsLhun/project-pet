@@ -27,12 +27,13 @@ router.post('/update/eventcolors', routeGuard, (req, res, next) => {
       .then((settings) => {
         if (!settings) {
           return Settings.create({
-            profUser: req.user,
+            profUser: req.user.id,
             eventColors: req.body
           });
         } else {
+          console.log(req.user.id);
           return Settings.findOneAndUpdate({
-            usprofUserr: req.user.id,
+            profUser: req.user.id,
             eventColors: req.body
           });
         }
