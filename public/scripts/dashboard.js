@@ -11,6 +11,12 @@ addPetCloseButton.addEventListener('click', () => {
   addPetElement.style.display = 'none';
 });
 
+document.addEventListener('click', (event) => {
+  if (event.target.classList.contains('close-modal')) {
+    addPetElement.style.display = 'none';
+  }
+});
+
 fetchUserEventsHTTP()
   .then((res) => {
     calendarInstance.setEvents(res.data);
