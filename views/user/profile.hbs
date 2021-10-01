@@ -81,7 +81,11 @@
             type='color'
             id='vet-appointment-color'
             name='vetappointment'
+            {{#if userSettings.eventColors.vetappointment}}
             value='{{userSettings.eventColors.vetappointment}}'
+            {{else}}
+            value='#484848'
+            {{/if}}
           /></label></div>
       </div>
       <div>
@@ -91,7 +95,11 @@
             type='color'
             id='grooming-color'
             name='grooming'
+            {{#if userSettings.eventColors.grooming}}
             value='{{userSettings.eventColors.grooming}}'
+            {{else}}
+            value='#484848'
+            {{/if}}
           /></label></div>
       </div>
       <div>
@@ -101,7 +109,11 @@
             type='color'
             id='supplies-color'
             name='supplies'
+            {{#if userSettings.eventColors.supplies}}
             value='{{userSettings.eventColors.supplies}}'
+            {{else}}
+            value='#484848'
+            {{/if}}
           /></label>
         </div>
       </div>
@@ -112,7 +124,11 @@
             type='color'
             id='other-color'
             name='other'
+            {{#if userSettings.eventColors.other}}
             value='{{userSettings.eventColors.other}}'
+            {{else}}
+            value='#484848'
+            {{/if}}
           /></label>
           </div>
       </div>
