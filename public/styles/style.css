@@ -4676,6 +4676,9 @@ body {
 #user-introduction img {
   max-height: 7em;
   max-width: 7em;
+  height: 7em;
+  width: 7em;
+  background-position: center center;
   border-radius: 50%;
 }
 
@@ -4870,7 +4873,6 @@ div.contents:has(.no-events-available-text) {
 .miniature-wrapper img {
   min-width: 100%;
   min-height: 100%;
-  padding: 0.2em;
   display: block;
   margin: 0 auto;
   object-fit: cover;
@@ -4950,13 +4952,14 @@ div.contents:has(.no-events-available-text) {
 .profile-picture-wrapper .profile-pic {
   min-width: 100%;
   min-height: 100%;
-  padding: 0.2em;
   display: block;
   margin: 0 auto;
   object-fit: cover;
   background-color: transparent;
   position: relative;
   z-index: 1;
+  background-position: center center;
+  border-radius: 50%;
 }
 
 .profile-section {

@@ -1,10 +1,14 @@
 <div class='miniature-wrapper'>
   <a href='/pet/{{_id}}'>
-    <div class='miniature-image-holder'>
+    <div class='miniature-image-holder profile-picture-wrapper'>
       {{#if profilePicture}}
-        <img src='{{profilePicture}}' alt='profile picture' />
+        <img
+          src='{{profilePicture}}'
+          alt='profile picture'
+          class='profile-pic'
+        />
       {{else}}
-        <img src='/images/index.png' alt='' />
+        <img src='/images/index.png' alt='' class='profile-pic' />
       {{/if}}
     </div>
     <h5>{{#ifNotEquals @root.user._id owner._id}}<span><img

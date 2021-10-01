@@ -20,7 +20,12 @@ const eventColors = new mongoose.Schema({
 const settingsSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'onModel'
+  },
+  onModel: {
+    type: String,
+    required: true,
+    enum: ['User', 'Professional']
   },
   eventColors: {
     type: eventColors

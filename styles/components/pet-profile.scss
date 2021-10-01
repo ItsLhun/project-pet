@@ -26,13 +26,15 @@ $minimum-width-pet-profile: 40rem;
   .profile-pic {
     min-width: 100%;
     min-height: 100%;
-    padding: 0.2em;
+    // padding: 0.2em;
     display: block;
     margin: 0 auto;
     object-fit: cover;
     background-color: transparent;
     position: relative;
     z-index: 1;
+    background-position: center center;
+    border-radius: 50%;
   }
 }
 .profile-section {

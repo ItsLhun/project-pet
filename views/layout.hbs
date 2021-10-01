@@ -31,11 +31,14 @@
           </div>
           <ul id='sidebar-menu' class='sidebar-no-show'>
             <div id='user-introduction'>
-              <img
-                id='user-profile-picture'
-                src='{{user.profilePicture}}'
-                alt='{{user.username}}'
-              />
+              <div class='profile-picture-wrapper'>
+                <img
+                  id='user-profile-picture'
+                  class='profile-pic'
+                  src='{{user.profilePicture}}'
+                  alt='{{user.username}}'
+                />
+              </div>
               <p>{{user.firstName}} {{user.lastName}}</p>
             </div>
             <a href='/'>Home</a>

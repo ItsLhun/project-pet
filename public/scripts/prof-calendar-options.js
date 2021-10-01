@@ -91,7 +91,7 @@ addAppointmentButtonPost.addEventListener('click', (e) => {
     ?.getAttribute('pet-name');
   console.log(selectedFromDataListId);
 
-  //2021-10-07T12:01:00.000Z
+  //every field is placed on an object for posting,
   const formFields = {
     originPet: selectedFromDataListId,
     from: `${dateAppointmentInput.value}T${fromAppointmentInput.value}:00.000+00:00`,
@@ -107,7 +107,7 @@ addAppointmentButtonPost.addEventListener('click', (e) => {
     repeatEveryCustomType: null,
     originPetName: selectedFromDataListName
   };
-  console.log(formFields);
+
   switch (true) {
     case typeof selectedFromDataListId == 'undefined':
       notyf.error('You must select a client before moving forward');
@@ -129,7 +129,6 @@ addAppointmentButtonPost.addEventListener('click', (e) => {
       axios
         .post(`${ROOT_URL}/event/create`, formFields)
         .then((res) => {
-          console.log(res);
           window.location.reload();
         })
         .catch((error) => {
@@ -137,3 +136,12 @@ addAppointmentButtonPost.addEventListener('click', (e) => {
         });
   }
 });
+
+// fetch events
+
+fetchProfEventsHTTP()
+  .then((res) => {
+    console.log(res.data);
+    calendarInstance.setEvents(res.data.authorizedEvents);
+  })
+  .catch((error) => console.log(error));

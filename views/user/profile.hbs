@@ -6,16 +6,21 @@
           src='/images/camera-icon.svg'
           alt=''
         /></div>
-      <div class='profile-circle'>
+      <div class='profile-circle profile-picture-wrapper'>
         <img
           src='{{user.profilePicture}}'
           alt='{{user.username}} profile picture'
+          class='profile-pic'
         />
         <form
           class='upload-picture-form'
           method='POST'
           style='display: none'
+          {{#if user.type}}
+          action='/professional/upload-picture'
+          {{else}}
           action='/user/upload-picture'
+          {{/if}}
           enctype='multipart/form-data'
         >
           <input

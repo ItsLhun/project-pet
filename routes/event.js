@@ -31,17 +31,23 @@ router.get('/', routeGuard, (req, res, next) => {
 });
 
 router.get('/professional', routeGuard, (req, res, next) => {
-  let authorizedEvents;
+  let fetchedEvents;
   Pet.find({ 'medical.veterinarian': req.user.id })
     .then((pets) => {
       return PetEvent.find({ originPet: { $in: pets } });
     })
     .then((events) => {
-      authorizedEvents = events;
+      fetchedEvents = events;
       return Settings.findOne({ user: req.user.id });
     })
     .then((userSettings) => {
-      res.json({ authorizedEvents, colors: userSettings.eventColors });
+      const authorizedEvents = fetchedEvents.map((event) => {
+        const type = event.type.toLowerCase().replace(/\s+/g, '');
+        if (userSettings) event.color = userSettings.eventColors[type];
+        return event;
+      });
+      console.log(authorizedEvents);
+      res.json({ authorizedEvents, colors: userSettings?.eventColors });
     })
     .catch((error) => next(error));
 });
