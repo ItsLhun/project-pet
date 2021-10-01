@@ -45,7 +45,6 @@ deletionCancelButton.addEventListener('click', () => {
 });
 
 document.addEventListener('click', (event) => {
-  console.log(event.target);
   if (event.target.classList.contains('close-modal')) {
     deletionElement.style.display = 'none';
     authElement.style.display = 'none';
