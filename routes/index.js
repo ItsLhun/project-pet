@@ -22,7 +22,6 @@ router.get('/', (req, res, next) => {
             )
               .then((pets) => {
                 user.pets = pets;
-                console.log(pets);
                 res.render('prof-dashboard', user);
               })
               .catch((error) => next(error));

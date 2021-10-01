@@ -33,13 +33,10 @@ petRouter.post('/search', routeGuard, (req, res, next) => {
       .then((pets) => {
         let filtered = pets.filter((pet) => {
           let petOwnerName = `${pet.owner.firstName} ${pet.owner.lastName}`;
-          console.log(petOwnerName);
           return petOwnerName.toLowerCase().includes(searchTerm.toLowerCase());
         });
         res.send(filtered);
       })
-      // Pet.find({ name: new RegExp('^' + searchTerm, 'i') })
-      //   .then((users) => res.send(users))
       .catch((error) => next(error));
   }
 });

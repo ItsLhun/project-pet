@@ -94,10 +94,10 @@ addAppointmentButtonPost.addEventListener('click', (e) => {
   //2021-10-07T12:01:00.000Z
   const formFields = {
     originPet: selectedFromDataListId,
-    from: `${dateAppointmentInput.value}T${fromAppointmentInput.value}.000+00:00`,
-    to: `${dateAppointmentInput.value}T${toAppointmentInput.value}.000+00:00`,
+    from: `${dateAppointmentInput.value}T${fromAppointmentInput.value}:00.000+00:00`,
+    to: `${dateAppointmentInput.value}T${toAppointmentInput.value}:00.000+00:00`,
     title: 'Appointment',
-    type: 'Vet appointment',
+    type: 'Vet Appointment',
     description: appointmentDesc.value,
     isAllDay: false,
     showAlerts: false,
@@ -107,6 +107,7 @@ addAppointmentButtonPost.addEventListener('click', (e) => {
     repeatEveryCustomType: null,
     originPetName: selectedFromDataListName
   };
+  console.log(formFields);
   switch (true) {
     case typeof selectedFromDataListId == 'undefined':
       notyf.error('You must select a client before moving forward');
@@ -121,15 +122,18 @@ addAppointmentButtonPost.addEventListener('click', (e) => {
     case toAppointmentInput.value == '':
       notyf.error('You must fill the times before moving forward');
       break;
+    case fromAppointmentInput.value > toAppointmentInput.value:
+      notyf.error('Start time must be earlier than end time');
+      break;
+    default:
+      axios
+        .post(`${ROOT_URL}/event/create`, formFields)
+        .then((res) => {
+          console.log(res);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
   }
-  console.log(typeof dateAppointmentInput.value == '');
-  console.log(formFields);
-  //   axios
-  //     .post(`${ROOT_URL}/event/create/`, formFields)
-  //     .then((res) => {
-  //       window.location.reload();
-  //     })
-  //     .catch((error) => {
-  //       console.log(error)
-  //     });
 });

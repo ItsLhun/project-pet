@@ -64,7 +64,7 @@ router.post('/create/', routeGuard, (req, res, next) => {
   } = req.body;
 
   const originUser = req.user.id;
-
+  console.log(from, to);
   PetEvent.create({
     from: new Date(from),
     to: new Date(to),
