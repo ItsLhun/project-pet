@@ -4440,6 +4440,48 @@ body {
   align-items: flex-end;
 }
 
+.home-row {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 2em;
+}
+
+.col-third {
+  width: 33%;
+  flex: 0 0 auto;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.hero + section {
+  margin: 1em auto;
+}
+
+.hero + section * {
+  transition: all 1.5s ease;
+}
+
+.carousel-size {
+  width: 9rem;
+  height: 9rem;
+}
+
+@media screen and (max-width: 60rem) {
+  .home-row {
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero + section.w-60 {
+    width: auto;
+  }
+  .col-third {
+    width: 100%;
+    max-width: 25rem;
+    padding: 2em;
+  }
+}
+
 .welcome-profile-img {
   position: absolute;
   top: 0;
