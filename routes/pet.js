@@ -60,13 +60,16 @@ petRouter.post('/delete/:id', (req, res, next) => {
     .populate('owner')
     .then((pet) => {
       if (pet.owner.id === req.user.id) {
-        return Pet.deleteOne(pet);
+        return Pet.findByIdAndRemove(id);
       } else {
         throw new Error('Not authorized to delete pet.');
       }
     })
     .then(() => {
       return PetEvent.deleteMany({ originPet: id });
+    })
+    .then(() => {
+      return Professional.updateMany({ $pull: { assigned: id } });
     })
     .then(() => res.redirect('/'))
     .catch((error) => next(error));
