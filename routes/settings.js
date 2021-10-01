@@ -8,6 +8,7 @@ const Settings = require('../models/settings');
 router.post('/update/eventcolors', routeGuard, (req, res, next) => {
   Settings.findOne({ user: req.user.id })
     .then((settings) => {
+      console.log(req.user, req.body);
       if (!settings) {
         return Settings.create({
           user: req.user,

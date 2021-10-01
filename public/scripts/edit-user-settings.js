@@ -12,7 +12,6 @@ for (let i = 0; i < colorInputs.length; i++) {
     for (let i = 0; i < colorInputs.length; i++) {
       colorInputs[i].parentNode.style.backgroundColor = colorInputs[i].value;
     }
-
     eventColorForm.submit();
   });
 }
