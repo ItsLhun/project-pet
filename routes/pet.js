@@ -7,6 +7,7 @@ const User = require('../models/user');
 const Professional = require('../models/professional');
 const PetEvent = require('../models/event');
 const Settings = require('../models/settings');
+
 const petRouter = express.Router();
 
 petRouter.get('/', routeGuard, (req, res, next) => {
@@ -213,8 +214,11 @@ petRouter.post(
 
 petRouter.post('/:petId/unauthorize/:userId', (req, res, next) => {
   const { petId, userId } = req.params;
-  console.log(petId, userId);
-  res.redirect(`/pet/${petId}`);
+  Pet.findByIdAndUpdate(petId, { $pull: { authorized: userId } })
+    .then(() => {
+      res.redirect(`/pet/${petId}`);
+    })
+    .catch((error) => next(error));
 });
 
 petRouter.get('/:id', routeGuard, (req, res, next) => {

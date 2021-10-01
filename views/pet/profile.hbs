@@ -75,8 +75,7 @@
         <div id='users'>
           <div class='pet-wrapper-summary'>
             {{#each pet.authorized}}
-              <form method='POST' action='/pet/{{pet._id}}/unauthorize/{{this.id}}'>
-                <div id='{{this.id}}' class='authenticated-user miniature-wrapper'>
+                <div id='{{this.id}}' class='authorized-user miniature-wrapper'>
                   <div class='miniature-image-holder'>
                     {{#if profilePicture}}
                       <img src='{{this.profilePicture}}' alt='profile picture' />
@@ -86,7 +85,21 @@
                   </div>
                   <h5>{{this.username}}</h5>
                 </div>
-              </form>
+              <div class="unauth-modal close-modal">
+                <div id='unauth-modal'class="confirm-modal">
+                  <div class="header">
+                    <span class="title">Unauthorize user {{this.username}}</span>
+                    <button id='unauth-close' class="close">&times;</button>
+                  </div>    
+                  <div class="content">Are you sure you want to unauthorize user {{this.username}}?</div>
+                  <div class="buttons">
+                    <form class='auth-user-form' method='POST' action='/pet/{{../pet._id}}/unauthorize/{{this.id}}'>
+                      <button class="btn btn-unauth">Unauthorize</button>
+                    </form>
+                    <button id='unauth-cancel' class="btn btn-cancel">Cancel</button>
+                  </div>
+                </div>
+              </div>
             {{/each}}
           </div>
         </div>

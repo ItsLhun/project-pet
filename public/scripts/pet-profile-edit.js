@@ -26,6 +26,27 @@ authCloseButton.addEventListener('click', () => {
   authElement.style.display = 'none';
 });
 
+//unauthorize user modal, related form & buttons
+const authUsers = document.querySelectorAll('.authorized-user');
+const unauthElement = document.querySelector('.unauth-modal');
+const unauthCloseButton = document.querySelector('#unauth-close');
+const unauthCancelButton = document.querySelector('#unauth-cancel');
+
+authUsers.forEach((user) => {
+  user.addEventListener('click', () => {
+    console.log('hi');
+    unauthElement.style.display = 'flex';
+  });
+});
+
+unauthCloseButton.addEventListener('click', () => {
+  unauthElement.style.display = 'none';
+});
+
+unauthCancelButton.addEventListener('click', () => {
+  unauthElement.style.display = 'none';
+});
+
 //confirm pet deletion modal & related buttons
 const deleteButton = document.querySelector('#delete-pet');
 const deletionElement = document.querySelector('#confirm-modal');
@@ -48,6 +69,7 @@ document.addEventListener('click', (event) => {
   if (event.target.classList.contains('close-modal')) {
     deletionElement.style.display = 'none';
     authElement.style.display = 'none';
+    unauthElement.style.display = 'none';
   }
 });
 
@@ -261,12 +283,3 @@ function togglePencil(boolean) {
     editDetailsSave.classList.add('d-none');
   }
 }
-
-//Unauth form submit
-const authUsers = document.querySelectorAll('.authenticated-user');
-
-authUsers.forEach((user) => {
-  user.addEventListener('click', (event) => {
-    console.log(user.id);
-  });
-});
