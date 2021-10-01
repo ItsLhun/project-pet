@@ -1,17 +1,17 @@
 const fetchUserEventsHTTP = () => {
-  return axios.get(`${ROOT_URL}/event/`);
+  return axios.get('/event/');
 };
 const fetchProfEventsHTTP = () => {
-  return axios.get(`${ROOT_URL}/event/professional`);
+  return axios.get('/event/professional');
 };
 const fetchPetsHTTP = (id) => {
-  return axios.get(`${ROOT_URL}/pet/`, id);
+  return axios.get('/pet/', id);
 };
 
 const createEventHTTP = (data) => {
   return new Promise((resolve, reject) => {
     axios
-      .post(`${ROOT_URL}/event/create`, data)
+      .post('/event/create', data)
       .then((res) => {
         resolve('POST: event was resolved');
       })
@@ -22,7 +22,7 @@ const createEventHTTP = (data) => {
 const updateEventHTTP = (data) => {
   return new Promise((resolve, reject) => {
     axios
-      .post(`${ROOT_URL}/event/update`, data)
+      .post('/event/update', data)
       .then((res) => {
         resolve(`POST: event was edited`);
       })
@@ -33,7 +33,7 @@ const updateEventHTTP = (data) => {
 const deleteEventHTTP = (id) => {
   return new Promise((resolve, reject) => {
     axios
-      .post(`${ROOT_URL}/event/delete`, { id })
+      .post('/event/delete', { id })
       .then((res) => {
         resolve(`POST: event was deleted`);
       })

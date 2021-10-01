@@ -68,7 +68,7 @@ const renderDataList = (users, data, dataValues) => {
 
 const searchPet = (searchTerm, field) => {
   axios
-    .post(`${ROOT_URL}/pet/search`, {
+    .post('/pet/search', {
       searchTerm
     })
     .then((res) => {
@@ -127,7 +127,7 @@ addAppointmentButtonPost.addEventListener('click', (e) => {
       break;
     default:
       axios
-        .post(`${ROOT_URL}/event/create`, formFields)
+        .post('/event/create', formFields)
         .then((res) => {
           window.location.reload();
         })

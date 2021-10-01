@@ -14,7 +14,7 @@ signUpEmailSearch.addEventListener('input', (event) => {
 
 const checkAvailability = (searchTerm, type) => {
   axios
-    .post(`${ROOT_URL}/user/available`, { searchTerm, type })
+    .post('/user/available', { searchTerm, type })
     .then((res) => {
       if (res.data.length) {
         type === 'username'

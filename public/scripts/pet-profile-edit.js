@@ -175,7 +175,7 @@ editMedical.addEventListener('click', (e) => {
 
   const searchVet = (searchTerm, field) => {
     axios
-      .post(`${ROOT_URL}/professional/search/${field}/veterinarian`, {
+      .post(`/professional/search/${field}/veterinarian`, {
         searchTerm
       })
       .then((res) => {
@@ -209,7 +209,7 @@ editMedical.addEventListener('click', (e) => {
     console.log('fields', formFields);
     const notyf = new Notyf({ position: { x: 'center', y: 'center' } });
     axios
-      .post(`${ROOT_URL}/pet/edit/medical/`, formFields)
+      .post('/pet/edit/medical/', formFields)
       .then((res) => {
         // notyf.success('Edited sucessfully');
         // setTimeout(() => {
