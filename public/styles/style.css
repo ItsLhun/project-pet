@@ -4282,7 +4282,7 @@ label {
   height: 6.5em;
   width: 6.5em;
   border-radius: 50%;
-  border: 3px dashed grey;
+  border: 1px dashed grey;
   background-position: center center;
 }
 
@@ -4307,10 +4307,14 @@ label {
 .mini-calendar-pet-wrapper img {
   min-width: 100%;
   min-height: 100%;
-  padding: 0.5em;
   display: block;
   margin: 0 auto;
   object-fit: cover;
+  background-color: transparent;
+  position: relative;
+  z-index: 1;
+  background-position: center center;
+  border-radius: 50%;
 }
 
 .mini-calendar-pet-wrapper h5 {

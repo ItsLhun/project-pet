@@ -125,6 +125,7 @@
     </div>
 
     </fieldset>
+    {{#ifEquals user.id pet.owner.id}}
     <div
       class='edit-wrapper top-level'
       style='width: fit-content; height:fit-content; display: relative'
@@ -139,6 +140,7 @@
           alt=''
         /></div>
     </div>
+    {{/ifEquals}}
   </section>
 
   <fieldset class='dashboard-component'>

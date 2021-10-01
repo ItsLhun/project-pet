@@ -46,7 +46,7 @@ router.get('/professional', routeGuard, (req, res, next) => {
         if (userSettings) event.color = userSettings.eventColors[type];
         return event;
       });
-      console.log(authorizedEvents);
+      // user.currentEvents = authorizedEvents;
       res.json({ authorizedEvents, colors: userSettings?.eventColors });
     })
     .catch((error) => next(error));
