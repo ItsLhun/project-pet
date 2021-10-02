@@ -39,11 +39,11 @@ authUsers.forEach((user) => {
   });
 });
 
-unauthCloseButton.addEventListener('click', () => {
+unauthCloseButton?.addEventListener('click', () => {
   unauthElement.style.display = 'none';
 });
 
-unauthCancelButton.addEventListener('click', () => {
+unauthCancelButton?.addEventListener('click', () => {
   unauthElement.style.display = 'none';
 });
 
@@ -209,10 +209,22 @@ editMedical.addEventListener('click', (e) => {
   //alergy creation
   const alergyInput = document.createElement('input');
   const addAlergyBtn = document.getElementById('add-alergy-btn');
+  addAlergyBtn.classList.remove('d-none');
+  addAlergyBtn.classList.add('add-alergy');
   alergyInput.classList.add('profile-edit-input');
   alergyInput.classList.add('alergy-input');
-
+  const alergiesWrapper = document.getElementById('alergies-wrapper');
   addAlergyBtn.parentElement.insertBefore(alergyInput, addAlergyBtn);
+
+  addAlergyBtn.addEventListener('click', (e) => {
+    if (alergyInput.value !== '') {
+      const span = document.createElement('span');
+      span.textContent = alergyInput.value;
+      span.classList.add('alergy-value');
+      alergyInput.value = '';
+      alergiesWrapper.appendChild(span);
+    }
+  });
 
   //buttons appear/dissapear
   editMedical.classList.add('d-none');
@@ -229,28 +241,31 @@ editMedical.addEventListener('click', (e) => {
       ?.getAttribute('vet-id');
     console.log(selectedFromDataListId);
 
+    // get all alergies;
+    const alergyElements = alergiesWrapper.querySelectorAll('.alergy-value');
+    const alergyArray = [];
+    for (let i = 0; i < alergyElements.length; i++) {
+      alergyArray.push(alergyElements[i].textContent);
+    }
+    console.log('alergy arra', alergyArray);
+
     const formFields = {
       medicalId: medId.value,
       veterinarian: selectedFromDataListId,
       _id: activePetId,
-      oldVet: currentVetId
+      oldVet: currentVetId,
+      alergies: alergyArray
     };
 
-    console.log('fields', formFields);
     const notyf = new Notyf({ position: { x: 'center', y: 'center' } });
     axios
       .post('/pet/edit/medical/', formFields)
       .then((res) => {
         // notyf.success('Edited sucessfully');
-        // setTimeout(() => {
         window.location.reload();
-        // }, 900);
       })
       .catch((error) => {
         notyf.error('Could not update');
-        // setTimeout(() => {
-        //   window.location.reload();
-        // }, 2000);
       });
   });
   editMedicalDiscard.addEventListener('click', (e) => {

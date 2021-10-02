@@ -127,10 +127,8 @@ petRouter.post('/edit/:option', routeGuard, (req, res, next) => {
       })
       .catch((error) => next(error));
   } else if (req.params.option == 'medical') {
-    const { medicalId, veterinarian, oldVet } = req.body;
-
+    const { medicalId, veterinarian, oldVet, alergies } = req.body;
     petId = req.body._id;
-
     data = { medical: { medicalId: null } };
     if (medicalId?.trim() != 'Not set') {
       data.medical.medicalId = medicalId;
@@ -142,7 +140,11 @@ petRouter.post('/edit/:option', routeGuard, (req, res, next) => {
           $addToSet: { assigned: petId }
         }).then((professional) => {
           data.medical.veterinarian = professional._id;
-          return Pet.findByIdAndUpdate(petId, data)
+          return Pet.findByIdAndUpdate(petId, {
+            'medical.veterinarian': data.medical.veterinarian,
+            'medical.medicalId': data.medical.medicalId,
+            $addToSet: { 'medical.alergies': alergies }
+          })
             .then((pet) => {
               res.redirect(`/pet/${petId}`);
             })
@@ -159,7 +161,11 @@ petRouter.post('/edit/:option', routeGuard, (req, res, next) => {
             });
           })
           .then((professional) => {
-            return Pet.findByIdAndUpdate(petId, data)
+            return Pet.findByIdAndUpdate(petId, {
+              'medical.veterinarian': data.medical.veterinarian,
+              'medical.medicalId': data.medical.medicalId,
+              $addToSet: { 'medical.alergies': alergies }
+            })
               .then((pet) => {
                 res.redirect(`/pet/${petId}`);
               })
@@ -171,14 +177,24 @@ petRouter.post('/edit/:option', routeGuard, (req, res, next) => {
         return Professional.findByIdAndUpdate(oldVet, {
           $pull: { assigned: petId }
         }).then((professional) => {
-          return Pet.findByIdAndUpdate(petId, data)
+          return Pet.findByIdAndUpdate(petId, {
+            'medical.veterinarian': data.medical.veterinarian,
+            'medical.medicalId': data.medical.medicalId,
+            $addToSet: { 'medical.alergies': alergies }
+          })
             .then((pet) => {
+              console.log('updated here');
+
               res.redirect(`/pet/${petId}`);
             })
             .catch((error) => next(error));
         });
       } else {
-        Pet.findByIdAndUpdate(petId, data)
+        Pet.findByIdAndUpdate(petId, {
+          'medical.veterinarian': data.medical.veterinarian,
+          'medical.medicalId': data.medical.medicalId,
+          $addToSet: { 'medical.alergies': alergies }
+        })
           .then((pet) => {
             res.redirect(`/pet/${petId}`);
           })

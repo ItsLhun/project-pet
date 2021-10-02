@@ -234,7 +234,8 @@ div.top-level {
   width: 8.1em;
 }
 .alergy-value {
-  background-color: red;
+  background-color: $secondary-blue;
+  color: white;
   padding: 0.25rem;
   border-radius: 2em;
 }
@@ -255,5 +256,5 @@ input.alergy-input {
   display: inline-block;
   outline: 1px solid lightgray;
   border-radius: 1em;
-  margin: 0 1em;
+  margin: 0 1em 0 0;
 }
