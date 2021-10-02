@@ -4592,6 +4592,26 @@ body {
   transition: all ease;
 }
 
+.sign-up-form .input-label-wrap {
+  margin-bottom: 1em;
+}
+
+.sign-up-form .radio-wrapper {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sign-up-form .radio-wrapper input {
+  margin: 0 1em 0 0;
+}
+
+.sign-up-form .radio-wrapper label {
+  margin: 0;
+}
+
 .sign-up-form button {
   background-color: #e26a29;
   color: white;
