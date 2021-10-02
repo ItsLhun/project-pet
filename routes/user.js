@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 const routeGuard = require('../middleware/route-guard');
 const User = require('../models/user');
+const Professional = require('../models/professional');
 const Message = require('../models/message');
 const Settings = require('../models/settings');
 
@@ -44,16 +45,29 @@ router.post('/available', (req, res, next) => {
 
 router.post('/edit', routeGuard, (req, res, next) => {
   const { id } = req.user;
-  const { firstName, lastName, username, email } = req.body;
-
-  User.findByIdAndUpdate(id, {
-    firstName,
-    lastName,
-    username,
-    email
-  })
-    .then(() => res.redirect('/user'))
-    .catch((error) => next(error));
+  const { firstName, lastName, username, email, userType } = req.body;
+  console.log(id);
+  if (userType) {
+    console.log('hi');
+    Professional.findByIdAndUpdate(id, {
+      firstName,
+      lastName,
+      username,
+      email
+    })
+      .then(() => res.redirect('/user'))
+      .catch((error) => next(error));
+  } else {
+    console.log('hi2');
+    User.findByIdAndUpdate(id, {
+      firstName,
+      lastName,
+      username,
+      email
+    })
+      .then(() => res.redirect('/user'))
+      .catch((error) => next(error));
+  }
 });
 
 router.post(

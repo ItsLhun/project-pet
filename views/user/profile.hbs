@@ -35,6 +35,7 @@
     </div>
   </div>
   <form id='form-user-profile' action='/user/edit' method='POST'>
+    <input type='text' name='userType' value='{{user.type}}' hidden>
     <div class='profile-field'><strong>First Name:</strong>
       <span name='firstName' class='profile-value'>{{user.firstName}}</span>
     </div>
