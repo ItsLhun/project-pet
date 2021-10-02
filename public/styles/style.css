@@ -1368,7 +1368,7 @@ div.event-editor div.view p {
 }
 
 div.event-editor div.view p.error {
-  color: #c60000;
+  color: #a41d2d;
   display: none;
   margin-bottom: 20px;
 }
@@ -1444,7 +1444,7 @@ div.event-editor div.view input[type='button'].ok:not(:disabled):active {
 
 div.event-editor div.view input[type='button'].cancel {
   color: #f5f5f5;
-  background-color: #c60000;
+  background-color: #a41d2d;
 }
 
 div.event-editor div.view input[type='button'].cancel:not(:disabled):hover {
@@ -1684,7 +1684,7 @@ div.event-editor-colors input[type='button'].ok:not(:disabled):active {
 
 div.event-editor-colors input[type='button'].cancel {
   color: #f5f5f5;
-  background-color: #c60000;
+  background-color: #a41d2d;
 }
 
 div.event-editor-colors input[type='button'].cancel:not(:disabled):hover {
@@ -1865,7 +1865,7 @@ div.event-editor-repeat-options input[type='button'].ok:not(:disabled):active {
 
 div.event-editor-repeat-options input[type='button'].cancel {
   color: #f5f5f5;
-  background-color: #c60000;
+  background-color: #a41d2d;
 }
 
 div.event-editor-repeat-options input[type='button'].cancel:not(:disabled):hover {
@@ -2011,7 +2011,7 @@ div.confirmation input[type='button'].yes:not(:disabled):active {
 
 div.confirmation input[type='button'].no {
   color: #f5f5f5;
-  background-color: #c60000;
+  background-color: #a41d2d;
 }
 
 div.confirmation input[type='button'].no:not(:disabled):hover {
@@ -2143,7 +2143,7 @@ div.select-export-type input[type='button'].ok:not(:disabled):active {
 
 div.select-export-type input[type='button'].cancel {
   color: #f5f5f5;
-  background-color: #c60000;
+  background-color: #a41d2d;
 }
 
 div.select-export-type input[type='button'].cancel:not(:disabled):hover {
@@ -2499,7 +2499,7 @@ div.configuration input[type='button'].ok:not(:disabled):active {
 
 div.configuration input[type='button'].cancel {
   color: #f5f5f5;
-  background-color: #c60000;
+  background-color: #a41d2d;
 }
 
 div.configuration input[type='button'].cancel:not(:disabled):hover {
@@ -2961,15 +2961,15 @@ div.calendar-drop-down-menu div.separator {
 
 @keyframes focused-event-effect {
   0% {
-    box-shadow: 0 0 0 0 #c60000;
+    box-shadow: 0 0 0 0 #a41d2d;
     box-shadow: 0 0 0 0 rgba(198, 0, 0, 0.5);
   }
   70% {
-    box-shadow: 0 0 0 10px #c60000;
+    box-shadow: 0 0 0 10px #a41d2d;
     box-shadow: 0 0 0 10px rgba(198, 0, 0, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 #c60000;
+    box-shadow: 0 0 0 0 #a41d2d;
     box-shadow: 0 0 0 0 rgba(198, 0, 0, 0);
   }
 }
@@ -5281,7 +5281,18 @@ div.top-level {
 #delete-pet {
   width: 100%;
   color: white;
+}
+
+.ok-btn {
+  border-radius: 0.25rem;
+  background: #289345;
+  color: white;
+}
+
+.danger-btn {
+  border-radius: 0.25rem;
   background: #a41d2d;
+  color: white;
 }
 
 .medical-labels-wrapper {
@@ -5347,6 +5358,13 @@ div.camera-wrapper:hover {
   margin: 0;
   padding: 0;
   background: #eeeeee;
+}
+
+#delete-all-messages {
+  padding: 0.25em 1em;
+  border-radius: 0.25rem;
+  background-color: #a41d2d;
+  color: white;
 }
 
 .message-wrapper {

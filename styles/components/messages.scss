@@ -3,6 +3,12 @@
   padding: 0;
   background: $grey;
 }
+#delete-all-messages {
+  padding: 0.25em 1em;
+  border-radius: 0.25rem;
+  background-color: $detail-darkred;
+  color: white;
+}
 .message-wrapper {
   margin: 1em auto;
   width: 90%;

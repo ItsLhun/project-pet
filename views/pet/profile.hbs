@@ -94,9 +94,9 @@
                   <div class="content">Are you sure you want to unauthorize user {{this.username}}?</div>
                   <div class="buttons">
                     <form class='auth-user-form' method='POST' action='/pet/{{../pet._id}}/unauthorize/{{this.id}}'>
-                      <button class="btn btn-unauth">Unauthorize</button>
+                      <button class="btn btn-unauth ok-btn">Unauthorize</button>
                     </form>
-                    <button id='unauth-cancel' class="btn btn-cancel">Cancel</button>
+                    <button id='unauth-cancel' class="btn btn-cancel danger-btn">Cancel</button>
                   </div>
                 </div>
               </div>
@@ -131,7 +131,7 @@
             <textarea id='message-note' name='note' type='text'></textarea>
             <datalist id='users-list'>
             </datalist>
-            <button>Send</button>
+            <button class='ok-btn'>Send</button>
           </form>
         </div>
       </div>
@@ -260,20 +260,20 @@
   </fieldset>
   <div id='calendar' class='dashboard-component'></div>
   {{#ifEquals user.id pet.owner.id}}
-    <button id='delete-pet'>Delete pet</button>
+    <button id='delete-pet' class='danger-btn'>Delete pet</button>
   {{/ifEquals}}
     <div id='confirm-modal' class="confirm close-modal">
       <div class="confirm-modal">
         <div class="header">
-          <span class="title">Delete pet {{pet.name}}</span>
+          <span class="title" >Delete pet {{pet.name}}</span>
           <button id='confirm-close' class="close">&times;</button>
         </div>
         <div class="content">Are you sure you want to delete this pet profile?</div>
         <div class="buttons">
           <form action='/pet/delete/{{pet.id}}' method='POST'>
-            <button class="btn btn-delete">Delete</button>
+            <button class="btn btn-delete danger-btn">Delete</button>
           </form>
-          <button id='confirm-cancel' class="btn btn-cancel">Cancel</button>
+          <button id='confirm-cancel' class="btn btn-cancel ok-btn">Cancel</button>
         </div>
       </div>
     </div>

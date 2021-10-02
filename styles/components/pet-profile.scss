@@ -228,7 +228,16 @@ div.top-level {
 #delete-pet {
   width: 100%;
   color: white;
+}
+.ok-btn {
+  border-radius: 0.25rem;
+  background: $ok-color;
+  color: white;
+}
+.danger-btn {
+  border-radius: 0.25rem;
   background: $detail-darkred;
+  color: white;
 }
 .medical-labels-wrapper {
   width: 8.1em;
