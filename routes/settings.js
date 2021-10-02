@@ -31,7 +31,6 @@ router.post('/update/eventcolors', routeGuard, (req, res, next) => {
             eventColors: req.body
           });
         } else {
-          console.log(req.user.id);
           return Settings.findOneAndUpdate({
             profUser: req.user.id,
             eventColors: req.body
