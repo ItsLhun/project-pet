@@ -5343,10 +5343,17 @@ div.camera-wrapper:hover {
   filter: invert(50%) sepia(65%) saturate(654%) hue-rotate(340deg) brightness(97%) contrast(90%);
 }
 
-.message-wrapper {
-  padding: 0.2em;
-  list-style: none;
+#message-list {
+  margin: 0;
+  padding: 0;
   background: #eeeeee;
+}
+
+.message-wrapper {
+  margin: 1em auto;
+  width: 90%;
+  list-style: none;
+  background: #c4c4c4;
   display: flex;
   align-items: center;
 }
@@ -5359,6 +5366,7 @@ div.camera-wrapper:hover {
 }
 
 .message-wrapper .user-message {
+  margin: 0.5em;
   display: flex;
   flex-direction: column;
   width: 90%;

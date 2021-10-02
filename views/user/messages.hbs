@@ -1,57 +1,60 @@
 <h1 {{#if user.type}}class='professional-header'{{/if}}>Messages</h1>
+<div class='dashboard-component'>
 <div id='message-toolbar'>
   <input type='checkbox' id='check-all-messages' />
   <button id='delete-all-messages'>Delete</button>
 </div>
-<ul>
-  {{#each messages}}
-    <li id={{id}} class='message-wrapper'>
-      <div class='checkbox-wrapper'>
-        <input type='checkbox' class='check-message' />
-      </div>
-      <div class='user-message'>
-        <div id={{id}} class='collapsible'>
-          <div>
-            <span class='message-from'><strong
-              >{{from.username}}</strong></span><br />
-            <span class='message-type'>{{type}}</span>
-          </div>
-          <div>
-            {{date sent}}
-          </div>
+  <ul id='message-list'>
+    {{#each messages}}
+      <li id={{id}} class='message-wrapper'>
+        <div class='checkbox-wrapper'>
+          <input type='checkbox' class='check-message' />
         </div>
-        <div class='collapsible-content'>
-          <p>Pet: {{pet.name}}</p>
-          {{#if confirmed}}
-            <p>Status: {{status}}</p>
-          {{else}}
-            <p>Note:</p>
-            <p>{{note}}</p>
-            <div class='message-buttons'>
-              <form
-                class='accept-decline'
-                method='POST'
-                action='/message/respond/{{id}}'
-              >
-                <button
-                  name='accept'
-                  value='Accepted'
-                  class='accept-button'
-                >Accept</button>
-                <button
-                  name='decline'
-                  value='Declined'
-                  class='decline-button'
-                >Decline</button>
-              </form>
+        <div class='user-message'>
+          <div id={{id}} class='collapsible'>
+            <div>
+              <span class='message-from'><strong
+                >{{from.username}}</strong></span><br />
+              <span class='message-type'>{{type}}</span>
             </div>
-          {{/if}}
-          <form method='POST' action='/message/delete/{{id}}'>
-            <button class='delete-message'>Delete</button>
-          </form>
+            <div>
+              {{date sent}}
+            </div>
+          </div>
+          <div class='collapsible-content'>
+            <p>Pet: {{pet.name}}</p>
+            {{#if confirmed}}
+              <p>Status: {{status}}</p>
+            {{else}}
+              <p>Note:</p>
+              <p>{{note}}</p>
+              <div class='message-buttons'>
+                <form
+                  class='accept-decline'
+                  method='POST'
+                  action='/message/respond/{{id}}'
+                >
+                  <button
+                    name='accept'
+                    value='Accepted'
+                    class='accept-button'
+                  >Accept</button>
+                  <button
+                    name='decline'
+                    value='Declined'
+                    class='decline-button'
+                  >Decline</button>
+                </form>
+              </div>
+            {{/if}}
+            <form method='POST' action='/message/delete/{{id}}'>
+              <button class='delete-message'>Delete</button>
+            </form>
+          </div>
         </div>
-      </div>
-    </li>
-  {{/each}}
-</ul>
+      </li>
+    {{/each}}
+  </ul>
+</div>
+
 <script src='https://unpkg.com/axios/dist/axios.min.js'></script>

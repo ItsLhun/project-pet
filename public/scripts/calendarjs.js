@@ -1790,7 +1790,7 @@ function calendarJs(id, options, startDateTime) {
           var event = createElement('div', 'event'),
             eventTitle = eventDetails.title;
 
-          //Pekka: Add event type as a class to control event colors
+          //Pekka: Add event type as a class
           const typeClass = eventDetails.type.toLowerCase().split(' ').join('');
           if (!event.classList.contains(typeClass)) {
             event.classList.add(typeClass);
