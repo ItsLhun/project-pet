@@ -97,7 +97,6 @@ router.post('/user-sign-in', (req, res, next) => {
           req.flash('userError', 'No user found with the username/email.');
           res.redirect('/authentication/user-sign-in');
         }
-        next(error);
       });
   }
 });
@@ -128,7 +127,6 @@ router.post('/prof-sign-in', (req, res, next) => {
         if (result) {
           req.session.userId = user._id;
           req.session.userType = 'professional';
-
           res.redirect('/');
         } else {
           return Promise.reject(new Error('WRONG_PASSWORD'));
@@ -142,7 +140,6 @@ router.post('/prof-sign-in', (req, res, next) => {
           req.flash('userError', 'No user found with the username/email.');
           res.redirect('/authentication/prof-sign-in');
         }
-        next(error);
       });
   }
 });
