@@ -44,7 +44,7 @@ hbs.registerHelper('ifNotEquals', function (arg1, arg2, options) {
     ? options.fn(this)
     : options.inverse(this);
 });
-app.use(serveFavicon(path.join(__dirname, 'public/images', 'favicon.ico')));
+app.use(serveFavicon(path.join(__dirname, 'public/images', 'paw-icon.png')));
 app.use(sassMiddleware(sassConfig));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));

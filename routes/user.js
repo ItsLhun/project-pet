@@ -11,11 +11,19 @@ const Settings = require('../models/settings');
 const parser = require('../middleware/cloudinary-parser');
 
 router.get('/', routeGuard, (req, res, next) => {
-  Settings.findOne({ user: req.user.id })
-    .then((userSettings) => {
-      res.render('user/profile', { userSettings });
-    })
-    .catch((error) => next(error));
+  if (!req.session.userType) {
+    Settings.findOne({ user: req.user.id })
+      .then((userSettings) => {
+        res.render('user/profile', { userSettings });
+      })
+      .catch((error) => next(error));
+  } else {
+    Settings.findOne({ profUser: req.user.id })
+      .then((userSettings) => {
+        res.render('user/profile', { userSettings });
+      })
+      .catch((error) => next(error));
+  }
 });
 
 router.post('/search', routeGuard, (req, res, next) => {

@@ -15,10 +15,12 @@ router.post('/update/eventcolors', routeGuard, (req, res, next) => {
             eventColors: req.body
           });
         } else {
-          return Settings.findOneAndUpdate({
-            user: req.user.id,
-            eventColors: req.body
-          });
+          return Settings.findOneAndUpdate(
+            { user: req.user.id },
+            {
+              eventColors: req.body
+            }
+          );
         }
       })
       .then(() => res.redirect('/user'));
@@ -31,10 +33,13 @@ router.post('/update/eventcolors', routeGuard, (req, res, next) => {
             eventColors: req.body
           });
         } else {
-          return Settings.findOneAndUpdate({
-            profUser: req.user.id,
-            eventColors: req.body
-          });
+          console.log(req.user.id);
+          return Settings.findOneAndUpdate(
+            { profUser: req.user.id },
+            {
+              eventColors: req.body
+            }
+          );
         }
       })
       .then(() => res.redirect('/user'));
