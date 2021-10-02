@@ -170,7 +170,7 @@ editMedical.addEventListener('click', (e) => {
   let vetListValues = [];
 
   vetNameSearch.addEventListener('input', (event) => {
-    searchVet(event.target.value, 'username');
+    searchVet(event.target.value, 'name');
   });
 
   const createOption = (user, data, dataValues) => {
