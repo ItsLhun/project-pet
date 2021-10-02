@@ -143,7 +143,7 @@ petRouter.post('/edit/:option', routeGuard, (req, res, next) => {
           return Pet.findByIdAndUpdate(petId, {
             'medical.veterinarian': data.medical.veterinarian,
             'medical.medicalId': data.medical.medicalId,
-            $addToSet: { 'medical.alergies': alergies }
+            $set: { 'medical.alergies': alergies }
           })
             .then((pet) => {
               res.redirect(`/pet/${petId}`);
@@ -164,7 +164,7 @@ petRouter.post('/edit/:option', routeGuard, (req, res, next) => {
             return Pet.findByIdAndUpdate(petId, {
               'medical.veterinarian': data.medical.veterinarian,
               'medical.medicalId': data.medical.medicalId,
-              $addToSet: { 'medical.alergies': alergies }
+              $set: { 'medical.alergies': alergies }
             })
               .then((pet) => {
                 res.redirect(`/pet/${petId}`);
@@ -180,11 +180,9 @@ petRouter.post('/edit/:option', routeGuard, (req, res, next) => {
           return Pet.findByIdAndUpdate(petId, {
             'medical.veterinarian': data.medical.veterinarian,
             'medical.medicalId': data.medical.medicalId,
-            $addToSet: { 'medical.alergies': alergies }
+            $set: { 'medical.alergies': alergies }
           })
             .then((pet) => {
-              console.log('updated here');
-
               res.redirect(`/pet/${petId}`);
             })
             .catch((error) => next(error));
@@ -193,7 +191,7 @@ petRouter.post('/edit/:option', routeGuard, (req, res, next) => {
         Pet.findByIdAndUpdate(petId, {
           'medical.veterinarian': data.medical.veterinarian,
           'medical.medicalId': data.medical.medicalId,
-          $addToSet: { 'medical.alergies': alergies }
+          $set: { 'medical.alergies': alergies }
         })
           .then((pet) => {
             res.redirect(`/pet/${petId}`);

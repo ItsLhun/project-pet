@@ -215,6 +215,7 @@ editMedical.addEventListener('click', (e) => {
   alergyInput.classList.add('alergy-input');
   const alergiesWrapper = document.getElementById('alergies-wrapper');
   addAlergyBtn.parentElement.insertBefore(alergyInput, addAlergyBtn);
+  const alergyElements = alergiesWrapper.querySelectorAll('.alergy-value');
 
   addAlergyBtn.addEventListener('click', (e) => {
     if (alergyInput.value !== '') {
@@ -223,8 +224,17 @@ editMedical.addEventListener('click', (e) => {
       span.classList.add('alergy-value');
       alergyInput.value = '';
       alergiesWrapper.appendChild(span);
+      span.addEventListener('click', (e) => {
+        alergiesWrapper.removeChild(span);
+      });
     }
   });
+
+  for (let i = 0; i < alergyElements.length; i++) {
+    alergyElements[i].addEventListener('click', (e) => {
+      alergiesWrapper.removeChild(alergyElements[i]);
+    });
+  }
 
   //buttons appear/dissapear
   editMedical.classList.add('d-none');
@@ -242,12 +252,13 @@ editMedical.addEventListener('click', (e) => {
     console.log(selectedFromDataListId);
 
     // get all alergies;
-    const alergyElements = alergiesWrapper.querySelectorAll('.alergy-value');
+    const updatedAlergyElements =
+      alergiesWrapper.querySelectorAll('.alergy-value');
+
     const alergyArray = [];
-    for (let i = 0; i < alergyElements.length; i++) {
-      alergyArray.push(alergyElements[i].textContent);
+    for (let i = 0; i < updatedAlergyElements.length; i++) {
+      alergyArray.push(updatedAlergyElements[i].textContent);
     }
-    console.log('alergy arra', alergyArray);
 
     const formFields = {
       medicalId: medId.value,

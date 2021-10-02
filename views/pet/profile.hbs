@@ -176,18 +176,17 @@
       </div>
 
       <div class='profile-field alergies-field'><strong>Alergies: </strong><span class='d-none' id='add-alergy-btn'>+</span>
-      </div><div>
+      </div>
       <span>
           <div id='alergies-wrapper' style='width: 76%; display: inline-block'>
           {{#if pet.medical.alergies}}
             {{#each pet.medical.alergies}}
-              <span class='alergy-value'>{{this}}</span>
+              <span class='alergy-value' value={{this}}>{{this}}</span>
             {{/each}}
             <span class='profile-value d-none'></span>
           {{else}}
             <span class='profile-value'>None</span>
           {{/if}}</span>
-          </div>
           </div>
       <div class='profile-field'><strong>Veterinarian: </strong><span
           class='profile-value'
