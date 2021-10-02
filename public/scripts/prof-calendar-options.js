@@ -1,5 +1,6 @@
 const calendarInstance = new calendarJs('calendar', {
-  manualEditingEnabled: false
+  manualEditingEnabled: true,
+  dragAndDropForEventsEnabled: false
 });
 fetchProfEventsHTTP()
   .then((res) => {
@@ -146,3 +147,10 @@ addAppointmentButtonPost.addEventListener('click', (e) => {
 });
 
 // fetch events
+
+//hide all ib-plus btns
+const addBtns = document.querySelectorAll('.ib-plus');
+for (let i = 0; i < addBtns.length; i++) {
+  console.log(addBtns[i]);
+  addBtns[i].classList.add('d-none');
+}
