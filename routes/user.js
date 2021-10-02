@@ -56,7 +56,6 @@ router.post('/edit', routeGuard, (req, res, next) => {
   const { firstName, lastName, username, email, userType } = req.body;
   console.log(id);
   if (userType) {
-    console.log('hi');
     Professional.findByIdAndUpdate(id, {
       firstName,
       lastName,

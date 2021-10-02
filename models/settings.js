@@ -4,16 +4,20 @@ const mongoose = require('mongoose');
 
 const eventColors = new mongoose.Schema({
   vetappointment: {
-    type: String
+    type: String,
+    default: '484848'
   },
   grooming: {
-    type: String
+    type: String,
+    default: '484848'
   },
   supplies: {
-    type: String
+    type: String,
+    default: '484848'
   },
   other: {
-    type: String
+    type: String,
+    default: '484848'
   }
 });
 
